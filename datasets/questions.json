@@ -1,0 +1,108 @@
+[
+  {
+    "id": 1,
+    "course": "Calculus",
+    "topic": "Differentiation",
+    "concept": "Power Rule",
+    "difficulty": 1,
+    "question_text": "Differentiate f(x) = x^5.",
+    "correct_answer": "5x^4",
+    "prerequisite": "Functions and exponents",
+    "learning_outcome": "Apply the power rule to differentiate a polynomial term.",
+    "common_errors": [
+      "Keeping the original exponent",
+      "Subtracting the exponent but forgetting to multiply by it"
+    ],
+    "remediation_concept": "Meaning of derivatives",
+    "stack_identifier": null
+  },
+  {
+    "id": 2,
+    "course": "Calculus",
+    "topic": "Differentiation",
+    "concept": "Product Rule",
+    "difficulty": 2,
+    "question_text": "Differentiate f(x) = x^2 sin(x).",
+    "correct_answer": "2x sin(x) + x^2 cos(x)",
+    "prerequisite": "Power Rule",
+    "learning_outcome": "Apply the product rule to differentiate a product of two functions.",
+    "common_errors": [
+      "Differentiating only one factor",
+      "Multiplying both derivatives together",
+      "Using an incorrect derivative for sin(x)"
+    ],
+    "remediation_concept": "Power Rule",
+    "stack_identifier": null
+  },
+  {
+    "id": 3,
+    "course": "Calculus",
+    "topic": "Integration",
+    "concept": "Power Rule for Integration",
+    "difficulty": 2,
+    "question_text": "Evaluate the indefinite integral of 3x^2 with respect to x.",
+    "correct_answer": "x^3 + C",
+    "prerequisite": "Power Rule",
+    "learning_outcome": "Apply the reverse power rule to evaluate an indefinite integral.",
+    "common_errors": [
+      "Forgetting the constant of integration",
+      "Subtracting one from the exponent",
+      "Failing to divide by the new exponent"
+    ],
+    "remediation_concept": "Antiderivatives",
+    "stack_identifier": null
+  },
+  {
+    "id": 4,
+    "course": "Linear Algebra",
+    "topic": "Vectors",
+    "concept": "Vector Addition",
+    "difficulty": 1,
+    "question_text": "Find the sum of the vectors (2, 3) and (-1, 4).",
+    "correct_answer": "(1, 7)",
+    "prerequisite": "Coordinate notation",
+    "learning_outcome": "Add two vectors component by component.",
+    "common_errors": [
+      "Adding components in different positions",
+      "Incorrect handling of the negative component"
+    ],
+    "remediation_concept": "Vector components",
+    "stack_identifier": null
+  },
+  {
+    "id": 5,
+    "course": "Linear Algebra",
+    "topic": "Matrices",
+    "concept": "Matrix Multiplication",
+    "difficulty": 3,
+    "question_text": "Multiply the matrices [[1, 2], [3, 4]] and [[2, 0], [1, 2]].",
+    "correct_answer": "[[4, 4], [10, 8]]",
+    "prerequisite": "Dot Product",
+    "learning_outcome": "Multiply two 2 by 2 matrices using the row-column rule.",
+    "common_errors": [
+      "Multiplying corresponding entries",
+      "Using columns from the first matrix",
+      "Adding the wrong products"
+    ],
+    "remediation_concept": "Dot Product",
+    "stack_identifier": null
+  },
+  {
+    "id": 6,
+    "course": "Linear Algebra",
+    "topic": "Eigenvalues and Eigenvectors",
+    "concept": "Eigenvalue Definition",
+    "difficulty": 3,
+    "question_text": "Determine whether the vector (1, 0) is an eigenvector of the matrix [[3, 0], [0, 2]].",
+    "correct_answer": "Yes, with eigenvalue 3",
+    "prerequisite": "Matrix-vector multiplication",
+    "learning_outcome": "Use the eigenvector equation to test whether a vector is an eigenvector.",
+    "common_errors": [
+      "Checking only whether the output vector is nonzero",
+      "Confusing eigenvectors with eigenvalues",
+      "Failing to identify the scalar multiple"
+    ],
+    "remediation_concept": "Matrix-vector multiplication",
+    "stack_identifier": null
+  }
+]
