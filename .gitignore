@@ -216,3 +216,22 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Local database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Temporary code exports
+code_dump.txt
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Virtual environment
+.venv/
+
+# Streamlit
+.streamlit/

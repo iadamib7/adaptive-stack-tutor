@@ -32,7 +32,6 @@ def submit_attempt(
             student_name=submission.student_name,
             question_id=submission.question_id,
             response=submission.response,
-            correct=submission.correct,
             course=submission.course,
         )
     except ValueError as error:

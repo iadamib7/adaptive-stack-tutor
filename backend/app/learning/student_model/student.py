@@ -10,3 +10,6 @@ class Student(BaseModel):
     incorrect: int = 0
 
     mastery: dict[str, float] = Field(default_factory=dict)
+
+
+       

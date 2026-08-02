@@ -9,15 +9,24 @@ class AttemptSubmission(BaseModel):
     student_name: str = Field(min_length=1)
     question_id: int = Field(gt=0)
     response: str = Field(min_length=1)
-    correct: bool
     course: str | None = None
 
 
 class AdaptiveLearningResponse(BaseModel):
     student: Student
+
     submitted_question_id: int
     submitted_concept: str
+    student_response: str
+    expected_answer: str
+
+    correct: bool
+    feedback: str
+    evaluation_error: str | None = None
+
     mastery_before: float
     mastery_after: float
+    concept_mastered: bool
+
     next_question: Question | None
     recommendation_reason: str | None

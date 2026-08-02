@@ -39,6 +39,19 @@ def get_questions(
     )
 
 
+@router.get("/first", response_model=Question)
+def get_first_question() -> Question:
+    questions = repository.filter_questions()
+
+    if not questions:
+        raise HTTPException(
+            status_code=404,
+            detail="No questions found.",
+        )
+
+    return questions[0]
+
+
 @router.get("/{question_id}", response_model=Question)
 def get_question(question_id: int) -> Question:
     question = repository.get_by_id(question_id)
