@@ -1,0 +1,81 @@
+{
+  "version": "0.2",
+  "name": "Kenyan Grade 9 to Grade 10 Development Profile",
+  "identity": {
+    "id": "kenya-grade9-grade10-development",
+    "country": "Kenya",
+    "education_system": "Kenyan Competency-Based Curriculum",
+    "source_level_id": "KE-G9",
+    "source_level_label": "Grade 9",
+    "target_level_id": "KE-G10",
+    "target_level_label": "Grade 10",
+    "curriculum_version": "Development profile based on supplied curriculum documents"
+  },
+  "intended_use": "Development and validation case study for a platform primarily intended to support the Ghanaian JHS-to-SHS mathematics transition.",
+  "development_status": "Fixture only. Concepts must be replaced with curriculum-derived content after the source documents are reviewed.",
+  "source_documents": [
+    "Kenyan Grade 9 Curriculum Design",
+    "Kenyan Grade 10 Curriculum Design"
+  ],
+  "concepts": [
+    {
+      "id": "KE-G9-ALG-FOUNDATION",
+      "level_id": "KE-G9",
+      "level_label": "Grade 9",
+      "progression_order": 1,
+      "strand": "Development Fixture",
+      "sub_strand": "Development Fixture",
+      "name": "Grade 9 Algebra Foundation",
+      "description": "Temporary concept used only to test the curriculum architecture.",
+      "learning_outcomes": [
+        "Demonstrate prerequisite algebra knowledge."
+      ],
+      "prerequisite_concept_ids": [],
+      "next_concept_ids": [
+        "KE-G9-ALG-TRANSITION"
+      ],
+      "stack_question_ids": [],
+      "status": "foundation"
+    },
+    {
+      "id": "KE-G9-ALG-TRANSITION",
+      "level_id": "KE-G9",
+      "level_label": "Grade 9",
+      "progression_order": 2,
+      "strand": "Development Fixture",
+      "sub_strand": "Development Fixture",
+      "name": "Grade 9 Algebra Transition Competency",
+      "description": "Temporary transition concept used for software testing.",
+      "learning_outcomes": [
+        "Apply prerequisite algebra skills in preparation for Grade 10."
+      ],
+      "prerequisite_concept_ids": [
+        "KE-G9-ALG-FOUNDATION"
+      ],
+      "next_concept_ids": [
+        "KE-G10-ALG-ENTRY"
+      ],
+      "stack_question_ids": [],
+      "status": "transition"
+    },
+    {
+      "id": "KE-G10-ALG-ENTRY",
+      "level_id": "KE-G10",
+      "level_label": "Grade 10",
+      "progression_order": 3,
+      "strand": "Development Fixture",
+      "sub_strand": "Development Fixture",
+      "name": "Grade 10 Algebra Entry Concept",
+      "description": "Temporary Grade 10 target used for software testing.",
+      "learning_outcomes": [
+        "Demonstrate readiness for introductory Grade 10 algebra."
+      ],
+      "prerequisite_concept_ids": [
+        "KE-G9-ALG-TRANSITION"
+      ],
+      "next_concept_ids": [],
+      "stack_question_ids": [],
+      "status": "target"
+    }
+  ]
+}

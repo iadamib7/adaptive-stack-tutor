@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+  <question type="stack">
+    <name>
+      <text>Integration Method Decision</text>
+    </name>
+
+    <prt name="prt1">
+      <node number="1">
+        <true>
+          <next>0</next>
+        </true>
+        <false>
+          <next>2</next>
+        </false>
+      </node>
+
+      <node number="2">
+        <true>
+          <next>0</next>
+        </true>
+        <false>
+          <next>0</next>
+        </false>
+      </node>
+    </prt>
+  </question>
+</quiz>

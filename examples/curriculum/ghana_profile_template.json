@@ -1,0 +1,18 @@
+{
+  "version": "0.1",
+  "name": "Ghana JHS to SHS Mathematics Transition Profile",
+  "identity": {
+    "id": "ghana-jhs3-shs1",
+    "country": "Ghana",
+    "education_system": "Ghanaian Education System",
+    "source_level_id": "GH-JHS3",
+    "source_level_label": "Junior High School 3",
+    "target_level_id": "GH-SHS1",
+    "target_level_label": "Senior High School 1",
+    "curriculum_version": "To be confirmed from authoritative Ghanaian curriculum documents"
+  },
+  "intended_use": "Primary intended deployment context for the adaptive mathematics transition platform.",
+  "development_status": "Template awaiting authoritative Ghanaian curriculum mapping and educator validation.",
+  "source_documents": [],
+  "concepts": []
+}

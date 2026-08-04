@@ -1,0 +1,76 @@
+{
+  "version": "1.0",
+  "start_question": "Question_1.xml",
+  "halt_questions": [
+    "Question_2.xml",
+    "Question_3.xml",
+    "Question_4.xml",
+    "Question_6.xml"
+  ],
+  "questions": {
+    "Question_1.xml": {
+      "notes": "Choose an integration method.",
+      "prts": {
+        "prt1": {
+          "outcomes": {
+            "prt-1-T": {
+              "action": "advance",
+              "strategy": "fixed",
+              "reason": "The learner selected integration by parts.",
+              "next_questions": [
+                {
+                  "file": "Question_2.xml",
+                  "weight": 1.0
+                }
+              ]
+            },
+            "prt-2-T": {
+              "action": "advance",
+              "strategy": "fixed",
+              "reason": "The learner selected substitution.",
+              "next_questions": [
+                {
+                  "file": "Question_3.xml",
+                  "weight": 1.0
+                }
+              ]
+            },
+            "prt-2-F": {
+              "action": "remediate",
+              "strategy": "fixed",
+              "reason": "The selected method requires explanation before continuing.",
+              "next_questions": [
+                {
+                  "file": "Question_5.xml",
+                  "weight": 1.0
+                }
+              ]
+            }
+          }
+        }
+      }
+    },
+    "Question_5.xml": {
+      "notes": "Explain why partial fractions is not appropriate.",
+      "prts": {
+        "prt1": {
+          "outcomes": {
+            "prt-1-T": {
+              "action": "return_to_decision",
+              "strategy": "fixed",
+              "reason": "Return to the original decision question.",
+              "next_questions": [
+                {
+                  "file": "Question_1.xml",
+                  "weight": 1.0
+                }
+              ],
+              "allow_loop": true,
+              "max_visits": 2
+            }
+          }
+        }
+      }
+    }
+  }
+}
