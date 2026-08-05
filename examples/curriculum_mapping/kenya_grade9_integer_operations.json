@@ -1,0 +1,74 @@
+{
+  "version": "0.1",
+  "name": "Kenya Grade 9 Integer Operations Development Mapping",
+  "intended_context": "Development of a curriculum-agnostic adaptive framework primarily intended for the Ghanaian JHS-to-SHS mathematics transition.",
+  "development_context": "Kenyan Grade 9 STACK questions are being used as the first real development and validation case study.",
+  "mappings": [
+    {
+      "concept_id": "KE-G9-INTEGER-OPERATIONS",
+      "concept_name": "Integer Operations",
+      "curriculum_profile_id": "kenya-grade9-development",
+      "level_id": "KE-G9",
+      "strand": "Whole Numbers",
+      "sub_strand": "Integers",
+      "learning_outcome": "Demonstrate understanding of addition, subtraction, multiplication, division, and combined operations involving integers.",
+      "prerequisite_concept_ids": [],
+      "next_concept_ids": [],
+      "questions": [
+        {
+          "question_id": "207582",
+          "question_name": "Addition of integers (cupcakes)",
+          "source_profile_id": "kenya-grade9-development",
+          "source_file": "grade9_questions.xml",
+          "role": "foundation",
+          "sequence_order": 1,
+          "required_for_mastery": false,
+          "notes": "Provides evidence of basic integer addition."
+        },
+        {
+          "question_id": "207596",
+          "question_name": "Subtraction of integers",
+          "source_profile_id": "kenya-grade9-development",
+          "source_file": "grade9_questions.xml",
+          "role": "foundation",
+          "sequence_order": 2,
+          "required_for_mastery": false,
+          "notes": "Provides evidence of basic integer subtraction."
+        },
+        {
+          "question_id": "207591",
+          "question_name": "Multiplication of integers",
+          "source_profile_id": "kenya-grade9-development",
+          "source_file": "grade9_questions.xml",
+          "role": "practice",
+          "sequence_order": 3,
+          "required_for_mastery": false,
+          "notes": "Provides evidence of integer multiplication."
+        },
+        {
+          "question_id": "207589",
+          "question_name": "Division of integers (apples)",
+          "source_profile_id": "kenya-grade9-development",
+          "source_file": "grade9_questions.xml",
+          "role": "practice",
+          "sequence_order": 4,
+          "required_for_mastery": false,
+          "notes": "Provides evidence of integer division."
+        },
+        {
+          "question_id": "207630",
+          "question_name": "Combined operations of integers",
+          "source_profile_id": "kenya-grade9-development",
+          "source_file": "grade9_questions.xml",
+          "role": "mastery_check",
+          "sequence_order": 5,
+          "required_for_mastery": true,
+          "notes": "Used as an integrated concept-level mastery check."
+        }
+      ],
+      "mapping_status": "review_required",
+      "source_basis": "Initial development mapping based on the STACK category path Grade 9 > Whole Numbers > Integers. The learning outcome must be checked against the authoritative curriculum document.",
+      "reviewer_notes": "This is not yet a curriculum-approved mapping."
+    }
+  ]
+}
