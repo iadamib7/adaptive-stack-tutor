@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+  <!-- question: 0 -->
+  <question type="category">
+    <category>
+      <text>$course$/top/Grade 9/1.0 Whole Numbers/1.1 Integers</text>
+    </category>
+  </question>
+
+  <!-- question: 207582 -->
+  <question type="stack">
+    <name>
+      <text>Addition of integers</text>
+    </name>
+
+    <input>
+      <name>ans1</name>
+    </input>
+
+    <prt>
+      <name>prt1</name>
+      <node>
+        <name>0</name>
+        <description>Checks the learner answer.</description>
+        <answertest>AlgEquiv</answertest>
+
+        <truescore>1</truescore>
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-1-T</trueanswernote>
+        <truefeedback>
+          <text>Correct.</text>
+        </truefeedback>
+
+        <falsescore>0</falsescore>
+        <falsenextnode>-1</falsenextnode>
+        <falseanswernote>prt1-1-F</falseanswernote>
+        <falsefeedback>
+          <text>Review integer addition.</text>
+        </falsefeedback>
+      </node>
+    </prt>
+  </question>
+
+  <!-- question: 220747 -->
+  <question type="stack">
+    <name>
+      <text>Diagnostic grouped-data question</text>
+    </name>
+
+    <input>
+      <name>ans1</name>
+    </input>
+
+    <prt>
+      <name>prt1</name>
+
+      <node>
+        <name>0</name>
+        <description>Checks exact answer.</description>
+        <answertest>AlgEquiv</answertest>
+
+        <truescore>1</truescore>
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-1-T</trueanswernote>
+        <truefeedback>
+          <text>Correct answer.</text>
+        </truefeedback>
+
+        <falsescore>0</falsescore>
+        <falsenextnode>1</falsenextnode>
+        <falseanswernote>prt1-1-F</falseanswernote>
+        <falsefeedback>
+          <text></text>
+        </falsefeedback>
+      </node>
+
+      <node>
+        <name>1</name>
+        <description>Checks a rounding mistake.</description>
+        <answertest>NumAbsolute</answertest>
+
+        <truescore>0.25</truescore>
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-2-T</trueanswernote>
+        <truefeedback>
+          <text>Likely rounding mistake.</text>
+        </truefeedback>
+
+        <falsescore>0</falsescore>
+        <falsenextnode>-1</falsenextnode>
+        <falseanswernote>prt1-2-F</falseanswernote>
+        <falsefeedback>
+          <text>Review the full method.</text>
+        </falsefeedback>
+      </node>
+    </prt>
+  </question>
+</quiz>

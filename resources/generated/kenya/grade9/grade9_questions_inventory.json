@@ -1,0 +1,6551 @@
+{
+  "version": "1.0",
+  "profile_id": "kenya-grade9-development",
+  "source_file": "grade9_questions.xml",
+  "question_count": 79,
+  "questions": [
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "220747",
+      "question_name": "Find median in grouped data",
+      "category_path": [
+        "Grade 9",
+        "5.0. Data Handling & Probability",
+        "5.1 Data Interpretation (Grouped Data)",
+        "5.1.5 Determining the median of grouped data"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2",
+        "ans3",
+        "ans4",
+        "ans5"
+      ],
+      "prt_names": [
+        "prt1",
+        "prt2",
+        "prt3",
+        "prt4",
+        "prt5"
+      ],
+      "prt_count": 5,
+      "node_count": 9,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for correct answer",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for correct answer",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt2-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for correct answer",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt2-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for correct answer",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt3",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt3-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for correct answer",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt3",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt3-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for correct answer",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt4",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt4-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for correct answer",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt4",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt4-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for correct answer",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt5",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt5-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for correct answer",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt5",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt5-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for correct answer",
+          "score": 0.0,
+          "next_node": "1",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt5",
+          "node_name": "1",
+          "branch": "T",
+          "outcome_code": "prt5-2-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for correct answer in exact form",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt5",
+          "node_name": "1",
+          "branch": "F",
+          "outcome_code": "prt5-2-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for correct answer in exact form",
+          "score": 0.0,
+          "next_node": "2",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt5",
+          "node_name": "2",
+          "branch": "T",
+          "outcome_code": "prt5-3-T",
+          "answer_test": "NumDecPlaces",
+          "description": "Checks for correct answer in with wrong number of decimal places",
+          "score": 0.5,
+          "next_node": null,
+          "feedback": "<p>Your answer is correct but not given to the right number of decimal places.</p>"
+        },
+        {
+          "prt_name": "prt5",
+          "node_name": "2",
+          "branch": "F",
+          "outcome_code": "prt5-3-F",
+          "answer_test": "NumDecPlaces",
+          "description": "Checks for correct answer in with wrong number of decimal places",
+          "score": 0.0,
+          "next_node": "3",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt5",
+          "node_name": "3",
+          "branch": "T",
+          "outcome_code": "prt5-4-T",
+          "answer_test": "NumAbsolute",
+          "description": "Checks for correct answer in rounding mistake",
+          "score": 0.25,
+          "next_node": null,
+          "feedback": "<p>Your answer is close to the correct answer but you are likely to have made a rounding mistake.</p>"
+        },
+        {
+          "prt_name": "prt5",
+          "node_name": "3",
+          "branch": "F",
+          "outcome_code": "prt5-4-F",
+          "answer_test": "NumAbsolute",
+          "description": "Checks for correct answer in rounding mistake",
+          "score": 0.0,
+          "next_node": "4",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt5",
+          "node_name": "4",
+          "branch": "T",
+          "outcome_code": "prt5-5-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for correct answer in only in he upper limit of the median class.",
+          "score": 0.25,
+          "next_node": null,
+          "feedback": "<p>Your computations are correct but you used the upper limit of the median class.</p>\n<p>Instead you should use the lower limit of the median class when computing the median.</p>"
+        },
+        {
+          "prt_name": "prt5",
+          "node_name": "4",
+          "branch": "F",
+          "outcome_code": "prt5-5-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for correct answer in only in he upper limit of the median class.",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "207582",
+      "question_name": "Addition of integers (cupcakes)",
+      "category_path": [
+        "Grade 9",
+        "1.0. Whole Numbers",
+        "1.1 Integers"
+      ],
+      "input_names": [
+        "ans1"
+      ],
+      "prt_names": [
+        "prt1"
+      ],
+      "prt_count": 1,
+      "node_count": 1,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": true,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "207630",
+      "question_name": "Combined operations of integers",
+      "category_path": [
+        "Grade 9",
+        "1.0. Whole Numbers",
+        "1.1 Integers"
+      ],
+      "input_names": [
+        "ans1"
+      ],
+      "prt_names": [
+        "prt1"
+      ],
+      "prt_count": 1,
+      "node_count": 1,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": true,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "207589",
+      "question_name": "Division of integers (apples)",
+      "category_path": [
+        "Grade 9",
+        "1.0. Whole Numbers",
+        "1.1 Integers"
+      ],
+      "input_names": [
+        "ans1"
+      ],
+      "prt_names": [
+        "prt1"
+      ],
+      "prt_count": 1,
+      "node_count": 1,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": true,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "207591",
+      "question_name": "Multiplication of integers",
+      "category_path": [
+        "Grade 9",
+        "1.0. Whole Numbers",
+        "1.1 Integers"
+      ],
+      "input_names": [
+        "ans1"
+      ],
+      "prt_names": [
+        "prt1"
+      ],
+      "prt_count": 1,
+      "node_count": 1,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": true,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "207596",
+      "question_name": "Subtraction of integers",
+      "category_path": [
+        "Grade 9",
+        "1.0. Whole Numbers",
+        "1.1 Integers"
+      ],
+      "input_names": [
+        "ans1"
+      ],
+      "prt_names": [
+        "prt1"
+      ],
+      "prt_count": 1,
+      "node_count": 1,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": true,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "207420",
+      "question_name": "Applying negative index rules to find missing exponents in a given equation",
+      "category_path": [
+        "Grade 9",
+        "1.0. Whole Numbers",
+        "Indices and Logarithms"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2"
+      ],
+      "prt_names": [
+        "prt1",
+        "prt2"
+      ],
+      "prt_count": 2,
+      "node_count": 2,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct negative exponent that satisfies the equation",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct negative exponent that satisfies the equation",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt2-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct positive exponent that satisfies the equation",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt2-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct positive exponent that satisfies the equation",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "207419",
+      "question_name": "Applying the Zero Exponent Law in Simplifying Expressions",
+      "category_path": [
+        "Grade 9",
+        "1.0. Whole Numbers",
+        "Indices and Logarithms"
+      ],
+      "input_names": [
+        "ans1"
+      ],
+      "prt_names": [
+        "prt1"
+      ],
+      "prt_count": 1,
+      "node_count": 1,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct simplified value of the expression.",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct simplified value of the expression.",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": true,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "206793",
+      "question_name": "Expressing numbers in index form",
+      "category_path": [
+        "Grade 9",
+        "1.0. Whole Numbers",
+        "Indices and Logarithms"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2",
+        "ans3",
+        "ans4",
+        "ans5",
+        "ans6",
+        "ans7",
+        "ans8"
+      ],
+      "prt_names": [
+        "prt1",
+        "prt2",
+        "prt3",
+        "prt4",
+        "prt5",
+        "prt6",
+        "prt7",
+        "prt8"
+      ],
+      "prt_count": 8,
+      "node_count": 8,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct base of the number being expressed in index form.",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct base of the number being expressed in index form.",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt2-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct exponent of the given expression",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt2-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct exponent of the given expression",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt3",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt3-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct base of the first part of the expression.",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt3",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt3-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct base of the first part of the expression.",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt4",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt4-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the exponent of the first part of the expression",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt4",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt4-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the exponent of the first part of the expression",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt5",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt5-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct base of the second part of the expression.",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt5",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt5-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct base of the second part of the expression.",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt6",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt6-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct exponent",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt6",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt6-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct exponent",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt7",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt7-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct base",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt7",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt7-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct base",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt8",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt8-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct exponent",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt8",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt8-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct exponent",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "206946",
+      "question_name": "Using multiplicative, divisive, and bracket laws of indices to simplify powers",
+      "category_path": [
+        "Grade 9",
+        "1.0. Whole Numbers",
+        "Indices and Logarithms"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2",
+        "ans3",
+        "ans4",
+        "ans5",
+        "ans6",
+        "ans7",
+        "ans8"
+      ],
+      "prt_names": [
+        "prt1",
+        "prt2",
+        "prt3",
+        "prt4",
+        "prt5",
+        "prt6",
+        "prt7",
+        "prt8"
+      ],
+      "prt_count": 8,
+      "node_count": 8,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct base",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct base",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt2-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct exponent.",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt2-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct exponent.",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt3",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt3-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct base of an expression using divisive law of indices",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt3",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt3-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct base of an expression using divisive law of indices",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt4",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt4-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct exponent of an expression using divisive law of indices",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt4",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt4-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct exponent of an expression using divisive law of indices",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt5",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt5-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct base of an expression raised with an exponent to another exponent.",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt5",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt5-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct base of an expression raised with an exponent to another exponent.",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt6",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt6-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct exponent of an expression raised with an exponent to another exponent.",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt6",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt6-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct exponent of an expression raised with an exponent to another exponent.",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt7",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt7-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the base of an expression with fractional indices",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt7",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt7-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the base of an expression with fractional indices",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt8",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt8-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct exponent of an expression with fractional indices",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt8",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt8-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct exponent of an expression with fractional indices",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "206873",
+      "question_name": "Writing numbers as single power of a prime.",
+      "category_path": [
+        "Grade 9",
+        "1.0. Whole Numbers",
+        "Indices and Logarithms"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2"
+      ],
+      "prt_names": [
+        "prt1",
+        "prt2"
+      ],
+      "prt_count": 2,
+      "node_count": 2,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct base of the number being expressed in index form",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct base of the number being expressed in index form",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt2-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Check for the correct exponent of the base",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt2-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Check for the correct exponent of the base",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "206819",
+      "question_name": "Writing numbers in simplest index form as a product of a number and a power",
+      "category_path": [
+        "Grade 9",
+        "1.0. Whole Numbers",
+        "Indices and Logarithms"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2",
+        "ans3"
+      ],
+      "prt_names": [
+        "prt1",
+        "prt2",
+        "prt3"
+      ],
+      "prt_count": 3,
+      "node_count": 3,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "Expanded",
+          "description": "Checks for the least prime number without an exponent that can divide the number.",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "Expanded",
+          "description": "Checks for the least prime number without an exponent that can divide the number.",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt2-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct base that can be raised to an exponent and multiplied by the least prime number to get the given number",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt2-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct base that can be raised to an exponent and multiplied by the least prime number to get the given number",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt3",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt3-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct exponent of the base provided.",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt3",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt3-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct exponent of the base provided.",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "207542",
+      "question_name": "Finding the number of days taken by a given number of men to complete the same piece of work.",
+      "category_path": [
+        "Grade 9",
+        "1.0. Whole Numbers",
+        "Compound proportions and Rates of work"
+      ],
+      "input_names": [
+        "ans1"
+      ],
+      "prt_names": [
+        "prt1"
+      ],
+      "prt_count": 1,
+      "node_count": 1,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct number of days taken by the given number of men to do the same piece of work.",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct number of days taken by the given number of men to do the same piece of work.",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": true,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "207534",
+      "question_name": "Finding the unknown number in a continuous proportion",
+      "category_path": [
+        "Grade 9",
+        "1.0. Whole Numbers",
+        "Compound proportions and Rates of work"
+      ],
+      "input_names": [
+        "ans1"
+      ],
+      "prt_names": [
+        "prt1"
+      ],
+      "prt_count": 1,
+      "node_count": 1,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct value of x",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct value of x",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": true,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "207646",
+      "question_name": "Relating different ratios from a given statement.",
+      "category_path": [
+        "Grade 9",
+        "1.0. Whole Numbers",
+        "Compound proportions and Rates of work"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2"
+      ],
+      "prt_names": [
+        "prt1",
+        "prt2"
+      ],
+      "prt_count": 2,
+      "node_count": 6,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct first number in the greater ratio, given different related ratios",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct first number in the greater ratio, given different related ratios",
+          "score": 0.0,
+          "next_node": "1",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "1",
+          "branch": "T",
+          "outcome_code": "prt1-2-T",
+          "answer_test": "CasEqual",
+          "description": "Checks for the wrong comparison of score ratios",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": "<p>You have failed to compare the ratios correctly. You compared  ,\\( {@frac_cat_1@}\\) and \\({@frac_exam_1@}\\) which is the reverse of the actual ratios.</p>\n  <p> Kindly look at the step by step solution below for a detailed explanation.</p>"
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "1",
+          "branch": "F",
+          "outcome_code": "prt1-2-F",
+          "answer_test": "CasEqual",
+          "description": "Checks for the wrong comparison of score ratios",
+          "score": 0.0,
+          "next_node": "2",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "2",
+          "branch": "T",
+          "outcome_code": "prt1-3-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for incorrect comparison of ratios based solely on the size of the numbers.",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": "<p>You have failed to compare the values as fractions. Instead, you chose the option with larger numbers in both terms of the ratio. However, larger numbers do not always represent a greater ratio. Please refer to the step-by-step solution below.</p>"
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "2",
+          "branch": "F",
+          "outcome_code": "prt1-3-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for incorrect comparison of ratios based solely on the size of the numbers.",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt2-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct second number in the greater ratio, given different related ratios",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt2-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct second number in the greater ratio, given different related ratios",
+          "score": 0.0,
+          "next_node": "1",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "1",
+          "branch": "T",
+          "outcome_code": "prt2-2-T",
+          "answer_test": "AlgEquiv",
+          "description": "checks for wrong comparison of score ratios",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "1",
+          "branch": "F",
+          "outcome_code": "prt2-2-F",
+          "answer_test": "AlgEquiv",
+          "description": "checks for wrong comparison of score ratios",
+          "score": 0.0,
+          "next_node": "2",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "2",
+          "branch": "T",
+          "outcome_code": "prt2-3-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for incorrect comparison of ratios based solely on the size of the numbers.",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "2",
+          "branch": "F",
+          "outcome_code": "prt2-3-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for incorrect comparison of ratios based solely on the size of the numbers.",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "207616",
+      "question_name": "Using ratios to determine the number of boys in a class",
+      "category_path": [
+        "Grade 9",
+        "1.0. Whole Numbers",
+        "Compound proportions and Rates of work"
+      ],
+      "input_names": [
+        "ans1"
+      ],
+      "prt_names": [
+        "prt1"
+      ],
+      "prt_count": 1,
+      "node_count": 3,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct actual number of boys in a class",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct actual number of boys in a class",
+          "score": 0.0,
+          "next_node": "1",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "1",
+          "branch": "T",
+          "outcome_code": "prt1-2-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for incorrect calculation by directly multiplying one part of the ratio with the total number of pupils",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": "<p>You have failed to break down the ratio into total parts. You multiplied \\(\\frac{{@b@}}{{@g@}}\\) by \\({@total_pupils@}\\) instead of first adding the parts {@b@}+ {@g@}= {@total_ratio@}, then taking the ratio of boys and divide it by the total ratio the multiply by the total number of pupils. Please look at the worked solution below to find how to apply ratios to total amounts.</p>"
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "1",
+          "branch": "F",
+          "outcome_code": "prt1-2-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for incorrect calculation by directly multiplying one part of the ratio with the total number of pupils",
+          "score": 0.0,
+          "next_node": "2",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "2",
+          "branch": "T",
+          "outcome_code": "prt1-3-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the error of dividing the total by the boys ratio directly.",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": "<p>You failed to find the total ratio parts. Instead, you divided the total number of pupils by {@b@} - the boys' part of the ratio, rather than expressing the ratio as a fraction of the total parts. Kindly look at the step by step explanation below to understand how to use ratio given totals to find actual number. </p>"
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "2",
+          "branch": "F",
+          "outcome_code": "prt1-3-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the error of dividing the total by the boys ratio directly.",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "207350",
+      "question_name": "Determining gradient of perpendicular lines",
+      "category_path": [
+        "Grade 9",
+        "4.0 Geometry",
+        "4.1 Coordinates and Graphs"
+      ],
+      "input_names": [
+        "ans1"
+      ],
+      "prt_names": [
+        "prt1"
+      ],
+      "prt_count": 1,
+      "node_count": 1,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct pairs of perendicular lines",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct pairs of perendicular lines",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": true,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "207413",
+      "question_name": "Determining gradient of perpendicular lines (1)",
+      "category_path": [
+        "Grade 9",
+        "4.0 Geometry",
+        "4.1 Coordinates and Graphs"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2"
+      ],
+      "prt_names": [
+        "prt1",
+        "prt2"
+      ],
+      "prt_count": 2,
+      "node_count": 4,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct value of the gradient of L_1",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct value of the gradient of L_1",
+          "score": 0.0,
+          "next_node": "1",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "1",
+          "branch": "T",
+          "outcome_code": "prt1-2-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": "<p>Might you have computed the gradient as \\(m_1 = \\frac{\\Delta x}{\\Delta y}\\) instead of \\(m_1 = \\frac{\\Delta y}{\\Delta x}\\)?</p>\n<p>Refer to the worked solution for the correct answer.</p>"
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "1",
+          "branch": "F",
+          "outcome_code": "prt1-2-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt2-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct value of the gradient of L_2",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt2-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct value of the gradient of L_2",
+          "score": 0.0,
+          "next_node": "1",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "1",
+          "branch": "T",
+          "outcome_code": "prt2-2-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": "<p>Might you have computed the gradient as \\(m_2 = \\frac{\\Delta x}{\\Delta y}\\) instead of \\(m_2 = \\frac{\\Delta y}{\\Delta x}\\)?</p>\n<p>Refer to the worked solution for the correct answer.</p>"
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "1",
+          "branch": "F",
+          "outcome_code": "prt2-2-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "207416",
+      "question_name": "Determining gradients of perpendicular lines (2)",
+      "category_path": [
+        "Grade 9",
+        "4.0 Geometry",
+        "4.1 Coordinates and Graphs"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2"
+      ],
+      "prt_names": [
+        "prt1",
+        "prt2"
+      ],
+      "prt_count": 2,
+      "node_count": 4,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks the correct value of the gradient of L_1",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks the correct value of the gradient of L_1",
+          "score": 0.0,
+          "next_node": "1",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "1",
+          "branch": "T",
+          "outcome_code": "prt1-2-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": "<p>Might you have computed the gradient as \\(m_1 = \\frac{\\Delta x}{\\Delta y}\\) instead of \\(m_1 = \\frac{\\Delta y}{\\Delta x}\\)?</p>\n<p>Refer to the worked solution for the correct answer.</p>"
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "1",
+          "branch": "F",
+          "outcome_code": "prt1-2-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt2-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct value of the gradient of L_2",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt2-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct value of the gradient of L_2",
+          "score": 0.0,
+          "next_node": "1",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "1",
+          "branch": "T",
+          "outcome_code": "prt2-2-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": "<p>Might you have computed the gradient as \\(m_2 = \\frac{\\Delta x}{\\Delta y}\\) instead of \\(m_2 = \\frac{\\Delta y}{\\Delta x}\\)?</p>\n<p>Refer to the worked solution for the correct answer.</p>"
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "1",
+          "branch": "F",
+          "outcome_code": "prt2-2-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "207059",
+      "question_name": "Determining the equation of a straight line.",
+      "category_path": [
+        "Grade 9",
+        "4.0 Geometry",
+        "4.1 Coordinates and Graphs"
+      ],
+      "input_names": [
+        "ans1"
+      ],
+      "prt_names": [
+        "prt1"
+      ],
+      "prt_count": 1,
+      "node_count": 2,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct equation of the line",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct equation of the line",
+          "score": 0.0,
+          "next_node": "1",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "1",
+          "branch": "T",
+          "outcome_code": "prt1-2-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks if the inverse of the gradient was used to calculate the equation",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": "<p>You seem to have calculated the gradient in the inverse way. Refer to the worked solution for the correct computation</p>"
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "1",
+          "branch": "F",
+          "outcome_code": "prt1-2-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks if the inverse of the gradient was used to calculate the equation",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "207412",
+      "question_name": "Determining the gradients of parallel lines (1)",
+      "category_path": [
+        "Grade 9",
+        "4.0 Geometry",
+        "4.1 Coordinates and Graphs"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2"
+      ],
+      "prt_names": [
+        "prt1",
+        "prt2"
+      ],
+      "prt_count": 2,
+      "node_count": 4,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the gradient L_1",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the gradient L_1",
+          "score": 0.0,
+          "next_node": "1",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "1",
+          "branch": "T",
+          "outcome_code": "prt1-2-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks if the gradient m_1 is calculated inversely",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": "<p>Might you have computed the gradient as \\(m_1 = \\frac{\\Delta x}{\\Delta y}\\) instead of \\(m_1 = \\frac{\\Delta y}{\\Delta x}\\)?</p>\n<p>Refer to the worked solution for the correct answer.</p>"
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "1",
+          "branch": "F",
+          "outcome_code": "prt1-2-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks if the gradient m_1 is calculated inversely",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt2-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct value of m_2",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt2-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct value of m_2",
+          "score": 0.0,
+          "next_node": "1",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "1",
+          "branch": "T",
+          "outcome_code": "prt2-2-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks if the gradient m_2 is calculated inversely",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": "<p>Might you have computed the gradient as \\(m_2 = \\frac{\\Delta x}{\\Delta y}\\) instead of \\(m_2 = \\frac{\\Delta y}{\\Delta x}\\)?</p>\n<p>Refer to the worked solution for the correct answer.</p>"
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "1",
+          "branch": "F",
+          "outcome_code": "prt2-2-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks if the gradient m_2 is calculated inversely",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "207411",
+      "question_name": "Determining the gradients of parallel lines (2)",
+      "category_path": [
+        "Grade 9",
+        "4.0 Geometry",
+        "4.1 Coordinates and Graphs"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2"
+      ],
+      "prt_names": [
+        "prt1",
+        "prt2"
+      ],
+      "prt_count": 2,
+      "node_count": 4,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct value of L_1",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct value of L_1",
+          "score": 0.0,
+          "next_node": "1",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "1",
+          "branch": "T",
+          "outcome_code": "prt1-2-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks if the gradient of L_1 has been calculated inversely",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": "<p>Might you have computed the gradient as \\(m_1 = \\frac{\\Delta x}{\\Delta y}\\) instead of \\(m_1 = \\frac{\\Delta y}{\\Delta x}\\)?</p>\n<p>Refer to the worked solution for the correct answer.</p>"
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "1",
+          "branch": "F",
+          "outcome_code": "prt1-2-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks if the gradient of L_1 has been calculated inversely",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt2-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct value of L_2",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt2-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct value of L_2",
+          "score": 0.0,
+          "next_node": "1",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "1",
+          "branch": "T",
+          "outcome_code": "prt2-2-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks if the gradient of L_2 has been calculated inversely",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": "<p>Might you have computed the gradient as \\(m_1 = \\frac{\\Delta x}{\\Delta y}\\) instead of \\(m_1 = \\frac{\\Delta y}{\\Delta x}\\)?</p>\n<p>Refer to the worked solution for the correct answer.</p>"
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "1",
+          "branch": "F",
+          "outcome_code": "prt2-2-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks if the gradient of L_2 has been calculated inversely",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "207339",
+      "question_name": "Identifying graphs of parallel lines.",
+      "category_path": [
+        "Grade 9",
+        "4.0 Geometry",
+        "4.1 Coordinates and Graphs"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2"
+      ],
+      "prt_names": [
+        "prt1"
+      ],
+      "prt_count": 1,
+      "node_count": 2,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": "1",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": "1",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "1",
+          "branch": "T",
+          "outcome_code": "prt1-2-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "1",
+          "branch": "F",
+          "outcome_code": "prt1-2-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "207341",
+      "question_name": "Identifying graphs of perpendicular lines",
+      "category_path": [
+        "Grade 9",
+        "4.0 Geometry",
+        "4.1 Coordinates and Graphs"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2"
+      ],
+      "prt_names": [
+        "prt1"
+      ],
+      "prt_count": 1,
+      "node_count": 2,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": "1",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": "1",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "1",
+          "branch": "T",
+          "outcome_code": "prt1-2-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "1",
+          "branch": "F",
+          "outcome_code": "prt1-2-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "206961",
+      "question_name": "Interactive: Plottimg points on a Cartesian plane",
+      "category_path": [
+        "Grade 9",
+        "4.0 Geometry",
+        "4.1 Coordinates and Graphs"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2"
+      ],
+      "prt_names": [
+        "prt1"
+      ],
+      "prt_count": 1,
+      "node_count": 4,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Check if the correct coordinates for points A have been given",
+          "score": 1.0,
+          "next_node": "1",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Check if the correct coordinates for points A have been given",
+          "score": 0.0,
+          "next_node": "2",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "1",
+          "branch": "T",
+          "outcome_code": "prt1-2-T",
+          "answer_test": "AlgEquiv",
+          "description": "Check if the correct coordinates for points B have been given",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "1",
+          "branch": "F",
+          "outcome_code": "prt1-2-F",
+          "answer_test": "AlgEquiv",
+          "description": "Check if the correct coordinates for points B have been given",
+          "score": 0.0,
+          "next_node": "3",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "2",
+          "branch": "T",
+          "outcome_code": "prt1-3-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks if coordinates of the  points  A have been interchanged with point B",
+          "score": 0.0,
+          "next_node": "3",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "2",
+          "branch": "F",
+          "outcome_code": "prt1-3-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks if coordinates of the  points  A have been interchanged with point B",
+          "score": 0.0,
+          "next_node": "1",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "3",
+          "branch": "T",
+          "outcome_code": "prt1-4-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks if coordinates of the  points  B have been interchanged with point A",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": "You have interchanged the coordinates of the points."
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "3",
+          "branch": "F",
+          "outcome_code": "prt1-4-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks if coordinates of the  points  B have been interchanged with point A",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "207067",
+      "question_name": "Interactive: Sketching Straight Line graphs y=mx+c",
+      "category_path": [
+        "Grade 9",
+        "4.0 Geometry",
+        "4.1 Coordinates and Graphs"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2"
+      ],
+      "prt_names": [
+        "prt1"
+      ],
+      "prt_count": 1,
+      "node_count": 7,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": "6",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": "1",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "1",
+          "branch": "T",
+          "outcome_code": "prt1-2-T",
+          "answer_test": "NumAbsolute",
+          "description": null,
+          "score": 0.5,
+          "next_node": "3",
+          "feedback": "<p>The \\(y\\)-intercept for your line seems to be close enough to the correct one.</p>"
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "1",
+          "branch": "F",
+          "outcome_code": "prt1-2-F",
+          "answer_test": "NumAbsolute",
+          "description": null,
+          "score": 0.0,
+          "next_node": "2",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "2",
+          "branch": "T",
+          "outcome_code": "prt1-3-T",
+          "answer_test": "NumAbsolute",
+          "description": null,
+          "score": 0.25,
+          "next_node": "3",
+          "feedback": "<p>The \\(y\\)-intercept for your line seems to be close to the correct one but it's not accurate enough.</p>"
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "2",
+          "branch": "F",
+          "outcome_code": "prt1-3-F",
+          "answer_test": "NumAbsolute",
+          "description": null,
+          "score": 0.0,
+          "next_node": "3",
+          "feedback": "<p>The \\(y\\)-intercept for your is not close enough to the correct one.</p>"
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "3",
+          "branch": "T",
+          "outcome_code": "prt1-4-T",
+          "answer_test": "NumAbsolute",
+          "description": null,
+          "score": 0.5,
+          "next_node": "6",
+          "feedback": "<p>The gradient your line seems to be close enough to the correct one.</p>"
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "3",
+          "branch": "F",
+          "outcome_code": "prt1-4-F",
+          "answer_test": "NumAbsolute",
+          "description": null,
+          "score": 0.0,
+          "next_node": "4",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "4",
+          "branch": "T",
+          "outcome_code": "prt1-5-T",
+          "answer_test": "NumAbsolute",
+          "description": null,
+          "score": 0.25,
+          "next_node": "6",
+          "feedback": "<p>The gradient of your line seems to be close to the correct one but it's not accurate enough.</p>"
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "4",
+          "branch": "F",
+          "outcome_code": "prt1-5-F",
+          "answer_test": "NumAbsolute",
+          "description": null,
+          "score": 0.0,
+          "next_node": "5",
+          "feedback": "<p>The gradient of your line is not close enough to the correct one .</p>"
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "5",
+          "branch": "T",
+          "outcome_code": "prt1-6-T",
+          "answer_test": "NumRelative",
+          "description": null,
+          "score": 0.0,
+          "next_node": "6",
+          "feedback": "<p>It looks like you used the numerator of the gradient for the change in \\(x\\) and the denominator for the change in \\(y\\), when it should be the other way round.</p>"
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "5",
+          "branch": "F",
+          "outcome_code": "prt1-6-F",
+          "answer_test": "NumRelative",
+          "description": null,
+          "score": 0.0,
+          "next_node": "6",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "6",
+          "branch": "T",
+          "outcome_code": "prt1-7-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": "<p><b>Worked Solution:</b></p>\n\n<p>Recall that the equation of a straight line is given by \\(y = mx + c\\), where \\(m\\) is the gradient and \\(c\\) is the \\(y\\)-intercept. In this case  \\(y = {@if mm<0 then \"-\" else \"\"@} {@abs(mm)@} x {@S1(cc)@}\\), so the gradient is  \\({@if mm<0 then \"-\" else \"\"@} {@abs(mm)@}\\) and the \\(y\\)-intercept is {@cc@}.</p>\n\n<p>So, we start by placing the first point at \\( (0,{@cc@})\\), that is, where the line will cross the \\(y\\)-axis. Then we note that the gradient is \\(y = {@if mm<0 then \"-\" else \"\"@} {@abs(mm)@} x {@S1(cc)@}\\), so we know that for every {@denom(mm)@} we go across we go {@abs(num(mm))@} {@if mm<0 then \"down\" else \"up\"@}, and we follow these directions from the first point to place the second point at \\( (0 + {@denom(mm)@}, {@cc@} {@S1(num(mm))@}) = ({@tax2@},{@tay2@})\\), as shown in the following diagram:</p>\n\n[[jsxgraph]] \nvar board = JXG.JSXGraph.initBoard(divid, {\n  axis: true, \n  showCopyright: false, \n  boundingbox: [-6,6,6,-6], \n  keepaspectratio: true\n}); \n\nvar p1 = board.create('point',[{#tax1#},{#tay1#}],{\n  name:'',\n  snapToGrid:true,\n  size:3,\n  snapSizeX:0.125,\n  snapSizeY:0.125,\n  showInfobox:false,\n  fixed:true\n}); \n\nvar p2 = board.create('point',[{#tax2#},{#tay2#}],{\n  name:'',\n  snapToGrid:true,\n  size:3,\n  snapSizeX:0.125,\n  snapSizeY:0.125,\n  showInfobox:false,\n  fixed:true\n}); \n\nvar l1 = board.create('line', [p1, p2], {\n  fixed: true,\n  straightFirst: true,\n  straightLast: true,\n  strokeWidth: 2\n});\n\nvar l2 = board.create('line', [p1, [p2.X(),p1.Y()]], {\n  fixed: true,\n  straightFirst: false,\n  straightLast: false,\n  strokeWidth: 2,\n dash:2\n});\n\nvar l3 = board.create('line', [p2, [p2.X(),p1.Y()]], {\n  fixed: true,\n  straightFirst: false,\n  straightLast: false,\n  strokeWidth: 2,\n dash:2\n});\n\nvar txt = board.create('text', [(p1.X() + p2.X()) / 2-0.5, p1.Y() + {#if mm<0 then 0.5 else -0.5#}, {#denom(mm)#}+' across'], {\n  fontSize: 15,\n  fixed: true\n});\n\nvar txt = board.create('text', [p2.X()+0.5, (p1.Y()+p2.Y())/2, {#abs(num(mm))#}+' '+{#if mm<0 then \"down\" else \"up\"#}], {\n  fontSize: 15,\n  fixed: true\n});\n\n[[/jsxgraph]]"
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "6",
+          "branch": "F",
+          "outcome_code": "prt1-7-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": "<p>The following diagram shows your line (solid) and the correct line (dashed):</p>\n\n[[jsxgraph]] \nvar board = JXG.JSXGraph.initBoard(divid, {\n  axis: true, \n  showCopyright: false, \n  boundingbox: [-6,6,6,-6], \n  keepaspectratio: true\n}); \n\nvar p1 = board.create('point',[{#ans1[1]#},{#ans1[2]#}],{\n  name:'',\n  snapToGrid:true,\n  size:3,\n  snapSizeX:0.125,\n  snapSizeY:0.125,\n  showInfobox:false,\n  fixed:true\n}); \n\nvar p2 = board.create('point',[{#ans2[1]#},{#ans2[2]#}],{\n  name:'',\n  snapToGrid:true,\n  size:3,\n  snapSizeX:0.125,\n  snapSizeY:0.125,\n  showInfobox:false,\n  fixed:true\n}); \n\nvar l1 = board.create('line', [p1, p2], {\n  fixed: true,\n  straightFirst: true,\n  straightLast: true,\n  strokeWidth: 2\n});\n\nvar l2 = board.create('line', [[{#tax1#},{#tay1#}], [{#tax2#},{#tay2#}]], {\n  fixed: true,\n  straightFirst: true,\n  straightLast: true,\n  strokeWidth: 2,\n  dash:2\n});\n\n[[/jsxgraph]]\n\n\n<p>Worked Solution:</p>\n\n<p>Recall that the equation of a straight line is given by \\(y = mx + c\\), where \\(m\\) is the gradient and \\(c\\) is the \\(y\\)-intercept. In this case  \\(y = {@if mm<0 then \"-\" else \"\"@} {@abs(mm)@} x {@S1(cc)@}\\), so the gradient is  \\({@if mm<0 then \"-\" else \"\"@} {@abs(mm)@}\\) and the \\(y\\)-intercept is {@cc@}.</p>\n\n<p>So, we start by placing the first point at \\( (0,{@cc@})\\), that is, where the line will cross the \\(y\\)-axis. Then we note that the gradient is \\(y = {@if mm<0 then \"-\" else \"\"@} {@abs(mm)@} x {@S1(cc)@}\\), so we know that for every {@denom(mm)@} we go across we go {@abs(num(mm))@} {@if mm<0 then \"down\" else \"up\"@}, and we follow these directions from the first point to place the second point at \\( (0 + {@denom(mm)@}, {@cc@} {@S1(num(mm))@}) = ({@tax2@},{@tay2@})\\), as shown in the following diagram:</p>\n\n[[jsxgraph]] \nvar board = JXG.JSXGraph.initBoard(divid, {\n  axis: true, \n  showCopyright: false, \n  boundingbox: [-6,6,6,-6], \n  keepaspectratio: true\n}); \n\nvar p1 = board.create('point',[{#tax1#},{#tay1#}],{\n  name:'',\n  snapToGrid:true,\n  size:3,\n  snapSizeX:0.125,\n  snapSizeY:0.125,\n  showInfobox:false,\n  fixed:true\n}); \n\nvar p2 = board.create('point',[{#tax2#},{#tay2#}],{\n  name:'',\n  snapToGrid:true,\n  size:3,\n  snapSizeX:0.125,\n  snapSizeY:0.125,\n  showInfobox:false,\n  fixed:true\n}); \n\nvar l1 = board.create('line', [p1, p2], {\n  fixed: true,\n  straightFirst: true,\n  straightLast: true,\n  strokeWidth: 2\n});\n\nvar l2 = board.create('line', [p1, [p2.X(),p1.Y()]], {\n  fixed: true,\n  straightFirst: false,\n  straightLast: false,\n  strokeWidth: 2,\n dash:2\n});\n\nvar l3 = board.create('line', [p2, [p2.X(),p1.Y()]], {\n  fixed: true,\n  straightFirst: false,\n  straightLast: false,\n  strokeWidth: 2,\n dash:2\n});\n\nvar txt = board.create('text', [(p1.X() + p2.X()) / 2-0.5, p1.Y() + {#if mm<0 then 0.5 else -0.5#}, {#denom(mm)#}+' across'], {\n  fontSize: 15,\n  fixed: true\n});\n\nvar txt = board.create('text', [p2.X()+0.5, (p1.Y()+p2.Y())/2, {#abs(num(mm))#}+' '+{#if mm<0 then \"down\" else \"up\"#}], {\n  fontSize: 15,\n  fixed: true\n});\n\n[[/jsxgraph]]"
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "207346",
+      "question_name": "Select the pairs of equations of parallel lines",
+      "category_path": [
+        "Grade 9",
+        "4.0 Geometry",
+        "4.1 Coordinates and Graphs"
+      ],
+      "input_names": [
+        "ans1"
+      ],
+      "prt_names": [
+        "prt1"
+      ],
+      "prt_count": 1,
+      "node_count": 1,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the equation of parallel lines",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the equation of parallel lines",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": true,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "206939",
+      "question_name": "Writing down coordinates of a points in a graph.",
+      "category_path": [
+        "Grade 9",
+        "4.0 Geometry",
+        "4.1 Coordinates and Graphs"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2",
+        "ans3",
+        "ans4"
+      ],
+      "prt_names": [
+        "prt1"
+      ],
+      "prt_count": 1,
+      "node_count": 8,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks if the correct answer for x value of point A",
+          "score": 0.5,
+          "next_node": "1",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks if the correct answer for x value of point A",
+          "score": 0.0,
+          "next_node": "2",
+          "feedback": "<p>Your x value for point A is incorrect</p>"
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "1",
+          "branch": "T",
+          "outcome_code": "prt1-2-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks if the correct answer for y value of point A",
+          "score": 0.5,
+          "next_node": "4",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "1",
+          "branch": "F",
+          "outcome_code": "prt1-2-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks if the correct answer for y value of point A",
+          "score": 0.0,
+          "next_node": "3",
+          "feedback": "<p>Your y value for point A is incorrect</p>"
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "2",
+          "branch": "T",
+          "outcome_code": "prt1-3-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks if y value has been given as the x value",
+          "score": 0.0,
+          "next_node": "3",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "2",
+          "branch": "F",
+          "outcome_code": "prt1-3-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks if y value has been given as the x value",
+          "score": 0.0,
+          "next_node": "1",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "3",
+          "branch": "T",
+          "outcome_code": "prt1-4-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks if x value has been given as the y value",
+          "score": 0.0,
+          "next_node": "4",
+          "feedback": "<p>You have interchanged the x and y coordinates for point A</p>"
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "3",
+          "branch": "F",
+          "outcome_code": "prt1-4-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks if x value has been given as the y value",
+          "score": 0.0,
+          "next_node": "4",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "4",
+          "branch": "T",
+          "outcome_code": "prt1-5-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks if the correct answer for x value of point B",
+          "score": 0.5,
+          "next_node": "5",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "4",
+          "branch": "F",
+          "outcome_code": "prt1-5-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks if the correct answer for x value of point B",
+          "score": 0.0,
+          "next_node": "6",
+          "feedback": "<p>Your x value for point B is incorrect</p>"
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "5",
+          "branch": "T",
+          "outcome_code": "prt1-6-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks if the correct answer for y value of point B",
+          "score": 0.5,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "5",
+          "branch": "F",
+          "outcome_code": "prt1-6-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks if the correct answer for y value of point B",
+          "score": 0.0,
+          "next_node": "7",
+          "feedback": "<p>Your y value for point B is incorrect</p>"
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "6",
+          "branch": "T",
+          "outcome_code": "prt1-7-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks if y value has been given as the x value",
+          "score": 0.0,
+          "next_node": "7",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "6",
+          "branch": "F",
+          "outcome_code": "prt1-7-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks if y value has been given as the x value",
+          "score": 0.0,
+          "next_node": "5",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "7",
+          "branch": "T",
+          "outcome_code": "prt1-8-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks if x value has been given as the y value",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": "<p>You have interchanged the x and y coordinates for point B</p>"
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "7",
+          "branch": "F",
+          "outcome_code": "prt1-8-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks if x value has been given as the y value",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "207606",
+      "question_name": "Determining the bearing of a point from another.(1)",
+      "category_path": [
+        "Grade 9",
+        "4.0 Geometry",
+        "4.2 Scale Drawing"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2"
+      ],
+      "prt_names": [
+        "prt1",
+        "prt2"
+      ],
+      "prt_count": 2,
+      "node_count": 4,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Bearing of point A from O",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Bearing of point A from O",
+          "score": 0.0,
+          "next_node": "1",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "1",
+          "branch": "T",
+          "outcome_code": "prt1-2-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": "<p>Might you have interchanged the coordinates of the points? Refer to worked solution for the correct answers.</p>"
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "1",
+          "branch": "F",
+          "outcome_code": "prt1-2-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt2-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Bearing of point O from A",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt2-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Bearing of point O from A",
+          "score": 0.0,
+          "next_node": "1",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "1",
+          "branch": "T",
+          "outcome_code": "prt2-2-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": "<p>Might you have interchanged the coordinates of the points? Refer to worked solution for the correct answers.</p>"
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "1",
+          "branch": "F",
+          "outcome_code": "prt2-2-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "207613",
+      "question_name": "Determining the beraing of a point from another (2)",
+      "category_path": [
+        "Grade 9",
+        "4.0 Geometry",
+        "4.2 Scale Drawing"
+      ],
+      "input_names": [
+        "ans1"
+      ],
+      "prt_names": [
+        "prt1"
+      ],
+      "prt_count": 1,
+      "node_count": 2,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": "1",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "1",
+          "branch": "T",
+          "outcome_code": "prt1-2-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": "<p>Might you have taken the bearing of T.H  from T.S equal to the bearing of T.S from T.H. Refer to worked solution for the correct answer. </p>"
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "1",
+          "branch": "F",
+          "outcome_code": "prt1-2-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "207505",
+      "question_name": "Identifying compass and true bearing",
+      "category_path": [
+        "Grade 9",
+        "4.0 Geometry",
+        "4.2 Scale Drawing"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2"
+      ],
+      "prt_names": [
+        "prt1",
+        "prt2"
+      ],
+      "prt_count": 2,
+      "node_count": 2,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct compass bearing",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct compass bearing",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt2-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct true bearing",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt2-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct true bearing",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "207517",
+      "question_name": "Identifying compass and true bearing (2)",
+      "category_path": [
+        "Grade 9",
+        "4.0 Geometry",
+        "4.2 Scale Drawing"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2"
+      ],
+      "prt_names": [
+        "prt1",
+        "prt2"
+      ],
+      "prt_count": 2,
+      "node_count": 2,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt2-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt2-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "207532",
+      "question_name": "Identifying compass and true bearing (3)",
+      "category_path": [
+        "Grade 9",
+        "4.0 Geometry",
+        "4.2 Scale Drawing"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2"
+      ],
+      "prt_names": [
+        "prt1",
+        "prt2"
+      ],
+      "prt_count": 2,
+      "node_count": 2,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt2-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt2-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "207541",
+      "question_name": "Identifying compass and true bearing (4)",
+      "category_path": [
+        "Grade 9",
+        "4.0 Geometry",
+        "4.2 Scale Drawing"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2"
+      ],
+      "prt_names": [
+        "prt1",
+        "prt2"
+      ],
+      "prt_count": 2,
+      "node_count": 2,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt2-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt2-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "207829",
+      "question_name": "Locating a point using bearing and distance (2)",
+      "category_path": [
+        "Grade 9",
+        "4.0 Geometry",
+        "4.2 Scale Drawing"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2",
+        "ans3"
+      ],
+      "prt_names": [
+        "prt1",
+        "prt2",
+        "prt3"
+      ],
+      "prt_count": 3,
+      "node_count": 3,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt2-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt2-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt3",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt3-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt3",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt3-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "207667",
+      "question_name": "Locating a point using bearing and distance(1)",
+      "category_path": [
+        "Grade 9",
+        "4.0 Geometry",
+        "4.2 Scale Drawing"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2"
+      ],
+      "prt_names": [
+        "prt1",
+        "prt2"
+      ],
+      "prt_count": 2,
+      "node_count": 2,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Correct distance of BC",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Correct distance of BC",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt2-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Bearing of C from B",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt2-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Bearing of C from B",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "208044",
+      "question_name": "Locating points using bearing and distance(3)",
+      "category_path": [
+        "Grade 9",
+        "4.0 Geometry",
+        "4.2 Scale Drawing"
+      ],
+      "input_names": [
+        "ans1"
+      ],
+      "prt_names": [
+        "prt1"
+      ],
+      "prt_count": 1,
+      "node_count": 1,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": true,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "222191",
+      "question_name": "5.0.17 (Solve tan trig equation)",
+      "category_path": [
+        "Grade 9",
+        "4.0 Geometry",
+        "4.4 Trigonometry"
+      ],
+      "input_names": [
+        "ans1"
+      ],
+      "prt_names": [
+        "prt1"
+      ],
+      "prt_count": 1,
+      "node_count": 1,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": true,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "207288",
+      "question_name": "Identifying Meal Distribution Matrices for School Classes Over Two Days",
+      "category_path": [
+        "Grade 9",
+        "2.0. Algebra",
+        "2.1 Matrices"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2"
+      ],
+      "prt_names": [
+        "prt1",
+        "prt2"
+      ],
+      "prt_count": 2,
+      "node_count": 2,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct entry",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct entry",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt2-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct non-vegeterian meals served on day two",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt2-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct non-vegeterian meals served on day two",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "235623",
+      "question_name": "Calculating cubes of numbers having decimal",
+      "category_path": [
+        "Grade 9",
+        "1.0. Whole Numbers",
+        "1.2 Cubes and Cube roots",
+        "Cubes"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2"
+      ],
+      "prt_names": [
+        "prt1",
+        "prt2"
+      ],
+      "prt_count": 2,
+      "node_count": 2,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt2-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt2-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "207479",
+      "question_name": "Calculating cubes of positive number",
+      "category_path": [
+        "Grade 9",
+        "1.0. Whole Numbers",
+        "1.2 Cubes and Cube roots",
+        "Cubes"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2"
+      ],
+      "prt_names": [
+        "prt1",
+        "prt2"
+      ],
+      "prt_count": 2,
+      "node_count": 3,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": "1",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "1",
+          "branch": "T",
+          "outcome_code": "prt1-2-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct value of the squared number",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": "<p>You seem to have to calculated the square of \\({@number1@}\\) instead of calculating it's cube</p>"
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "1",
+          "branch": "F",
+          "outcome_code": "prt1-2-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct value of the squared number",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt2-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt2-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "235537",
+      "question_name": "Calculating cubes using a mathematical table",
+      "category_path": [
+        "Grade 9",
+        "1.0. Whole Numbers",
+        "1.2 Cubes and Cube roots",
+        "Cubes"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2"
+      ],
+      "prt_names": [
+        "prt1",
+        "prt2"
+      ],
+      "prt_count": 2,
+      "node_count": 2,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct cube of the given value",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct cube of the given value",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt2-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt2-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "207474",
+      "question_name": "Cubes  of negative numbers.",
+      "category_path": [
+        "Grade 9",
+        "1.0. Whole Numbers",
+        "1.2 Cubes and Cube roots",
+        "Cubes"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2"
+      ],
+      "prt_names": [
+        "prt1",
+        "prt2"
+      ],
+      "prt_count": 2,
+      "node_count": 2,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt2-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt2-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "207522",
+      "question_name": "Finding cubes of numbers using a calculator",
+      "category_path": [
+        "Grade 9",
+        "1.0. Whole Numbers",
+        "1.2 Cubes and Cube roots",
+        "Cubes"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2",
+        "ans3",
+        "ans4"
+      ],
+      "prt_names": [
+        "prt1",
+        "prt2",
+        "prt3",
+        "prt4"
+      ],
+      "prt_count": 4,
+      "node_count": 4,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt2-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt2-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt3",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt3-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt3",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt3-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt4",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt4-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt4",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt4-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "207484",
+      "question_name": "Finding the cubes of unknown (letters).",
+      "category_path": [
+        "Grade 9",
+        "1.0. Whole Numbers",
+        "1.2 Cubes and Cube roots",
+        "Cubes"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2"
+      ],
+      "prt_names": [
+        "prt1",
+        "prt2"
+      ],
+      "prt_count": 2,
+      "node_count": 2,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt2-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt2-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "207455",
+      "question_name": "Calculating cube root of positive numbers.",
+      "category_path": [
+        "Grade 9",
+        "1.0. Whole Numbers",
+        "1.2 Cubes and Cube roots",
+        "Cube root"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2"
+      ],
+      "prt_names": [
+        "prt1",
+        "prt2"
+      ],
+      "prt_count": 2,
+      "node_count": 2,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt2-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt2-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "207477",
+      "question_name": "Calculating cube root of unknown (letters)",
+      "category_path": [
+        "Grade 9",
+        "1.0. Whole Numbers",
+        "1.2 Cubes and Cube roots",
+        "Cube root"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2"
+      ],
+      "prt_names": [
+        "prt1",
+        "prt2"
+      ],
+      "prt_count": 2,
+      "node_count": 2,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt2-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt2-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "207643",
+      "question_name": "Calculating cube root using a calculator",
+      "category_path": [
+        "Grade 9",
+        "1.0. Whole Numbers",
+        "1.2 Cubes and Cube roots",
+        "Cube root"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2",
+        "ans3",
+        "ans4"
+      ],
+      "prt_names": [
+        "prt1",
+        "prt2",
+        "prt3",
+        "prt4"
+      ],
+      "prt_count": 4,
+      "node_count": 4,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt2-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt2-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt3",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt3-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt3",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt3-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt4",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt4-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt4",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt4-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "207463",
+      "question_name": "Cube root of  numbers having decimals",
+      "category_path": [
+        "Grade 9",
+        "1.0. Whole Numbers",
+        "1.2 Cubes and Cube roots",
+        "Cube root"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2"
+      ],
+      "prt_names": [
+        "prt1",
+        "prt2"
+      ],
+      "prt_count": 2,
+      "node_count": 2,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt2-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt2-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "207457",
+      "question_name": "Finding cube root of negative numbers",
+      "category_path": [
+        "Grade 9",
+        "1.0. Whole Numbers",
+        "1.2 Cubes and Cube roots",
+        "Cube root"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2"
+      ],
+      "prt_names": [
+        "prt1",
+        "prt2"
+      ],
+      "prt_count": 2,
+      "node_count": 2,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt2-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt2-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "221909",
+      "question_name": "Calculating the length of the right angled triangle",
+      "category_path": [
+        "Grade 9",
+        "4.0 Geometry",
+        "4.4 Trigonometry",
+        "Applying trigonometric ratios to calculate lengths and angles of right angled triangles"
+      ],
+      "input_names": [
+        "ans1"
+      ],
+      "prt_names": [
+        "prt1"
+      ],
+      "prt_count": 1,
+      "node_count": 1,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "NumAbsolute",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "NumAbsolute",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": true,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "221908",
+      "question_name": "Finding the value of unknown angle using trigonometric ratio.",
+      "category_path": [
+        "Grade 9",
+        "4.0 Geometry",
+        "4.4 Trigonometry",
+        "Applying trigonometric ratios to calculate lengths and angles of right angled triangles"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2",
+        "ans3"
+      ],
+      "prt_names": [
+        "prt1",
+        "prt2",
+        "prt3"
+      ],
+      "prt_count": 3,
+      "node_count": 6,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "NumAbsolute",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "NumAbsolute",
+          "description": null,
+          "score": 0.0,
+          "next_node": "1",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "1",
+          "branch": "T",
+          "outcome_code": "prt1-2-T",
+          "answer_test": "NumAbsolute",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "1",
+          "branch": "F",
+          "outcome_code": "prt1-2-F",
+          "answer_test": "NumAbsolute",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": "<p>You identified the triangle correctly, but you used the wrong trigonometric ratio. Remember, cosine compares the adjacent side to the hypotenuse side, not the sine or tangent ratios. Check which sides are adjacent and opposite to the given angle, and try again using the correct ratio.</p>"
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt2-1-T",
+          "answer_test": "NumAbsolute",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt2-1-F",
+          "answer_test": "NumAbsolute",
+          "description": null,
+          "score": 0.0,
+          "next_node": "1",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "1",
+          "branch": "T",
+          "outcome_code": "prt2-2-T",
+          "answer_test": "NumAbsolute",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "1",
+          "branch": "F",
+          "outcome_code": "prt2-2-F",
+          "answer_test": "NumAbsolute",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": "<p>You identified the triangle correctly, but you used the wrong trigonometric ratio. Remember, sine compares the opposite side to the hypotenuse side, not the cosine or tangent ratios. Check which sides are adjacent and opposite to the given angle, and try again using the correct ratio.</p>"
+        },
+        {
+          "prt_name": "prt3",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt3-1-T",
+          "answer_test": "NumAbsolute",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt3",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt3-1-F",
+          "answer_test": "NumAbsolute",
+          "description": null,
+          "score": 0.0,
+          "next_node": "1",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt3",
+          "node_name": "1",
+          "branch": "T",
+          "outcome_code": "prt3-2-T",
+          "answer_test": "NumAbsolute",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt3",
+          "node_name": "1",
+          "branch": "F",
+          "outcome_code": "prt3-2-F",
+          "answer_test": "NumAbsolute",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": "<p>You identified the triangle correctly, but you used the wrong trigonometric ratio. Remember,tangent compares the opposite side to the adjacent side, not the sine or cosine ratios. Check which sides are adjacent and opposite to the given angle, and try again using the correct ratio.</p>"
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "221194",
+      "question_name": "Identifying sides of right angled triangle.",
+      "category_path": [
+        "Grade 9",
+        "4.0 Geometry",
+        "4.4 Trigonometry",
+        "Identifying Angles and Sides of Right Angled Triangles"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2",
+        "ans3"
+      ],
+      "prt_names": [
+        "prt1",
+        "prt2",
+        "prt3"
+      ],
+      "prt_count": 3,
+      "node_count": 3,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "EqualComAss",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "EqualComAss",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt2-1-T",
+          "answer_test": "EqualComAss",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt2-1-F",
+          "answer_test": "EqualComAss",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt3",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt3-1-T",
+          "answer_test": "EqualComAss",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt3",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt3-1-F",
+          "answer_test": "EqualComAss",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "221196",
+      "question_name": "Determining the sine, cosine and tangent of an angle.",
+      "category_path": [
+        "Grade 9",
+        "4.0 Geometry",
+        "4.4 Trigonometry",
+        "Identifying Sine, Cosine and Tangent Ratios from a Right Angled Triangle"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2",
+        "ans3",
+        "ans4",
+        "ans5",
+        "ans6"
+      ],
+      "prt_names": [
+        "prt1",
+        "prt2",
+        "prt3",
+        "prt4",
+        "prt5",
+        "prt6"
+      ],
+      "prt_count": 6,
+      "node_count": 6,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt2-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt2-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt3",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt3-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt3",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt3-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt4",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt4-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt4",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt4-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt5",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt5-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt5",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt5-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt6",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt6-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt6",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt6-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "221207",
+      "question_name": "Calculating sines,cosines and tangents of acute angles using a mathematical table",
+      "category_path": [
+        "Grade 9",
+        "4.0 Geometry",
+        "4.4 Trigonometry",
+        "Reading Tables of Trigonometric Ratios For Acute Angles"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2",
+        "ans3"
+      ],
+      "prt_names": [
+        "prt1",
+        "prt2",
+        "prt3"
+      ],
+      "prt_count": 3,
+      "node_count": 3,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "NumAbsolute",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "NumAbsolute",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt2-1-T",
+          "answer_test": "NumAbsolute",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt2-1-F",
+          "answer_test": "NumAbsolute",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt3",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt3-1-T",
+          "answer_test": "NumAbsolute",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt3",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt3-1-F",
+          "answer_test": "NumAbsolute",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "221209",
+      "question_name": "Calculating sines,cosines and tangents of acute angles using a calculator",
+      "category_path": [
+        "Grade 9",
+        "4.0 Geometry",
+        "4.4 Trigonometry",
+        "Determining Trigonometric Ratios of Acute Angles Using Calculators"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2",
+        "ans3"
+      ],
+      "prt_names": [
+        "prt1",
+        "prt2",
+        "prt3"
+      ],
+      "prt_count": 3,
+      "node_count": 3,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "NumAbsolute",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "NumAbsolute",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt2-1-T",
+          "answer_test": "NumAbsolute",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt2-1-F",
+          "answer_test": "NumAbsolute",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt3",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt3-1-T",
+          "answer_test": "NumAbsolute",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt3",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt3-1-F",
+          "answer_test": "NumAbsolute",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "221322",
+      "question_name": "Determining similar figures",
+      "category_path": [
+        "Grade 9",
+        "4.0 Geometry",
+        "4.3 Similarity and Enlargement",
+        "Identifying Similar Figures and Their Properties"
+      ],
+      "input_names": [
+        "ans1"
+      ],
+      "prt_names": [
+        "prt1"
+      ],
+      "prt_count": 1,
+      "node_count": 1,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "EqualComAss",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "EqualComAss",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": true,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "221366",
+      "question_name": "Determining the linear scale factor.",
+      "category_path": [
+        "Grade 9",
+        "4.0 Geometry",
+        "4.3 Similarity and Enlargement",
+        "Determining The Linear Scale Factor of Similar Figures"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2"
+      ],
+      "prt_names": [
+        "prt1",
+        "prt2"
+      ],
+      "prt_count": 2,
+      "node_count": 3,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": "1",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "1",
+          "branch": "T",
+          "outcome_code": "prt1-2-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "1",
+          "branch": "F",
+          "outcome_code": "prt1-2-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt2-1-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt2-1-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "207546",
+      "question_name": "Finding the Area of a Regular Pentagon",
+      "category_path": [
+        "Grade 9",
+        "3.0. Measurements",
+        "3.1 Area",
+        "Area of a Pentagon"
+      ],
+      "input_names": [
+        "ans1"
+      ],
+      "prt_names": [
+        "prt1"
+      ],
+      "prt_count": 1,
+      "node_count": 2,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct area of the polygon",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct area of the polygon",
+          "score": 0.0,
+          "next_node": "1",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "1",
+          "branch": "T",
+          "outcome_code": "prt1-2-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the incorrect area of the Pentagon.",
+          "score": 0.4,
+          "next_node": null,
+          "feedback": "<p>{@feedback@}</p>\n\n<p>Keep up the good work. Review the concept carefully, and try again to ensure you use the correct height in your area calculation.</p>"
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "1",
+          "branch": "F",
+          "outcome_code": "prt1-2-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the incorrect area of the Pentagon.",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "222168",
+      "question_name": "Finding the area of a regular pentagon shaped Park",
+      "category_path": [
+        "Grade 9",
+        "3.0. Measurements",
+        "3.1 Area",
+        "Area of a Pentagon"
+      ],
+      "input_names": [
+        "ans1"
+      ],
+      "prt_names": [
+        "prt1"
+      ],
+      "prt_count": 1,
+      "node_count": 1,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct area of the Park",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct area of the Park",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": true,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "222155",
+      "question_name": "Finding the Area of a Regular Pentagon Using the Area of One Congruent Triangle",
+      "category_path": [
+        "Grade 9",
+        "3.0. Measurements",
+        "3.1 Area",
+        "Area of a Pentagon"
+      ],
+      "input_names": [
+        "ans1"
+      ],
+      "prt_names": [
+        "prt1"
+      ],
+      "prt_count": 1,
+      "node_count": 1,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct area of the pentagon.",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct area of the pentagon.",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": true,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "207638",
+      "question_name": "Area and Cost of a Hexagonal Trampoline Cover",
+      "category_path": [
+        "Grade 9",
+        "3.0. Measurements",
+        "3.1 Area",
+        "Area of hexagon"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2"
+      ],
+      "prt_names": [
+        "prt1",
+        "prt2"
+      ],
+      "prt_count": 2,
+      "node_count": 2,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct area of the pentagonal trampoline cover.",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct area of the pentagonal trampoline cover.",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt2-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct total cost.",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt2-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct total cost.",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "222193",
+      "question_name": "Calculating the Floor Area Using Regular Hexagon Tiles",
+      "category_path": [
+        "Grade 9",
+        "3.0. Measurements",
+        "3.1 Area",
+        "Area of hexagon"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2"
+      ],
+      "prt_names": [
+        "prt1",
+        "prt2"
+      ],
+      "prt_count": 2,
+      "node_count": 2,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "NumAbsolute",
+          "description": "Checks for the correct area of one tile.",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "NumAbsolute",
+          "description": "Checks for the correct area of one tile.",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt2-1-T",
+          "answer_test": "NumAbsolute",
+          "description": "Checks for the correct total area of the floor tile.",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt2-1-F",
+          "answer_test": "NumAbsolute",
+          "description": "Checks for the correct total area of the floor tile.",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "222200",
+      "question_name": "Finding the Area of a Regular Hexagon",
+      "category_path": [
+        "Grade 9",
+        "3.0. Measurements",
+        "3.1 Area",
+        "Area of hexagon"
+      ],
+      "input_names": [
+        "ans1"
+      ],
+      "prt_names": [
+        "prt1"
+      ],
+      "prt_count": 1,
+      "node_count": 1,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "NumAbsolute",
+          "description": "Checks for the correct area of the hexagon.",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "NumAbsolute",
+          "description": "Checks for the correct area of the hexagon.",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": true,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "222222",
+      "question_name": "Finding the Surface Area of a Composite Solid",
+      "category_path": [
+        "Grade 9",
+        "3.0. Measurements",
+        "3.1 Area",
+        "Surface area of triangular based prism"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2",
+        "ans3"
+      ],
+      "prt_names": [
+        "prt1",
+        "prt2",
+        "prt3"
+      ],
+      "prt_count": 3,
+      "node_count": 7,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct area of the rectangular part.",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct area of the rectangular part.",
+          "score": 0.0,
+          "next_node": "1",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "1",
+          "branch": "T",
+          "outcome_code": "prt1-2-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for Incorrectly Identifying the Slanted Side",
+          "score": 0.4,
+          "next_node": null,
+          "feedback": "<p>Nice work identifying that the prism has a slanted rectangular face—recognizing that is important. However, it looks like the length you used for the slanted edge came directly from one of the triangle’s sides, rather than being calculated.</p>\n<p>Since the triangular base is a right-angled triangle, you can find the slanted edge (the hypotenuse) using the Pythagorean theorem: \\(\\sqrt{{@b@}^2 \\times {@h@}^2}=\\text{hyp}\\)</p>\n<p>This gives you the correct length for that side of the rectangle. You're definitely on the right track—just remember to check whether any side lengths need to be worked out before using them.</p>"
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "1",
+          "branch": "F",
+          "outcome_code": "prt1-2-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for Incorrectly Identifying the Slanted Side",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt2-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct area of the triangular part.",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt2-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct area of the triangular part.",
+          "score": 0.0,
+          "next_node": "1",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "1",
+          "branch": "T",
+          "outcome_code": "prt2-2-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for Forgetting to Multiply by 2 for the Triangular Faces",
+          "score": 0.4,
+          "next_node": null,
+          "feedback": "<p>Great job calculating the area of one triangle correctly! You used the right formula and applied the base and height values well. That shows a good understanding of triangle area.</p>\n<p>Just a small oversight: since the prism has two triangular faces, you need to multiply the area of one triangle by 2 to get the total area of the triangular part.</p>\n<p>So instead of just \\({@tri_1@}\\,\\text{m}^2\\), it should be: \\( 2\\times {@tri_1@}\\)</p>\n<p>Keep up the good work—double-checking how many faces are involved will help you catch these small details next time! </p>"
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "1",
+          "branch": "F",
+          "outcome_code": "prt2-2-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for Forgetting to Multiply by 2 for the Triangular Faces",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt3",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt3-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct total surface area of the solid drawn.",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt3",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt3-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct total surface area of the solid drawn.",
+          "score": 0.0,
+          "next_node": "1",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt3",
+          "node_name": "1",
+          "branch": "T",
+          "outcome_code": "prt3-2-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checkks for Forgetting to Multiply by 2 for the Triangular Faces",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": "<p>You might have forgotten to multiply The area of the triangle by 2 hence led to the incorrect calculation. Kindly check the step by step worked solution to get the correct solution.</p>\n<p>You are almost there.</p>"
+        },
+        {
+          "prt_name": "prt3",
+          "node_name": "1",
+          "branch": "F",
+          "outcome_code": "prt3-2-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checkks for Forgetting to Multiply by 2 for the Triangular Faces",
+          "score": 0.0,
+          "next_node": "2",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt3",
+          "node_name": "2",
+          "branch": "T",
+          "outcome_code": "prt3-3-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for  Incorrectly Identifying the Slanted Side",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": "<p>You might have forgotten to calculate the slant height instead you have used the base of the triangle. Kindly check the step by step solution below fr the correct answer.</p>"
+        },
+        {
+          "prt_name": "prt3",
+          "node_name": "2",
+          "branch": "F",
+          "outcome_code": "prt3-3-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for  Incorrectly Identifying the Slanted Side",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "222221",
+      "question_name": "Finding the Surface Area of a Triangular Prism",
+      "category_path": [
+        "Grade 9",
+        "3.0. Measurements",
+        "3.1 Area",
+        "Surface area of triangular based prism"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2",
+        "ans3"
+      ],
+      "prt_names": [
+        "prt1",
+        "prt2",
+        "prt3"
+      ],
+      "prt_count": 3,
+      "node_count": 3,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct area of triangular faces.",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct area of triangular faces.",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt2-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks the correct area of the lateral faces.",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt2-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks the correct area of the lateral faces.",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt3",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt3-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the corect total area of the prism.",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt3",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt3-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the corect total area of the prism.",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "222215",
+      "question_name": "Finding the Surface Area of a Triangular Prism (Tent Problem)",
+      "category_path": [
+        "Grade 9",
+        "3.0. Measurements",
+        "3.1 Area",
+        "Surface area of triangular based prism"
+      ],
+      "input_names": [
+        "ans1"
+      ],
+      "prt_names": [
+        "prt1"
+      ],
+      "prt_count": 1,
+      "node_count": 1,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct area of the tent.",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct area of the tent.",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": true,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "222251",
+      "question_name": "Calculating the speed of an airplane given distance and time",
+      "category_path": [
+        "Grade 9",
+        "3.0. Measurements",
+        "Time, Distance and Speed",
+        "Speed in km",
+        "hr"
+      ],
+      "input_names": [
+        "ans1"
+      ],
+      "prt_names": [
+        "prt1"
+      ],
+      "prt_count": 1,
+      "node_count": 1,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct speed in km/hr",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct speed in km/hr",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": true,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "222190",
+      "question_name": "Calculating the amount of bread each child receives in kilograms",
+      "category_path": [
+        "Grade 9",
+        "3.0. Measurements",
+        "Mass, Volume, Weight and Density",
+        "Converting Units of Mass from One Form to Another"
+      ],
+      "input_names": [
+        "ans1"
+      ],
+      "prt_names": [
+        "prt1"
+      ],
+      "prt_count": 1,
+      "node_count": 2,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "NumAbsolute",
+          "description": "Checks for the correct mass in kilograms per child",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "NumAbsolute",
+          "description": "Checks for the correct mass in kilograms per child",
+          "score": 0.0,
+          "next_node": "1",
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "1",
+          "branch": "T",
+          "outcome_code": "prt1-2-T",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": "<p>You got the division part correct, well done! However, you forgot to convert your answer from grams to kilograms. The question asks for kilograms, so after dividing the grams by \\(3\\), you should then divide your result by \\(1000\\) to correctly express each child’s share in kilograms. Recall: \n\\(1\\) kg \\(=\\) \\(1000\\) g.</p>"
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "1",
+          "branch": "F",
+          "outcome_code": "prt1-2-F",
+          "answer_test": "AlgEquiv",
+          "description": null,
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "206991",
+      "question_name": "Converting different units of mass into decigrams",
+      "category_path": [
+        "Grade 9",
+        "3.0. Measurements",
+        "Mass, Volume, Weight and Density",
+        "Converting Units of Mass from One Form to Another"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2",
+        "ans3",
+        "ans4"
+      ],
+      "prt_names": [
+        "prt1",
+        "prt2",
+        "prt3",
+        "prt4"
+      ],
+      "prt_count": 4,
+      "node_count": 4,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "NumAbsolute",
+          "description": "Checks for the correct conversion of mass from centigrams to decigrams",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "NumAbsolute",
+          "description": "Checks for the correct conversion of mass from centigrams to decigrams",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt2-1-T",
+          "answer_test": "NumAbsolute",
+          "description": "Checks for the correct conversion of mass from milligrams to decigrams",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt2-1-F",
+          "answer_test": "NumAbsolute",
+          "description": "Checks for the correct conversion of mass from milligrams to decigrams",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt3",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt3-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct conversion of mass from megagrams to decigrams",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt3",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt3-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct conversion of mass from megagrams to decigrams",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt4",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt4-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct conversion of mass from grams to decigrams",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt4",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt4-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct conversion of mass from grams to decigrams",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "206997",
+      "question_name": "Converting different units of mass into kilograms",
+      "category_path": [
+        "Grade 9",
+        "3.0. Measurements",
+        "Mass, Volume, Weight and Density",
+        "Converting Units of Mass from One Form to Another"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2",
+        "ans3",
+        "ans4"
+      ],
+      "prt_names": [
+        "prt1",
+        "prt2",
+        "prt3",
+        "prt4"
+      ],
+      "prt_count": 4,
+      "node_count": 4,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "NumAbsolute",
+          "description": "Checks the correct conversion of mass from grams to kilograms",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "NumAbsolute",
+          "description": "Checks the correct conversion of mass from grams to kilograms",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt2-1-T",
+          "answer_test": "NumAbsolute",
+          "description": "Checks the correct conversion of mass from decagrams to kilograms",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt2-1-F",
+          "answer_test": "NumAbsolute",
+          "description": "Checks the correct conversion of mass from decagrams to kilograms",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt3",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt3-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks the correct conversion of mass from tonnes to kilograms",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt3",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt3-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks the correct conversion of mass from tonnes to kilograms",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt4",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt4-1-T",
+          "answer_test": "NumAbsolute",
+          "description": "Checks the correct conversion of mass from hectograms to kilograms",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt4",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt4-1-F",
+          "answer_test": "NumAbsolute",
+          "description": "Checks the correct conversion of mass from hectograms to kilograms",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "206945",
+      "question_name": "Finding the total mass of multiple blocks in decigrams",
+      "category_path": [
+        "Grade 9",
+        "3.0. Measurements",
+        "Mass, Volume, Weight and Density",
+        "Converting Units of Mass from One Form to Another"
+      ],
+      "input_names": [
+        "ans1"
+      ],
+      "prt_names": [
+        "prt1"
+      ],
+      "prt_count": 1,
+      "node_count": 1,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct total mass in decigrams",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct total mass in decigrams",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": true,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "206910",
+      "question_name": "Calculating the mass of a car in decigrams given its weight.",
+      "category_path": [
+        "Grade 9",
+        "3.0. Measurements",
+        "Mass, Volume, Weight and Density",
+        "Relating Mass and Weight"
+      ],
+      "input_names": [
+        "ans1"
+      ],
+      "prt_names": [
+        "prt1"
+      ],
+      "prt_count": 1,
+      "node_count": 1,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct mass of the car in decigrams.",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct mass of the car in decigrams.",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": true,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "206937",
+      "question_name": "Calculating weight from given masses.",
+      "category_path": [
+        "Grade 9",
+        "3.0. Measurements",
+        "Mass, Volume, Weight and Density",
+        "Relating Mass and Weight"
+      ],
+      "input_names": [
+        "ans1",
+        "ans2",
+        "ans3"
+      ],
+      "prt_names": [
+        "prt1",
+        "prt2",
+        "prt3"
+      ],
+      "prt_count": 3,
+      "node_count": 3,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "NumAbsolute",
+          "description": "Checks for the correct weight in Newtons",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "NumAbsolute",
+          "description": "Checks for the correct weight in Newtons",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt2-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct weight in Newtons",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt2",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt2-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct weight in Newtons",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt3",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt3-1-T",
+          "answer_test": "NumAbsolute",
+          "description": "Checks for the correct weight in Newtons",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt3",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt3-1-F",
+          "answer_test": "NumAbsolute",
+          "description": "Checks for the correct weight in Newtons",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": false,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "206912",
+      "question_name": "Finding the weight of a given animal.",
+      "category_path": [
+        "Grade 9",
+        "3.0. Measurements",
+        "Mass, Volume, Weight and Density",
+        "Relating Mass and Weight"
+      ],
+      "input_names": [
+        "ans1"
+      ],
+      "prt_names": [
+        "prt1"
+      ],
+      "prt_count": 1,
+      "node_count": 1,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct weight of an elephant on earth.",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checks for the correct weight of an elephant on earth.",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": true,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "206907",
+      "question_name": "Finding the weight of an object on the Moon.",
+      "category_path": [
+        "Grade 9",
+        "3.0. Measurements",
+        "Mass, Volume, Weight and Density",
+        "Relating Mass and Weight"
+      ],
+      "input_names": [
+        "ans1"
+      ],
+      "prt_names": [
+        "prt1"
+      ],
+      "prt_count": 1,
+      "node_count": 1,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "AlgEquiv",
+          "description": "Checking the correct weight of an object in Newtons on the Moon.",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "AlgEquiv",
+          "description": "Checking the correct weight of an object in Newtons on the Moon.",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": true,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "206905",
+      "question_name": "Calculating the Mass of a Cylindrical Container in Decigrams",
+      "category_path": [
+        "Grade 9",
+        "3.0. Measurements",
+        "Mass, Volume, Weight and Density",
+        "Mass, Volume and Density"
+      ],
+      "input_names": [
+        "ans1"
+      ],
+      "prt_names": [
+        "prt1"
+      ],
+      "prt_count": 1,
+      "node_count": 1,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "NumDecPlaces",
+          "description": "Checks for the correct mass of the cylinder in decigram",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "NumDecPlaces",
+          "description": "Checks for the correct mass of the cylinder in decigram",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": true,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "206850",
+      "question_name": "Finding the density of a given object.",
+      "category_path": [
+        "Grade 9",
+        "3.0. Measurements",
+        "Mass, Volume, Weight and Density",
+        "Mass, Volume and Density"
+      ],
+      "input_names": [
+        "ans1"
+      ],
+      "prt_names": [
+        "prt1"
+      ],
+      "prt_count": 1,
+      "node_count": 1,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "NumDecPlaces",
+          "description": "Checks for the correct density of the block in kg/m\\(^3\\)",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "NumDecPlaces",
+          "description": "Checks for the correct density of the block in kg/m\\(^3\\)",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": true,
+      "curriculum_concept_id": null
+    },
+    {
+      "source_file": "grade9_questions.xml",
+      "source_question_id": "206904",
+      "question_name": "Finding the Volume of a Bar of Soap from Mass and Density",
+      "category_path": [
+        "Grade 9",
+        "3.0. Measurements",
+        "Mass, Volume, Weight and Density",
+        "Mass, Volume and Density"
+      ],
+      "input_names": [
+        "ans1"
+      ],
+      "prt_names": [
+        "prt1"
+      ],
+      "prt_count": 1,
+      "node_count": 1,
+      "outcomes": [
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "T",
+          "outcome_code": "prt1-1-T",
+          "answer_test": "NumDecPlaces",
+          "description": "Checks for the correct volume of a bar soap in cubic metres.",
+          "score": 1.0,
+          "next_node": null,
+          "feedback": null
+        },
+        {
+          "prt_name": "prt1",
+          "node_name": "0",
+          "branch": "F",
+          "outcome_code": "prt1-1-F",
+          "answer_test": "NumDecPlaces",
+          "description": "Checks for the correct volume of a bar soap in cubic metres.",
+          "score": 0.0,
+          "next_node": null,
+          "feedback": null
+        }
+      ],
+      "simple_single_prt": true,
+      "curriculum_concept_id": null
+    }
+  ]
+}

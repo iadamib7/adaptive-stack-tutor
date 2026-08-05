@@ -235,3 +235,6 @@ __pycache__/
 
 # Streamlit
 .streamlit/
+
+# Third-party curriculum and STACK question-bank source files
+resources/raw/
