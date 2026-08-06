@@ -3,6 +3,12 @@ from pathlib import Path
 from backend.app.integrations.stack_api.adapter import (
     StackEvaluationAdapter,
 )
+from backend.app.integrations.stack_api.client import (
+    StackEvaluationClient,
+)
+from backend.app.integrations.stack_api.http_client import (
+    HttpStackEvaluationClient,
+)
 from backend.app.integrations.stack_api.mock_client import (
     MockStackEvaluationClient,
 )
@@ -36,10 +42,16 @@ MAPPING_PATH = (
 )
 
 
-def build_stack_session_service() -> tuple[
-    StackAdaptiveSessionService,
-    MockStackEvaluationClient,
-]:
+def build_stack_session_service(
+    stack_client: StackEvaluationClient,
+) -> StackAdaptiveSessionService:
+    """
+    Build the adaptive session service around any STACK client.
+
+    Tests and development endpoints may inject the mock client.
+    The running live application can inject the HTTP client.
+    """
+
     curriculum_map = load_curriculum_question_map(
         MAPPING_PATH
     )
@@ -62,20 +74,45 @@ def build_stack_session_service() -> tuple[
         decision_engine=decision_engine,
     )
 
-    stack_client = MockStackEvaluationClient()
-
     stack_adapter = StackEvaluationAdapter(
         client=stack_client
     )
 
-    service = StackAdaptiveSessionService(
+    return StackAdaptiveSessionService(
         stack_adapter=stack_adapter,
         session_engine=session_engine,
+    )
+
+
+def build_mock_stack_session_service() -> tuple[
+    StackAdaptiveSessionService,
+    MockStackEvaluationClient,
+]:
+    stack_client = MockStackEvaluationClient()
+
+    service = build_stack_session_service(
+        stack_client=stack_client
     )
 
     return service, stack_client
 
 
+def build_live_stack_session_service(
+    base_url: str = "http://localhost:3080",
+    timeout_seconds: int = 120,
+) -> StackAdaptiveSessionService:
+    stack_client = HttpStackEvaluationClient(
+        base_url=base_url,
+        timeout_seconds=timeout_seconds,
+    )
+
+    return build_stack_session_service(
+        stack_client=stack_client
+    )
+
+
+# Keep the current development API on the mock service until
+# its request schema stops accepting fabricated STACK results.
 session_service, stack_client = (
-    build_stack_session_service()
+    build_mock_stack_session_service()
 )
