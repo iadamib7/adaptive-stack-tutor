@@ -238,3 +238,6 @@ __pycache__/
 
 # Third-party curriculum and STACK question-bank source files
 resources/raw/
+
+# Generated STACK question artifacts
+resources/generated/kenya/grade9/questions/
