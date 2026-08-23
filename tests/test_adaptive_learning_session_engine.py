@@ -32,6 +32,13 @@ MAP_PATH = Path(
 
 CONCEPT_ID = "KE-G9-INTEGER-OPERATIONS"
 
+GHANA_MAP_PATH = Path(
+    "examples/curriculum_mapping/"
+    "ghana_basic9_linear_readiness.json"
+)
+
+GHANA_CONCEPT_ID = "simultaneous-equations"
+
 
 def build_session_engine() -> (
     AdaptiveLearningSessionEngine
@@ -58,6 +65,32 @@ def build_session_engine() -> (
         decision_engine=decision_engine,
     )
 
+
+
+def build_ghana_session_engine() -> (
+    AdaptiveLearningSessionEngine
+):
+    curriculum_map = load_curriculum_question_map(
+        GHANA_MAP_PATH
+    )
+
+    mapping_repository = CurriculumMappingRepository(
+        curriculum_map
+    )
+
+    tracker = ConceptEvidenceTracker(
+        mapping_repository=mapping_repository
+    )
+
+    decision_engine = ConceptDecisionEngine(
+        mapping_repository=mapping_repository,
+        evidence_tracker=tracker,
+    )
+
+    return AdaptiveLearningSessionEngine(
+        evidence_tracker=tracker,
+        decision_engine=decision_engine,
+    )
 
 def submit_correct(
     engine: AdaptiveLearningSessionEngine,
@@ -444,3 +477,98 @@ def test_first_attempt_uses_configured_adaptive_pathway(
     assert calls["adapter"] == 1
 
     assert session.question is not None
+
+
+def test_ghana_qlin12_is_required_before_simultaneous_equations_mastery(
+) -> None:
+    engine = build_ghana_session_engine()
+
+    student_id = 92012
+
+    expected_regular_questions = [
+        "lr_01_table_linear_relation",
+        "qlin_02_partial_table_linear_relation",
+        "qlin_03_paired_linear_tables",
+        "qlin_04_distinct_representation_tables",
+        "qlin_05_graph_two_linear_relations",
+        "qlin_06_table_and_equation_graph",
+        "qlin_07_missing_ordered_pair",
+        "qlin_08_intersection_identification",
+        "qlin_09_contextual_intersection",
+        "qlin_10_graphical_simultaneous_equations",
+        "qlin_11_context_to_graph_simultaneous_equations",
+    ]
+
+    mastery_question_id = (
+        "qlin_12_table_graph_"
+        "intersection_mastery"
+    )
+
+    session = engine.start_session(
+        student_id=student_id,
+        concept_id=GHANA_CONCEPT_ID,
+    )
+
+    assert session.progress.concept_mastered is False
+
+    for question_id in expected_regular_questions:
+        assert session.question is not None
+        assert session.question.id == question_id
+
+        submit_correct(
+            engine=engine,
+            student_id=student_id,
+            concept_id=GHANA_CONCEPT_ID,
+            question_id=question_id,
+        )
+
+        session = engine.get_session(
+            student_id
+        )
+
+        assert session is not None
+        assert session.progress.concept_mastered is False
+        assert (
+            GHANA_CONCEPT_ID
+            not in session.mastered_concept_ids
+        )
+
+    assert session.progress.attempts == 11
+    assert session.progress.evidence_score == 1.0
+
+    assert session.question is not None
+    assert session.question.id == mastery_question_id
+
+    assert session.action == (
+        ConceptDecisionAction.VERIFY_MASTERY
+    )
+
+    submit_correct(
+        engine=engine,
+        student_id=student_id,
+        concept_id=GHANA_CONCEPT_ID,
+        question_id=mastery_question_id,
+    )
+
+    session = engine.get_session(
+        student_id
+    )
+
+    assert session is not None
+
+    assert session.progress.attempts == 12
+    assert session.progress.evidence_score == 1.0
+
+    assert session.progress.concept_mastered is True
+
+    assert (
+        GHANA_CONCEPT_ID
+        in session.mastered_concept_ids
+    )
+
+    assert session.question is None
+    assert session.session_complete is True
+
+    assert session.action == (
+        ConceptDecisionAction.COMPLETE_CONCEPT
+    )
