@@ -236,7 +236,7 @@ def test_failed_mastery_check_prevents_mastery() -> None:
 
 
 
-def test_concept_without_mastery_check_cannot_be_mastered(
+def test_concept_requires_qlin12_before_mastery(
 ) -> None:
     ghana_map_path = Path(
         "examples/curriculum_mapping/"
@@ -274,7 +274,10 @@ def test_concept_without_mastery_check_cannot_be_mastered(
 
     assert (
         summary.required_mastery_question_ids
-        == []
+        == [
+            "qlin_12_table_graph_"
+            "intersection_mastery"
+        ]
     )
 
     assert (
@@ -285,6 +288,7 @@ def test_concept_without_mastery_check_cannot_be_mastered(
     assert summary.concept_mastered is False
 
     assert (
-        "No concept-level mastery-check question"
+        "required mastery-check question "
+        "has not yet been passed"
         in summary.recommendation
     )

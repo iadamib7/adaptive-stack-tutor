@@ -1,4 +1,4 @@
-﻿from pathlib import Path
+from pathlib import Path
 
 from backend.app.learning.knowledge_graph.loader import (
     load_knowledge_graph,
@@ -122,8 +122,10 @@ def test_empty_mastery_starts_with_true_foundations() -> None:
     }
 
     assert ids == {
-        "number-sense"
+        "number-sense",
+        "relation-foundations",
     }
+
 
 
 def test_mastering_number_sense_unlocks_multiple_paths() -> None:
