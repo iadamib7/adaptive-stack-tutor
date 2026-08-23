@@ -112,6 +112,44 @@ def score_for_profile(
     if profile == "STRUGGLING":
         return 0.0
 
+    if profile == "MASTERY_RECOVERY":
+        if (
+            question_id
+            == "qlin_12_table_graph_intersection_mastery"
+        ):
+            if attempts == 1:
+                return 0.0
+
+            return 1.0
+
+        return 1.0
+
+    if profile == "GRAPH_STRUGGLE":
+        graph_questions = {
+            "qlin_05_graph_two_linear_relations",
+            "qlin_06_table_and_equation_graph",
+            "qlin_07_missing_ordered_pair",
+            "qlin_08_intersection_identification",
+            "qlin_09_contextual_intersection",
+            "qlin_10_graphical_simultaneous_equations",
+            (
+                "qlin_11_context_to_graph_"
+                "simultaneous_equations"
+            ),
+            (
+                "qlin_12_table_graph_"
+                "intersection_mastery"
+            ),
+        }
+
+        if (
+            question_id in graph_questions
+            and attempts == 1
+        ):
+            return 0.5
+
+        return 1.0
+
     raise ValueError(
         f"Unknown profile: {profile}"
     )
@@ -621,6 +659,8 @@ def main() -> None:
         "STRONG",
         "MIXED",
         "STRUGGLING",
+        "MASTERY_RECOVERY",
+        "GRAPH_STRUGGLE",
     ]
 
     first_runs: dict[
@@ -706,6 +746,16 @@ def main() -> None:
     )
 
     print(
+        "Mastery recovery "
+        "deterministic: PASS"
+    )
+
+    print(
+        "Graph struggle "
+        "deterministic : PASS"
+    )
+
+    print(
         "Strong != Mixed          : "
         + (
             "PASS"
@@ -748,6 +798,16 @@ def main() -> None:
     print(
         "Struggling completed     : "
         f"{first_runs['STRUGGLING'].completed}"
+    )
+
+    print(
+        "Mastery recovery complete: "
+        f"{first_runs['MASTERY_RECOVERY'].completed}"
+    )
+
+    print(
+        "Graph struggle completed : "
+        f"{first_runs['GRAPH_STRUGGLE'].completed}"
     )
 
     summary_path, traces_path = (
