@@ -1,7 +1,11 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from collections import defaultdict
+import csv
 from dataclasses import dataclass
+import hashlib
+import json
+from pathlib import Path
 
 from backend.app.learning.session.models import (
     ScoredStackOutcome,
@@ -10,10 +14,18 @@ from backend.app.learning.curriculum_mapping.loader import (
     load_curriculum_question_map,
 )
 from backend.app.services.session_service_factory import (
-    DEFAULT_MAPPING_PATH,
     build_mock_stack_session_service,
 )
 
+
+GHANA_MAPPING_PATH = Path(
+    "examples/curriculum_mapping/"
+    "ghana_basic9_linear_readiness.json"
+)
+
+RESEARCH_OUTPUT_DIR = Path(
+    "resources/generated/research"
+)
 
 MAX_STEPS = 100
 MAX_SAME_QUESTION_REPEATS = 6
@@ -42,7 +54,7 @@ class SimulationResult:
 
 def build_question_metadata():
     curriculum = load_curriculum_question_map(
-        DEFAULT_MAPPING_PATH
+        GHANA_MAPPING_PATH
     )
 
     mastery_questions: set[str] = set()
@@ -116,7 +128,9 @@ def simulate(
     ) = build_question_metadata()
 
     service, _ = (
-        build_mock_stack_session_service()
+        build_mock_stack_session_service(
+            mapping_path=GHANA_MAPPING_PATH,
+        )
     )
 
     engine = service.session_engine
@@ -303,6 +317,219 @@ def normalized_trace(
     ]
 
 
+def trace_fingerprint(
+    result: SimulationResult,
+) -> str:
+    payload = json.dumps(
+        normalized_trace(result),
+        separators=(",", ":"),
+    )
+
+    return hashlib.sha256(
+        payload.encode("utf-8")
+    ).hexdigest()
+
+
+def build_summary_row(
+    *,
+    result: SimulationResult,
+    mastery_questions: set[str],
+) -> dict[str, object]:
+    total_steps = len(
+        result.trace
+    )
+
+    attempted_question_ids = [
+        step.question_id
+        for step in result.trace
+    ]
+
+    unique_questions = set(
+        attempted_question_ids
+    )
+
+    mastery_attempts = sum(
+        1
+        for question_id
+        in attempted_question_ids
+        if question_id
+        in mastery_questions
+    )
+
+    repeated_attempts = (
+        total_steps
+        - len(unique_questions)
+    )
+
+    final_evidence_score = (
+        result.trace[-1].evidence_score
+        if result.trace
+        else 0.0
+    )
+
+    mastered_steps = sum(
+        1
+        for step in result.trace
+        if step.mastered
+    )
+
+    return {
+        "profile": result.profile,
+        "total_steps": total_steps,
+        "unique_questions_attempted": (
+            len(unique_questions)
+        ),
+        "repeated_attempts": (
+            repeated_attempts
+        ),
+        "mastery_question_attempts": (
+            mastery_attempts
+        ),
+        "mastered_steps": mastered_steps,
+        "final_evidence_score": round(
+            final_evidence_score,
+            6,
+        ),
+        "completed": result.completed,
+        "stalled": result.stalled,
+        "reason": result.reason,
+        "trace_sha256": (
+            trace_fingerprint(result)
+        ),
+    }
+
+
+def export_research_results(
+    *,
+    results: dict[
+        str,
+        SimulationResult,
+    ],
+    mastery_questions: set[str],
+) -> tuple[Path, Path]:
+    RESEARCH_OUTPUT_DIR.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    summary_path = (
+        RESEARCH_OUTPUT_DIR
+        / (
+            "adaptive_pathway_"
+            "simulation_summary.csv"
+        )
+    )
+
+    traces_path = (
+        RESEARCH_OUTPUT_DIR
+        / (
+            "adaptive_pathway_"
+            "simulation_traces.json"
+        )
+    )
+
+    rows = [
+        build_summary_row(
+            result=results[profile],
+            mastery_questions=(
+                mastery_questions
+            ),
+        )
+        for profile in results
+    ]
+
+    fieldnames = [
+        "profile",
+        "total_steps",
+        "unique_questions_attempted",
+        "repeated_attempts",
+        "mastery_question_attempts",
+        "mastered_steps",
+        "final_evidence_score",
+        "completed",
+        "stalled",
+        "reason",
+        "trace_sha256",
+    ]
+
+    with summary_path.open(
+        "w",
+        encoding="utf-8",
+        newline="",
+    ) as handle:
+        writer = csv.DictWriter(
+            handle,
+            fieldnames=fieldnames,
+        )
+
+        writer.writeheader()
+        writer.writerows(
+            rows
+        )
+
+    traces_payload = {
+        "simulation_type": (
+            "deterministic_mock_learner"
+        ),
+        "curriculum_mapping": str(
+            GHANA_MAPPING_PATH
+        ),
+        "profiles": {},
+    }
+
+    for profile, result in (
+        results.items()
+    ):
+        traces_payload[
+            "profiles"
+        ][profile] = {
+            "summary": build_summary_row(
+                result=result,
+                mastery_questions=(
+                    mastery_questions
+                ),
+            ),
+            "trace": [
+                {
+                    "step": step.step,
+                    "concept_id": (
+                        step.concept_id
+                    ),
+                    "question_id": (
+                        step.question_id
+                    ),
+                    "score": step.score,
+                    "action": step.action,
+                    "next_concept_id": (
+                        step.next_concept_id
+                    ),
+                    "mastered": (
+                        step.mastered
+                    ),
+                    "evidence_score": round(
+                        step.evidence_score,
+                        6,
+                    ),
+                }
+                for step in result.trace
+            ],
+        }
+
+    traces_path.write_text(
+        json.dumps(
+            traces_payload,
+            indent=2,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+
+    return (
+        summary_path,
+        traces_path,
+    )
+
+
 def print_result(
     result: SimulationResult,
     concept_names: dict[str, str],
@@ -385,7 +612,7 @@ def print_result(
 def main() -> None:
     (
         _,
-        _,
+        mastery_questions,
         concept_names,
         question_names,
     ) = build_question_metadata()
@@ -521,6 +748,26 @@ def main() -> None:
     print(
         "Struggling completed     : "
         f"{first_runs['STRUGGLING'].completed}"
+    )
+
+    summary_path, traces_path = (
+        export_research_results(
+            results=first_runs,
+            mastery_questions=(
+                mastery_questions
+            ),
+        )
+    )
+
+    print()
+    print(
+        "Research summary CSV     : "
+        f"{summary_path}"
+    )
+
+    print(
+        "Research traces JSON     : "
+        f"{traces_path}"
     )
 
     print("=" * 78)

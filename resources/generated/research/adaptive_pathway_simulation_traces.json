@@ -1,0 +1,537 @@
+{
+  "simulation_type": "deterministic_mock_learner",
+  "curriculum_mapping": "examples\\curriculum_mapping\\ghana_basic9_linear_readiness.json",
+  "profiles": {
+    "STRONG": {
+      "summary": {
+        "profile": "STRONG",
+        "total_steps": 16,
+        "unique_questions_attempted": 16,
+        "repeated_attempts": 0,
+        "mastery_question_attempts": 3,
+        "mastered_steps": 3,
+        "final_evidence_score": 1.0,
+        "completed": true,
+        "stalled": false,
+        "reason": "No further concept remains.",
+        "trace_sha256": "ffb3440197895a2f57364c6d1fbbe5fef8d9cae7f0d8edcae081743657dd601b"
+      },
+      "trace": [
+        {
+          "step": 1,
+          "concept_id": "coordinate-graphs",
+          "question_id": "206939",
+          "score": 1.0,
+          "action": "target_practice",
+          "next_concept_id": null,
+          "mastered": false,
+          "evidence_score": 1.0
+        },
+        {
+          "step": 2,
+          "concept_id": "coordinate-graphs",
+          "question_id": "206961",
+          "score": 1.0,
+          "action": "advance_concept",
+          "next_concept_id": "gradient",
+          "mastered": true,
+          "evidence_score": 1.0
+        },
+        {
+          "step": 3,
+          "concept_id": "gradient",
+          "question_id": "207067",
+          "score": 1.0,
+          "action": "target_practice",
+          "next_concept_id": null,
+          "mastered": false,
+          "evidence_score": 1.0
+        },
+        {
+          "step": 4,
+          "concept_id": "gradient",
+          "question_id": "207059",
+          "score": 1.0,
+          "action": "advance_concept",
+          "next_concept_id": "simultaneous-equations",
+          "mastered": true,
+          "evidence_score": 1.0
+        },
+        {
+          "step": 5,
+          "concept_id": "simultaneous-equations",
+          "question_id": "lr_01_table_linear_relation",
+          "score": 1.0,
+          "action": "target_practice",
+          "next_concept_id": null,
+          "mastered": false,
+          "evidence_score": 1.0
+        },
+        {
+          "step": 6,
+          "concept_id": "simultaneous-equations",
+          "question_id": "qlin_02_partial_table_linear_relation",
+          "score": 1.0,
+          "action": "target_practice",
+          "next_concept_id": null,
+          "mastered": false,
+          "evidence_score": 1.0
+        },
+        {
+          "step": 7,
+          "concept_id": "simultaneous-equations",
+          "question_id": "qlin_03_paired_linear_tables",
+          "score": 1.0,
+          "action": "target_practice",
+          "next_concept_id": null,
+          "mastered": false,
+          "evidence_score": 1.0
+        },
+        {
+          "step": 8,
+          "concept_id": "simultaneous-equations",
+          "question_id": "qlin_04_distinct_representation_tables",
+          "score": 1.0,
+          "action": "target_practice",
+          "next_concept_id": null,
+          "mastered": false,
+          "evidence_score": 1.0
+        },
+        {
+          "step": 9,
+          "concept_id": "simultaneous-equations",
+          "question_id": "qlin_05_graph_two_linear_relations",
+          "score": 1.0,
+          "action": "target_practice",
+          "next_concept_id": null,
+          "mastered": false,
+          "evidence_score": 1.0
+        },
+        {
+          "step": 10,
+          "concept_id": "simultaneous-equations",
+          "question_id": "qlin_06_table_and_equation_graph",
+          "score": 1.0,
+          "action": "target_practice",
+          "next_concept_id": null,
+          "mastered": false,
+          "evidence_score": 1.0
+        },
+        {
+          "step": 11,
+          "concept_id": "simultaneous-equations",
+          "question_id": "qlin_07_missing_ordered_pair",
+          "score": 1.0,
+          "action": "target_practice",
+          "next_concept_id": null,
+          "mastered": false,
+          "evidence_score": 1.0
+        },
+        {
+          "step": 12,
+          "concept_id": "simultaneous-equations",
+          "question_id": "qlin_08_intersection_identification",
+          "score": 1.0,
+          "action": "target_practice",
+          "next_concept_id": null,
+          "mastered": false,
+          "evidence_score": 1.0
+        },
+        {
+          "step": 13,
+          "concept_id": "simultaneous-equations",
+          "question_id": "qlin_09_contextual_intersection",
+          "score": 1.0,
+          "action": "target_practice",
+          "next_concept_id": null,
+          "mastered": false,
+          "evidence_score": 1.0
+        },
+        {
+          "step": 14,
+          "concept_id": "simultaneous-equations",
+          "question_id": "qlin_10_graphical_simultaneous_equations",
+          "score": 1.0,
+          "action": "target_practice",
+          "next_concept_id": null,
+          "mastered": false,
+          "evidence_score": 1.0
+        },
+        {
+          "step": 15,
+          "concept_id": "simultaneous-equations",
+          "question_id": "qlin_11_context_to_graph_simultaneous_equations",
+          "score": 1.0,
+          "action": "target_practice",
+          "next_concept_id": null,
+          "mastered": false,
+          "evidence_score": 1.0
+        },
+        {
+          "step": 16,
+          "concept_id": "simultaneous-equations",
+          "question_id": "qlin_12_table_graph_intersection_mastery",
+          "score": 1.0,
+          "action": "complete_concept",
+          "next_concept_id": null,
+          "mastered": true,
+          "evidence_score": 1.0
+        }
+      ]
+    },
+    "MIXED": {
+      "summary": {
+        "profile": "MIXED",
+        "total_steps": 25,
+        "unique_questions_attempted": 16,
+        "repeated_attempts": 9,
+        "mastery_question_attempts": 3,
+        "mastered_steps": 3,
+        "final_evidence_score": 0.75,
+        "completed": true,
+        "stalled": false,
+        "reason": "No further concept remains.",
+        "trace_sha256": "858bf28a690326de6ba881f8b9fe9b2e900e84486dc8f0f31f23eb0b8028723b"
+      },
+      "trace": [
+        {
+          "step": 1,
+          "concept_id": "coordinate-graphs",
+          "question_id": "206939",
+          "score": 0.5,
+          "action": "target_practice",
+          "next_concept_id": null,
+          "mastered": false,
+          "evidence_score": 0.5
+        },
+        {
+          "step": 2,
+          "concept_id": "coordinate-graphs",
+          "question_id": "206961",
+          "score": 1.0,
+          "action": "advance_concept",
+          "next_concept_id": "gradient",
+          "mastered": true,
+          "evidence_score": 0.833333
+        },
+        {
+          "step": 3,
+          "concept_id": "gradient",
+          "question_id": "207067",
+          "score": 0.5,
+          "action": "target_practice",
+          "next_concept_id": null,
+          "mastered": false,
+          "evidence_score": 0.5
+        },
+        {
+          "step": 4,
+          "concept_id": "gradient",
+          "question_id": "207059",
+          "score": 1.0,
+          "action": "advance_concept",
+          "next_concept_id": "simultaneous-equations",
+          "mastered": true,
+          "evidence_score": 0.833333
+        },
+        {
+          "step": 5,
+          "concept_id": "simultaneous-equations",
+          "question_id": "lr_01_table_linear_relation",
+          "score": 0.5,
+          "action": "target_practice",
+          "next_concept_id": null,
+          "mastered": false,
+          "evidence_score": 0.5
+        },
+        {
+          "step": 6,
+          "concept_id": "simultaneous-equations",
+          "question_id": "qlin_02_partial_table_linear_relation",
+          "score": 0.5,
+          "action": "target_practice",
+          "next_concept_id": null,
+          "mastered": false,
+          "evidence_score": 0.5
+        },
+        {
+          "step": 7,
+          "concept_id": "simultaneous-equations",
+          "question_id": "qlin_03_paired_linear_tables",
+          "score": 0.5,
+          "action": "target_practice",
+          "next_concept_id": null,
+          "mastered": false,
+          "evidence_score": 0.5
+        },
+        {
+          "step": 8,
+          "concept_id": "simultaneous-equations",
+          "question_id": "qlin_04_distinct_representation_tables",
+          "score": 0.5,
+          "action": "target_practice",
+          "next_concept_id": null,
+          "mastered": false,
+          "evidence_score": 0.5
+        },
+        {
+          "step": 9,
+          "concept_id": "simultaneous-equations",
+          "question_id": "qlin_05_graph_two_linear_relations",
+          "score": 0.5,
+          "action": "target_practice",
+          "next_concept_id": null,
+          "mastered": false,
+          "evidence_score": 0.5
+        },
+        {
+          "step": 10,
+          "concept_id": "simultaneous-equations",
+          "question_id": "qlin_06_table_and_equation_graph",
+          "score": 0.5,
+          "action": "target_practice",
+          "next_concept_id": null,
+          "mastered": false,
+          "evidence_score": 0.5
+        },
+        {
+          "step": 11,
+          "concept_id": "simultaneous-equations",
+          "question_id": "qlin_07_missing_ordered_pair",
+          "score": 0.5,
+          "action": "target_practice",
+          "next_concept_id": null,
+          "mastered": false,
+          "evidence_score": 0.5
+        },
+        {
+          "step": 12,
+          "concept_id": "simultaneous-equations",
+          "question_id": "qlin_08_intersection_identification",
+          "score": 0.5,
+          "action": "target_practice",
+          "next_concept_id": null,
+          "mastered": false,
+          "evidence_score": 0.5
+        },
+        {
+          "step": 13,
+          "concept_id": "simultaneous-equations",
+          "question_id": "qlin_09_contextual_intersection",
+          "score": 0.5,
+          "action": "target_practice",
+          "next_concept_id": null,
+          "mastered": false,
+          "evidence_score": 0.5
+        },
+        {
+          "step": 14,
+          "concept_id": "simultaneous-equations",
+          "question_id": "qlin_10_graphical_simultaneous_equations",
+          "score": 0.5,
+          "action": "target_practice",
+          "next_concept_id": null,
+          "mastered": false,
+          "evidence_score": 0.5
+        },
+        {
+          "step": 15,
+          "concept_id": "simultaneous-equations",
+          "question_id": "qlin_11_context_to_graph_simultaneous_equations",
+          "score": 0.5,
+          "action": "target_practice",
+          "next_concept_id": null,
+          "mastered": false,
+          "evidence_score": 0.5
+        },
+        {
+          "step": 16,
+          "concept_id": "simultaneous-equations",
+          "question_id": "qlin_12_table_graph_intersection_mastery",
+          "score": 1.0,
+          "action": "target_practice",
+          "next_concept_id": null,
+          "mastered": false,
+          "evidence_score": 0.576923
+        },
+        {
+          "step": 17,
+          "concept_id": "simultaneous-equations",
+          "question_id": "lr_01_table_linear_relation",
+          "score": 1.0,
+          "action": "target_practice",
+          "next_concept_id": null,
+          "mastered": false,
+          "evidence_score": 0.607143
+        },
+        {
+          "step": 18,
+          "concept_id": "simultaneous-equations",
+          "question_id": "qlin_02_partial_table_linear_relation",
+          "score": 1.0,
+          "action": "target_practice",
+          "next_concept_id": null,
+          "mastered": false,
+          "evidence_score": 0.633333
+        },
+        {
+          "step": 19,
+          "concept_id": "simultaneous-equations",
+          "question_id": "qlin_03_paired_linear_tables",
+          "score": 1.0,
+          "action": "target_practice",
+          "next_concept_id": null,
+          "mastered": false,
+          "evidence_score": 0.65625
+        },
+        {
+          "step": 20,
+          "concept_id": "simultaneous-equations",
+          "question_id": "qlin_04_distinct_representation_tables",
+          "score": 1.0,
+          "action": "target_practice",
+          "next_concept_id": null,
+          "mastered": false,
+          "evidence_score": 0.676471
+        },
+        {
+          "step": 21,
+          "concept_id": "simultaneous-equations",
+          "question_id": "qlin_05_graph_two_linear_relations",
+          "score": 1.0,
+          "action": "target_practice",
+          "next_concept_id": null,
+          "mastered": false,
+          "evidence_score": 0.694444
+        },
+        {
+          "step": 22,
+          "concept_id": "simultaneous-equations",
+          "question_id": "qlin_06_table_and_equation_graph",
+          "score": 1.0,
+          "action": "target_practice",
+          "next_concept_id": null,
+          "mastered": false,
+          "evidence_score": 0.710526
+        },
+        {
+          "step": 23,
+          "concept_id": "simultaneous-equations",
+          "question_id": "qlin_07_missing_ordered_pair",
+          "score": 1.0,
+          "action": "target_practice",
+          "next_concept_id": null,
+          "mastered": false,
+          "evidence_score": 0.725
+        },
+        {
+          "step": 24,
+          "concept_id": "simultaneous-equations",
+          "question_id": "qlin_08_intersection_identification",
+          "score": 1.0,
+          "action": "target_practice",
+          "next_concept_id": null,
+          "mastered": false,
+          "evidence_score": 0.738095
+        },
+        {
+          "step": 25,
+          "concept_id": "simultaneous-equations",
+          "question_id": "qlin_09_contextual_intersection",
+          "score": 1.0,
+          "action": "complete_concept",
+          "next_concept_id": null,
+          "mastered": true,
+          "evidence_score": 0.75
+        }
+      ]
+    },
+    "STRUGGLING": {
+      "summary": {
+        "profile": "STRUGGLING",
+        "total_steps": 7,
+        "unique_questions_attempted": 2,
+        "repeated_attempts": 5,
+        "mastery_question_attempts": 6,
+        "mastered_steps": 0,
+        "final_evidence_score": 0.0,
+        "completed": false,
+        "stalled": true,
+        "reason": "The same question was selected too many times consecutively: 206961.",
+        "trace_sha256": "d4775596fbda547565a7f381e1124a11f0b746b9a8ee29f7d900d912f49d4baa"
+      },
+      "trace": [
+        {
+          "step": 1,
+          "concept_id": "coordinate-graphs",
+          "question_id": "206939",
+          "score": 0.0,
+          "action": "target_practice",
+          "next_concept_id": null,
+          "mastered": false,
+          "evidence_score": 0.0
+        },
+        {
+          "step": 2,
+          "concept_id": "coordinate-graphs",
+          "question_id": "206961",
+          "score": 0.0,
+          "action": "target_practice",
+          "next_concept_id": null,
+          "mastered": false,
+          "evidence_score": 0.0
+        },
+        {
+          "step": 3,
+          "concept_id": "coordinate-graphs",
+          "question_id": "206961",
+          "score": 0.0,
+          "action": "target_practice",
+          "next_concept_id": null,
+          "mastered": false,
+          "evidence_score": 0.0
+        },
+        {
+          "step": 4,
+          "concept_id": "coordinate-graphs",
+          "question_id": "206961",
+          "score": 0.0,
+          "action": "target_practice",
+          "next_concept_id": null,
+          "mastered": false,
+          "evidence_score": 0.0
+        },
+        {
+          "step": 5,
+          "concept_id": "coordinate-graphs",
+          "question_id": "206961",
+          "score": 0.0,
+          "action": "target_practice",
+          "next_concept_id": null,
+          "mastered": false,
+          "evidence_score": 0.0
+        },
+        {
+          "step": 6,
+          "concept_id": "coordinate-graphs",
+          "question_id": "206961",
+          "score": 0.0,
+          "action": "target_practice",
+          "next_concept_id": null,
+          "mastered": false,
+          "evidence_score": 0.0
+        },
+        {
+          "step": 7,
+          "concept_id": "coordinate-graphs",
+          "question_id": "206961",
+          "score": 0.0,
+          "action": "target_practice",
+          "next_concept_id": null,
+          "mastered": false,
+          "evidence_score": 0.0
+        }
+      ]
+    }
+  }
+}

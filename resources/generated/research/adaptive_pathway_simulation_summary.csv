@@ -1,0 +1,4 @@
+profile,total_steps,unique_questions_attempted,repeated_attempts,mastery_question_attempts,mastered_steps,final_evidence_score,completed,stalled,reason,trace_sha256
+STRONG,16,16,0,3,3,1.0,True,False,No further concept remains.,ffb3440197895a2f57364c6d1fbbe5fef8d9cae7f0d8edcae081743657dd601b
+MIXED,25,16,9,3,3,0.75,True,False,No further concept remains.,858bf28a690326de6ba881f8b9fe9b2e900e84486dc8f0f31f23eb0b8028723b
+STRUGGLING,7,2,5,6,0,0.0,False,True,The same question was selected too many times consecutively: 206961.,d4775596fbda547565a7f381e1124a11f0b746b9a8ee29f7d900d912f49d4baa
