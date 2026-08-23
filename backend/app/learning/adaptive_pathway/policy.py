@@ -53,6 +53,9 @@ class AdaptivePathwayPolicy:
         repeat_attempt_counts: (
             dict[str, int] | None
         ) = None,
+        unmet_mastery_question_ids: (
+            list[str] | None
+        ) = None,
     ) -> PathwayDecision:
         seen = set(
             seen_content_ids or set()
@@ -184,7 +187,44 @@ class AdaptivePathwayPolicy:
                 )
 
         # --------------------------------------------------
-        # No remediation:
+        # Required mastery evidence is still missing:
+        # retry an unmet mastery question first.
+        # --------------------------------------------------
+
+        for mastery_question_id in (
+            unmet_mastery_question_ids
+            or []
+        ):
+            mastery_question = (
+                self.content_selector
+                .content_repository
+                .get(
+                    mastery_question_id
+                )
+            )
+
+            if (
+                mastery_question is not None
+                and mastery_question.concept_id
+                == current_concept_id
+                and mastery_question.can_be_delivered
+            ):
+                return PathwayDecision(
+                    action=PathwayAction.REPEAT,
+                    concept_id=current_concept_id,
+                    question=mastery_question,
+                    reason=(
+                        "Current concept is not yet "
+                        "mastered because required "
+                        "mastery evidence remains "
+                        "unmet. The learner retries "
+                        "the unmet mastery question "
+                        "before generic repetition."
+                    ),
+                )
+
+        # --------------------------------------------------
+        # No unmet mastery item can be delivered:
         # repeat the least-attempted question.
         # --------------------------------------------------
 

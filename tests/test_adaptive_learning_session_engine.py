@@ -397,6 +397,7 @@ def test_first_attempt_uses_configured_adaptive_pathway(
             *,
             concept_mastered,
             repeat_attempt_counts=None,
+            unmet_mastery_question_ids=None,
         ):
             calls["policy"] += 1
 
@@ -412,6 +413,11 @@ def test_first_attempt_uses_configured_adaptive_pathway(
             assert isinstance(
                 mastered_concept_ids,
                 set,
+            )
+
+            assert isinstance(
+                unmet_mastery_question_ids,
+                list,
             )
 
             return object()
@@ -571,4 +577,133 @@ def test_ghana_qlin12_is_required_before_simultaneous_equations_mastery(
 
     assert session.action == (
         ConceptDecisionAction.COMPLETE_CONCEPT
+    )
+
+
+def test_failed_ghana_qlin12_retries_required_mastery_question(
+) -> None:
+    from backend.app.services.live_session_factory import (
+        build_curriculum_runtime_bundle,
+    )
+
+    bundle = build_curriculum_runtime_bundle(
+        "ghana-basic9-mathematics"
+    )
+
+    service = bundle.live_session_service
+
+    student_id = 92013
+
+    mastery_question_id = (
+        "qlin_12_table_graph_"
+        "intersection_mastery"
+    )
+
+    regular_questions = [
+        "lr_01_table_linear_relation",
+        "qlin_02_partial_table_linear_relation",
+        "qlin_03_paired_linear_tables",
+        "qlin_04_distinct_representation_tables",
+        "qlin_05_graph_two_linear_relations",
+        "qlin_06_table_and_equation_graph",
+        "qlin_07_missing_ordered_pair",
+        "qlin_08_intersection_identification",
+        "qlin_09_contextual_intersection",
+        "qlin_10_graphical_simultaneous_equations",
+        "qlin_11_context_to_graph_simultaneous_equations",
+    ]
+
+    session = service.start_session(
+        student_id=student_id,
+        concept_id=GHANA_CONCEPT_ID,
+    )
+
+    for question_id in regular_questions:
+        assert session.question is not None
+        assert session.question.id == question_id
+
+        session = service.submit_outcome(
+            ScoredStackOutcome(
+                student_id=student_id,
+                concept_id=GHANA_CONCEPT_ID,
+                question_id=question_id,
+                outcome_code="correct",
+                score=1.0,
+                stack_feedback="Correct.",
+            )
+        )
+
+    assert session.question is not None
+
+    assert (
+        session.question.id
+        == mastery_question_id
+    )
+
+    assert (
+        session.progress.concept_mastered
+        is False
+    )
+
+    # Fail the required mastery question.
+    session = service.submit_outcome(
+        ScoredStackOutcome(
+            student_id=student_id,
+            concept_id=GHANA_CONCEPT_ID,
+            question_id=mastery_question_id,
+            outcome_code="incorrect",
+            score=0.0,
+            stack_feedback=(
+                "Mastery check failed."
+            ),
+        )
+    )
+
+    assert session.progress.attempts == 12
+
+    assert (
+        session.progress.concept_mastered
+        is False
+    )
+
+    assert (
+        GHANA_CONCEPT_ID
+        not in session.mastered_concept_ids
+    )
+
+    assert session.session_complete is False
+
+    assert session.question is not None
+
+    # Required mastery failure must retry QLIN-12,
+    # not restart the learner at QLIN-01.
+    assert (
+        session.question.id
+        == mastery_question_id
+    )
+
+    assert session.action == (
+        ConceptDecisionAction.TARGET_PRACTICE
+    )
+
+    assert (
+        "required mastery evidence"
+        in session.decision_reason.lower()
+    )
+
+    stored = service.get_session(
+        student_id
+    )
+
+    assert stored is not None
+    assert stored.question is not None
+
+    assert (
+        stored.question.id
+        == mastery_question_id
+    )
+
+    assert (
+        stored.progress.concept_mastered
+        is False
     )

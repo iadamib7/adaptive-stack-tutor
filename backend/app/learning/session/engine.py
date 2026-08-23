@@ -281,6 +281,13 @@ class AdaptiveLearningSessionEngine:
                     repeat_attempt_counts=(
                         repeat_attempt_counts
                     ),
+                    unmet_mastery_question_ids=[
+                        question_id
+                        for question_id
+                        in summary.required_mastery_question_ids
+                        if question_id
+                        not in summary.passed_mastery_question_ids
+                    ],
                 )
             )
 
