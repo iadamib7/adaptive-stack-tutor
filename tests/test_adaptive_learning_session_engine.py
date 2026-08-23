@@ -707,3 +707,140 @@ def test_failed_ghana_qlin12_retries_required_mastery_question(
         stored.progress.concept_mastered
         is False
     )
+
+
+def test_ghana_qlin12_failure_then_success_recovers_mastery(
+) -> None:
+    from backend.app.services.live_session_factory import (
+        build_curriculum_runtime_bundle,
+    )
+
+    bundle = build_curriculum_runtime_bundle(
+        "ghana-basic9-mathematics"
+    )
+
+    service = bundle.live_session_service
+
+    student_id = 92015
+
+    mastery_question_id = (
+        "qlin_12_table_graph_"
+        "intersection_mastery"
+    )
+
+    session = service.start_session(
+        student_id=student_id,
+        concept_id=GHANA_CONCEPT_ID,
+    )
+
+    while (
+        session.question is not None
+        and session.question.id
+        != mastery_question_id
+    ):
+        session = service.submit_outcome(
+            ScoredStackOutcome(
+                student_id=student_id,
+                concept_id=GHANA_CONCEPT_ID,
+                question_id=session.question.id,
+                outcome_code="correct",
+                score=1.0,
+                stack_feedback="Correct.",
+            )
+        )
+
+    assert session.question is not None
+
+    assert (
+        session.question.id
+        == mastery_question_id
+    )
+
+    assert (
+        session.progress.concept_mastered
+        is False
+    )
+
+    # First mastery attempt fails.
+    session = service.submit_outcome(
+        ScoredStackOutcome(
+            student_id=student_id,
+            concept_id=GHANA_CONCEPT_ID,
+            question_id=mastery_question_id,
+            outcome_code="incorrect",
+            score=0.0,
+            stack_feedback=(
+                "Mastery check failed."
+            ),
+        )
+    )
+
+    assert session.progress.attempts == 12
+
+    assert (
+        session.progress.concept_mastered
+        is False
+    )
+
+    assert session.question is not None
+
+    assert (
+        session.question.id
+        == mastery_question_id
+    )
+
+    assert session.session_complete is False
+
+    # Second mastery attempt succeeds.
+    session = service.submit_outcome(
+        ScoredStackOutcome(
+            student_id=student_id,
+            concept_id=GHANA_CONCEPT_ID,
+            question_id=mastery_question_id,
+            outcome_code="correct",
+            score=1.0,
+            stack_feedback=(
+                "Mastery check passed."
+            ),
+        )
+    )
+
+    assert session.progress.attempts == 13
+
+    assert (
+        session.progress.concept_mastered
+        is True
+    )
+
+    assert (
+        GHANA_CONCEPT_ID
+        in session.mastered_concept_ids
+    )
+
+    assert (
+        session.progress.positive_evidence_count
+        == 12
+    )
+
+    assert (
+        session.progress.negative_evidence_count
+        == 1
+    )
+
+    assert session.question is None
+    assert session.session_complete is True
+
+    assert session.action == (
+        ConceptDecisionAction.COMPLETE_CONCEPT
+    )
+
+    stored = service.get_session(
+        student_id
+    )
+
+    assert stored is not None
+
+    assert (
+        stored.progress.concept_mastered
+        is True
+    )
