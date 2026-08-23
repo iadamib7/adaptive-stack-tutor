@@ -844,3 +844,197 @@ def test_ghana_qlin12_failure_then_success_recovers_mastery(
         stored.progress.concept_mastered
         is True
     )
+
+
+def test_ghana_identical_histories_produce_identical_adaptive_traces(
+) -> None:
+    from backend.app.services.live_session_factory import (
+        build_curriculum_runtime_bundle,
+    )
+
+    mastery_question_id = (
+        "qlin_12_table_graph_"
+        "intersection_mastery"
+    )
+
+    def run_trace(
+        student_id: int,
+    ) -> list[dict]:
+        bundle = build_curriculum_runtime_bundle(
+            "ghana-basic9-mathematics"
+        )
+
+        service = bundle.live_session_service
+
+        trace = []
+
+        session = service.start_session(
+            student_id=student_id,
+            concept_id=GHANA_CONCEPT_ID,
+        )
+
+        trace.append(
+            {
+                "question": (
+                    session.question.id
+                    if session.question
+                    else None
+                ),
+                "action": session.action.value,
+                "mastered": (
+                    session.progress.concept_mastered
+                ),
+                "attempts": (
+                    session.progress.attempts
+                ),
+                "complete": (
+                    session.session_complete
+                ),
+            }
+        )
+
+        while (
+            session.question is not None
+            and session.question.id
+            != mastery_question_id
+        ):
+            session = service.submit_outcome(
+                ScoredStackOutcome(
+                    student_id=student_id,
+                    concept_id=GHANA_CONCEPT_ID,
+                    question_id=session.question.id,
+                    outcome_code="correct",
+                    score=1.0,
+                    stack_feedback="Correct.",
+                )
+            )
+
+            trace.append(
+                {
+                    "question": (
+                        session.question.id
+                        if session.question
+                        else None
+                    ),
+                    "action": session.action.value,
+                    "mastered": (
+                        session.progress
+                        .concept_mastered
+                    ),
+                    "attempts": (
+                        session.progress.attempts
+                    ),
+                    "complete": (
+                        session.session_complete
+                    ),
+                }
+            )
+
+        assert session.question is not None
+
+        assert (
+            session.question.id
+            == mastery_question_id
+        )
+
+        session = service.submit_outcome(
+            ScoredStackOutcome(
+                student_id=student_id,
+                concept_id=GHANA_CONCEPT_ID,
+                question_id=mastery_question_id,
+                outcome_code="incorrect",
+                score=0.0,
+                stack_feedback=(
+                    "Mastery check failed."
+                ),
+            )
+        )
+
+        trace.append(
+            {
+                "question": (
+                    session.question.id
+                    if session.question
+                    else None
+                ),
+                "action": session.action.value,
+                "mastered": (
+                    session.progress.concept_mastered
+                ),
+                "attempts": (
+                    session.progress.attempts
+                ),
+                "complete": (
+                    session.session_complete
+                ),
+            }
+        )
+
+        assert session.question is not None
+
+        assert (
+            session.question.id
+            == mastery_question_id
+        )
+
+        session = service.submit_outcome(
+            ScoredStackOutcome(
+                student_id=student_id,
+                concept_id=GHANA_CONCEPT_ID,
+                question_id=mastery_question_id,
+                outcome_code="correct",
+                score=1.0,
+                stack_feedback=(
+                    "Mastery check passed."
+                ),
+            )
+        )
+
+        trace.append(
+            {
+                "question": (
+                    session.question.id
+                    if session.question
+                    else None
+                ),
+                "action": session.action.value,
+                "mastered": (
+                    session.progress.concept_mastered
+                ),
+                "attempts": (
+                    session.progress.attempts
+                ),
+                "complete": (
+                    session.session_complete
+                ),
+            }
+        )
+
+        return trace
+
+    trace_a = run_trace(
+        student_id=93001
+    )
+
+    trace_b = run_trace(
+        student_id=93002
+    )
+
+    assert trace_a == trace_b
+
+    assert len(trace_a) == 14
+
+    assert (
+        trace_a[-1]["mastered"]
+        is True
+    )
+
+    assert (
+        trace_a[-1]["complete"]
+        is True
+    )
+
+    assert (
+        trace_a[-1]["question"]
+        is None
+    )
