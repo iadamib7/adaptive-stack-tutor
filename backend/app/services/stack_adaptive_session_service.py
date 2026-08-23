@@ -1,4 +1,4 @@
-from backend.app.integrations.stack_api.adapter import (
+﻿from backend.app.integrations.stack_api.adapter import (
     StackEvaluationAdapter,
 )
 from backend.app.learning.session.engine import (
@@ -6,6 +6,7 @@ from backend.app.learning.session.engine import (
 )
 from backend.app.learning.session.models import (
     LearningSessionState,
+    ScoredStackOutcome,
 )
 
 
@@ -14,9 +15,9 @@ class StackAdaptiveSessionService:
     Coordinate STACK evaluation with the curriculum-aware
     adaptive learning session engine.
 
-    The service is independent of the concrete STACK client.
-    Tests may use the mock client, while production can later
-    use an HTTP client based on the official STACK API script.
+    Evaluation and curriculum progression are intentionally
+    separate so adaptive sub-tasks can be graded without
+    prematurely completing their source STACK question.
     """
 
     def __init__(
@@ -37,6 +38,43 @@ class StackAdaptiveSessionService:
             concept_id=concept_id,
         )
 
+    def evaluate_answer(
+        self,
+        *,
+        student_id: int,
+        concept_id: str,
+        question_id: str,
+        question_xml: str,
+        student_answers: dict[str, str],
+        target_prt_name: str | None = None,
+        target_prt_names: list[str] | None = None,
+        seed: int | None = None,
+    ) -> ScoredStackOutcome:
+        self._validate_submission_context(
+            student_id=student_id,
+            concept_id=concept_id,
+            question_id=question_id,
+        )
+
+        return self.stack_adapter.evaluate_for_session(
+            student_id=student_id,
+            concept_id=concept_id,
+            question_id=question_id,
+            question_xml=question_xml,
+            student_answers=student_answers,
+            target_prt_name=target_prt_name,
+            target_prt_names=target_prt_names,
+            seed=seed,
+        )
+
+    def submit_outcome(
+        self,
+        outcome: ScoredStackOutcome,
+    ) -> LearningSessionState:
+        return self.session_engine.submit_outcome(
+            outcome
+        )
+
     def submit_answer(
         self,
         student_id: int,
@@ -45,10 +83,50 @@ class StackAdaptiveSessionService:
         question_xml: str,
         student_answers: dict[str, str],
         target_prt_name: str | None = None,
+        target_prt_names: list[str] | None = None,
         seed: int | None = None,
     ) -> LearningSessionState:
-        current_session = self.session_engine.get_session(
+        """
+        Backward-compatible full-question submission.
+
+        Existing callers still evaluate and immediately submit
+        the resulting evidence to the curriculum engine.
+        """
+
+        scored_outcome = self.evaluate_answer(
+            student_id=student_id,
+            concept_id=concept_id,
+            question_id=question_id,
+            question_xml=question_xml,
+            student_answers=student_answers,
+            target_prt_name=target_prt_name,
+            target_prt_names=target_prt_names,
+            seed=seed,
+        )
+
+        return self.submit_outcome(
+            scored_outcome
+        )
+
+    def get_session(
+        self,
+        student_id: int,
+    ) -> LearningSessionState | None:
+        return self.session_engine.get_session(
             student_id
+        )
+
+    def _validate_submission_context(
+        self,
+        *,
+        student_id: int,
+        concept_id: str,
+        question_id: str,
+    ) -> None:
+        current_session = (
+            self.session_engine.get_session(
+                student_id
+            )
         )
 
         if current_session is None:
@@ -57,7 +135,10 @@ class StackAdaptiveSessionService:
                 f"student {student_id}."
             )
 
-        if current_session.current_concept_id != concept_id:
+        if (
+            current_session.current_concept_id
+            != concept_id
+        ):
             raise ValueError(
                 "The submitted concept does not match the "
                 "student's active learning session."
@@ -69,32 +150,11 @@ class StackAdaptiveSessionService:
                 "a question response."
             )
 
-        if current_session.question.id != question_id:
+        if (
+            current_session.question.id
+            != question_id
+        ):
             raise ValueError(
                 "The submitted question does not match the "
                 "question currently assigned to the student."
             )
-
-        scored_outcome = (
-            self.stack_adapter.evaluate_for_session(
-                student_id=student_id,
-                concept_id=concept_id,
-                question_id=question_id,
-                question_xml=question_xml,
-                student_answers=student_answers,
-                target_prt_name=target_prt_name,
-                seed=seed,
-            )
-        )
-
-        return self.session_engine.submit_outcome(
-            scored_outcome
-        )
-
-    def get_session(
-        self,
-        student_id: int,
-    ) -> LearningSessionState | None:
-        return self.session_engine.get_session(
-            student_id
-        )

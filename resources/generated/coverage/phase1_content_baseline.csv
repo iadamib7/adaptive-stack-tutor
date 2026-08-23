@@ -1,0 +1,30 @@
+concept_id,concept_name,stack_questions,numbas_questions,total_questions,deliverable_questions,review_questions,blocked_questions,mastery_questions,target,gap
+number-sense,Number Sense,0,0,0,0,0,0,0,8,8
+integer-operations,Integer Operations,5,0,5,0,5,0,0,10,5
+fractions,Fractions,0,1,1,1,0,0,0,12,11
+decimals,Decimals,0,1,1,1,0,0,0,8,7
+order-of-operations,Order of Operations,0,1,1,1,0,0,0,8,7
+percentages,Percentages,0,1,1,1,0,0,0,10,9
+ratio-and-proportion,Ratio and Proportion,0,0,0,0,0,0,0,12,12
+algebraic-expressions,Algebraic Expressions,0,1,1,1,0,0,0,12,11
+arithmetic-sequences,Arithmetic Sequences,0,2,2,2,0,0,0,10,8
+indices,Indices and Exponents,17,1,18,1,17,0,0,12,0
+linear-equations,Linear Equations,0,1,1,1,0,0,0,14,13
+factorisation,Factorisation,0,0,0,0,0,0,0,12,12
+inequalities,Linear Inequalities,0,0,0,0,0,0,0,10,10
+simultaneous-equations,Simultaneous Equations,0,0,0,0,0,0,0,12,12
+coordinate-graphs,Coordinates and Linear Graphs,7,0,7,0,7,0,0,12,5
+gradient,Gradient and Slope,5,0,5,0,5,0,0,10,5
+angles,Angles and Angle Relationships,0,0,0,0,0,0,0,10,10
+triangles,Triangles,0,0,0,0,0,0,0,10,10
+geometry,Plane Geometry,0,0,0,0,0,0,0,12,12
+pythagorean-theorem,Pythagorean Theorem,0,1,1,1,0,0,0,10,9
+similarity,Similarity and Scale,0,0,0,0,0,0,0,10,10
+mensuration,Mensuration,9,0,9,0,9,0,0,14,5
+surface-area-and-volume,Surface Area and Volume,0,0,0,0,0,0,0,12,12
+statistics,Statistics and Data Representation,0,1,1,1,0,0,0,12,11
+probability,Probability,0,1,1,1,0,0,0,12,11
+roots-and-surds,Roots and Surds,0,0,0,0,0,0,0,10,10
+quadratic-expressions,Quadratic Expressions,0,0,0,0,0,0,0,12,12
+trigonometry,Introductory Trigonometry,7,0,7,0,7,0,0,14,7
+matrices,Matrices,1,0,1,0,1,0,0,12,11

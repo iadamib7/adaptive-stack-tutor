@@ -12,8 +12,17 @@ from backend.app.api.questions import (
 from backend.app.api.sessions import (
     router as sessions_router,
 )
+from backend.app.api.live_sessions import (
+    router as live_sessions_router,
+)
+from backend.app.api.learner import (
+    router as learner_router,
+)
 from backend.app.database.init_db import (
     initialize_database,
+)
+from backend.app.api.content import (
+    router as content_router,
 )
 
 
@@ -39,6 +48,9 @@ app = FastAPI(
 app.include_router(questions_router)
 app.include_router(attempts_router)
 app.include_router(sessions_router)
+app.include_router(live_sessions_router)
+app.include_router(learner_router)
+app.include_router(content_router)
 
 
 @app.get("/")

@@ -1,0 +1,56 @@
+{
+  "version": "1.0",
+  "name": "Ghana SHS1 Mathematics",
+  "identity": {
+    "id": "ghana-shs1-mathematics",
+    "country": "Ghana",
+    "education_system": "Senior High School Curriculum",
+    "source_level_id": "SHS1",
+    "source_level_label": "Senior High School 1",
+    "target_level_id": "SHS2",
+    "target_level_label": "Senior High School 2",
+    "curriculum_version": "2023"
+  },
+  "intended_use": "Readiness targets for learners transitioning from Basic 9 to SHS1 mathematics.",
+  "development_status": "development",
+  "source_documents": [
+    "Mathematics-Curriculum(Grade 10-12) (2).pdf"
+  ],
+  "concepts": [
+    {
+      "id": "GH-SHS1-ALG-STRAIGHT-LINES",
+      "knowledge_concept_id": "gradient",
+      "level_id": "SHS1",
+      "level_label": "Senior High School 1",
+      "progression_order": 1,
+      "strand": "Algebraic Thinking",
+      "sub_strand": "Patterns and Relationships",
+      "name": "Straight-Line Equations and Coordinate Geometry",
+      "description": "Extend understanding of gradient and straight-line equations to equations from coordinates, parallel and perpendicular lines, and line-segment relationships.",
+      "content_standard_ids": [
+        "1.2.2.CS.2"
+      ],
+      "learning_indicator_ids": [
+        "1.2.2.LI.1",
+        "1.2.2.LI.2"
+      ],
+      "learning_outcomes": [
+        "Find the gradient and equation of a straight line from coordinates.",
+        "Determine equations using a point and gradient.",
+        "Recognise and reason about parallel and perpendicular straight lines.",
+        "Determine distance between two points."
+      ],
+      "readiness_target_ids": [],
+      "prerequisite_concept_ids": [
+        "GH-B9-ALG-LINEAR-RELATIONS"
+      ],
+      "next_concept_ids": [],
+      "stack_question_ids": [],
+      "status": "target",
+      "supporting_knowledge_concept_ids": [
+        "coordinate-graphs",
+        "linear-equations"
+      ]
+    }
+  ]
+}

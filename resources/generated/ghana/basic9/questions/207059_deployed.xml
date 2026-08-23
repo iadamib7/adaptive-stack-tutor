@@ -1,0 +1,178 @@
+<quiz><question type="stack">
+    <name>
+      <text>Determining the equation of a straight line.</text>
+    </name>
+    <questiontext format="moodle_auto_format">
+      <text>&lt;p&gt;Determine the equation of the straight line using the points A and B.&lt;/p&gt;
+
+[[jsxgraph]]
+
+var board = JXG.JSXGraph.initBoard(divid, {
+  axis: true,
+  showCopyright: false,
+  boundingbox: [-7,6,7,-6],
+  keepaspectratio: true,
+  grid:true
+});
+var p1 = board.create('point', [{#x_A#},{#y_A#}],{name:'A',visible:true, fixed:true});
+var p2 = board.create('point', [{#x_B#},{#y_B#}],{name:'B',visible:true, fixed:true});
+ var l2 = board.create('line', [p1, p2], {
+                    fixed: true,
+                    straightFirst: true,
+                    straightLast: true,
+                    strokeWidth: 2
+                    });
+
+[[/jsxgraph]]
+&lt;p&gt;\(y = \)[[input:ans1]] [[validation:ans1]][[feedback:prt1]]&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="moodle_auto_format">
+      <text>&lt;h3&gt;Worked Solution&lt;/h3&gt;
+&lt;p&gt;To determine the equation of a straight line:&lt;/p&gt;
+&lt;p&gt;Find the gradient \(m\) of the line using the given points A and B;&lt;/p&gt;
+&lt;p&gt;\(m = \frac{y_A - y_B}{x_A - x_B} = \frac{{{@y_A@} - {@y_B@}}}{{{@x_A@} - {@x_B@}}} = {@m_AB@}\)&lt;/p&gt;
+&lt;p&gt;You can choose any point A or B to calculate the equation of the line.&lt;/p&gt;
+&lt;p&gt;Taking point A({@x_A@},{@y_A@}), point(x,y) and the gradient {@m_AB@}, the equation of the line is:&lt;/p&gt;
+&lt;p&gt;\({@m_AB@}= \frac{y - {@y_A@}}{x - {@x_A@}}\)&lt;/p&gt;
+&lt;p&gt;\(y - {@y_A@} = {@m_AB@} \times (x - {@x_A@}) \)&lt;/p&gt;
+&lt;p&gt;\(y  =  {@y_A@} + {@m_AB@}\times x - {{@m_AB@} \times {@x_A@}}\)&lt;/p&gt;
+&lt;p&gt;\({@eqn_AB@}\)&lt;/p&gt;
+&lt;p&gt;Also, if you choose point A to calculate the equation of the line: &lt;/p&gt;
+&lt;p&gt;\({@m_AB@}= \frac{y - {@y_B@}}{x - {@x_B@}}\)&lt;/p&gt;
+&lt;p&gt;\(y - {@y_B@} = {@m_AB@} \times (x - {@x_B@}) \)&lt;/p&gt;
+&lt;p&gt;\(y  =  {@y_B@} + {@m_AB@} \times x - {{@m_AB@} \times {@x_B@}} \)&lt;/p&gt;
+&lt;p&gt;\({@eqn_AB@}\)&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>4.0000000</defaultgrade>
+    <penalty>0.1000000</penalty>
+    <hidden>0</hidden>
+    <idnumber />
+    <stackversion>
+      <text>2025012100</text>
+    </stackversion>
+    <questionvariables>
+      <text>/*coordinates of the fixed line AB*/
+x_A:rand_with_step(-5,5,1);
+y_A:rand_with_step(-5,5,1);
+x_B:rand_with_prohib(-5,5,[x_A]);
+y_B:rand_with_prohib(-5,5,[y_A]);
+/*Gradient of line AB, teachers answer*/
+m_AB:(y_B-y_A)/(x_B-x_A);
+eqn_AB:y=m_AB*x-m_AB*x_A+y_A;
+ta:m_AB*x-m_AB*x_A+y_A;</text>
+    </questionvariables>
+    <specificfeedback format="html">
+      <text />
+    </specificfeedback>
+    <questionnote format="html">
+      <text>&lt;p&gt;{@m_AB@}&lt;/p&gt;
+&lt;p&gt;{@eqn_AB@}&lt;/p&gt;</text>
+    </questionnote>
+    <questiondescription format="html">
+      <text />
+    </questiondescription>
+    <questionsimplify>1</questionsimplify>
+    <assumepositive>0</assumepositive>
+    <assumereal>0</assumereal>
+    <prtcorrect format="html">
+      <text>&lt;span style="font-size: 1.5em; color:green;"&gt;&lt;i class="fa fa-check"&gt;&lt;/i&gt;&lt;/span&gt; Correct answer, well done.</text>
+    </prtcorrect>
+    <prtpartiallycorrect format="html">
+      <text>&lt;span style="font-size: 1.5em; color:orange;"&gt;&lt;i class="fa fa-adjust"&gt;&lt;/i&gt;&lt;/span&gt; Your answer is partially correct.</text>
+    </prtpartiallycorrect>
+    <prtincorrect format="html">
+      <text>&lt;span style="font-size: 1.5em; color:red;"&gt;&lt;i class="fa fa-times"&gt;&lt;/i&gt;&lt;/span&gt; Incorrect answer.</text>
+    </prtincorrect>
+    <decimals>.</decimals>
+    <scientificnotation>*10</scientificnotation>
+    <multiplicationsign>none</multiplicationsign>
+    <sqrtsign>1</sqrtsign>
+    <complexno>i</complexno>
+    <inversetrig>cos-1</inversetrig>
+    <logicsymbol>lang</logicsymbol>
+    <matrixparens>[</matrixparens>
+    <isbroken>0</isbroken>
+    <variantsselectionseed />
+    <input>
+      <name>ans1</name>
+      <type>algebraic</type>
+      <tans>ta</tans>
+      <boxsize>15</boxsize>
+      <strictsyntax>1</strictsyntax>
+      <insertstars>1</insertstars>
+      <syntaxhint />
+      <syntaxattribute>0</syntaxattribute>
+      <forbidwords />
+      <allowwords />
+      <forbidfloat>1</forbidfloat>
+      <requirelowestterms>0</requirelowestterms>
+      <checkanswertype>0</checkanswertype>
+      <mustverify>1</mustverify>
+      <showvalidation>3</showvalidation>
+      <options />
+    </input>
+    <prt>
+      <name>prt1</name>
+      <value>1.0000000</value>
+      <autosimplify>1</autosimplify>
+      <feedbackstyle>1</feedbackstyle>
+      <feedbackvariables>
+        <text>/*Mistake 1: Checks if the gradient has been calculated incorrectly e.g. m_AB:(x_B-x_A)/(y_B-y_A);  */
+m_incorrect:1/m_AB;
+eqn_incorrect:m_incorrect*x-m_incorrect*x_A+y_A;
+mistake_1:eqn_incorrect;</text>
+      </feedbackvariables>
+      <node>
+        <name>0</name>
+        <description>Checks for the correct equation of the line</description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans1</sans>
+        <tans>ta</tans>
+        <testoptions />
+        <quiet>0</quiet>
+        <truescoremode>=</truescoremode>
+        <truescore>1</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-1-T</trueanswernote>
+        <truefeedback format="html">
+          <text />
+        </truefeedback>
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>1</falsenextnode>
+        <falseanswernote>prt1-1-F</falseanswernote>
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+      <node>
+        <name>1</name>
+        <description>Checks if the inverse of the gradient was used to calculate the equation</description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans1</sans>
+        <tans>mistake_1</tans>
+        <testoptions />
+        <quiet>0</quiet>
+        <truescoremode>+</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-2-T</trueanswernote>
+        <truefeedback format="html">
+          <text>&lt;p&gt;You seem to have calculated the gradient in the inverse way. Refer to the worked solution for the correct computation&lt;/p&gt;</text>
+        </truefeedback>
+        <falsescoremode>-</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>-1</falsenextnode>
+        <falseanswernote>prt1-2-F</falseanswernote>
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+    </prt>
+  <deployedseed>288991697</deployedseed></question>
+
+</quiz>

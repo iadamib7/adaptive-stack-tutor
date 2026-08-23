@@ -17,7 +17,9 @@ def load_curriculum_question_map(
     try:
         return (
             CurriculumQuestionMap.model_validate_json(
-                path.read_text(encoding="utf-8")
+                path.read_text(
+                    encoding="utf-8-sig"
+                )
             )
         )
     except ValueError as error:

@@ -1,8 +1,8 @@
 {
-  "version": "0.1",
-  "name": "Kenya Grade 9 Integer Operations Development Mapping",
-  "intended_context": "Development of a curriculum-agnostic adaptive framework primarily intended for the Ghanaian JHS-to-SHS mathematics transition.",
-  "development_context": "Kenyan Grade 9 STACK questions are being used as the first real development and validation case study.",
+  "version": "0.4",
+  "name": "Grade 9 to Grade 10 Adaptive Mathematics Practice Map",
+  "intended_context": "Adaptive mathematics practice supporting the Grade 9 to Grade 10 transition.",
+  "development_context": "Expanded using validated questions from the existing Innodems STACK Grade 9 question bank.",
   "mappings": [
     {
       "concept_id": "KE-G9-INTEGER-OPERATIONS",
@@ -13,7 +13,9 @@
       "sub_strand": "Integers",
       "learning_outcome": "Demonstrate understanding of addition, subtraction, multiplication, division, and combined operations involving integers.",
       "prerequisite_concept_ids": [],
-      "next_concept_ids": [],
+      "next_concept_ids": [
+        "KE-G9-INDICES-EXPONENTS"
+      ],
       "questions": [
         {
           "question_id": "207582",
@@ -63,12 +65,316 @@
           "role": "mastery_check",
           "sequence_order": 5,
           "required_for_mastery": true,
-          "notes": "Used as an integrated concept-level mastery check."
+          "notes": "Integrated integer-operations mastery check."
         }
       ],
       "mapping_status": "review_required",
-      "source_basis": "Initial development mapping based on the STACK category path Grade 9 > Whole Numbers > Integers. The learning outcome must be checked against the authoritative curriculum document.",
-      "reviewer_notes": "This is not yet a curriculum-approved mapping."
+      "source_basis": "STACK Grade 9 Whole Numbers > Integers.",
+      "reviewer_notes": "Existing learner-flow mapping retained."
+    },
+    {
+      "concept_id": "KE-G9-INDICES-EXPONENTS",
+      "concept_name": "Indices and Exponents",
+      "curriculum_profile_id": "kenya-grade9-development",
+      "level_id": "KE-G9",
+      "strand": "Whole Numbers",
+      "sub_strand": "Indices and Logarithms",
+      "learning_outcome": "Apply index laws to represent and simplify numbers and algebraic expressions.",
+      "prerequisite_concept_ids": [
+        "KE-G9-INTEGER-OPERATIONS"
+      ],
+      "next_concept_ids": [
+        "ratio-and-proportion"
+      ],
+      "questions": [
+        {
+          "question_id": "206793",
+          "question_name": "Expressing numbers in index form",
+          "source_profile_id": "kenya-grade9-development",
+          "source_file": "grade9_questions.xml",
+          "role": "foundation",
+          "sequence_order": 1,
+          "required_for_mastery": false,
+          "notes": "Introduces representation using index notation."
+        },
+        {
+          "question_id": "206819",
+          "question_name": "Writing numbers in simplest index form as a product",
+          "source_profile_id": "kenya-grade9-development",
+          "source_file": "grade9_questions.xml",
+          "role": "foundation",
+          "sequence_order": 2,
+          "required_for_mastery": false,
+          "notes": "Simplifying index-form expressions."
+        },
+        {
+          "question_id": "206873",
+          "question_name": "Writing numbers as a single power of a prime",
+          "source_profile_id": "kenya-grade9-development",
+          "source_file": "grade9_questions.xml",
+          "role": "practice",
+          "sequence_order": 3,
+          "required_for_mastery": false,
+          "notes": "Assesses prime-power representation."
+        },
+        {
+          "question_id": "207419",
+          "question_name": "Applying the Zero Exponent Law",
+          "source_profile_id": "kenya-grade9-development",
+          "source_file": "grade9_questions.xml",
+          "role": "practice",
+          "sequence_order": 4,
+          "required_for_mastery": false,
+          "notes": "Practice with the zero exponent law."
+        },
+        {
+          "question_id": "207420",
+          "question_name": "Applying negative index rules",
+          "source_profile_id": "kenya-grade9-development",
+          "source_file": "grade9_questions.xml",
+          "role": "practice",
+          "sequence_order": 5,
+          "required_for_mastery": false,
+          "notes": "Practice applying negative index rules."
+        },
+        {
+          "question_id": "206946",
+          "question_name": "Using multiplicative, divisive, and bracket laws of indices",
+          "source_profile_id": "kenya-grade9-development",
+          "source_file": "grade9_questions.xml",
+          "role": "mastery_check",
+          "sequence_order": 6,
+          "required_for_mastery": true,
+          "notes": "Integrated index-laws mastery check."
+        }
+      ],
+      "mapping_status": "review_required",
+      "source_basis": "STACK Grade 9 Indices and Logarithms.",
+      "reviewer_notes": "Existing learner-flow mapping retained and linked to expanded practice content."
+    },
+    {
+      "concept_id": "ratio-and-proportion",
+      "concept_name": "Ratio and Proportion",
+      "curriculum_profile_id": "kenya-grade9-development",
+      "level_id": "G9-G10",
+      "strand": "Number",
+      "sub_strand": "Ratio and Proportion",
+      "learning_outcome": "Use ratios and proportional reasoning to solve numerical and contextual problems.",
+      "prerequisite_concept_ids": [],
+      "next_concept_ids": [
+        "coordinate-graphs"
+      ],
+      "questions": [
+        {
+          "question_id": "207616",
+          "question_name": "Using ratios to determine the number of boys in a class",
+          "source_profile_id": "kenya-grade9-development",
+          "source_file": "grade9_questions.xml",
+          "role": "foundation",
+          "sequence_order": 1,
+          "required_for_mastery": false,
+          "notes": "Introductory contextual ratio problem."
+        },
+        {
+          "question_id": "207646",
+          "question_name": "Relating different ratios from a given statement",
+          "source_profile_id": "kenya-grade9-development",
+          "source_file": "grade9_questions.xml",
+          "role": "practice",
+          "sequence_order": 2,
+          "required_for_mastery": false,
+          "notes": "Provides additional ratio relationship practice."
+        },
+        {
+          "question_id": "207534",
+          "question_name": "Finding the unknown number in a continuous proportion",
+          "source_profile_id": "kenya-grade9-development",
+          "source_file": "grade9_questions.xml",
+          "role": "practice",
+          "sequence_order": 3,
+          "required_for_mastery": false,
+          "notes": "Develops proportional equation reasoning."
+        },
+        {
+          "question_id": "207542",
+          "question_name": "Finding the number of days taken by a given number of men",
+          "source_profile_id": "kenya-grade9-development",
+          "source_file": "grade9_questions.xml",
+          "role": "mastery_check",
+          "sequence_order": 4,
+          "required_for_mastery": true,
+          "notes": "Contextual compound-proportion mastery check."
+        }
+      ],
+      "mapping_status": "review_required",
+      "source_basis": "STACK Grade 9 Compound Proportion.",
+      "reviewer_notes": "Initial expanded practice mapping."
+    },
+    {
+      "concept_id": "coordinate-graphs",
+      "concept_name": "Coordinates and Linear Graphs",
+      "curriculum_profile_id": "kenya-grade9-development",
+      "level_id": "G9-G10",
+      "strand": "Geometry and Algebra",
+      "sub_strand": "Coordinates and Graphs",
+      "learning_outcome": "Interpret coordinates, plot points, sketch straight-line graphs, and determine equations of lines.",
+      "prerequisite_concept_ids": [],
+      "next_concept_ids": [
+        "similarity"
+      ],
+      "questions": [
+        {
+          "question_id": "206939",
+          "question_name": "Writing down coordinates of points in a graph",
+          "source_profile_id": "kenya-grade9-development",
+          "source_file": "grade9_questions.xml",
+          "role": "foundation",
+          "sequence_order": 1,
+          "required_for_mastery": false,
+          "notes": "Foundation coordinate-reading practice."
+        },
+        {
+          "question_id": "206961",
+          "question_name": "Plotting points on a Cartesian plane",
+          "source_profile_id": "kenya-grade9-development",
+          "source_file": "grade9_questions.xml",
+          "role": "practice",
+          "sequence_order": 2,
+          "required_for_mastery": false,
+          "notes": "Interactive coordinate plotting."
+        },
+        {
+          "question_id": "207067",
+          "question_name": "Sketching straight-line graphs y = mx + c",
+          "source_profile_id": "kenya-grade9-development",
+          "source_file": "grade9_questions.xml",
+          "role": "practice",
+          "sequence_order": 3,
+          "required_for_mastery": false,
+          "notes": "Straight-line graph practice."
+        },
+        {
+          "question_id": "207059",
+          "question_name": "Determining the equation of a straight line",
+          "source_profile_id": "kenya-grade9-development",
+          "source_file": "grade9_questions.xml",
+          "role": "mastery_check",
+          "sequence_order": 4,
+          "required_for_mastery": true,
+          "notes": "Integrated linear-graph mastery check."
+        }
+      ],
+      "mapping_status": "review_required",
+      "source_basis": "STACK Grade 9 Geometry > Coordinates and Graphs.",
+      "reviewer_notes": "Initial expanded practice mapping."
+    },
+    {
+      "concept_id": "similarity",
+      "concept_name": "Similarity and Scale",
+      "curriculum_profile_id": "kenya-grade9-development",
+      "level_id": "G9-G10",
+      "strand": "Geometry",
+      "sub_strand": "Similarity and Enlargement",
+      "learning_outcome": "Identify similar figures and determine linear scale factors.",
+      "prerequisite_concept_ids": [
+        "ratio-and-proportion"
+      ],
+      "next_concept_ids": [
+        "trigonometry"
+      ],
+      "questions": [
+        {
+          "question_id": "221322",
+          "question_name": "Determining similar figures",
+          "source_profile_id": "kenya-grade9-development",
+          "source_file": "grade9_questions.xml",
+          "role": "foundation",
+          "sequence_order": 1,
+          "required_for_mastery": false,
+          "notes": "Introduces identification of similar figures."
+        },
+        {
+          "question_id": "221366",
+          "question_name": "Determining the linear scale factor",
+          "source_profile_id": "kenya-grade9-development",
+          "source_file": "grade9_questions.xml",
+          "role": "mastery_check",
+          "sequence_order": 2,
+          "required_for_mastery": true,
+          "notes": "Checks understanding of linear scale factor."
+        }
+      ],
+      "mapping_status": "review_required",
+      "source_basis": "STACK Grade 9 Geometry > Similarity and Enlargement.",
+      "reviewer_notes": "Initial expanded practice mapping."
+    },
+    {
+      "concept_id": "trigonometry",
+      "concept_name": "Introductory Trigonometry",
+      "curriculum_profile_id": "kenya-grade9-development",
+      "level_id": "G9-G10",
+      "strand": "Geometry",
+      "sub_strand": "Trigonometry",
+      "learning_outcome": "Identify sides of right-angled triangles, use trigonometric ratios, and determine unknown sides and angles.",
+      "prerequisite_concept_ids": [
+        "similarity"
+      ],
+      "next_concept_ids": [],
+      "questions": [
+        {
+          "question_id": "221194",
+          "question_name": "Identifying sides of a right-angled triangle",
+          "source_profile_id": "kenya-grade9-development",
+          "source_file": "grade9_questions.xml",
+          "role": "foundation",
+          "sequence_order": 1,
+          "required_for_mastery": false,
+          "notes": "Foundation vocabulary for right-triangle trigonometry."
+        },
+        {
+          "question_id": "221196",
+          "question_name": "Determining sine, cosine and tangent of an angle",
+          "source_profile_id": "kenya-grade9-development",
+          "source_file": "grade9_questions.xml",
+          "role": "practice",
+          "sequence_order": 2,
+          "required_for_mastery": false,
+          "notes": "Introduces the three basic trigonometric ratios."
+        },
+        {
+          "question_id": "221209",
+          "question_name": "Calculating sines, cosines and tangents using a calculator",
+          "source_profile_id": "kenya-grade9-development",
+          "source_file": "grade9_questions.xml",
+          "role": "practice",
+          "sequence_order": 3,
+          "required_for_mastery": false,
+          "notes": "Calculator-based ratio practice."
+        },
+        {
+          "question_id": "221908",
+          "question_name": "Finding an unknown angle using a trigonometric ratio",
+          "source_profile_id": "kenya-grade9-development",
+          "source_file": "grade9_questions.xml",
+          "role": "practice",
+          "sequence_order": 4,
+          "required_for_mastery": false,
+          "notes": "Applies inverse trigonometric reasoning."
+        },
+        {
+          "question_id": "221909",
+          "question_name": "Calculating the length of a right-angled triangle",
+          "source_profile_id": "kenya-grade9-development",
+          "source_file": "grade9_questions.xml",
+          "role": "mastery_check",
+          "sequence_order": 5,
+          "required_for_mastery": true,
+          "notes": "Integrated right-triangle trigonometry mastery check."
+        }
+      ],
+      "mapping_status": "review_required",
+      "source_basis": "STACK Grade 9 Geometry > Trigonometry.",
+      "reviewer_notes": "Introductory trigonometry only. Trigonometric-equation item 222191 is intentionally excluded."
     }
   ]
 }

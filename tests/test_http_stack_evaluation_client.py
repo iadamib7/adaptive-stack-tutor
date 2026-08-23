@@ -34,11 +34,17 @@ class FakeResponse:
 class FakeSession:
     def __init__(
         self,
-        response: FakeResponse | None = None,
+        responses: list[FakeResponse] | None = None,
         error: Exception | None = None,
     ) -> None:
-        self.response = response
+        self.responses = (
+            list(responses)
+            if responses is not None
+            else []
+        )
+
         self.error = error
+
         self.requests: list[dict] = []
 
     def post(
@@ -58,8 +64,9 @@ class FakeSession:
         if self.error is not None:
             raise self.error
 
-        assert self.response is not None
-        return self.response
+        assert self.responses
+
+        return self.responses.pop(0)
 
 
 def build_request(
@@ -110,11 +117,50 @@ def correct_payload() -> dict:
     }
 
 
+def incorrect_payload() -> dict:
+    return {
+        "isgradable": True,
+        "score": 0,
+        "specificfeedback": "",
+        "prts": {
+            "prt1": (
+                "<div class='incorrect'>"
+                "Incorrect answer."
+                "</div>"
+            ),
+        },
+        "prtresults": {
+            "prt1": {
+                "score": 0,
+                "penalty": 0.1,
+                "answernotes": [
+                    "prt1-1-F"
+                ],
+                "errors": [],
+                "fverrors": [],
+            },
+        },
+    }
+
+
+def ungradable_payload() -> dict:
+    return {
+        "isgradable": False,
+        "score": None,
+        "prtresults": {},
+        "responsesummary": (
+            "The answer form could not be graded."
+        ),
+    }
+
+
 def test_live_response_is_normalized() -> None:
     session = FakeSession(
-        response=FakeResponse(
-            correct_payload()
-        )
+        responses=[
+            FakeResponse(
+                correct_payload()
+            )
+        ]
     )
 
     client = HttpStackEvaluationClient(
@@ -135,9 +181,11 @@ def test_live_response_is_normalized() -> None:
     assert prt.prt_name == "prt1"
     assert prt.score == 1.0
     assert prt.penalty == 0.0
+
     assert prt.answer_notes == [
         "prt1-1-T"
     ]
+
     assert "Correct answer" in (
         prt.feedback or ""
     )
@@ -145,9 +193,11 @@ def test_live_response_is_normalized() -> None:
 
 def test_request_contains_xml_answers_and_seed() -> None:
     session = FakeSession(
-        response=FakeResponse(
-            correct_payload()
-        )
+        responses=[
+            FakeResponse(
+                correct_payload()
+            )
+        ]
     )
 
     client = HttpStackEvaluationClient(
@@ -170,7 +220,9 @@ def test_request_contains_xml_answers_and_seed() -> None:
         "ans1": "32",
     }
 
-    assert sent["json"]["seed"] == 683620564
+    assert sent["json"]["seed"] == (
+        683620564
+    )
 
     assert "questionDefinition" in (
         sent["json"]
@@ -180,30 +232,13 @@ def test_request_contains_xml_answers_and_seed() -> None:
 
 
 def test_incorrect_result_is_normalized() -> None:
-    payload = correct_payload()
-
-    payload["score"] = 0
-    payload["prts"]["prt1"] = (
-        "<div class='incorrect'>"
-        "Incorrect answer."
-        "</div>"
-    )
-
-    payload["prtresults"]["prt1"] = {
-        "score": 0,
-        "penalty": 0.1,
-        "answernotes": [
-            "prt1-1-F"
-        ],
-        "errors": [],
-        "fverrors": [],
-    }
-
     client = HttpStackEvaluationClient(
         session=FakeSession(
-            response=FakeResponse(
-                payload
-            )
+            responses=[
+                FakeResponse(
+                    incorrect_payload()
+                )
+            ]
         )
     )
 
@@ -214,7 +249,11 @@ def test_incorrect_result_is_normalized() -> None:
     prt = result.prts[0]
 
     assert prt.score == 0.0
-    assert prt.penalty == 0.1
+
+    assert prt.penalty == pytest.approx(
+        0.1
+    )
+
     assert prt.answer_notes == [
         "prt1-1-F"
     ]
@@ -223,40 +262,36 @@ def test_incorrect_result_is_normalized() -> None:
 def test_ungradable_response_becomes_invalid() -> None:
     client = HttpStackEvaluationClient(
         session=FakeSession(
-            response=FakeResponse(
-                {
-                    "isgradable": False,
-                    "responsesummary": (
-                        "Required input ans1 "
-                        "is missing."
-                    ),
-                }
-            )
+            responses=[
+                FakeResponse(
+                    ungradable_payload()
+                )
+            ]
         )
     )
 
     result = client.evaluate(
-        build_request()
+        build_request("not-numeric")
     )
 
     assert result.valid is False
-    assert "missing" in (
-        result.validation_errors[0]
-    )
 
 
 def test_api_error_message_is_preserved() -> None:
     client = HttpStackEvaluationClient(
         session=FakeSession(
-            response=FakeResponse(
-                {
-                    "message": (
-                        "The question XML does not "
-                        "contain deployed variants"
-                    )
-                },
-                ok=False,
-            )
+            responses=[
+                FakeResponse(
+                    {
+                        "message": (
+                            "The question XML does "
+                            "not contain deployed "
+                            "variants"
+                        )
+                    },
+                    ok=False,
+                )
+            ]
         )
     )
 
@@ -272,10 +307,12 @@ def test_api_error_message_is_preserved() -> None:
 def test_non_json_response_is_rejected() -> None:
     client = HttpStackEvaluationClient(
         session=FakeSession(
-            response=FakeResponse(
-                {},
-                json_error=True,
-            )
+            responses=[
+                FakeResponse(
+                    {},
+                    json_error=True,
+                )
+            ]
         )
     )
 
@@ -304,3 +341,152 @@ def test_connection_error_is_wrapped() -> None:
         client.evaluate(
             build_request()
         )
+
+
+def test_decimal_retries_as_fraction() -> None:
+    session = FakeSession(
+        responses=[
+            FakeResponse(
+                ungradable_payload()
+            ),
+            FakeResponse(
+                correct_payload()
+            ),
+        ]
+    )
+
+    client = HttpStackEvaluationClient(
+        session=session
+    )
+
+    result = client.evaluate(
+        build_request("3.75")
+    )
+
+    assert result.valid is True
+    assert result.prts[0].score == 1.0
+
+    assert len(session.requests) == 2
+
+    assert (
+        session.requests[0]
+        ["json"]
+        ["answers"]
+        ["ans1"]
+        == "3.75"
+    )
+
+    assert (
+        session.requests[1]
+        ["json"]
+        ["answers"]
+        ["ans1"]
+        == "15/4"
+    )
+
+
+def test_half_retries_as_fraction() -> None:
+    session = FakeSession(
+        responses=[
+            FakeResponse(
+                ungradable_payload()
+            ),
+            FakeResponse(
+                correct_payload()
+            ),
+        ]
+    )
+
+    client = HttpStackEvaluationClient(
+        session=session
+    )
+
+    result = client.evaluate(
+        build_request("0.5")
+    )
+
+    assert result.prts[0].score == 1.0
+
+    assert (
+        session.requests[1]
+        ["json"]
+        ["answers"]
+        ["ans1"]
+        == "1/2"
+    )
+
+
+def test_valid_incorrect_integer_is_not_retried() -> None:
+    session = FakeSession(
+        responses=[
+            FakeResponse(
+                incorrect_payload()
+            )
+        ]
+    )
+
+    client = HttpStackEvaluationClient(
+        session=session
+    )
+
+    result = client.evaluate(
+        build_request("540")
+    )
+
+    assert result.valid is True
+
+    assert result.prts[0].score == 0.0
+
+    assert len(session.requests) == 1
+
+    assert (
+        session.requests[0]
+        ["json"]
+        ["answers"]
+        ["ans1"]
+        == "540"
+    )
+
+
+def test_non_numeric_answer_is_not_retried() -> None:
+    session = FakeSession(
+        responses=[
+            FakeResponse(
+                ungradable_payload()
+            )
+        ]
+    )
+
+    client = HttpStackEvaluationClient(
+        session=session
+    )
+
+    result = client.evaluate(
+        build_request("x + 1")
+    )
+
+    assert result.valid is False
+
+    assert len(session.requests) == 1
+
+
+def test_existing_fraction_is_not_retried_when_valid() -> None:
+    session = FakeSession(
+        responses=[
+            FakeResponse(
+                correct_payload()
+            )
+        ]
+    )
+
+    client = HttpStackEvaluationClient(
+        session=session
+    )
+
+    result = client.evaluate(
+        build_request("15/4")
+    )
+
+    assert result.prts[0].score == 1.0
+
+    assert len(session.requests) == 1

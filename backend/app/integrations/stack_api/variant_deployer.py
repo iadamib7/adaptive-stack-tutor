@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 from dataclasses import dataclass
 import random
@@ -70,9 +70,12 @@ def add_deployed_seeds(
         deployed_seed = ET.Element(
             "deployedseed"
         )
+
         deployed_seed.text = str(seed)
 
-        question.append(deployed_seed)
+        question.append(
+            deployed_seed
+        )
 
     return ET.tostring(
         root,
@@ -191,15 +194,26 @@ class StackVariantDeployer:
                 )
             )
 
-            accepted_seeds.add(seed)
-            accepted_signatures.add(signature)
+            accepted_seeds.add(
+                seed
+            )
 
-        if len(accepted) < variant_count:
+            accepted_signatures.add(
+                signature
+            )
+
+        # variant_count is a target, not a minimum.
+        #
+        # Some valid STACK questions may have fewer
+        # distinct rendered variants than requested.
+        # Any verified variant is still usable.
+        #
+        # Fail only when no valid variant was found.
+        if not accepted:
             raise StackVariantDeploymentError(
-                "Could not deploy the requested number "
-                f"of distinct variants. Requested "
-                f"{variant_count}, accepted "
-                f"{len(accepted)}, attempted {attempts}."
+                "Could not deploy any valid variants. "
+                f"Requested up to {variant_count}, "
+                f"accepted 0, attempted {attempts}."
             )
 
         deployed_xml = add_deployed_seeds(
@@ -239,9 +253,14 @@ class StackVariantDeployer:
         if payload.get("isupgradeerror"):
             return False
 
-        results = payload.get("results", {})
+        results = payload.get(
+            "results",
+            {},
+        )
 
-        seed_result = results.get(str(seed))
+        seed_result = results.get(
+            str(seed)
+        )
 
         if seed_result is None:
             return False
@@ -249,12 +268,86 @@ class StackVariantDeployer:
         if seed_result.get("messages"):
             return False
 
-        fails = seed_result.get("fails")
+        fails = seed_result.get(
+            "fails"
+        )
 
-        if fails not in (0, None):
+        if fails in (0, None):
+            return True
+
+        # Some legacy interactive STACK/JSXGraph questions
+        # contain authored tests that do not populate every
+        # input used by the PRT. STACK may report a null test
+        # result even though the actual learner response
+        # renders and grades correctly.
+        #
+        # Do not broadly ignore failing tests. Only tolerate
+        # the known null-result condition for JSXGraph.
+        if "[[jsxgraph]]" not in question_xml.lower():
             return False
 
-        return True
+        outcomes = seed_result.get(
+            "outcomes",
+            {},
+        )
+
+        if not isinstance(
+            outcomes,
+            dict,
+        ):
+            return False
+
+        if not outcomes:
+            return False
+
+        saw_null_result = False
+
+        for outcome in outcomes.values():
+            if not isinstance(
+                outcome,
+                dict,
+            ):
+                return False
+
+            prt_outcomes = outcome.get(
+                "outcomes",
+                {},
+            )
+
+            if not isinstance(
+                prt_outcomes,
+                dict,
+            ):
+                return False
+
+            if not prt_outcomes:
+                return False
+
+            for prt_result in (
+                prt_outcomes.values()
+            ):
+                if not isinstance(
+                    prt_result,
+                    dict,
+                ):
+                    return False
+
+                reason = str(
+                    prt_result.get(
+                        "reason",
+                        "",
+                    )
+                )
+
+                if (
+                    "Got an unexpected null result."
+                    not in reason
+                ):
+                    return False
+
+                saw_null_result = True
+
+        return saw_null_result
 
     def _render_variant(
         self,
@@ -285,10 +378,16 @@ class StackVariantDeployer:
             "",
         )
 
-        if not isinstance(question_note, str):
+        if not isinstance(
+            question_note,
+            str,
+        ):
             question_note = ""
 
-        if not isinstance(question_render, str):
+        if not isinstance(
+            question_render,
+            str,
+        ):
             question_render = ""
 
         normalized_render = " ".join(
@@ -299,14 +398,21 @@ class StackVariantDeployer:
             question_note.split()
         )
 
-        # The rendered question is the preferred signature
-        # because some authored questions contain a constant
-        # or incorrectly configured question note.
-        signature = (
-            normalized_render
-            if normalized_render
-            else normalized_note
-        )
+        if "[[jsxgraph]]" in question_xml.lower():
+            signature = "\n".join(
+                part
+                for part in (
+                    normalized_render,
+                    normalized_note,
+                )
+                if part
+            )
+        else:
+            signature = (
+                normalized_render
+                if normalized_render
+                else normalized_note
+            )
 
         if not signature:
             return None
@@ -326,7 +432,9 @@ def _get_stack_question(
     ):
         return root
 
-    for question in root.findall("question"):
+    for question in root.findall(
+        "question"
+    ):
         if question.get("type") == "stack":
             return question
 

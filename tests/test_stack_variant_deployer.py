@@ -176,6 +176,122 @@ def test_calls_test_and_render_routes() -> None:
     )
 
 
+
+class FakeJsxGraphSession(FakeSession):
+    def post(
+        self,
+        url: str,
+        json: dict,
+        timeout: int,
+    ) -> FakeResponse:
+        self.requests.append(
+            (
+                url,
+                json,
+            )
+        )
+
+        xml = json[
+            "questionDefinition"
+        ]
+
+        seed = get_deployed_seeds(
+            xml
+        )[0]
+
+        if url.endswith("/test"):
+            return FakeResponse(
+                {
+                    "messages": "",
+                    "isupgradeerror": False,
+                    "results": {
+                        str(seed): {
+                            "passes": 1,
+                            "fails": 0,
+                            "messages": "",
+                        }
+                    },
+                }
+            )
+
+        return FakeResponse(
+            {
+                "questionrender": (
+                    "<p>Graph question</p>"
+                    "<div "
+                    "id='stack-iframe-holder-1'>"
+                    "</div>"
+                ),
+                "questionnote": (
+                    "Graph parameters "
+                    f"for seed {seed}"
+                ),
+            }
+        )
+
+
+def test_jsxgraph_uses_note_in_variant_signature(
+) -> None:
+    jsxgraph_xml = """
+<quiz>
+  <question type="stack">
+    <name>
+      <text>
+        Random graph question
+      </text>
+    </name>
+
+    <questiontext>
+      <text>
+        [[jsxgraph]]
+        board.create(
+            'point',
+            [1,2]
+        );
+        [[/jsxgraph]]
+      </text>
+    </questiontext>
+
+    <questionvariables>
+      <text>
+        a:rand(10)+1;
+      </text>
+    </questionvariables>
+
+    <questionnote>
+      <text>{@a@}</text>
+    </questionnote>
+  </question>
+</quiz>
+""".strip()
+
+    session = FakeJsxGraphSession()
+
+    deployer = StackVariantDeployer(
+        session=session,
+        random_generator=random.Random(7),
+    )
+
+    result = deployer.deploy(
+        question_xml=jsxgraph_xml,
+        variant_count=3,
+        max_attempts=10,
+    )
+
+    assert len(
+        result.variants
+    ) == 3
+
+    assert len(
+        result.seeds
+    ) == 3
+
+    assert len(
+        set(result.seeds)
+    ) == 3
+
+
+
 def test_rejects_more_than_100_variants() -> None:
     deployer = StackVariantDeployer(
         session=FakeSession(),

@@ -1,0 +1,324 @@
+<quiz><question type="stack">
+    <name>
+      <text>Interactive: Plottimg points on a Cartesian plane</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Drag the points on the grid to their respective coordinates&lt;/p&gt;
+&lt;p&gt;\(A({@x_A@},{@y_A@})\)&lt;/p&gt;
+&lt;p&gt;\(B({@x_B@},{@y_B@})\)&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Note1:&lt;/b&gt; Please make sure you move both points, otherwise your answer will not be assessed.&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Note2:&lt;/b&gt; Your browser might ask you if you want to leave without saving when you submit your answer. Leaving &lt;b&gt;will&lt;/b&gt; submit your answer and you &lt;b&gt;will not&lt;/b&gt; lose your work.&lt;/p&gt;
+
+[[jsxgraph input-ref-ans1="sR1" input-ref-ans2="sR2"]]
+JXG.Options.text.useMathJax = true;
+var board = JXG.JSXGraph.initBoard(divid, {
+  axis: true,
+  showCopyright: false,
+  boundingbox: [-6,6,6,-6],
+  keepaspectratio: true,
+  grid:true
+});
+
+var p1 = board.create('point',[{#x_C#},{#y_C#}],{
+  name:'A',
+  snapToGrid:true,
+  size:3,
+  snapSizeX:0.1,
+  snapSizeY:0.1,
+  showInfobox:false
+});
+
+var p2 = board.create('point',[{#x_D#},{#y_D#}],{
+  name:'B',
+  snapToGrid:true,
+  size:3,
+  snapSizeX:0.1,
+  snapSizeY:0.1,
+  showInfobox:false
+});
+
+
+stack_jxg.bind_point(sR1,p1);
+stack_jxg.bind_point(sR2,p2);
+
+board.unsuspendUpdate();
+[[/jsxgraph]]
+
+&lt;p style="visibility:hidden"&gt;[[input:ans1]] [[validation:ans1]] &lt;/p&gt;
+
+&lt;p style="visibility:hidden"&gt;[[input:ans2]] [[validation:ans2]]&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="moodle_auto_format">
+      <text>&lt;h3&gt;Worked Solution&lt;/h3&gt;
+[[jsxgraph]]
+var board = JXG.JSXGraph.initBoard('jxgbox',{
+                boundingbox:[-7,6,7,-6],
+                axis: true,
+                showCopyright:false,keepAspectRatio:true
+
+            });
+
+           var p1 = board.create('point', [{#x_A#},{#y_A#}] , {name:'A',fillColor:'red',strokeColor:'red', point: {visible: true}});
+           var p2 = board.create('point', [{#x_B#},{#y_B#}] , {name:'B',fillColor:'red',strokeColor:'red', point: {visible: true}});
+[[/jsxgraph]]</text>
+    </generalfeedback>
+    <defaultgrade>4.0000000</defaultgrade>
+    <penalty>0.1000000</penalty>
+    <hidden>0</hidden>
+    <idnumber />
+    <stackversion>
+      <text>2025012100</text>
+    </stackversion>
+    <questionvariables>
+      <text>/*x and y coordinates for the points*/
+x_A:rand_with_step(-5,5,1);
+y_A:rand_with_step(-5,5,1);
+x_B:rand_with_prohib(-5,5,[x_A]);
+y_B:rand_with_prohib(-5,5,[y_A]);
+
+/* Coordinates of the points to be moved */
+x_C:rand_with_prohib(-5,5,[x_A,x_B]);
+y_C:rand_with_prohib(-5,5,[y_A,y_B]);
+x_D:rand_with_prohib(-5,5,[x_A,x_B,x_C]);
+y_D:rand_with_prohib(-5,5,[y_A,y_B,y_C]);
+
+/*teacher answers*/
+ta_A:[x_A,y_A];
+ta_B:[x_B,y_B];
+</text>
+    </questionvariables>
+    <specificfeedback format="html">
+      <text>[[feedback:prt1]]</text>
+    </specificfeedback>
+    <questionnote format="html">
+      <text>&lt;p&gt;{@ta_A@}&lt;/p&gt;
+&lt;p&gt;{@ta_B@}&lt;/p&gt;</text>
+    </questionnote>
+    <questiondescription format="html">
+      <text />
+    </questiondescription>
+    <questionsimplify>1</questionsimplify>
+    <assumepositive>0</assumepositive>
+    <assumereal>0</assumereal>
+    <prtcorrect format="html">
+      <text>&lt;span style="font-size: 1.5em; color:green;"&gt;&lt;i class="fa fa-check"&gt;&lt;/i&gt;&lt;/span&gt; Correct answer, well done.</text>
+    </prtcorrect>
+    <prtpartiallycorrect format="html">
+      <text>&lt;span style="font-size: 1.5em; color:orange;"&gt;&lt;i class="fa fa-adjust"&gt;&lt;/i&gt;&lt;/span&gt; Your answer is partially correct.</text>
+    </prtpartiallycorrect>
+    <prtincorrect format="html">
+      <text>&lt;span style="font-size: 1.5em; color:red;"&gt;&lt;i class="fa fa-times"&gt;&lt;/i&gt;&lt;/span&gt; Incorrect answer.</text>
+    </prtincorrect>
+    <decimals>.</decimals>
+    <scientificnotation>*10</scientificnotation>
+    <multiplicationsign>none</multiplicationsign>
+    <sqrtsign>1</sqrtsign>
+    <complexno>i</complexno>
+    <inversetrig>cos-1</inversetrig>
+    <logicsymbol>lang</logicsymbol>
+    <matrixparens>[</matrixparens>
+    <isbroken>0</isbroken>
+    <variantsselectionseed />
+    <input>
+      <name>ans1</name>
+      <type>algebraic</type>
+      <tans>[x_A,y_A]</tans>
+      <boxsize>15</boxsize>
+      <strictsyntax>1</strictsyntax>
+      <insertstars>0</insertstars>
+      <syntaxhint />
+      <syntaxattribute>0</syntaxattribute>
+      <forbidwords />
+      <allowwords />
+      <forbidfloat>0</forbidfloat>
+      <requirelowestterms>0</requirelowestterms>
+      <checkanswertype>0</checkanswertype>
+      <mustverify>0</mustverify>
+      <showvalidation>0</showvalidation>
+      <options />
+    </input>
+    <input>
+      <name>ans2</name>
+      <type>algebraic</type>
+      <tans>[x_B,y_B]</tans>
+      <boxsize>15</boxsize>
+      <strictsyntax>1</strictsyntax>
+      <insertstars>0</insertstars>
+      <syntaxhint />
+      <syntaxattribute>0</syntaxattribute>
+      <forbidwords />
+      <allowwords />
+      <forbidfloat>0</forbidfloat>
+      <requirelowestterms>0</requirelowestterms>
+      <checkanswertype>0</checkanswertype>
+      <mustverify>0</mustverify>
+      <showvalidation>0</showvalidation>
+      <options />
+    </input>
+    <prt>
+      <name>prt1</name>
+      <value>1.0000000</value>
+      <autosimplify>1</autosimplify>
+      <feedbackstyle>1</feedbackstyle>
+      <feedbackvariables>
+        <text>/*Node 3: Checks if coordinates of the points A have been interchanged with point B*/
+mistake_1:ta_B;
+/*Checks if coordinates of the  points  B have been interchanged with point A*/
+mistake_2:ta_A;</text>
+      </feedbackvariables>
+      <node>
+        <name>0</name>
+        <description>Check if the correct coordinates for points A have been given</description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans1</sans>
+        <tans>ta_A</tans>
+        <testoptions />
+        <quiet>0</quiet>
+        <truescoremode>=</truescoremode>
+        <truescore>1</truescore>
+        <truepenalty />
+        <truenextnode>1</truenextnode>
+        <trueanswernote>prt1-1-T</trueanswernote>
+        <truefeedback format="html">
+          <text />
+        </truefeedback>
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>2</falsenextnode>
+        <falseanswernote>prt1-1-F</falseanswernote>
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+      <node>
+        <name>1</name>
+        <description>Check if the correct coordinates for points B have been given</description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans2</sans>
+        <tans>ta_B</tans>
+        <testoptions />
+        <quiet>0</quiet>
+        <truescoremode>+</truescoremode>
+        <truescore>1</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-2-T</trueanswernote>
+        <truefeedback format="html">
+          <text />
+        </truefeedback>
+        <falsescoremode>-</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>3</falsenextnode>
+        <falseanswernote>prt1-2-F</falseanswernote>
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+      <node>
+        <name>2</name>
+        <description>Checks if coordinates of the  points  A have been interchanged with point B</description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans1</sans>
+        <tans>mistake_1</tans>
+        <testoptions />
+        <quiet>0</quiet>
+        <truescoremode>+</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>3</truenextnode>
+        <trueanswernote>prt1-3-T</trueanswernote>
+        <truefeedback format="html">
+          <text />
+        </truefeedback>
+        <falsescoremode>-</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>1</falsenextnode>
+        <falseanswernote>prt1-3-F</falseanswernote>
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+      <node>
+        <name>3</name>
+        <description>Checks if coordinates of the  points  B have been interchanged with point A</description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans2</sans>
+        <tans>mistake_2</tans>
+        <testoptions />
+        <quiet>0</quiet>
+        <truescoremode>+</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-4-T</trueanswernote>
+        <truefeedback format="html">
+          <text>You have interchanged the coordinates of the points.</text>
+        </truefeedback>
+        <falsescoremode>-</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>-1</falsenextnode>
+        <falseanswernote>prt1-4-F</falseanswernote>
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+    </prt>
+    <deployedseed>959642070</deployedseed>
+    <deployedseed>1492506916</deployedseed>
+    <deployedseed>1013216088</deployedseed>
+    <deployedseed>1353614178</deployedseed>
+    <deployedseed>377075330</deployedseed>
+    <deployedseed>2134246178</deployedseed>
+    <deployedseed>355630428</deployedseed>
+    <deployedseed>1441737381</deployedseed>
+    <deployedseed>818358599</deployedseed>
+    <deployedseed>1308500933</deployedseed>
+    <deployedseed>1893541790</deployedseed>
+    <deployedseed>1729208119</deployedseed>
+    <deployedseed>1881662811</deployedseed>
+    <deployedseed>2005432798</deployedseed>
+    <deployedseed>1103776727</deployedseed>
+    <deployedseed>1422993916</deployedseed>
+    <deployedseed>1135133019</deployedseed>
+    <deployedseed>526421242</deployedseed>
+    <deployedseed>1811316532</deployedseed>
+    <deployedseed>72534285</deployedseed>
+    <deployedseed>650885341</deployedseed>
+    <deployedseed>1394780975</deployedseed>
+    <deployedseed>774074121</deployedseed>
+    <deployedseed>2114818680</deployedseed>
+    <deployedseed>2146268209</deployedseed>
+    <deployedseed>1233983142</deployedseed>
+    <deployedseed>640235964</deployedseed>
+    <deployedseed>306860532</deployedseed>
+    <deployedseed>104784427</deployedseed>
+    <deployedseed>1101654239</deployedseed>
+    <deployedseed>173065600</deployedseed>
+    <deployedseed>799728373</deployedseed>
+    <deployedseed>358585687</deployedseed>
+    <deployedseed>820029199</deployedseed>
+    <deployedseed>1703318409</deployedseed>
+    <deployedseed>210329603</deployedseed>
+    <deployedseed>177200359</deployedseed>
+    <deployedseed>1247471224</deployedseed>
+    <deployedseed>1618671268</deployedseed>
+    <deployedseed>1646439020</deployedseed>
+    <deployedseed>873986965</deployedseed>
+    <deployedseed>395112837</deployedseed>
+    <deployedseed>1955221746</deployedseed>
+    <deployedseed>944109109</deployedseed>
+    <deployedseed>1328990391</deployedseed>
+    <deployedseed>2064850500</deployedseed>
+    <deployedseed>1743056094</deployedseed>
+    <deployedseed>377858825</deployedseed>
+    <deployedseed>1386817570</deployedseed>
+    <deployedseed>7024609</deployedseed>
+  </question>
+
+</quiz>

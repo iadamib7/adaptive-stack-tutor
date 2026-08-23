@@ -1,0 +1,672 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+  <question type="stack">
+    <name>
+      <text>
+Shared: Interpret the intersection of two service plans
+      </text>
+    </name>
+    <questiontext format="html">
+      <text>
+&lt;p&gt;
+Two service providers offer different
+payment plans.
+&lt;/p&gt;
+
+&lt;p&gt;
+&lt;strong&gt;Plan A&lt;/strong&gt; has a lower
+starting fee but charges more for each
+service unit.
+&lt;/p&gt;
+
+&lt;p&gt;
+&lt;strong&gt;Plan B&lt;/strong&gt; has a higher
+starting fee but charges less for each
+service unit.
+&lt;/p&gt;
+
+&lt;p&gt;
+Their total costs are shown on the
+graph below.
+&lt;/p&gt;
+
+
+&lt;center&gt;
+
+[[jsxgraph]]
+
+JXG.Options.text.useMathJax = true;
+
+var board = JXG.JSXGraph.initBoard(
+    divid,
+    {
+        axis: true,
+        showCopyright: false,
+        boundingbox: [-1,45,8,-5],
+        keepaspectratio: false,
+        grid: true
+    }
+);
+
+
+var planA = board.create(
+    'functiongraph',
+    [
+        function(x) {
+            return {#mA#}*x + {#bA#};
+        }
+    ],
+    {
+        fixed: true,
+        strokeWidth: 3
+    }
+);
+
+
+var planB = board.create(
+    'functiongraph',
+    [
+        function(x) {
+            return {#mB#}*x + {#bB#};
+        }
+    ],
+    {
+        fixed: true,
+        strokeWidth: 3,
+        dash: 2
+    }
+);
+
+
+board.create(
+    'text',
+    [
+        5.4,
+        39,
+        'Plan A'
+    ],
+    {
+        fixed: true
+    }
+);
+
+
+board.create(
+    'text',
+    [
+        5.4,
+        35,
+        'Plan B'
+    ],
+    {
+        fixed: true
+    }
+);
+
+
+board.unsuspendUpdate();
+
+[[/jsxgraph]]
+
+&lt;/center&gt;
+
+
+&lt;p&gt;
+The two graphs intersect at one point.
+&lt;/p&gt;
+
+&lt;p&gt;
+Interpret that intersection in the
+context of the service plans.
+&lt;/p&gt;
+
+&lt;p&gt;
+At
+[[input:ans1]]
+[[validation:ans1]]
+service units, both plans have a total
+cost of
+[[input:ans2]]
+[[validation:ans2]]
+credits.
+
+[[feedback:prt1]]
+[[feedback:prt2]]
+&lt;/p&gt;
+      </text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>
+&lt;h3&gt;Worked solution&lt;/h3&gt;
+
+&lt;p&gt;
+The graphs intersect at
+\[
+({@xI@},{@yI@}).
+\]
+&lt;/p&gt;
+
+&lt;p&gt;
+The horizontal coordinate tells us the
+&lt;strong&gt;number of service units&lt;/strong&gt;.
+Therefore,
+\[
+x={@xI@}.
+\]
+&lt;/p&gt;
+
+&lt;p&gt;
+The vertical coordinate tells us the
+&lt;strong&gt;total cost&lt;/strong&gt;.
+Therefore,
+\[
+y={@yI@}.
+\]
+&lt;/p&gt;
+
+&lt;p&gt;
+So the intersection means:
+&lt;/p&gt;
+
+&lt;p&gt;
+At &lt;strong&gt;{@xI@} service units&lt;/strong&gt;,
+both plans cost
+&lt;strong&gt;{@yI@} credits&lt;/strong&gt;.
+&lt;/p&gt;
+      </text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.1000000</penalty>
+    <hidden>0</hidden>
+    <idnumber />
+    <stackversion>
+      <text>2024010800</text>
+    </stackversion>
+    <questionvariables>
+      <text>
+/*
+Shared Curriculum-Independent
+Question Bank
+
+Linear Relations
+QLIN-09
+
+Licensed adaptation source:
+NUMBAS-17290
+
+Licence:
+CC BY 4.0
+
+The verified source provides the
+straight-line graph family used as
+the licensed adaptation basis.
+
+The contextual service-plan scenario,
+wording, generated parameters,
+interpretation prompts and diagnostic
+feedback in this STACK implementation
+are independently written.
+*/
+
+
+/*
+Choose a positive integer intersection
+so both coordinates have meaningful
+contextual interpretations.
+*/
+
+xI:rand(4)+2;
+
+
+/*
+Plan A has the steeper rate.
+
+mA is between 4 and 6.
+*/
+
+mA:rand(3)+4;
+
+
+/*
+Plan B has a smaller positive rate.
+
+This construction guarantees
+mB &lt; mA.
+*/
+
+mB:rand(mA-2)+1;
+
+
+/*
+Plan A begins with the lower fee.
+*/
+
+bA:rand(5)+2;
+
+
+/*
+Construct Plan B so that both plans
+meet exactly when x=xI.
+
+mA*xI+bA = mB*xI+bB
+*/
+
+bB:bA+(mA-mB)*xI;
+
+
+/*
+Common total cost at the intersection.
+*/
+
+yI:mA*xI+bA;
+
+
+/*
+Correct contextual interpretations.
+*/
+
+units:xI;
+
+cost:yI;
+
+
+/*
+Diagnostic values.
+
+These represent reversing the meanings
+of the two coordinates.
+*/
+
+reversed_units:yI;
+
+reversed_cost:xI;
+      </text>
+    </questionvariables>
+    <specificfeedback format="html">
+      <text>
+[[feedback:prt1]]
+[[feedback:prt2]]
+      </text>
+    </specificfeedback>
+    <questionnote>
+      <text>
+&lt;p&gt;
+Shared Question Bank |
+Linear Relations |
+QLIN-09
+&lt;/p&gt;
+
+&lt;p&gt;
+Plan A:
+rate=\({@mA@}\);
+starting fee=\({@bA@}\)
+&lt;/p&gt;
+
+&lt;p&gt;
+Plan B:
+rate=\({@mB@}\);
+starting fee=\({@bB@}\)
+&lt;/p&gt;
+
+&lt;p&gt;
+intersection=
+\({[{@xI@},{@yI@}]}\)
+&lt;/p&gt;
+
+&lt;p&gt;
+interpretation:
+{@xI@} service units,
+{@yI@} credits
+&lt;/p&gt;
+
+&lt;p&gt;
+reversed interpretation:
+{@yI@} service units,
+{@xI@} credits
+&lt;/p&gt;
+      </text>
+    </questionnote>
+    <questiondescription format="html">
+      <text>
+&lt;p id="bank"&gt;
+Shared Curriculum-Independent
+Question Bank
+&lt;/p&gt;
+
+&lt;p id="shared-question-id"&gt;
+QLIN-09
+&lt;/p&gt;
+
+&lt;p id="knowledge-concept"&gt;
+linear-relations
+&lt;/p&gt;
+
+&lt;p id="secondary-concept"&gt;
+coordinate-graphs
+&lt;/p&gt;
+
+&lt;p id="tertiary-concept"&gt;
+simultaneous-equations
+&lt;/p&gt;
+
+&lt;p id="role"&gt;
+application
+&lt;/p&gt;
+
+&lt;p id="interaction"&gt;
+intersection-interpretation
+&lt;/p&gt;
+
+&lt;p id="description"&gt;
+Learners inspect two linear cost
+relationships and interpret both
+coordinates of their intersection in
+the real-world context.
+&lt;/p&gt;
+
+&lt;p id="assessment-distinction"&gt;
+Unlike QLIN-08, the learner is not
+asked to report the intersection as an
+ordered pair. The learner must explain
+what the horizontal and vertical
+coordinates mean in the situation.
+&lt;/p&gt;
+
+&lt;p id="provenance"&gt;
+Adapted from the straight-line graph
+question family represented by
+Numbas question NUMBAS-17290,
+"Graphs I: Linear - Line equation",
+licensed CC BY 4.0.
+
+The service-plan context, generated
+relationships, contextual prompts and
+diagnostic grading are independently
+written for QLIN-09.
+&lt;/p&gt;
+
+&lt;p id="source-url"&gt;
+https://numbas.mathcentre.ac.uk/question/17290/hannah-s-copy-of-graphs-i-linear-line-equation/preview/
+&lt;/p&gt;
+
+&lt;p id="license"&gt;
+CC BY 4.0
+&lt;/p&gt;
+
+&lt;p id="curriculum-policy"&gt;
+Curriculum alignment is maintained
+outside the shared question source.
+&lt;/p&gt;
+      </text>
+    </questiondescription>
+    <questionsimplify>1</questionsimplify>
+    <assumepositive>0</assumepositive>
+    <assumereal>1</assumereal>
+    <prtcorrect>
+      <text>
+        <span class="correct">
+Correct answer, well done.
+</span>
+      </text>
+    </prtcorrect>
+    <prtpartiallycorrect>
+      <text>
+        <span class="partiallycorrect">
+Your answer is partially correct.
+</span>
+      </text>
+    </prtpartiallycorrect>
+    <prtincorrect>
+      <text>
+        <span class="incorrect">
+Incorrect answer.
+</span>
+      </text>
+    </prtincorrect>
+    <decimals>.</decimals>
+    <scientificnotation>*10</scientificnotation>
+    <multiplicationsign>dot</multiplicationsign>
+    <sqrtsign>1</sqrtsign>
+    <complexno>i</complexno>
+    <inversetrig>cos-1</inversetrig>
+    <logicsymbol>lang</logicsymbol>
+    <matrixparens>[</matrixparens>
+    <isbroken>0</isbroken>
+    <variantsselectionseed />
+    <input>
+      <name>ans1</name>
+      <type>algebraic</type>
+      <tans>units</tans>
+      <boxsize>5</boxsize>
+      <strictsyntax>1</strictsyntax>
+      <insertstars>0</insertstars>
+      <syntaxhint>number</syntaxhint>
+      <syntaxattribute>0</syntaxattribute>
+      <forbidwords />
+      <allowwords />
+      <forbidfloat>0</forbidfloat>
+      <requirelowestterms>0</requirelowestterms>
+      <checkanswertype>0</checkanswertype>
+      <mustverify>0</mustverify>
+      <showvalidation>1</showvalidation>
+      <options />
+    </input>
+    <input>
+      <name>ans2</name>
+      <type>algebraic</type>
+      <tans>cost</tans>
+      <boxsize>5</boxsize>
+      <strictsyntax>1</strictsyntax>
+      <insertstars>0</insertstars>
+      <syntaxhint>number</syntaxhint>
+      <syntaxattribute>0</syntaxattribute>
+      <forbidwords />
+      <allowwords />
+      <forbidfloat>0</forbidfloat>
+      <requirelowestterms>0</requirelowestterms>
+      <checkanswertype>0</checkanswertype>
+      <mustverify>0</mustverify>
+      <showvalidation>1</showvalidation>
+      <options />
+    </input>
+    <prt>
+      <name>prt1</name>
+      <value>0.5000000</value>
+      <autosimplify>1</autosimplify>
+      <feedbackstyle>1</feedbackstyle>
+      <node>
+        <name>0</name>
+        <description>
+Checks interpretation of the
+horizontal coordinate.
+        </description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans1</sans>
+        <tans>units</tans>
+        <testoptions />
+        <quiet>0</quiet>
+        <truescoremode>=</truescoremode>
+        <truescore>1</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-1-T</trueanswernote>
+        <truefeedback format="html">
+          <text>
+&lt;p&gt;
+Correct. The horizontal coordinate
+represents the number of service units.
+&lt;/p&gt;
+          </text>
+        </truefeedback>
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>1</falsenextnode>
+        <falseanswernote>prt1-1-F</falseanswernote>
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+      <node>
+        <name>1</name>
+        <description>
+Detects use of the cost coordinate
+as the number of service units.
+        </description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans1</sans>
+        <tans>reversed_units</tans>
+        <testoptions />
+        <quiet>0</quiet>
+        <truescoremode>=</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-2-T</trueanswernote>
+        <truefeedback format="html">
+          <text>
+&lt;p&gt;
+You appear to have used the
+&lt;strong&gt;total cost&lt;/strong&gt; as the
+number of service units.
+
+The horizontal coordinate tells us
+how many service units are used.
+&lt;/p&gt;
+          </text>
+        </truefeedback>
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>-1</falsenextnode>
+        <falseanswernote>prt1-2-F</falseanswernote>
+        <falsefeedback format="html">
+          <text>
+&lt;p&gt;
+Read the horizontal coordinate of the
+point where the two cost graphs meet.
+That coordinate represents the number
+of service units.
+&lt;/p&gt;
+          </text>
+        </falsefeedback>
+      </node>
+    </prt>
+    <prt>
+      <name>prt2</name>
+      <value>0.5000000</value>
+      <autosimplify>1</autosimplify>
+      <feedbackstyle>1</feedbackstyle>
+      <node>
+        <name>0</name>
+        <description>
+Checks interpretation of the
+vertical coordinate.
+        </description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans2</sans>
+        <tans>cost</tans>
+        <testoptions />
+        <quiet>0</quiet>
+        <truescoremode>=</truescoremode>
+        <truescore>1</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt2-1-T</trueanswernote>
+        <truefeedback format="html">
+          <text>
+&lt;p&gt;
+Correct. The vertical coordinate
+represents the common total cost.
+&lt;/p&gt;
+          </text>
+        </truefeedback>
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>1</falsenextnode>
+        <falseanswernote>prt2-1-F</falseanswernote>
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+      <node>
+        <name>1</name>
+        <description>
+Detects use of the service-unit
+coordinate as the total cost.
+        </description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans2</sans>
+        <tans>reversed_cost</tans>
+        <testoptions />
+        <quiet>0</quiet>
+        <truescoremode>=</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt2-2-T</trueanswernote>
+        <truefeedback format="html">
+          <text>
+&lt;p&gt;
+You appear to have used the
+&lt;strong&gt;number of service units&lt;/strong&gt;
+as the total cost.
+
+The vertical coordinate tells us the
+cost shared by both plans at the
+intersection.
+&lt;/p&gt;
+          </text>
+        </truefeedback>
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>-1</falsenextnode>
+        <falseanswernote>prt2-2-F</falseanswernote>
+        <falsefeedback format="html">
+          <text>
+&lt;p&gt;
+Read the vertical coordinate of the
+point where the two graphs meet.
+That coordinate represents the common
+total cost.
+&lt;/p&gt;
+          </text>
+        </falsefeedback>
+      </node>
+    </prt>
+    <qtest>
+      <testcase>1</testcase>
+      <description>
+The generated contextual
+interpretation should receive
+full credit.
+      </description>
+      <testinput>
+        <name>ans1</name>
+        <value>units</value>
+      </testinput>
+      <testinput>
+        <name>ans2</name>
+        <value>cost</value>
+      </testinput>
+      <expected>
+        <name>prt1</name>
+        <expectedscore>1.0000000</expectedscore>
+        <expectedpenalty>0.0000000</expectedpenalty>
+        <expectedanswernote>
+prt1-1-T
+        </expectedanswernote>
+      </expected>
+      <expected>
+        <name>prt2</name>
+        <expectedscore>1.0000000</expectedscore>
+        <expectedpenalty>0.0000000</expectedpenalty>
+        <expectedanswernote>
+prt2-1-T
+        </expectedanswernote>
+      </expected>
+    </qtest>
+  </question>
+</quiz>

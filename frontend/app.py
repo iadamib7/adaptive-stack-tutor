@@ -705,3 +705,101 @@ with right:
         st.info(
             "No attempts have been recorded yet."
         )
+st.divider()
+
+st.header("Numbas Learning Content")
+
+numbas_questions, numbas_error = api_get(
+    "/content/numbas"
+)
+
+if numbas_error:
+    st.error(numbas_error)
+
+elif isinstance(
+    numbas_questions,
+    list,
+) and numbas_questions:
+
+    options = {
+        (
+            f"{item['title']} "
+            f"(#{item['id']})"
+        ): item["id"]
+        for item in numbas_questions
+    }
+
+    selected_label = st.selectbox(
+        "Choose a learning activity",
+        options=list(
+            options.keys()
+        ),
+    )
+
+    selected_id = options[
+        selected_label
+    ]
+
+    selected, error = api_get(
+        f"/content/numbas/{selected_id}"
+    )
+
+    if error:
+        st.error(error)
+
+    elif isinstance(
+        selected,
+        dict,
+    ):
+        st.subheader(
+            selected.get(
+                "title",
+                "Numbas Question",
+            )
+        )
+
+        statement = selected.get(
+            "statement",
+            "",
+        )
+
+        if statement:
+            st.markdown(statement)
+
+        parts = selected.get(
+            "parts",
+            [],
+        )
+
+        for part in parts:
+            st.markdown(
+                f"### Part "
+                f"{part['index']}"
+            )
+
+            prompt = part.get(
+                "prompt",
+                "",
+            )
+
+            if prompt:
+                st.markdown(prompt)
+            else:
+                st.caption(
+                    "Prompt is generated "
+                    "from Numbas variables."
+                )
+
+        st.caption(
+            "Source: Numbas | "
+            + selected.get(
+                "licence",
+                "",
+            )
+        )
+
+else:
+    st.info(
+        "No approved Numbas "
+        "content is available."
+    )

@@ -226,7 +226,6 @@ def test_passing_mastery_check_completes_concept() -> None:
         "207596",
         "207591",
         "207589",
-        "207630",
     ]:
         assert session.question is not None
         assert session.question.id == question_id
@@ -239,14 +238,35 @@ def test_passing_mastery_check_completes_concept() -> None:
         )
 
         session = engine.get_session(1)
+
         assert session is not None
 
     assert session.action == (
-        ConceptDecisionAction.COMPLETE_CONCEPT
+        ConceptDecisionAction.VERIFY_MASTERY
     )
-    assert session.progress.concept_mastered is True
-    assert session.question is None
-    assert session.session_complete is True
+
+    assert session.question is not None
+    assert session.question.id == "207630"
+
+    submit_correct(
+        engine=engine,
+        student_id=1,
+        concept_id=CONCEPT_ID,
+        question_id="207630",
+    )
+
+    session = engine.get_session(1)
+
+    assert session is not None
+
+    assert session.action == (
+        ConceptDecisionAction.ADVANCE_CONCEPT
+    )
+
+    assert session.next_concept_id == (
+        "KE-G9-INDICES-EXPONENTS"
+    )
+
 
 
 def test_submission_requires_active_session() -> None:
@@ -311,3 +331,116 @@ def test_wrong_concept_submission_is_rejected() -> None:
                 score=1.0,
             )
         )
+
+
+
+def test_first_attempt_uses_configured_adaptive_pathway(
+    monkeypatch: pytest.MonkeyPatch,
+) -> None:
+    engine = build_session_engine()
+
+    student_id = 90001
+
+    # Obtain one valid ConceptLearningDecision object
+    # before blocking the legacy decision engine.
+    expected_decision = (
+        engine.decision_engine.decide(
+            student_id=student_id,
+            concept_id=CONCEPT_ID,
+        )
+    )
+
+    calls = {
+        "policy": 0,
+        "adapter": 0,
+    }
+
+    class FakePathwayPolicy:
+        def decide(
+            self,
+            current_concept_id,
+            mastered_concept_ids,
+            seen_content_ids=None,
+            *,
+            concept_mastered,
+            repeat_attempt_counts=None,
+        ):
+            calls["policy"] += 1
+
+            assert (
+                current_concept_id
+                == CONCEPT_ID
+            )
+
+            assert concept_mastered is False
+
+            assert seen_content_ids == set()
+
+            assert isinstance(
+                mastered_concept_ids,
+                set,
+            )
+
+            return object()
+
+    class FakePathwayAdapter:
+        def adapt(
+            self,
+            *,
+            student_id,
+            current_concept_id,
+            pathway_decision,
+            evidence_score,
+            concept_mastered,
+        ):
+            calls["adapter"] += 1
+
+            assert student_id == 90001
+
+            assert (
+                current_concept_id
+                == CONCEPT_ID
+            )
+
+            assert pathway_decision is not None
+
+            assert concept_mastered is False
+
+            return expected_decision
+
+    engine.pathway_policy = (
+        FakePathwayPolicy()
+    )
+
+    engine.pathway_adapter = (
+        FakePathwayAdapter()
+    )
+
+    def fail_if_legacy_used(
+        *,
+        student_id,
+        concept_id,
+    ):
+        raise AssertionError(
+            "Legacy decision engine must not "
+            "handle the first attempt when an "
+            "adaptive pathway is configured."
+        )
+
+    monkeypatch.setattr(
+        engine.decision_engine,
+        "decide",
+        fail_if_legacy_used,
+    )
+
+    session = engine.start_session(
+        student_id=student_id,
+        concept_id=CONCEPT_ID,
+    )
+
+    assert session.progress.attempts == 0
+
+    assert calls["policy"] == 1
+    assert calls["adapter"] == 1
+
+    assert session.question is not None

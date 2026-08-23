@@ -1,0 +1,580 @@
+<quiz>
+  <question type="stack">
+    <name>
+      <text>Shared: Identify the intersection of two linear graphs</text>
+    </name>
+
+    <questiontext format="html">
+      <text>&lt;p&gt;
+Two linear relations,
+&lt;strong&gt;Relation A&lt;/strong&gt; and
+&lt;strong&gt;Relation B&lt;/strong&gt;,
+are shown on the Cartesian plane.
+&lt;/p&gt;
+
+&lt;p&gt;
+The solution of the two relations is
+the point where the graphs intersect.
+&lt;/p&gt;
+
+&lt;center&gt;
+
+[[jsxgraph]]
+
+JXG.Options.text.useMathJax = true;
+
+var board = JXG.JSXGraph.initBoard(
+    divid,
+    {
+        axis: true,
+        showCopyright: false,
+        boundingbox: [-6,6,6,-6],
+        keepaspectratio: true,
+        grid: true
+    }
+);
+
+
+var lineA = board.create(
+    'functiongraph',
+    [
+        function(x) {
+            return {#m1#}*x + {#c1#};
+        }
+    ],
+    {
+        fixed: true,
+        strokeWidth: 3
+    }
+);
+
+
+var lineB = board.create(
+    'functiongraph',
+    [
+        function(x) {
+            return {#m2#}*x + {#c2#};
+        }
+    ],
+    {
+        fixed: true,
+        strokeWidth: 3,
+        dash: 2
+    }
+);
+
+
+board.unsuspendUpdate();
+
+[[/jsxgraph]]
+
+&lt;/center&gt;
+
+
+&lt;p&gt;
+Enter the ordered pair representing
+the intersection point.
+
+Write your answer in the form
+\[
+[x,y].
+\]
+
+[[input:ans1]]
+[[validation:ans1]]
+
+[[feedback:prt1]]
+&lt;/p&gt;
+      </text>
+    </questiontext>
+
+    <generalfeedback format="html">
+      <text>&lt;h3&gt;Worked solution&lt;/h3&gt;
+
+&lt;p&gt;
+The intersection is the point that
+lies on both Relation A and Relation B.
+&lt;/p&gt;
+
+&lt;p&gt;
+Reading the graph gives
+\[
+({@xI@},{@yI@}).
+\]
+&lt;/p&gt;
+
+&lt;p&gt;
+Therefore the ordered pair is
+\[
+[{@xI@},{@yI@}].
+\]
+&lt;/p&gt;
+
+&lt;p&gt;
+Remember that the horizontal
+coordinate \(x\) is written first,
+followed by the vertical coordinate
+\(y\).
+&lt;/p&gt;
+      </text>
+    </generalfeedback>
+
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.1000000</penalty>
+    <hidden>0</hidden>
+    <idnumber />
+
+    <stackversion>
+      <text>2023060500</text>
+    </stackversion>
+
+    <questionvariables>
+      <text>/*
+Shared Curriculum-Independent
+Question Bank
+
+Linear Relations
+QLIN-08
+
+Adaptation source:
+NUMBAS-17290
+
+Licence:
+CC BY 4.0
+
+The source provides the licensed
+straight-line graph question family
+used as the adaptation basis.
+
+This STACK implementation uses new
+wording, generated values, two
+relations with a guaranteed integer
+intersection, and diagnostic feedback.
+*/
+
+
+/*
+Choose the intersection first.
+
+xI is non-zero so the intersection is
+not simply the shared y-intercept.
+*/
+
+xI:rand_with_prohib(
+    -2,
+    2,
+    [0]
+);
+
+
+yI:rand_with_prohib(
+    -2,
+    2,
+    [xI]
+);
+
+
+/*
+Generate two distinct non-horizontal
+gradients.
+*/
+
+m1:rand_with_prohib(
+    -2,
+    2,
+    [0]
+);
+
+
+m2:rand_with_prohib(
+    -2,
+    2,
+    [0,m1]
+);
+
+
+/*
+Construct both intercepts so both
+relations pass through (xI,yI).
+
+Because m1 is different from m2,
+the two lines have exactly one
+intersection.
+*/
+
+c1:yI-m1*xI;
+
+c2:yI-m2*xI;
+
+
+/*
+Correct ordered pair.
+*/
+
+intersection:[xI,yI];
+
+
+/*
+Common misconception answers.
+
+Learner may report a y-intercept
+instead of the intersection.
+*/
+
+interceptA:[0,c1];
+
+interceptB:[0,c2];
+
+
+/*
+Coordinate-order confusion.
+*/
+
+reversed:[yI,xI];
+      </text>
+    </questionvariables>
+
+    <specificfeedback format="html">
+      <text>[[feedback:prt1]]</text>
+    </specificfeedback>
+
+    <questionnote format="moodle_auto_format">
+      <text>&lt;p&gt;
+Shared Question Bank |
+Linear Relations |
+QLIN-08
+&lt;/p&gt;
+
+&lt;p&gt;
+relationA:
+m=\({@m1@}\);
+c=\({@c1@}\)
+&lt;/p&gt;
+
+&lt;p&gt;
+relationB:
+m=\({@m2@}\);
+c=\({@c2@}\)
+&lt;/p&gt;
+
+&lt;p&gt;
+intersection=
+\({@intersection@}\)
+&lt;/p&gt;
+
+&lt;p&gt;
+interceptA=
+\({@interceptA@}\);
+interceptB=
+\({@interceptB@}\)
+&lt;/p&gt;
+
+&lt;p&gt;
+reversed=
+\({@reversed@}\)
+&lt;/p&gt;
+      </text>
+    </questionnote>
+
+    <questiondescription format="moodle_auto_format">
+      <text>&lt;p id="bank"&gt;
+Shared Curriculum-Independent
+Question Bank
+&lt;/p&gt;
+
+&lt;p id="shared-question-id"&gt;
+QLIN-08
+&lt;/p&gt;
+
+&lt;p id="knowledge-concept"&gt;
+linear-relations
+&lt;/p&gt;
+
+&lt;p id="secondary-concept"&gt;
+coordinate-graphs
+&lt;/p&gt;
+
+&lt;p id="tertiary-concept"&gt;
+simultaneous-equations
+&lt;/p&gt;
+
+&lt;p id="role"&gt;
+conceptual
+&lt;/p&gt;
+
+&lt;p id="interaction"&gt;
+intersection-identification
+&lt;/p&gt;
+
+&lt;p id="description"&gt;
+Learners inspect two fixed linear
+graphs and identify the ordered pair
+representing their intersection.
+&lt;/p&gt;
+
+&lt;p id="assessment-distinction"&gt;
+Unlike QLIN-07, the learner is not
+reading a coordinate from a marked
+point. The learner must identify the
+single point shared by both linear
+relations.
+&lt;/p&gt;
+
+&lt;p id="provenance"&gt;
+Adapted from the straight-line graph
+question family represented by
+Numbas question NUMBAS-17290,
+"Graphs I: Linear - Line equation",
+licensed CC BY 4.0.
+
+The STACK implementation uses new
+wording, generated relations,
+intersection construction and
+diagnostic grading.
+&lt;/p&gt;
+
+&lt;p id="source-url"&gt;
+https://numbas.mathcentre.ac.uk/question/17290/
+&lt;/p&gt;
+
+&lt;p id="license"&gt;
+CC BY 4.0
+&lt;/p&gt;
+
+&lt;p id="curriculum-policy"&gt;
+Curriculum alignment is maintained
+outside the shared question source.
+&lt;/p&gt;
+      </text>
+    </questiondescription>
+
+    <questionsimplify>1</questionsimplify>
+    <assumepositive>0</assumepositive>
+    <assumereal>0</assumereal>
+
+    <prtcorrect format="html">
+      <text>&lt;span style="font-size: 1.5em; color:green;"&gt;&lt;i class="fa fa-check"&gt;&lt;/i&gt;&lt;/span&gt; Correct answer, well done.</text>
+    </prtcorrect>
+
+    <prtpartiallycorrect format="html">
+      <text>&lt;span style="font-size: 1.5em; color:orange;"&gt;&lt;i class="fa fa-adjust"&gt;&lt;/i&gt;&lt;/span&gt; Your answer is partially correct.</text>
+    </prtpartiallycorrect>
+
+    <prtincorrect format="html">
+      <text>&lt;span style="font-size: 1.5em; color:red;"&gt;&lt;i class="fa fa-times"&gt;&lt;/i&gt;&lt;/span&gt; Incorrect answer.</text>
+    </prtincorrect>
+
+    <decimals>.</decimals>
+    <scientificnotation>*10</scientificnotation>
+    <multiplicationsign>none</multiplicationsign>
+    <sqrtsign>1</sqrtsign>
+    <complexno>i</complexno>
+    <inversetrig>cos-1</inversetrig>
+    <logicsymbol>lang</logicsymbol>
+    <matrixparens>[</matrixparens>
+    <isbroken>0</isbroken>
+    <variantsselectionseed />
+
+    <input>
+      <name>ans1</name>
+      <type>algebraic</type>
+      <tans>intersection</tans>
+      <boxsize>15</boxsize>
+      <strictsyntax>1</strictsyntax>
+      <insertstars>0</insertstars>
+      <syntaxhint>[x,y]</syntaxhint>
+      <syntaxattribute>0</syntaxattribute>
+      <forbidwords />
+      <allowwords />
+      <forbidfloat>0</forbidfloat>
+      <requirelowestterms>0</requirelowestterms>
+      <checkanswertype>0</checkanswertype>
+      <mustverify>0</mustverify>
+      <showvalidation>1</showvalidation>
+      <options />
+    </input>
+
+    <prt>
+      <name>prt1</name>
+      <value>1.0000000</value>
+      <autosimplify>1</autosimplify>
+      <feedbackstyle>1</feedbackstyle>
+
+      <node>
+        <name>0</name>
+        <description>
+Checks the intersection ordered pair.
+        </description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans1</sans>
+        <tans>intersection</tans>
+        <testoptions />
+        <quiet>0</quiet>
+
+        <truescoremode>=</truescoremode>
+        <truescore>1</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-1-T</trueanswernote>
+
+        <truefeedback format="html">
+          <text>&lt;p&gt;
+Correct. That ordered pair is the
+point shared by both linear graphs.
+&lt;/p&gt;</text>
+        </truefeedback>
+
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>1</falsenextnode>
+        <falseanswernote>prt1-1-F</falseanswernote>
+
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+
+      <node>
+        <name>1</name>
+        <description>
+Detects Relation A y-intercept.
+        </description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans1</sans>
+        <tans>interceptA</tans>
+        <testoptions />
+        <quiet>0</quiet>
+
+        <truescoremode>=</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-2-T</trueanswernote>
+
+        <truefeedback format="html">
+          <text>&lt;p&gt;
+You appear to have entered the
+\(y\)-intercept of Relation A.
+
+The required point is where
+&lt;strong&gt;both&lt;/strong&gt; graphs meet.
+&lt;/p&gt;</text>
+        </truefeedback>
+
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>2</falsenextnode>
+        <falseanswernote>prt1-2-F</falseanswernote>
+
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+
+      <node>
+        <name>2</name>
+        <description>
+Detects Relation B y-intercept.
+        </description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans1</sans>
+        <tans>interceptB</tans>
+        <testoptions />
+        <quiet>0</quiet>
+
+        <truescoremode>=</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-3-T</trueanswernote>
+
+        <truefeedback format="html">
+          <text>&lt;p&gt;
+You appear to have entered the
+\(y\)-intercept of Relation B.
+
+Look for the point where Relation A
+and Relation B cross each other.
+&lt;/p&gt;</text>
+        </truefeedback>
+
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>3</falsenextnode>
+        <falseanswernote>prt1-3-F</falseanswernote>
+
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+
+      <node>
+        <name>3</name>
+        <description>
+Detects reversed coordinate order.
+        </description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans1</sans>
+        <tans>reversed</tans>
+        <testoptions />
+        <quiet>0</quiet>
+
+        <truescoremode>=</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-4-T</trueanswernote>
+
+        <truefeedback format="html">
+          <text>&lt;p&gt;
+The coordinates appear to be reversed.
+
+Ordered pairs are written as
+\((x,y)\): horizontal coordinate first,
+vertical coordinate second.
+&lt;/p&gt;</text>
+        </truefeedback>
+
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>-1</falsenextnode>
+        <falseanswernote>prt1-4-F</falseanswernote>
+
+        <falsefeedback format="html">
+          <text>&lt;p&gt;
+Find the point that lies on both
+graphs and enter its coordinates in
+the order \([x,y]\).
+&lt;/p&gt;</text>
+        </falsefeedback>
+      </node>
+    </prt>
+
+    <qtest>
+      <testcase>1</testcase>
+
+      <description>
+The generated intersection should
+receive full credit.
+      </description>
+
+      <testinput>
+        <name>ans1</name>
+        <value>intersection</value>
+      </testinput>
+
+      <expected>
+        <name>prt1</name>
+        <expectedscore>1.0000000</expectedscore>
+        <expectedpenalty>0.0000000</expectedpenalty>
+        <expectedanswernote>
+prt1-1-T
+        </expectedanswernote>
+      </expected>
+    </qtest>
+  <deployedseed>647626762</deployedseed><deployedseed>730145558</deployedseed><deployedseed>1146515186</deployedseed><deployedseed>1004544397</deployedseed><deployedseed>65830955</deployedseed></question>
+</quiz>

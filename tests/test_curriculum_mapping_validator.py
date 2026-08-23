@@ -1,4 +1,4 @@
-import json
+﻿import json
 from pathlib import Path
 
 from backend.app.integrations.stack_xml.export_models import (
@@ -68,6 +68,6 @@ def test_unmapped_inventory_questions_are_reported() -> None:
         )
     )
 
-    assert len(unmapped) == 74
+    assert len(unmapped) == 53
     assert "207582" not in unmapped
     assert "207630" not in unmapped

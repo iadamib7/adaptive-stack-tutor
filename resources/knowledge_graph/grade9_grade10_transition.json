@@ -1,0 +1,604 @@
+{
+  "version": "0.3",
+  "graph_id": "math-g9-g10-transition-development",
+  "name": "Grade 9 to Grade 10 Mathematics Transition",
+  "description": "Development knowledge graph for building foundational mathematical readiness before more advanced secondary mathematics.",
+  "concepts": [
+    {
+      "concept_id": "number-sense",
+      "name": "Number Sense",
+      "domain": "Mathematics",
+      "strand": "Number",
+      "level_id": "G9-G10",
+      "difficulty_band": "foundation",
+      "prerequisites": [],
+      "remediation": [],
+      "extensions": [
+        "integer-operations",
+        "fractions",
+        "decimals"
+      ],
+      "mastery_threshold": 0.8,
+      "recommended_question_count": 8
+    },
+    {
+      "concept_id": "integer-operations",
+      "name": "Integer Operations",
+      "domain": "Mathematics",
+      "strand": "Number",
+      "level_id": "G9-G10",
+      "difficulty_band": "foundation",
+      "prerequisites": [
+        "number-sense"
+      ],
+      "remediation": [
+        "number-sense"
+      ],
+      "extensions": [
+        "order-of-operations",
+        "algebraic-expressions"
+      ],
+      "mastery_threshold": 0.8,
+      "recommended_question_count": 10
+    },
+    {
+      "concept_id": "fractions",
+      "name": "Fractions",
+      "domain": "Mathematics",
+      "strand": "Number",
+      "level_id": "G9-G10",
+      "difficulty_band": "foundation",
+      "prerequisites": [
+        "number-sense"
+      ],
+      "remediation": [
+        "number-sense"
+      ],
+      "extensions": [
+        "ratio-and-proportion",
+        "percentages",
+        "algebraic-expressions"
+      ],
+      "mastery_threshold": 0.82,
+      "recommended_question_count": 12
+    },
+    {
+      "concept_id": "decimals",
+      "name": "Decimals",
+      "domain": "Mathematics",
+      "strand": "Number",
+      "level_id": "G9-G10",
+      "difficulty_band": "foundation",
+      "prerequisites": [
+        "number-sense"
+      ],
+      "remediation": [
+        "number-sense"
+      ],
+      "extensions": [
+        "percentages",
+        "ratio-and-proportion"
+      ],
+      "mastery_threshold": 0.8,
+      "recommended_question_count": 8
+    },
+    {
+      "concept_id": "order-of-operations",
+      "name": "Order of Operations",
+      "domain": "Mathematics",
+      "strand": "Number",
+      "level_id": "G9-G10",
+      "difficulty_band": "developing",
+      "prerequisites": [
+        "integer-operations"
+      ],
+      "remediation": [
+        "integer-operations"
+      ],
+      "extensions": [
+        "algebraic-expressions",
+        "indices"
+      ],
+      "mastery_threshold": 0.82,
+      "recommended_question_count": 8
+    },
+    {
+      "concept_id": "percentages",
+      "name": "Percentages",
+      "domain": "Mathematics",
+      "strand": "Number",
+      "level_id": "G9-G10",
+      "difficulty_band": "developing",
+      "prerequisites": [
+        "fractions",
+        "decimals"
+      ],
+      "remediation": [
+        "fractions",
+        "decimals"
+      ],
+      "extensions": [
+        "ratio-and-proportion"
+      ],
+      "mastery_threshold": 0.8,
+      "recommended_question_count": 10
+    },
+    {
+      "concept_id": "ratio-and-proportion",
+      "name": "Ratio and Proportion",
+      "domain": "Mathematics",
+      "strand": "Number",
+      "level_id": "G9-G10",
+      "difficulty_band": "developing",
+      "prerequisites": [
+        "fractions",
+        "decimals"
+      ],
+      "remediation": [
+        "fractions"
+      ],
+      "extensions": [
+        "linear-equations",
+        "similarity"
+      ],
+      "mastery_threshold": 0.82,
+      "recommended_question_count": 12
+    },
+    {
+      "concept_id": "algebraic-expressions",
+      "name": "Algebraic Expressions",
+      "domain": "Mathematics",
+      "strand": "Algebra",
+      "level_id": "G9-G10",
+      "difficulty_band": "developing",
+      "prerequisites": [
+        "integer-operations",
+        "fractions",
+        "order-of-operations"
+      ],
+      "remediation": [
+        "integer-operations",
+        "order-of-operations"
+      ],
+      "extensions": [
+        "linear-equations",
+        "factorisation",
+        "indices"
+      ],
+      "mastery_threshold": 0.83,
+      "recommended_question_count": 12
+    },
+    {
+      "concept_id": "relation-foundations",
+      "name": "Relation Foundations",
+      "domain": "Mathematics",
+      "strand": "Algebra",
+      "level_id": "G7-G10",
+      "description": "Understand relations through rules, tables of values, coordinate points, graphs, and prediction of subsequent values.",
+      "difficulty_band": "foundation",
+      "prerequisites": [],
+      "remediation": [],
+      "extensions": [
+        "coordinate-graphs"
+      ],
+      "mastery_threshold": 0.8,
+      "recommended_question_count": 10,
+      "curriculum_tags": [
+        "relations",
+        "tables-of-values",
+        "coordinate-foundations"
+      ]
+    },
+    {
+      "concept_id": "arithmetic-sequences",
+      "name": "Arithmetic Sequences",
+      "domain": "Mathematics",
+      "strand": "Algebra",
+      "level_id": "G9-G10",
+      "difficulty_band": "developing",
+      "prerequisites": [
+        "integer-operations",
+        "algebraic-expressions"
+      ],
+      "remediation": [
+        "integer-operations",
+        "algebraic-expressions"
+      ],
+      "extensions": [],
+      "mastery_threshold": 0.82,
+      "recommended_question_count": 10
+    },
+    {
+      "concept_id": "indices",
+      "name": "Indices and Exponents",
+      "domain": "Mathematics",
+      "strand": "Algebra",
+      "level_id": "G9-G10",
+      "difficulty_band": "developing",
+      "prerequisites": [
+        "integer-operations",
+        "order-of-operations",
+        "algebraic-expressions"
+      ],
+      "remediation": [
+        "integer-operations",
+        "order-of-operations"
+      ],
+      "extensions": [
+        "roots-and-surds",
+        "factorisation"
+      ],
+      "mastery_threshold": 0.83,
+      "recommended_question_count": 12
+    },
+    {
+      "concept_id": "linear-equations",
+      "name": "Linear Equations",
+      "domain": "Mathematics",
+      "strand": "Algebra",
+      "level_id": "G9-G10",
+      "difficulty_band": "developing",
+      "prerequisites": [
+        "algebraic-expressions",
+        "ratio-and-proportion"
+      ],
+      "remediation": [
+        "algebraic-expressions"
+      ],
+      "extensions": [
+        "inequalities",
+        "simultaneous-equations",
+        "coordinate-graphs"
+      ],
+      "mastery_threshold": 0.85,
+      "recommended_question_count": 14
+    },
+    {
+      "concept_id": "factorisation",
+      "name": "Factorisation",
+      "domain": "Mathematics",
+      "strand": "Algebra",
+      "level_id": "G9-G10",
+      "difficulty_band": "proficient",
+      "prerequisites": [
+        "algebraic-expressions"
+      ],
+      "remediation": [
+        "algebraic-expressions"
+      ],
+      "extensions": [
+        "quadratic-expressions"
+      ],
+      "mastery_threshold": 0.85,
+      "recommended_question_count": 12
+    },
+    {
+      "concept_id": "inequalities",
+      "name": "Linear Inequalities",
+      "domain": "Mathematics",
+      "strand": "Algebra",
+      "level_id": "G9-G10",
+      "difficulty_band": "proficient",
+      "prerequisites": [
+        "linear-equations"
+      ],
+      "remediation": [
+        "linear-equations"
+      ],
+      "extensions": [],
+      "mastery_threshold": 0.82,
+      "recommended_question_count": 10
+    },
+    {
+      "concept_id": "simultaneous-equations",
+      "name": "Simultaneous Equations",
+      "domain": "Mathematics",
+      "strand": "Algebra",
+      "level_id": "G9-G10",
+      "difficulty_band": "proficient",
+      "prerequisites": [
+        "linear-equations"
+      ],
+      "remediation": [
+        "linear-equations",
+        "algebraic-expressions"
+      ],
+      "extensions": [
+        "matrices"
+      ],
+      "mastery_threshold": 0.85,
+      "recommended_question_count": 12
+    },
+    {
+      "concept_id": "coordinate-graphs",
+      "name": "Coordinates and Linear Graphs",
+      "domain": "Mathematics",
+      "strand": "Geometry and Algebra",
+      "level_id": "G9-G10",
+      "difficulty_band": "developing",
+      "prerequisites": [
+        "linear-equations"
+      ],
+      "remediation": [
+        "linear-equations"
+      ],
+      "extensions": [
+        "gradient",
+        "geometry"
+      ],
+      "mastery_threshold": 0.82,
+      "recommended_question_count": 12
+    },
+    {
+      "concept_id": "gradient",
+      "name": "Gradient and Slope",
+      "domain": "Mathematics",
+      "strand": "Geometry and Algebra",
+      "level_id": "G9-G10",
+      "difficulty_band": "developing",
+      "prerequisites": [
+        "coordinate-graphs"
+      ],
+      "remediation": [
+        "coordinate-graphs",
+        "linear-equations"
+      ],
+      "extensions": [],
+      "mastery_threshold": 0.82,
+      "recommended_question_count": 10
+    },
+    {
+      "concept_id": "angles",
+      "name": "Angles and Angle Relationships",
+      "domain": "Mathematics",
+      "strand": "Geometry",
+      "level_id": "G9-G10",
+      "difficulty_band": "foundation",
+      "prerequisites": [
+        "number-sense"
+      ],
+      "remediation": [],
+      "extensions": [
+        "triangles",
+        "geometry"
+      ],
+      "mastery_threshold": 0.8,
+      "recommended_question_count": 10
+    },
+    {
+      "concept_id": "triangles",
+      "name": "Triangles",
+      "domain": "Mathematics",
+      "strand": "Geometry",
+      "level_id": "G9-G10",
+      "difficulty_band": "developing",
+      "prerequisites": [
+        "angles"
+      ],
+      "remediation": [
+        "angles"
+      ],
+      "extensions": [
+        "pythagorean-theorem",
+        "similarity",
+        "mensuration"
+      ],
+      "mastery_threshold": 0.82,
+      "recommended_question_count": 10
+    },
+    {
+      "concept_id": "geometry",
+      "name": "Plane Geometry",
+      "domain": "Mathematics",
+      "strand": "Geometry",
+      "level_id": "G9-G10",
+      "difficulty_band": "developing",
+      "prerequisites": [
+        "angles"
+      ],
+      "remediation": [
+        "angles"
+      ],
+      "extensions": [
+        "mensuration"
+      ],
+      "mastery_threshold": 0.82,
+      "recommended_question_count": 12
+    },
+    {
+      "concept_id": "pythagorean-theorem",
+      "name": "Pythagorean Theorem",
+      "domain": "Mathematics",
+      "strand": "Geometry",
+      "level_id": "G9-G10",
+      "difficulty_band": "developing",
+      "prerequisites": [
+        "triangles",
+        "indices"
+      ],
+      "remediation": [
+        "triangles",
+        "indices"
+      ],
+      "extensions": [
+        "trigonometry"
+      ],
+      "mastery_threshold": 0.83,
+      "recommended_question_count": 10
+    },
+    {
+      "concept_id": "similarity",
+      "name": "Similarity and Scale",
+      "domain": "Mathematics",
+      "strand": "Geometry",
+      "level_id": "G9-G10",
+      "difficulty_band": "developing",
+      "prerequisites": [
+        "triangles",
+        "ratio-and-proportion"
+      ],
+      "remediation": [
+        "triangles",
+        "ratio-and-proportion"
+      ],
+      "extensions": [
+        "trigonometry"
+      ],
+      "mastery_threshold": 0.82,
+      "recommended_question_count": 10
+    },
+    {
+      "concept_id": "mensuration",
+      "name": "Mensuration",
+      "domain": "Mathematics",
+      "strand": "Measurement",
+      "level_id": "G9-G10",
+      "difficulty_band": "developing",
+      "prerequisites": [
+        "geometry",
+        "fractions",
+        "decimals"
+      ],
+      "remediation": [
+        "geometry"
+      ],
+      "extensions": [
+        "surface-area-and-volume"
+      ],
+      "mastery_threshold": 0.82,
+      "recommended_question_count": 14
+    },
+    {
+      "concept_id": "surface-area-and-volume",
+      "name": "Surface Area and Volume",
+      "domain": "Mathematics",
+      "strand": "Measurement",
+      "level_id": "G9-G10",
+      "difficulty_band": "proficient",
+      "prerequisites": [
+        "mensuration"
+      ],
+      "remediation": [
+        "mensuration"
+      ],
+      "extensions": [],
+      "mastery_threshold": 0.83,
+      "recommended_question_count": 12
+    },
+    {
+      "concept_id": "statistics",
+      "name": "Statistics and Data Representation",
+      "domain": "Mathematics",
+      "strand": "Statistics",
+      "level_id": "G9-G10",
+      "difficulty_band": "developing",
+      "prerequisites": [
+        "fractions",
+        "decimals"
+      ],
+      "remediation": [
+        "fractions",
+        "decimals"
+      ],
+      "extensions": [
+        "probability"
+      ],
+      "mastery_threshold": 0.8,
+      "recommended_question_count": 12
+    },
+    {
+      "concept_id": "probability",
+      "name": "Probability",
+      "domain": "Mathematics",
+      "strand": "Statistics",
+      "level_id": "G9-G10",
+      "difficulty_band": "developing",
+      "prerequisites": [
+        "fractions",
+        "statistics"
+      ],
+      "remediation": [
+        "fractions"
+      ],
+      "extensions": [],
+      "mastery_threshold": 0.82,
+      "recommended_question_count": 12
+    },
+    {
+      "concept_id": "roots-and-surds",
+      "name": "Roots and Surds",
+      "domain": "Mathematics",
+      "strand": "Algebra",
+      "level_id": "G9-G10",
+      "difficulty_band": "proficient",
+      "prerequisites": [
+        "indices"
+      ],
+      "remediation": [
+        "indices"
+      ],
+      "extensions": [
+        "quadratic-expressions"
+      ],
+      "mastery_threshold": 0.84,
+      "recommended_question_count": 10
+    },
+    {
+      "concept_id": "quadratic-expressions",
+      "name": "Quadratic Expressions",
+      "domain": "Mathematics",
+      "strand": "Algebra",
+      "level_id": "G9-G10",
+      "difficulty_band": "advanced",
+      "prerequisites": [
+        "factorisation",
+        "roots-and-surds"
+      ],
+      "remediation": [
+        "factorisation",
+        "algebraic-expressions"
+      ],
+      "extensions": [],
+      "mastery_threshold": 0.85,
+      "recommended_question_count": 12
+    },
+    {
+      "concept_id": "trigonometry",
+      "name": "Introductory Trigonometry",
+      "domain": "Mathematics",
+      "strand": "Geometry",
+      "level_id": "G9-G10",
+      "difficulty_band": "proficient",
+      "prerequisites": [
+        "pythagorean-theorem",
+        "similarity"
+      ],
+      "remediation": [
+        "triangles",
+        "ratio-and-proportion"
+      ],
+      "extensions": [],
+      "mastery_threshold": 0.85,
+      "recommended_question_count": 14
+    },
+    {
+      "concept_id": "matrices",
+      "name": "Matrices",
+      "domain": "Mathematics",
+      "strand": "Algebra",
+      "level_id": "G9-G10",
+      "difficulty_band": "advanced",
+      "prerequisites": [
+        "algebraic-expressions",
+        "simultaneous-equations"
+      ],
+      "remediation": [
+        "algebraic-expressions",
+        "linear-equations"
+      ],
+      "extensions": [],
+      "mastery_threshold": 0.85,
+      "recommended_question_count": 12
+    }
+  ]
+}

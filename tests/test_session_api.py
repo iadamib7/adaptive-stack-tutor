@@ -26,7 +26,7 @@ def test_start_session_endpoint() -> None:
 
     assert data["student_id"] == 901
     assert data["question"]["id"] == "207582"
-    assert data["action"] == "start_foundation"
+    assert data["action"] == "target_practice"
 
 
 def test_submit_correct_answer_endpoint() -> None:
@@ -103,7 +103,7 @@ def test_submit_incorrect_answer_endpoint() -> None:
 
     data = response.json()
 
-    assert data["question"]["id"] == "207582"
+    assert data["question"]["id"] == "207596"
     assert (
         data["progress"][
             "negative_evidence_count"

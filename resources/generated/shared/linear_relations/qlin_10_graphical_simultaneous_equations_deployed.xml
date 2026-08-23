@@ -1,0 +1,1165 @@
+<quiz>
+  <question type="stack">
+    <name>
+      <text>Shared: Solve simultaneous equations graphically</text>
+    </name>
+    <questiontext format="html">
+      <text>
+&lt;p&gt;
+Solve the following pair of
+simultaneous linear equations
+&lt;strong&gt;graphically&lt;/strong&gt;.
+&lt;/p&gt;
+
+&lt;p&gt;
+&lt;strong&gt;Equation A&lt;/strong&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+\[
+y={@m1@}x+({@c1@})
+\]
+&lt;/p&gt;
+
+&lt;p&gt;
+&lt;strong&gt;Equation B&lt;/strong&gt;
+&lt;/p&gt;
+
+&lt;p&gt;
+\[
+y={@m2@}x+({@c2@})
+\]
+&lt;/p&gt;
+
+&lt;p&gt;
+Use points \(A_1\) and \(A_2\)
+to construct the graph of
+Equation A.
+&lt;/p&gt;
+
+&lt;p&gt;
+Use points \(B_1\) and \(B_2\)
+to construct the graph of
+Equation B.
+&lt;/p&gt;
+
+
+&lt;center&gt;
+
+[[jsxgraph
+input-ref-ans1="sA1"
+input-ref-ans2="sA2"
+input-ref-ans3="sB1"
+input-ref-ans4="sB2"]]
+
+JXG.Options.text.useMathJax = true;
+
+var board = JXG.JSXGraph.initBoard(
+    divid,
+    {
+        axis: true,
+        showCopyright: false,
+        boundingbox: [-6,6,6,-6],
+        keepaspectratio: true,
+        grid: true
+    }
+);
+
+
+var a1 = board.create(
+    'point',
+    [
+        {#start_ax1#},
+        {#start_ay1#}
+    ],
+    {
+        name:'A1',
+        snapToGrid:true,
+        size:3,
+        snapSizeX:0.1,
+        snapSizeY:0.1,
+        showInfobox:false
+    }
+);
+
+
+var a2 = board.create(
+    'point',
+    [
+        {#start_ax2#},
+        {#start_ay2#}
+    ],
+    {
+        name:'A2',
+        snapToGrid:true,
+        size:3,
+        snapSizeX:0.1,
+        snapSizeY:0.1,
+        showInfobox:false
+    }
+);
+
+
+var lineA = board.create(
+    'line',
+    [
+        a1,
+        a2
+    ],
+    {
+        fixed:true,
+        straightFirst:true,
+        straightLast:true,
+        strokeWidth:2
+    }
+);
+
+
+var b1 = board.create(
+    'point',
+    [
+        {#start_bx1#},
+        {#start_by1#}
+    ],
+    {
+        name:'B1',
+        snapToGrid:true,
+        size:3,
+        snapSizeX:0.1,
+        snapSizeY:0.1,
+        showInfobox:false
+    }
+);
+
+
+var b2 = board.create(
+    'point',
+    [
+        {#start_bx2#},
+        {#start_by2#}
+    ],
+    {
+        name:'B2',
+        snapToGrid:true,
+        size:3,
+        snapSizeX:0.1,
+        snapSizeY:0.1,
+        showInfobox:false
+    }
+);
+
+
+var lineB = board.create(
+    'line',
+    [
+        b1,
+        b2
+    ],
+    {
+        fixed:true,
+        straightFirst:true,
+        straightLast:true,
+        strokeWidth:2,
+        dash:2
+    }
+);
+
+
+stack_jxg.bind_point(
+    sA1,
+    a1
+);
+
+stack_jxg.bind_point(
+    sA2,
+    a2
+);
+
+stack_jxg.bind_point(
+    sB1,
+    b1
+);
+
+stack_jxg.bind_point(
+    sB2,
+    b2
+);
+
+
+board.unsuspendUpdate();
+
+[[/jsxgraph]]
+
+&lt;/center&gt;
+
+
+&lt;p style="visibility:hidden"&gt;
+[[input:ans1]]
+[[validation:ans1]]
+&lt;/p&gt;
+
+&lt;p style="visibility:hidden"&gt;
+[[input:ans2]]
+[[validation:ans2]]
+&lt;/p&gt;
+
+&lt;p style="visibility:hidden"&gt;
+[[input:ans3]]
+[[validation:ans3]]
+&lt;/p&gt;
+
+&lt;p style="visibility:hidden"&gt;
+[[input:ans4]]
+[[validation:ans4]]
+&lt;/p&gt;
+
+
+[[feedback:prt1]]
+
+[[feedback:prt2]]
+
+
+&lt;p&gt;
+After constructing both graphs,
+read their point of intersection.
+&lt;/p&gt;
+
+&lt;p&gt;
+Enter the solution of the simultaneous
+equations as an ordered pair
+\[
+[x,y].
+\]
+&lt;/p&gt;
+
+&lt;p&gt;
+[[input:ans5]]
+[[validation:ans5]]
+
+[[feedback:prt3]]
+&lt;/p&gt;
+</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>
+&lt;h3&gt;Worked solution&lt;/h3&gt;
+
+&lt;p&gt;
+Equation A is
+\[
+y={@m1@}x+({@c1@}).
+\]
+&lt;/p&gt;
+
+&lt;p&gt;
+Equation B is
+\[
+y={@m2@}x+({@c2@}).
+\]
+&lt;/p&gt;
+
+&lt;p&gt;
+After plotting both equations,
+their graphs meet at
+\[
+({@xI@},{@yI@}).
+\]
+&lt;/p&gt;
+
+&lt;p&gt;
+Therefore the graphical solution of
+the simultaneous equations is
+\[
+[{@xI@},{@yI@}].
+\]
+&lt;/p&gt;
+</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.1000000</penalty>
+    <hidden>0</hidden>
+    <idnumber />
+    <stackversion>
+      <text>2023060500</text>
+    </stackversion>
+    <questionvariables>
+      <text>
+/*
+Shared Curriculum-Independent
+Question Bank
+
+Linear Relations
+QLIN-10
+
+Licensed adaptation source:
+NUMBAS-17290
+
+Licence:
+CC BY 4.0
+
+The verified source provides the
+straight-line graph construction
+family used as the licensed
+adaptation basis.
+
+This QLIN-10 implementation uses new
+wording, generated simultaneous
+equations, two learner-constructed
+graphs, and a graphical solution step.
+*/
+
+
+/*
+Choose the simultaneous solution first.
+
+Both coordinates stay small enough
+to be clearly visible on the graph.
+*/
+
+xI:rand_with_prohib(
+    -2,
+    2,
+    [0]
+);
+
+yI:rand_with_prohib(
+    -2,
+    2,
+    [xI]
+);
+
+
+/*
+Generate two distinct non-horizontal
+gradients.
+*/
+
+m1:rand_with_prohib(
+    -2,
+    2,
+    [0]
+);
+
+m2:rand_with_prohib(
+    -2,
+    2,
+    [0,m1]
+);
+
+
+/*
+Construct the intercepts so both
+relations pass through the chosen
+intersection.
+
+Because the gradients differ, the
+solution is unique.
+*/
+
+c1:yI-m1*xI;
+
+c2:yI-m2*xI;
+
+
+/*
+Equations supplied to the learner.
+*/
+
+equation1:y=m1*x+c1;
+
+equation2:y=m2*x+c2;
+
+
+/*
+Teacher/model points.
+
+Any two distinct points on the
+correct line are accepted by the
+grading logic.
+*/
+
+ta1:[0,c1];
+
+ta2:[1,m1+c1];
+
+tb1:[0,c2];
+
+tb2:[1,m2+c2];
+
+
+/*
+Correct simultaneous solution.
+*/
+
+intersection:[xI,yI];
+
+
+/*
+Common misconception:
+coordinates reversed.
+*/
+
+reversed:[yI,xI];
+
+
+/*
+Initial draggable-point positions.
+
+These are only starting locations.
+*/
+
+start_ax1:-5;
+
+start_ay1:5;
+
+start_ax2:-4;
+
+start_ay2:4;
+
+start_bx1:4;
+
+start_by1:4;
+
+start_bx2:5;
+
+start_by2:5;
+</text>
+    </questionvariables>
+    <specificfeedback format="html">
+      <text>[[feedback:prt1]]</text>
+    </specificfeedback>
+    <questionnote format="moodle_auto_format">
+      <text>
+&lt;p&gt;
+Shared Question Bank |
+Linear Relations |
+QLIN-10
+&lt;/p&gt;
+
+&lt;p&gt;
+Equation A:
+m=\({@m1@}\);
+c=\({@c1@}\)
+&lt;/p&gt;
+
+&lt;p&gt;
+Equation B:
+m=\({@m2@}\);
+c=\({@c2@}\)
+&lt;/p&gt;
+
+&lt;p&gt;
+teacherA:
+{@ta1@},
+{@ta2@}
+&lt;/p&gt;
+
+&lt;p&gt;
+teacherB:
+{@tb1@},
+{@tb2@}
+&lt;/p&gt;
+
+&lt;p&gt;
+intersection=
+\({@intersection@}\)
+&lt;/p&gt;
+
+&lt;p&gt;
+reversed=
+\({@reversed@}\)
+&lt;/p&gt;
+</text>
+    </questionnote>
+    <questiondescription format="moodle_auto_format">
+      <text>
+&lt;p id="bank"&gt;
+Shared Curriculum-Independent
+Question Bank
+&lt;/p&gt;
+
+&lt;p id="shared-question-id"&gt;
+QLIN-10
+&lt;/p&gt;
+
+&lt;p id="knowledge-concept"&gt;
+linear-relations
+&lt;/p&gt;
+
+&lt;p id="secondary-concept"&gt;
+coordinate-graphs
+&lt;/p&gt;
+
+&lt;p id="tertiary-concept"&gt;
+simultaneous-equations
+&lt;/p&gt;
+
+&lt;p id="role"&gt;
+procedural
+&lt;/p&gt;
+
+&lt;p id="interaction"&gt;
+graphical-simultaneous-equations
+&lt;/p&gt;
+
+&lt;p id="description"&gt;
+Learners construct the graphs of two
+supplied linear equations and use
+their intersection to report the
+simultaneous solution.
+&lt;/p&gt;
+
+&lt;p id="assessment-distinction"&gt;
+Unlike QLIN-08, both graphs are not
+already supplied. The learner must
+construct both lines before reporting
+their common solution.
+&lt;/p&gt;
+
+&lt;p id="provenance"&gt;
+Adapted from the straight-line graph
+question family represented by
+Numbas question NUMBAS-17290,
+"Graphs I: Linear - Line equation",
+licensed CC BY 4.0.
+
+The simultaneous-equations task,
+generated parameters, graphing
+sequence, solution step and
+diagnostic grading are independently
+written for QLIN-10.
+&lt;/p&gt;
+
+&lt;p id="source-url"&gt;
+https://numbas.mathcentre.ac.uk/question/17290/hannah-s-copy-of-graphs-i-linear-line-equation/preview/
+&lt;/p&gt;
+
+&lt;p id="license"&gt;
+CC BY 4.0
+&lt;/p&gt;
+
+&lt;p id="curriculum-policy"&gt;
+Curriculum alignment is maintained
+outside the shared question source.
+&lt;/p&gt;
+</text>
+    </questiondescription>
+    <questionsimplify>1</questionsimplify>
+    <assumepositive>0</assumepositive>
+    <assumereal>0</assumereal>
+    <prtcorrect format="html">
+      <text>&lt;span style="font-size: 1.5em; color:green;"&gt;&lt;i class="fa fa-check"&gt;&lt;/i&gt;&lt;/span&gt; Correct answer, well done.</text>
+    </prtcorrect>
+    <prtpartiallycorrect format="html">
+      <text>&lt;span style="font-size: 1.5em; color:orange;"&gt;&lt;i class="fa fa-adjust"&gt;&lt;/i&gt;&lt;/span&gt; Your answer is partially correct.</text>
+    </prtpartiallycorrect>
+    <prtincorrect format="html">
+      <text>&lt;span style="font-size: 1.5em; color:red;"&gt;&lt;i class="fa fa-times"&gt;&lt;/i&gt;&lt;/span&gt; Incorrect answer.</text>
+    </prtincorrect>
+    <decimals>.</decimals>
+    <scientificnotation>*10</scientificnotation>
+    <multiplicationsign>none</multiplicationsign>
+    <sqrtsign>1</sqrtsign>
+    <complexno>i</complexno>
+    <inversetrig>cos-1</inversetrig>
+    <logicsymbol>lang</logicsymbol>
+    <matrixparens>[</matrixparens>
+    <isbroken>0</isbroken>
+    <variantsselectionseed />
+    <input>
+      <name>ans1</name>
+      <type>algebraic</type>
+      <tans>ta1</tans>
+      <boxsize>15</boxsize>
+      <strictsyntax>1</strictsyntax>
+      <insertstars>0</insertstars>
+      <syntaxhint />
+      <syntaxattribute>0</syntaxattribute>
+      <forbidwords />
+      <allowwords />
+      <forbidfloat>0</forbidfloat>
+      <requirelowestterms>0</requirelowestterms>
+      <checkanswertype>0</checkanswertype>
+      <mustverify>0</mustverify>
+      <showvalidation>0</showvalidation>
+      <options />
+    </input>
+    <input>
+      <name>ans2</name>
+      <type>algebraic</type>
+      <tans>ta2</tans>
+      <boxsize>15</boxsize>
+      <strictsyntax>1</strictsyntax>
+      <insertstars>0</insertstars>
+      <syntaxhint />
+      <syntaxattribute>0</syntaxattribute>
+      <forbidwords />
+      <allowwords />
+      <forbidfloat>0</forbidfloat>
+      <requirelowestterms>0</requirelowestterms>
+      <checkanswertype>0</checkanswertype>
+      <mustverify>0</mustverify>
+      <showvalidation>0</showvalidation>
+      <options />
+    </input>
+    <input>
+      <name>ans3</name>
+      <type>algebraic</type>
+      <tans>tb1</tans>
+      <boxsize>15</boxsize>
+      <strictsyntax>1</strictsyntax>
+      <insertstars>0</insertstars>
+      <syntaxhint />
+      <syntaxattribute>0</syntaxattribute>
+      <forbidwords />
+      <allowwords />
+      <forbidfloat>0</forbidfloat>
+      <requirelowestterms>0</requirelowestterms>
+      <checkanswertype>0</checkanswertype>
+      <mustverify>0</mustverify>
+      <showvalidation>0</showvalidation>
+      <options />
+    </input>
+    <input>
+      <name>ans4</name>
+      <type>algebraic</type>
+      <tans>tb2</tans>
+      <boxsize>15</boxsize>
+      <strictsyntax>1</strictsyntax>
+      <insertstars>0</insertstars>
+      <syntaxhint />
+      <syntaxattribute>0</syntaxattribute>
+      <forbidwords />
+      <allowwords />
+      <forbidfloat>0</forbidfloat>
+      <requirelowestterms>0</requirelowestterms>
+      <checkanswertype>0</checkanswertype>
+      <mustverify>0</mustverify>
+      <showvalidation>0</showvalidation>
+      <options />
+    </input>
+    <input>
+      <name>ans5</name>
+      <type>algebraic</type>
+      <tans>intersection</tans>
+      <boxsize>15</boxsize>
+      <strictsyntax>1</strictsyntax>
+      <insertstars>0</insertstars>
+      <syntaxhint>[x,y]</syntaxhint>
+      <syntaxattribute>0</syntaxattribute>
+      <forbidwords />
+      <allowwords />
+      <forbidfloat>0</forbidfloat>
+      <requirelowestterms>0</requirelowestterms>
+      <checkanswertype>0</checkanswertype>
+      <mustverify>0</mustverify>
+      <showvalidation>1</showvalidation>
+      <options />
+    </input>
+    <prt>
+      <name>prt1</name>
+      <value>0.3500000</value>
+      <autosimplify>1</autosimplify>
+      <feedbackstyle>1</feedbackstyle>
+      <feedbackvariables>
+        <text>
+/*
+Distance between the two A points.
+A single duplicated point must not
+define a line.
+*/
+
+distA:
+    (ans1[1]-ans2[1])^2
+    +
+    (ans1[2]-ans2[2])^2;
+
+
+/*
+Residuals against Relation A.
+Both draggable points must lie on
+the required line.
+*/
+
+resA1:
+    ans1[2]
+    -
+    (m1*ans1[1]+c1);
+
+resA2:
+    ans2[2]
+    -
+    (m1*ans2[1]+c1);
+
+errorA:
+    resA1^2
+    +
+    resA2^2;
+
+
+/*
+Swapped-line diagnostic:
+A points were placed on Relation B.
+*/
+
+swapA1:
+    ans1[2]
+    -
+    (m2*ans1[1]+c2);
+
+swapA2:
+    ans2[2]
+    -
+    (m2*ans2[1]+c2);
+
+swapErrorA:
+    swapA1^2
+    +
+    swapA2^2;
+    </text>
+      </feedbackvariables>
+      <node>
+        <name>0</name>
+        <description>
+Checks that A1 and A2 are distinct.
+    </description>
+        <answertest>NumAbsolute</answertest>
+        <sans>distA</sans>
+        <tans>0</tans>
+        <testoptions>0.001</testoptions>
+        <quiet>1</quiet>
+        <truescoremode>=</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>
+prt1-1-T
+    </trueanswernote>
+        <truefeedback format="html">
+          <text>&lt;p&gt;
+Use two different points for
+Relation A.
+&lt;/p&gt;</text>
+        </truefeedback>
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>1</falsenextnode>
+        <falseanswernote>
+prt1-1-F
+    </falseanswernote>
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+      <node>
+        <name>1</name>
+        <description>
+Checks Relation A.
+    </description>
+        <answertest>NumAbsolute</answertest>
+        <sans>errorA</sans>
+        <tans>0</tans>
+        <testoptions>0.001</testoptions>
+        <quiet>0</quiet>
+        <truescoremode>=</truescoremode>
+        <truescore>1</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>
+prt1-2-T
+    </trueanswernote>
+        <truefeedback format="html">
+          <text>&lt;p&gt;
+Relation A is correct.
+&lt;/p&gt;</text>
+        </truefeedback>
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>2</falsenextnode>
+        <falseanswernote>
+prt1-2-F
+    </falseanswernote>
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+      <node>
+        <name>2</name>
+        <description>
+Checks whether Relation B was plotted
+using the A points.
+    </description>
+        <answertest>NumAbsolute</answertest>
+        <sans>swapErrorA</sans>
+        <tans>0</tans>
+        <testoptions>0.001</testoptions>
+        <quiet>0</quiet>
+        <truescoremode>=</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>
+prt1-3-T
+    </trueanswernote>
+        <truefeedback format="html">
+          <text>&lt;p&gt;
+Your A-points appear to lie on
+Equation B.
+
+Equation A is
+\[
+y={@m1@}x+({@c1@}).
+\]
+
+Use \(A_1,A_2\) to graph
+Equation A.
+&lt;/p&gt;</text>
+        </truefeedback>
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>-1</falsenextnode>
+        <falseanswernote>
+prt1-3-F
+    </falseanswernote>
+        <falsefeedback format="html">
+          <text>&lt;p&gt;
+Equation A is not correct yet.
+
+Check its gradient and
+\(y\)-intercept, then place two
+different points on that line.
+&lt;/p&gt;</text>
+        </falsefeedback>
+      </node>
+    </prt>
+    <prt>
+      <name>prt2</name>
+      <value>0.3500000</value>
+      <autosimplify>1</autosimplify>
+      <feedbackstyle>1</feedbackstyle>
+      <feedbackvariables>
+        <text>
+/*
+Distance between the two B points.
+*/
+
+distB:
+    (ans3[1]-ans4[1])^2
+    +
+    (ans3[2]-ans4[2])^2;
+
+
+/*
+Residuals against Relation B.
+*/
+
+resB1:
+    ans3[2]
+    -
+    (m2*ans3[1]+c2);
+
+resB2:
+    ans4[2]
+    -
+    (m2*ans4[1]+c2);
+
+errorB:
+    resB1^2
+    +
+    resB2^2;
+
+
+/*
+Swapped-line diagnostic.
+*/
+
+swapB1:
+    ans3[2]
+    -
+    (m1*ans3[1]+c1);
+
+swapB2:
+    ans4[2]
+    -
+    (m1*ans4[1]+c1);
+
+swapErrorB:
+    swapB1^2
+    +
+    swapB2^2;
+    </text>
+      </feedbackvariables>
+      <node>
+        <name>0</name>
+        <description>
+Checks that B1 and B2 are distinct.
+    </description>
+        <answertest>NumAbsolute</answertest>
+        <sans>distB</sans>
+        <tans>0</tans>
+        <testoptions>0.001</testoptions>
+        <quiet>1</quiet>
+        <truescoremode>=</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>
+prt2-1-T
+    </trueanswernote>
+        <truefeedback format="html">
+          <text>&lt;p&gt;
+Use two different points for
+Relation B.
+&lt;/p&gt;</text>
+        </truefeedback>
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>1</falsenextnode>
+        <falseanswernote>
+prt2-1-F
+    </falseanswernote>
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+      <node>
+        <name>1</name>
+        <description>
+Checks Relation B.
+    </description>
+        <answertest>NumAbsolute</answertest>
+        <sans>errorB</sans>
+        <tans>0</tans>
+        <testoptions>0.001</testoptions>
+        <quiet>0</quiet>
+        <truescoremode>=</truescoremode>
+        <truescore>1</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>
+prt2-2-T
+    </trueanswernote>
+        <truefeedback format="html">
+          <text>&lt;p&gt;
+Relation B is correct.
+&lt;/p&gt;</text>
+        </truefeedback>
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>2</falsenextnode>
+        <falseanswernote>
+prt2-2-F
+    </falseanswernote>
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+      <node>
+        <name>2</name>
+        <description>
+Checks whether Relation A was plotted
+using the B points.
+    </description>
+        <answertest>NumAbsolute</answertest>
+        <sans>swapErrorB</sans>
+        <tans>0</tans>
+        <testoptions>0.001</testoptions>
+        <quiet>0</quiet>
+        <truescoremode>=</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>
+prt2-3-T
+    </trueanswernote>
+        <truefeedback format="html">
+          <text>&lt;p&gt;
+Your B-points appear to lie on
+Equation A.
+
+Equation B is
+\[
+y={@m2@}x+({@c2@}).
+\]
+
+Use \(B_1,B_2\) to graph
+Equation B.
+&lt;/p&gt;</text>
+        </truefeedback>
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>-1</falsenextnode>
+        <falseanswernote>
+prt2-3-F
+    </falseanswernote>
+        <falsefeedback format="html">
+          <text>&lt;p&gt;
+Equation B is not correct yet.
+
+Check its gradient and
+\(y\)-intercept, then place two
+different points on that line.
+&lt;/p&gt;</text>
+        </falsefeedback>
+      </node>
+    </prt>
+    <prt>
+      <name>prt3</name>
+      <value>0.3000000</value>
+      <autosimplify>1</autosimplify>
+      <feedbackstyle>1</feedbackstyle>
+      <node>
+        <name>0</name>
+        <description>
+Checks the graphical solution.
+    </description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans5</sans>
+        <tans>intersection</tans>
+        <testoptions />
+        <quiet>0</quiet>
+        <truescoremode>=</truescoremode>
+        <truescore>1</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>
+prt3-1-T
+    </trueanswernote>
+        <truefeedback format="html">
+          <text>
+&lt;p&gt;
+Correct. That ordered pair is the
+common solution of both equations.
+&lt;/p&gt;
+      </text>
+        </truefeedback>
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>1</falsenextnode>
+        <falseanswernote>
+prt3-1-F
+    </falseanswernote>
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+      <node>
+        <name>1</name>
+        <description>
+Detects reversed intersection
+coordinates.
+    </description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans5</sans>
+        <tans>reversed</tans>
+        <testoptions />
+        <quiet>0</quiet>
+        <truescoremode>=</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>
+prt3-2-T
+    </trueanswernote>
+        <truefeedback format="html">
+          <text>
+&lt;p&gt;
+The coordinates appear to be reversed.
+
+Remember that the graphical solution
+is written in the order \([x,y]\).
+&lt;/p&gt;
+      </text>
+        </truefeedback>
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>-1</falsenextnode>
+        <falseanswernote>
+prt3-2-F
+    </falseanswernote>
+        <falsefeedback format="html">
+          <text>
+&lt;p&gt;
+Check where the two lines cross.
+
+The point of intersection must lie on
+both graphs.
+&lt;/p&gt;
+      </text>
+        </falsefeedback>
+      </node>
+    </prt>
+    <qtest>
+      <testcase>1</testcase>
+      <description>
+Correct graphs and their generated
+intersection should receive full
+credit.
+  </description>
+      <testinput>
+        <name>ans1</name>
+        <value>ta1</value>
+      </testinput>
+      <testinput>
+        <name>ans2</name>
+        <value>ta2</value>
+      </testinput>
+      <testinput>
+        <name>ans3</name>
+        <value>tb1</value>
+      </testinput>
+      <testinput>
+        <name>ans4</name>
+        <value>tb2</value>
+      </testinput>
+      <testinput>
+        <name>ans5</name>
+        <value>intersection</value>
+      </testinput>
+      <expected>
+        <name>prt1</name>
+        <expectedscore>
+1.0000000
+    </expectedscore>
+        <expectedpenalty>
+0.0000000
+    </expectedpenalty>
+        <expectedanswernote>
+prt1-2-T
+    </expectedanswernote>
+      </expected>
+      <expected>
+        <name>prt2</name>
+        <expectedscore>
+1.0000000
+    </expectedscore>
+        <expectedpenalty>
+0.0000000
+    </expectedpenalty>
+        <expectedanswernote>
+prt2-2-T
+    </expectedanswernote>
+      </expected>
+      <expected>
+        <name>prt3</name>
+        <expectedscore>
+1.0000000
+    </expectedscore>
+        <expectedpenalty>
+0.0000000
+    </expectedpenalty>
+        <expectedanswernote>
+prt3-1-T
+    </expectedanswernote>
+      </expected>
+    </qtest>
+  <deployedseed>858769919</deployedseed><deployedseed>1244664542</deployedseed><deployedseed>1906203700</deployedseed><deployedseed>1754489370</deployedseed><deployedseed>2070706445</deployedseed></question>
+</quiz>

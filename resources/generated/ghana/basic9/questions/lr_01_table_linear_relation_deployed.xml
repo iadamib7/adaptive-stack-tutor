@@ -1,0 +1,668 @@
+<quiz>
+  <question type="stack">
+
+    <name>
+      <text>Ghana B9: Complete a table for a linear relation</text>
+    </name>
+
+    <questiontext format="html">
+      <text>&lt;p&gt;
+Complete the table of values for the linear relation
+\[
+y = {@m@}x + ({@c@}).
+\]
+&lt;/p&gt;
+
+&lt;table border="1"
+       cellpadding="8"
+       style="border-collapse:collapse;
+              text-align:center;"&gt;
+
+&lt;tr&gt;
+  &lt;th&gt;\(x\)&lt;/th&gt;
+  &lt;td&gt;\({@x1@}\)&lt;/td&gt;
+  &lt;td&gt;\({@x2@}\)&lt;/td&gt;
+  &lt;td&gt;\({@x3@}\)&lt;/td&gt;
+  &lt;td&gt;\({@x4@}\)&lt;/td&gt;
+  &lt;td&gt;\({@x5@}\)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+  &lt;th&gt;\(y\)&lt;/th&gt;
+
+  &lt;td&gt;
+    [[input:ans1]]
+    [[validation:ans1]]
+    [[feedback:prt1]]
+  &lt;/td&gt;
+
+  &lt;td&gt;
+    [[input:ans2]]
+    [[validation:ans2]]
+    [[feedback:prt2]]
+  &lt;/td&gt;
+
+  &lt;td&gt;
+    [[input:ans3]]
+    [[validation:ans3]]
+    [[feedback:prt3]]
+  &lt;/td&gt;
+
+  &lt;td&gt;
+    [[input:ans4]]
+    [[validation:ans4]]
+    [[feedback:prt4]]
+  &lt;/td&gt;
+
+  &lt;td&gt;
+    [[input:ans5]]
+    [[validation:ans5]]
+    [[feedback:prt5]]
+  &lt;/td&gt;
+
+&lt;/tr&gt;
+
+&lt;/table&gt;
+
+&lt;p&gt;
+Substitute each \(x\)-value into the equation
+before entering the corresponding \(y\)-value.
+&lt;/p&gt;
+      </text>
+    </questiontext>
+
+
+    <generalfeedback format="html">
+      <text>&lt;h3&gt;Worked solution&lt;/h3&gt;
+
+&lt;p&gt;
+The relation is
+\[
+y = {@m@}x + ({@c@}).
+\]
+For each column, substitute the given value of \(x\).
+&lt;/p&gt;
+
+&lt;p&gt;
+For \(x={@x1@}\):
+\[
+y=({@m@})({@x1@})+({@c@})
+={@y1@}.
+\]
+&lt;/p&gt;
+
+&lt;p&gt;
+For \(x={@x2@}\):
+\[
+y=({@m@})({@x2@})+({@c@})
+={@y2@}.
+\]
+&lt;/p&gt;
+
+&lt;p&gt;
+For \(x={@x3@}\):
+\[
+y=({@m@})({@x3@})+({@c@})
+={@y3@}.
+\]
+&lt;/p&gt;
+
+&lt;p&gt;
+For \(x={@x4@}\):
+\[
+y=({@m@})({@x4@})+({@c@})
+={@y4@}.
+\]
+&lt;/p&gt;
+
+&lt;p&gt;
+For \(x={@x5@}\):
+\[
+y=({@m@})({@x5@})+({@c@})
+={@y5@}.
+\]
+&lt;/p&gt;
+
+&lt;p&gt;
+Therefore the completed \(y\)-row is
+\[
+{@y1@},\;
+{@y2@},\;
+{@y3@},\;
+{@y4@},\;
+{@y5@}.
+\]
+&lt;/p&gt;
+      </text>
+    </generalfeedback>
+
+
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.1000000</penalty>
+    <hidden>0</hidden>
+    <idnumber />
+
+    <stackversion>
+      <text>2025012100</text>
+    </stackversion>
+
+
+    <questionvariables>
+      <text>
+/*
+Ghana Basic 9 Mathematics
+B9.2.1.1.1
+LR-01
+
+Choose a non-zero integer gradient and
+an integer intercept.
+*/
+
+m: rand_with_prohib(-4,4,[0]);
+c: rand(11)-5;
+
+/*
+Use fixed x-values so the cognitive demand
+is evaluating the relation rather than
+decoding the table.
+*/
+
+x1:-2;
+x2:-1;
+x3:0;
+x4:1;
+x5:2;
+
+/*
+Teacher answers.
+*/
+
+y1:m*x1+c;
+y2:m*x2+c;
+y3:m*x3+c;
+y4:m*x4+c;
+y5:m*x5+c;
+
+/*
+Common misconception:
+learner ignores the intercept.
+*/
+
+wrong1:m*x1;
+wrong2:m*x2;
+wrong3:m*x3;
+wrong4:m*x4;
+wrong5:m*x5;
+      </text>
+    </questionvariables>
+
+
+    <specificfeedback format="html">
+      <text />
+    </specificfeedback>
+
+
+    <questionnote format="html">
+      <text>&lt;p&gt;
+Ghana B9 | B9.2.1.1.1 | LR-01
+&lt;/p&gt;
+
+&lt;p&gt;
+m={@m@}; c={@c@}
+&lt;/p&gt;
+
+&lt;p&gt;
+answers=
+{@y1@},
+{@y2@},
+{@y3@},
+{@y4@},
+{@y5@}
+&lt;/p&gt;
+      </text>
+    </questionnote>
+
+
+    <questiondescription format="html">
+      <text>&lt;p id="curriculum"&gt;
+Ghana Basic 9 Mathematics
+&lt;/p&gt;
+
+&lt;p id="standard"&gt;
+B9.2.1.1
+&lt;/p&gt;
+
+&lt;p id="indicator"&gt;
+B9.2.1.1.1
+&lt;/p&gt;
+
+&lt;p id="slot"&gt;
+LR-01
+&lt;/p&gt;
+
+&lt;p id="role"&gt;
+foundation
+&lt;/p&gt;
+
+&lt;p id="description"&gt;
+Learners complete a table of values for
+a randomly generated linear relation.
+This provides direct evidence toward the
+Ghana Basic 9 requirement to construct
+tables of values for linear relations.
+&lt;/p&gt;
+      </text>
+    </questiondescription>
+
+
+    <questionsimplify>1</questionsimplify>
+    <assumepositive>0</assumepositive>
+    <assumereal>0</assumereal>
+
+    <prtcorrect format="html">
+      <text>&lt;p&gt;Correct.&lt;/p&gt;</text>
+    </prtcorrect>
+
+    <prtpartiallycorrect format="html">
+      <text>&lt;p&gt;
+Some of your table values are correct.
+Check each substitution carefully.
+&lt;/p&gt;</text>
+    </prtpartiallycorrect>
+
+    <prtincorrect format="html">
+      <text>&lt;p&gt;
+That value is not correct.
+Substitute the given \(x\)-value into
+the relation and simplify.
+&lt;/p&gt;</text>
+    </prtincorrect>
+
+    <decimals>.</decimals>
+    <scientificnotation>*10</scientificnotation>
+    <multiplicationsign>none</multiplicationsign>
+    <sqrtsign>1</sqrtsign>
+    <complexno>i</complexno>
+    <inversetrig>cos-1</inversetrig>
+    <logicsymbol>lang</logicsymbol>
+    <matrixparens>[</matrixparens>
+    <isbroken>0</isbroken>
+    <variantsselectionseed />
+
+
+    <input>
+      <name>ans1</name>
+      <type>algebraic</type>
+      <tans>y1</tans>
+      <boxsize>5</boxsize>
+      <strictsyntax>1</strictsyntax>
+      <insertstars>0</insertstars>
+      <syntaxhint />
+      <syntaxattribute>0</syntaxattribute>
+      <forbidwords />
+      <allowwords />
+      <forbidfloat>0</forbidfloat>
+      <requirelowestterms>0</requirelowestterms>
+      <checkanswertype>0</checkanswertype>
+      <mustverify>1</mustverify>
+      <showvalidation>3</showvalidation>
+      <options />
+    </input>
+
+    <input>
+      <name>ans2</name>
+      <type>algebraic</type>
+      <tans>y2</tans>
+      <boxsize>5</boxsize>
+      <strictsyntax>1</strictsyntax>
+      <insertstars>0</insertstars>
+      <syntaxhint />
+      <syntaxattribute>0</syntaxattribute>
+      <forbidwords />
+      <allowwords />
+      <forbidfloat>0</forbidfloat>
+      <requirelowestterms>0</requirelowestterms>
+      <checkanswertype>0</checkanswertype>
+      <mustverify>1</mustverify>
+      <showvalidation>3</showvalidation>
+      <options />
+    </input>
+
+    <input>
+      <name>ans3</name>
+      <type>algebraic</type>
+      <tans>y3</tans>
+      <boxsize>5</boxsize>
+      <strictsyntax>1</strictsyntax>
+      <insertstars>0</insertstars>
+      <syntaxhint />
+      <syntaxattribute>0</syntaxattribute>
+      <forbidwords />
+      <allowwords />
+      <forbidfloat>0</forbidfloat>
+      <requirelowestterms>0</requirelowestterms>
+      <checkanswertype>0</checkanswertype>
+      <mustverify>1</mustverify>
+      <showvalidation>3</showvalidation>
+      <options />
+    </input>
+
+    <input>
+      <name>ans4</name>
+      <type>algebraic</type>
+      <tans>y4</tans>
+      <boxsize>5</boxsize>
+      <strictsyntax>1</strictsyntax>
+      <insertstars>0</insertstars>
+      <syntaxhint />
+      <syntaxattribute>0</syntaxattribute>
+      <forbidwords />
+      <allowwords />
+      <forbidfloat>0</forbidfloat>
+      <requirelowestterms>0</requirelowestterms>
+      <checkanswertype>0</checkanswertype>
+      <mustverify>1</mustverify>
+      <showvalidation>3</showvalidation>
+      <options />
+    </input>
+
+    <input>
+      <name>ans5</name>
+      <type>algebraic</type>
+      <tans>y5</tans>
+      <boxsize>5</boxsize>
+      <strictsyntax>1</strictsyntax>
+      <insertstars>0</insertstars>
+      <syntaxhint />
+      <syntaxattribute>0</syntaxattribute>
+      <forbidwords />
+      <allowwords />
+      <forbidfloat>0</forbidfloat>
+      <requirelowestterms>0</requirelowestterms>
+      <checkanswertype>0</checkanswertype>
+      <mustverify>1</mustverify>
+      <showvalidation>3</showvalidation>
+      <options />
+    </input>
+
+
+    <prt>
+      <name>prt1</name>
+      <value>0.2000000</value>
+      <autosimplify>1</autosimplify>
+      <feedbackstyle>1</feedbackstyle>
+      <feedbackvariables><text /></feedbackvariables>
+
+      <node>
+        <name>0</name>
+        <description>Checks the first table value.</description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans1</sans>
+        <tans>y1</tans>
+        <testoptions />
+        <quiet>0</quiet>
+        <truescoremode>=</truescoremode>
+        <truescore>1</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-1-T</trueanswernote>
+        <truefeedback format="html"><text /></truefeedback>
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>1</falsenextnode>
+        <falseanswernote>prt1-1-F</falseanswernote>
+        <falsefeedback format="html"><text /></falsefeedback>
+      </node>
+
+      <node>
+        <name>1</name>
+        <description>Checks whether the intercept was ignored.</description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans1</sans>
+        <tans>wrong1</tans>
+        <testoptions />
+        <quiet>1</quiet>
+        <truescoremode>=</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-2-T</trueanswernote>
+        <truefeedback format="html">
+          <text>&lt;p&gt;
+You appear to have calculated \(mx\) but
+forgot to include the intercept \(c\).
+Use the complete relation \(y=mx+c\).
+&lt;/p&gt;</text>
+        </truefeedback>
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>-1</falsenextnode>
+        <falseanswernote>prt1-2-F</falseanswernote>
+        <falsefeedback format="html"><text /></falsefeedback>
+      </node>
+    </prt>
+
+
+    <prt>
+      <name>prt2</name>
+      <value>0.2000000</value>
+      <autosimplify>1</autosimplify>
+      <feedbackstyle>1</feedbackstyle>
+      <feedbackvariables><text /></feedbackvariables>
+
+      <node>
+        <name>0</name>
+        <description>Checks the second table value.</description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans2</sans>
+        <tans>y2</tans>
+        <testoptions />
+        <quiet>0</quiet>
+        <truescoremode>=</truescoremode>
+        <truescore>1</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt2-1-T</trueanswernote>
+        <truefeedback format="html"><text /></truefeedback>
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>1</falsenextnode>
+        <falseanswernote>prt2-1-F</falseanswernote>
+        <falsefeedback format="html"><text /></falsefeedback>
+      </node>
+
+      <node>
+        <name>1</name>
+        <description>Checks whether the intercept was ignored.</description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans2</sans>
+        <tans>wrong2</tans>
+        <testoptions />
+        <quiet>1</quiet>
+        <truescoremode>=</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt2-2-T</trueanswernote>
+        <truefeedback format="html">
+          <text>&lt;p&gt;
+Remember to include the intercept \(c\)
+after multiplying \(m\) by \(x\).
+&lt;/p&gt;</text>
+        </truefeedback>
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>-1</falsenextnode>
+        <falseanswernote>prt2-2-F</falseanswernote>
+        <falsefeedback format="html"><text /></falsefeedback>
+      </node>
+    </prt>
+
+
+    <prt>
+      <name>prt3</name>
+      <value>0.2000000</value>
+      <autosimplify>1</autosimplify>
+      <feedbackstyle>1</feedbackstyle>
+      <feedbackvariables><text /></feedbackvariables>
+
+      <node>
+        <name>0</name>
+        <description>Checks the third table value.</description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans3</sans>
+        <tans>y3</tans>
+        <testoptions />
+        <quiet>0</quiet>
+        <truescoremode>=</truescoremode>
+        <truescore>1</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt3-1-T</trueanswernote>
+        <truefeedback format="html"><text /></truefeedback>
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>-1</falsenextnode>
+        <falseanswernote>prt3-1-F</falseanswernote>
+        <falsefeedback format="html"><text /></falsefeedback>
+      </node>
+    </prt>
+
+
+    <prt>
+      <name>prt4</name>
+      <value>0.2000000</value>
+      <autosimplify>1</autosimplify>
+      <feedbackstyle>1</feedbackstyle>
+      <feedbackvariables><text /></feedbackvariables>
+
+      <node>
+        <name>0</name>
+        <description>Checks the fourth table value.</description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans4</sans>
+        <tans>y4</tans>
+        <testoptions />
+        <quiet>0</quiet>
+        <truescoremode>=</truescoremode>
+        <truescore>1</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt4-1-T</trueanswernote>
+        <truefeedback format="html"><text /></truefeedback>
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>-1</falsenextnode>
+        <falseanswernote>prt4-1-F</falseanswernote>
+        <falsefeedback format="html"><text /></falsefeedback>
+      </node>
+    </prt>
+
+
+    <prt>
+      <name>prt5</name>
+      <value>0.2000000</value>
+      <autosimplify>1</autosimplify>
+      <feedbackstyle>1</feedbackstyle>
+      <feedbackvariables><text /></feedbackvariables>
+
+      <node>
+        <name>0</name>
+        <description>Checks the fifth table value.</description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans5</sans>
+        <tans>y5</tans>
+        <testoptions />
+        <quiet>0</quiet>
+        <truescoremode>=</truescoremode>
+        <truescore>1</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt5-1-T</trueanswernote>
+        <truefeedback format="html"><text /></truefeedback>
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>-1</falsenextnode>
+        <falseanswernote>prt5-1-F</falseanswernote>
+        <falsefeedback format="html"><text /></falsefeedback>
+      </node>
+    </prt>
+
+
+    <qtest>
+      <testcase>1</testcase>
+      <description>
+Teacher answers should receive full credit
+for every table cell.
+      </description>
+
+      <testinput>
+        <name>ans1</name>
+        <value>y1</value>
+      </testinput>
+
+      <testinput>
+        <name>ans2</name>
+        <value>y2</value>
+      </testinput>
+
+      <testinput>
+        <name>ans3</name>
+        <value>y3</value>
+      </testinput>
+
+      <testinput>
+        <name>ans4</name>
+        <value>y4</value>
+      </testinput>
+
+      <testinput>
+        <name>ans5</name>
+        <value>y5</value>
+      </testinput>
+
+      <expected>
+        <name>prt1</name>
+        <expectedscore>1.0000000</expectedscore>
+        <expectedpenalty>0.0000000</expectedpenalty>
+        <expectedanswernote>prt1-1-T</expectedanswernote>
+      </expected>
+
+      <expected>
+        <name>prt2</name>
+        <expectedscore>1.0000000</expectedscore>
+        <expectedpenalty>0.0000000</expectedpenalty>
+        <expectedanswernote>prt2-1-T</expectedanswernote>
+      </expected>
+
+      <expected>
+        <name>prt3</name>
+        <expectedscore>1.0000000</expectedscore>
+        <expectedpenalty>0.0000000</expectedpenalty>
+        <expectedanswernote>prt3-1-T</expectedanswernote>
+      </expected>
+
+      <expected>
+        <name>prt4</name>
+        <expectedscore>1.0000000</expectedscore>
+        <expectedpenalty>0.0000000</expectedpenalty>
+        <expectedanswernote>prt4-1-T</expectedanswernote>
+      </expected>
+
+      <expected>
+        <name>prt5</name>
+        <expectedscore>1.0000000</expectedscore>
+        <expectedpenalty>0.0000000</expectedpenalty>
+        <expectedanswernote>prt5-1-T</expectedanswernote>
+      </expected>
+    </qtest>
+
+  <deployedseed>1121765094</deployedseed><deployedseed>761383993</deployedseed><deployedseed>1505781698</deployedseed><deployedseed>873365777</deployedseed><deployedseed>2014688251</deployedseed></question>
+</quiz>

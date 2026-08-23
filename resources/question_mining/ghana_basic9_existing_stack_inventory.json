@@ -1,0 +1,1599 @@
+{
+  "version": "1.0",
+  "curriculum_profile_id": "ghana-basic9-mathematics",
+  "source_file": "resources\\raw\\kenya\\grade9\\grade9_questions.xml",
+  "question_count": 79,
+  "alignment_decisions": [
+    "direct",
+    "prerequisite",
+    "adaptable",
+    "out_of_scope",
+    "unreviewed"
+  ],
+  "questions": [
+    {
+      "question_id": "220747",
+      "name": "Find median in grouped data",
+      "body": "The following is the height of \\({@total_f@}\\) students in a class. Fill in the cumulative frequency column of the table: Height (in cm) Height (in cm) (class boundaries) Number of students (f) Cumulative frequency (cf) \\({@lower_range1@}-{@upper_range1@}\\) \\({@lower_bound1@}-{@upper_bound1@}\\) \\({@f1@}\\) \\({@cf1@}\\) \\({@lower_range2@}-{@upper_range2@}\\) \\({@lower_bound2@}-{@upper_bound2@}\\) \\({@f2@}\\) [[input:ans1]] [[validation:ans1]] [[feedback:prt1]] \\({@lower_range3@}-{@upper_range3@}\\) \\({@lower_bound3@}-{@upper_bound3@}\\) \\({@f3@}\\) [[input:ans2]] [[validation:ans2]] [[feedback:prt2]] \\({@lower_range4@}-{@upper_range4@}\\) \\({@lower_bound4@}-{@upper_bound4@}\\) \\({@f4@}\\) [[input:ans3]] [[validation:ans3]] [[feedback:prt3]] \\({@lower_range5@}-{@upper_range5@}\\) \\({@lower_bound5@}-{@upper_bound5@}\\) \\({@f5@}\\) [[input:ans4]] [[validation:ans4]] [[feedback:prt4]] Find the median height and give your answer to \\(2\\) decimal places where necessary. The median height is [[input:ans5]] [[validation:ans5]] \\(\\text{cm}\\) [[feedback:prt5]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/5.0. Data Handling & Probability/5.1 Data Interpretation (Grouped Data)/5.1.5 Determining the median of grouped data"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [
+          "GH-B9-DATA-DESCRIPTIVE-STATISTICS",
+          "GH-B9-DATA-COLLECTION"
+        ],
+        "decision": "direct",
+        "alignment_strength": "strong",
+        "role": "procedural",
+        "notes": [
+          "Directly assesses grouped data, cumulative frequency, and median.",
+          "Strongest alignment is descriptive statistics; also supports grouped-data organisation."
+        ]
+      }
+    },
+    {
+      "question_id": "207582",
+      "name": "Addition of integers (cupcakes)",
+      "body": "{@name@} had {@Original_number_of_cupcakes@} cupcakes. Her parents gave her an additional {@Extra_number_of_cupcakes@} cupcakes. How many cupcakes did she have altogether ? [[input:ans1]] [[validation:ans1]] [[feedback:prt1]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/1.0. Whole Numbers/1.1 Integers"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [
+          "GH-B9-NUM-NUMBER-PROPERTIES"
+        ],
+        "decision": "prerequisite",
+        "alignment_strength": "moderate",
+        "role": "foundation",
+        "notes": [
+          "Basic addition fluency supports later B9 number operations but does not directly assess a B9 content indicator."
+        ]
+      }
+    },
+    {
+      "question_id": "207630",
+      "name": "Combined operations of integers",
+      "body": "Simplify the given expression {@first_coef@}({@var_brac_1@} - {@var_brac_2@}) \\(\\div\\) {@second_coef@}({@sec_var_brac_1@} - {@sec_var_brac_2@}) \\(\\times\\) {@const@} [[input:ans1]] [[validation:ans1]] [[feedback:prt1]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/1.0. Whole Numbers/1.1 Integers"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [
+          "GH-B9-NUM-NUMBER-PROPERTIES",
+          "GH-B9-NUM-FRACTION-OPERATIONS"
+        ],
+        "decision": "prerequisite",
+        "alignment_strength": "strong",
+        "role": "procedural",
+        "notes": [
+          "Combined integer operations support order-of-operations and number-property readiness.",
+          "Useful remediation before B9 BODMAS/PEMDAS work."
+        ]
+      }
+    },
+    {
+      "question_id": "207589",
+      "name": "Division of integers (apples)",
+      "body": "{@name_3@} contributed {@number_of_apples@} apples for a class party. The teacher decided to share the apples among {@number_of_students@} students. How many apples did each get in this party? [[input:ans1]] [[validation:ans1]] [[feedback:prt1]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/1.0. Whole Numbers/1.1 Integers"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [
+          "GH-B9-NUM-NUMBER-PROPERTIES"
+        ],
+        "decision": "prerequisite",
+        "alignment_strength": "moderate",
+        "role": "foundation",
+        "notes": [
+          "Basic division fluency supports later B9 calculations but does not directly assess B9 indicators."
+        ]
+      }
+    },
+    {
+      "question_id": "207591",
+      "name": "Multiplication of integers",
+      "body": "{@name_2@} decides to venture into a business of chicken rearing. In the budget, {@name_2@} plans that there should be {@Number_of_coop@} chicken coops and that each coop should have a carrying capacity of {@Number_of_hens_per_coop@} hens. How many hens are there in this farm? [[input:ans1]] [[validation:ans1]] [[feedback:prt1]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/1.0. Whole Numbers/1.1 Integers"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [
+          "GH-B9-NUM-NUMBER-PROPERTIES"
+        ],
+        "decision": "prerequisite",
+        "alignment_strength": "moderate",
+        "role": "foundation",
+        "notes": [
+          "Basic multiplication fluency supports B9 mental mathematics and number-property work."
+        ]
+      }
+    },
+    {
+      "question_id": "207596",
+      "name": "Subtraction of integers",
+      "body": "{@name_1@} had {@Original_number_of_chicks@} chicks. There was an outbreak of Fowl pox for a period of 1 month. During this period, {@Number_of_dead_chicks@} chicks succumbed. How many live chicks was {@name_1@} left with ? [[input:ans1]] [[validation:ans1]] [[feedback:prt1]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/1.0. Whole Numbers/1.1 Integers"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [
+          "GH-B9-NUM-NUMBER-PROPERTIES"
+        ],
+        "decision": "prerequisite",
+        "alignment_strength": "moderate",
+        "role": "foundation",
+        "notes": [
+          "Basic subtraction fluency is useful remediation for B9 number work but is not direct B9 evidence."
+        ]
+      }
+    },
+    {
+      "question_id": "207420",
+      "name": "Applying negative index rules to find missing exponents in a given equation",
+      "body": "Complete the equation below by filling in the missing exponents to make the expressions equivalent. \\({@base_1@}\\) ^ [[input:ans1]] = \\(\\frac{1}{{@base_1@}^{@exponent_1@}}\\) = \\({@base_1@}^{@exponent_2@} \\div {@base_1@}\\) ^ [[input:ans2]] [[validation:ans1]][[feedback:prt1]][[validation:ans2]][[feedback:prt2]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/1.0. Whole Numbers/Indices and Logarithms"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [
+          "GH-B9-NUM-POWERS-OF-TEN"
+        ],
+        "decision": "prerequisite",
+        "alignment_strength": "moderate",
+        "role": "procedural",
+        "notes": [
+          "Negative-index rules support exponent fluency but sit outside the direct B9 indicators."
+        ]
+      }
+    },
+    {
+      "question_id": "207419",
+      "name": "Applying the Zero Exponent Law in Simplifying Expressions",
+      "body": "Simplify the following expression. \\({@base_2@}^{@exponent_2_1@} \\times {@base_3@}^{@exponent_2_2@} =\\) [[input:ans1]] [[validation:ans1]][[feedback:prt1]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/1.0. Whole Numbers/Indices and Logarithms"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [
+          "GH-B9-NUM-POWERS-OF-TEN"
+        ],
+        "decision": "prerequisite",
+        "alignment_strength": "moderate",
+        "role": "procedural",
+        "notes": [
+          "Zero-exponent reasoning is useful background knowledge but not a direct B9 content requirement."
+        ]
+      }
+    },
+    {
+      "question_id": "206793",
+      "name": "Expressing numbers in index form",
+      "body": "Express the following numbers in index form: (i) \\({@first_number@} \\times {@first_number@} \\times {@first_number@} \\times {@first_number@} =\\) [[input:ans1]] ^ [[input:ans2]] [[validation:ans1]][[validation:ans2]][[feedback:prt1]] [[feedback:prt2]] (ii) \\({@second_number@} \\times {@second_number@} \\times{@second_number@} \\times{@second_number_2@}\\times {@second_number_2@} =\\) [[input:ans3]] ^ [[input:ans4]] [[validation:ans3]][[validation:ans4]] [[feedback:prt3]][[feedback:prt4]] \\(\\times\\) [[input:ans5]]^ [[input:ans6]] [[validation:ans5]][[validation:ans6]][[feedback:prt5]] [[feedback:prt6]] \\({@third_number@} \\times {@third_number@} \\times{@third_number@}\\times {@third_number@} =\\) [[input:ans7]] ^ [[input:ans8]][[validation:ans7]][[validation:ans8]][[feedback:prt7]][[feedback:prt8]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/1.0. Whole Numbers/Indices and Logarithms"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [
+          "GH-B9-NUM-POWERS-OF-TEN"
+        ],
+        "decision": "prerequisite",
+        "alignment_strength": "moderate",
+        "role": "foundation",
+        "notes": [
+          "Index notation supports powers-of-ten reasoning but is not itself the direct B9 powers-of-ten indicator."
+        ]
+      }
+    },
+    {
+      "question_id": "206946",
+      "name": "Using multiplicative, divisive, and bracket laws of indices to simplify powers",
+      "body": "Simplify the following expressions leaving your answer in index form. (a) \\({@base@}^ {@exponent1@} \\times {@base@}^{@exponent2@} = \\) [[input:ans1]] ^ [[input:ans2]] [[validation:ans1]][[feedback:prt1]][[validation:ans2]][[feedback:prt2]] (b) \\({@base_2@}^{@exponent_1@} \\div {@base_2@}^{@exponent_2@} = \\) [[input:ans3]] ^ [[input:ans4]] [[validation:ans3]][[feedback:prt3]][[validation:ans4]][[feedback:prt4]] (c) \\(({@base_c@} ^{@exponent_c@})^{@exponent2_c@} = \\) [[input:ans5]] ^ [[input:ans6]] [[validation:ans5]][[feedback:prt5]][[validation:ans6]][[feedback:prt6]] (d) \\({@base_d@}^{@power@} = \\) [[input:ans7]] ^ [[input:ans8]] [[validation:ans7]][[feedback:prt7]][[validation:ans8]][[feedback:prt8]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/1.0. Whole Numbers/Indices and Logarithms"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [
+          "GH-B9-NUM-POWERS-OF-TEN"
+        ],
+        "decision": "prerequisite",
+        "alignment_strength": "strong",
+        "role": "challenge",
+        "notes": [
+          "Combined index laws provide strong prerequisite exponent fluency but should not count toward direct B9 mastery."
+        ]
+      }
+    },
+    {
+      "question_id": "206873",
+      "name": "Writing numbers as single power of a prime.",
+      "body": "Given the number \\({@number@}\\), express it in index form. \\({@number@} = \\) [[input:ans1]] ^ [[input:ans2]] [[validation:ans1]][[feedback:prt1]][[validation:ans2]][[feedback:prt2]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/1.0. Whole Numbers/Indices and Logarithms"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [
+          "GH-B9-NUM-POWERS-OF-TEN"
+        ],
+        "decision": "prerequisite",
+        "alignment_strength": "moderate",
+        "role": "procedural",
+        "notes": [
+          "Expressing a number as a single power supports exponent notation but is not direct Ghana B9 mastery."
+        ]
+      }
+    },
+    {
+      "question_id": "206819",
+      "name": "Writing numbers in simplest index form as a product of a number and a power",
+      "body": "Write the following number in its simplest index form. (a) \\({@final_number@} = \\) [[input:ans1]] \\(\\times\\) [[input:ans2]] ^ [[input:ans3]] [[validation:ans1]][[feedback:prt1]][[validation:ans2]][[feedback:prt2]][[validation:ans3]][[feedback:prt3]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/1.0. Whole Numbers/Indices and Logarithms"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [
+          "GH-B9-NUM-POWERS-OF-TEN"
+        ],
+        "decision": "prerequisite",
+        "alignment_strength": "moderate",
+        "role": "procedural",
+        "notes": [
+          "Simplifying numbers using index form supports exponent fluency needed for later numerical work."
+        ]
+      }
+    },
+    {
+      "question_id": "207542",
+      "name": "Finding the number of days taken by a given number of men to complete the same piece of work.",
+      "body": "\\({@num_men@}\\) men can take \\({@days@}\\) days to complete a piece of work. How long will it take \\({@new_num_men@}\\) men to do the same piece of work? days \\(=\\) [[input:ans1]] [[validation:ans1]][[feedback:prt1]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/1.0. Whole Numbers/Compound proportions and Rates of work"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [
+          "GH-B9-NUM-PROPORTIONAL-RELATIONSHIPS"
+        ],
+        "decision": "direct",
+        "alignment_strength": "strong",
+        "role": "application",
+        "notes": [
+          "Applies inverse proportional reasoning in a work-rate context."
+        ]
+      }
+    },
+    {
+      "question_id": "207534",
+      "name": "Finding the unknown number in a continuous proportion",
+      "body": "If \\(x: {@a@} = {@b@}:{@c@}\\) is in continuous proportion, find the value of \\(x\\) \\(x =\\) [[input:ans1]] [[validation:ans1]][[feedback:prt1]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/1.0. Whole Numbers/Compound proportions and Rates of work"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [
+          "GH-B9-NUM-PROPORTIONAL-RELATIONSHIPS"
+        ],
+        "decision": "direct",
+        "alignment_strength": "strong",
+        "role": "procedural",
+        "notes": [
+          "Directly solves for an unknown quantity in a proportional relationship."
+        ]
+      }
+    },
+    {
+      "question_id": "207646",
+      "name": "Relating different ratios from a given statement.",
+      "body": "The ratio of Mathematics to English CAT scores for Grade \\(9\\) pupils, was \\({@cat_math@}:{@cat_english@}\\). After \\(2\\) weeks, they sat for an exam, and the ratio of Mathematics to English exam scores changed to \\({@exam_math@}:{@exam_english@}\\). Which ratio is greater? ratio \\(=\\) [[input:ans1]] : [[input:ans2]] [[validation:ans1]] [[feedback:prt1]] [[validation:ans2]] [[feedback:prt2]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/1.0. Whole Numbers/Compound proportions and Rates of work"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [
+          "GH-B9-NUM-PROPORTIONAL-RELATIONSHIPS"
+        ],
+        "decision": "direct",
+        "alignment_strength": "strong",
+        "role": "conceptual",
+        "notes": [
+          "Assesses comparison and reasoning with two ratios."
+        ]
+      }
+    },
+    {
+      "question_id": "207616",
+      "name": "Using ratios to determine the number of boys in a class",
+      "body": "In a class, the ratio of boys to girls is \\({@b@}:{@g@}\\). If there are \\({@total_pupils@}\\) learners in the class, how many boys are there in the class? number of boys \\(=\\) [[input:ans1]] [[validation:ans1]][[feedback:prt1]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/1.0. Whole Numbers/Compound proportions and Rates of work"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [
+          "GH-B9-NUM-PROPORTIONAL-RELATIONSHIPS"
+        ],
+        "decision": "direct",
+        "alignment_strength": "strong",
+        "role": "application",
+        "notes": [
+          "Uses a part-to-part ratio and total quantity to determine an unknown part."
+        ]
+      }
+    },
+    {
+      "question_id": "207350",
+      "name": "Determining gradient of perpendicular lines",
+      "body": "Identify and select pairs of equations of perpendicular lines [[input:ans1]] [[validation:ans1]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/4.0 Geometry/4.1 Coordinates and Graphs"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [],
+        "decision": "out_of_scope",
+        "alignment_strength": null,
+        "role": null,
+        "notes": [
+          "Perpendicular-line equation reasoning is better aligned with the SHS1 straight-lines target."
+        ]
+      }
+    },
+    {
+      "question_id": "207413",
+      "name": "Determining gradient of perpendicular lines (1)",
+      "body": "Work out the gradients of the perpendicular lines below. [[jsxgraph]] var board = JXG.JSXGraph.initBoard(divid, { boundingBox:[-7,7,7,-7], showCopyright:false, axis:true, showNavigation:true, keepaspectratio:true }); var line1 = board.create('functiongraph', [function(x){return {#y_1#};}, -5, 5],{name:'L_1', withLabel:true, strokeColor:'red'}); var line2 = board.create('functiongraph', [function(x){return {#y_1_perp#};}, -5, 5],{name:'L_2 ', withLabel:true, strokeColor:'blue'}); [[/jsxgraph]] Gradient for \\(L_1:\\)[[input:ans1]] [[validation:ans1]][[feedback:prt1]] Gradient for \\(L_2:\\)[[input:ans2]] [[validation:ans2]][[feedback:prt2]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/4.0 Geometry/4.1 Coordinates and Graphs"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [],
+        "decision": "out_of_scope",
+        "alignment_strength": null,
+        "role": null,
+        "notes": [
+          "Perpendicular-gradient reasoning is SHS1 readiness rather than a direct Basic 9 requirement."
+        ]
+      }
+    },
+    {
+      "question_id": "207416",
+      "name": "Determining gradients of perpendicular lines (2)",
+      "body": "Work out the gradients of the perpendicular lines below. [[jsxgraph]] var board = JXG.JSXGraph.initBoard(divid, { boundingBox:[-7,7,7,-7], showCopyright:false, axis:true, showNavigation:true, keepaspectratio:true }); var line1 = board.create('functiongraph', [function(x){return {#y_2#};}, -5, 5],{name:'L_1', withLabel:true, strokeColor:'red'}); var line2 = board.create('functiongraph', [function(x){return {#y_2_perp#};}, -5, 5],{name:'L_2 ', withLabel:true, strokeColor:'blue'}); [[/jsxgraph]] Gradient for \\(L_1:\\)[[input:ans1]] [[validation:ans1]][[feedback:prt1]] Gradient for \\(L_2:\\)[[input:ans2]] [[validation:ans2]][[feedback:prt2]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/4.0 Geometry/4.1 Coordinates and Graphs"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [],
+        "decision": "out_of_scope",
+        "alignment_strength": null,
+        "role": null,
+        "notes": [
+          "Perpendicular-gradient reasoning is beyond the direct B9 linear relations indicators."
+        ]
+      }
+    },
+    {
+      "question_id": "207059",
+      "name": "Determining the equation of a straight line.",
+      "body": "Determine the equation of the straight line using the points A and B. [[jsxgraph]] var board = JXG.JSXGraph.initBoard(divid, { axis: true, showCopyright: false, boundingbox: [-7,6,7,-6], keepaspectratio: true, grid:true }); var p1 = board.create('point', [{#x_A#},{#y_A#}],{name:'A',visible:true, fixed:true}); var p2 = board.create('point', [{#x_B#},{#y_B#}],{name:'B',visible:true, fixed:true}); var l2 = board.create('line', [p1, p2], { fixed: true, straightFirst: true, straightLast: true, strokeWidth: 2 }); [[/jsxgraph]] \\(y = \\)[[input:ans1]] [[validation:ans1]][[feedback:prt1]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/4.0 Geometry/4.1 Coordinates and Graphs"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [
+          "GH-B9-ALG-LINEAR-RELATIONS"
+        ],
+        "decision": "prerequisite",
+        "alignment_strength": "strong",
+        "role": "procedural",
+        "notes": [
+          "Determines the equation of a straight line from two points.",
+          "Supports B9 graphing readiness but does not solve two equations simultaneously."
+        ]
+      }
+    },
+    {
+      "question_id": "207412",
+      "name": "Determining the gradients of parallel lines (1)",
+      "body": "Work out the gradients of the parallel lines below. [[jsxgraph]] var board = JXG.JSXGraph.initBoard(divid, { boundingBox:[-7,7,7,-7], showCopyright:false, axis:true, showNavigation:true, keepaspectratio:true }); var line1 = board.create('functiongraph', [function(x){return {#y_3#};}, -5, 5],{name:'L_1', withLabel:true, strokeColor:'red'}); var line2 = board.create('functiongraph', [function(x){return {#y_4#};}, -5, 5],{name:'L_2 ', withLabel:true, strokeColor:'blue'}); [[/jsxgraph]] Gradient for \\(L_1:\\)[[input:ans1]] [[validation:ans1]][[feedback:prt1]] Gradient for \\(L_2:\\)[[input:ans2]] [[validation:ans2]][[feedback:prt2]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/4.0 Geometry/4.1 Coordinates and Graphs"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [],
+        "decision": "out_of_scope",
+        "alignment_strength": null,
+        "role": null,
+        "notes": [
+          "Parallel-line gradient reasoning is better treated as SHS1 readiness."
+        ]
+      }
+    },
+    {
+      "question_id": "207411",
+      "name": "Determining the gradients of parallel lines (2)",
+      "body": "Work out the gradients of the parallel lines below. [[jsxgraph]] var board = JXG.JSXGraph.initBoard(divid, { boundingBox:[-7,7,7,-7], showCopyright:false, axis:true, showNavigation:true, keepaspectratio:true }); var line1 = board.create('functiongraph', [function(x){return {#y_1#};}, -5, 5],{name:'L_1', withLabel:true, strokeColor:'red'}); var line2 = board.create('functiongraph', [function(x){return {#y_2#};}, -5, 5],{name:'L_2 ', withLabel:true, strokeColor:'blue'}); [[/jsxgraph]] Gradient for \\(L_1:\\)[[input:ans1]] [[validation:ans1]][[feedback:prt1]] Gradient for \\(L_2:\\)[[input:ans2]] [[validation:ans2]][[feedback:prt2]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/4.0 Geometry/4.1 Coordinates and Graphs"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [],
+        "decision": "out_of_scope",
+        "alignment_strength": null,
+        "role": null,
+        "notes": [
+          "Parallel-line gradient reasoning is beyond the direct B9 indicators."
+        ]
+      }
+    },
+    {
+      "question_id": "207339",
+      "name": "Identifying graphs of parallel lines.",
+      "body": "Identify the graphs of parallel lines. \\(\\text{(Graph 1)}\\) [[jsxgraph height=\"200px\" width=\"200px\"]] JXG.Options.text.useMathJax=true; var board = JXG.JSXGraph.initBoard(divid, { boundingBox:[-5,5,5,-5], showCopyright:false, axis:true, showNavigation:false, keepaspectratio:true }); var line1 = board.create('functiongraph', [function(x){return {#y_1#};}, -5, 5],{name:' ', withLabel:true, strokeColor:'red'}); var line2 = board.create('functiongraph', [function(x){return {#y_2#};}, -5, 5],{name:' ', withLabel:true, strokeColor:'blue'}); [[/jsxgraph]] \\(\\text{(Graph 2)}\\) [[jsxgraph height=\"200px\" width=\"200px\"]] JXG.Options.text.useMathJax=true; var board = JXG.JSXGraph.initBoard(divid, { boundingBox:[-5,5,5,-5], showCopyright:false, axis:true, showNavigation:false, keepaspectratio:true }); var line1 = board.create('functiongraph', [function(x){return {#y_1#};}, -5, 5],{name:' ', withLabel:true, strokeColor:'red'}); var line2 = board.create('functiongraph', [function(x){return {#y_3#};}, -5, 5],{name:' ', withLabel:true, strokeColor:'blue'}); [[/jsxgraph]] \\(\\text{(Graph 3)}\\) [[jsxgraph height=\"200px\" width=\"200px\"]] JXG.Options.text.useMathJax=true; var board = JXG.JSXGraph.initBoard(divid, { boundingBox:[-5,5,5,-5], showCopyright:false, axis:true, showNavigation:false, keepaspectratio:true }); var line1 = board.create('functiongraph', [function(x){return {#y_2_perp#};}, -5, 5],{name:' ', withLabel:true, strokeColor:'red'}); var line2 = board.create('functiongraph', [function(x){return {#y_2#};}, -5, 5],{name:' ', withLabel:true, strokeColor:'blue'}); [[/jsxgraph]] \\(\\text{(Graph 4)}\\) [[jsxgraph height=\"200px\" width=\"200px\"]] JXG.Options.text.useMathJax=true; var board = JXG.JSXGraph.initBoard(divid, { boundingBox:[-5,5,5,-5], showCopyright:false, axis:true, showNavigation:false, keepaspectratio:true }); var line1 = board.create('functiongraph', [function(x){return {#y_3#};}, -5, 5],{name:' ', withLabel:true, strokeColor:'red'}); var line2 = board.create('functiongraph', [function(x){return {#y_4#};}, -5, 5],{name:' ', withLabel:true, strokeColor:'blue'}); [[/jsxgraph]] Graph number: [[input:ans1]] [[validation:ans1]] Graph number: [[input:ans2]] [[validation:ans2]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/4.0 Geometry/4.1 Coordinates and Graphs"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [],
+        "decision": "out_of_scope",
+        "alignment_strength": null,
+        "role": null,
+        "notes": [
+          "Identifying parallel-line graphs is more appropriate for SHS1 straight-line readiness."
+        ]
+      }
+    },
+    {
+      "question_id": "207341",
+      "name": "Identifying graphs of perpendicular lines",
+      "body": "Identify the graphs of parallel lines. \\(\\text{(Graph 1)}\\) [[jsxgraph height=\"200px\" width=\"200px\"]] JXG.Options.text.useMathJax=true; var board = JXG.JSXGraph.initBoard(divid, { boundingBox:[-5,5,5,-5], showCopyright:false, axis:true, showNavigation:false, keepaspectratio:true }); var line1 = board.create('functiongraph', [function(x){return {#y_1#};}, -5, 5],{name:' ', withLabel:true, strokeColor:'red'}); var line2 = board.create('functiongraph', [function(x){return {#y_1_perp#};}, -5, 5],{name:' ', withLabel:true, strokeColor:'blue'}); [[/jsxgraph]] \\(\\text{(Graph 2)}\\) [[jsxgraph height=\"200px\" width=\"200px\"]] JXG.Options.text.useMathJax=true; var board = JXG.JSXGraph.initBoard(divid, { boundingBox:[-5,5,5,-5], showCopyright:false, axis:true, showNavigation:false, keepaspectratio:true }); var line1 = board.create('functiongraph', [function(x){return {#y_1#};}, -5, 5],{name:' ', withLabel:true, strokeColor:'red'}); var line2 = board.create('functiongraph', [function(x){return {#y_3#};}, -5, 5],{name:' ', withLabel:true, strokeColor:'blue'}); [[/jsxgraph]] \\(\\text{(Graph 3)}\\) [[jsxgraph height=\"200px\" width=\"200px\"]] JXG.Options.text.useMathJax=true; var board = JXG.JSXGraph.initBoard(divid, { boundingBox:[-5,5,5,-5], showCopyright:false, axis:true, showNavigation:false, keepaspectratio:true }); var line1 = board.create('functiongraph', [function(x){return {#y_2_perp#};}, -5, 5],{name:' ', withLabel:true, strokeColor:'red'}); var line2 = board.create('functiongraph', [function(x){return {#y_2#};}, -5, 5],{name:' ', withLabel:true, strokeColor:'blue'}); [[/jsxgraph]] \\(\\text{(Graph 4)}\\) [[jsxgraph height=\"200px\" width=\"200px\"]] JXG.Options.text.useMathJax=true; var board = JXG.JSXGraph.initBoard(divid, { boundingBox:[-5,5,5,-5], showCopyright:false, axis:true, showNavigation:false, keepaspectratio:true }); var line1 = board.create('functiongraph', [function(x){return {#y_3#};}, -5, 5],{name:' ', withLabel:true, strokeColor:'red'}); var line2 = board.create('functiongraph', [function(x){return {#y_4#};}, -5, 5],{name:' ', withLabel:true, strokeColor:'blue'}); [[/jsxgraph]] Graph number: [[input:ans1]] [[validation:ans1]] Graph number: [[input:ans2]] [[validation:ans2]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/4.0 Geometry/4.1 Coordinates and Graphs"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [],
+        "decision": "out_of_scope",
+        "alignment_strength": null,
+        "role": null,
+        "notes": [
+          "Perpendicular-line graph recognition is SHS1 readiness."
+        ]
+      }
+    },
+    {
+      "question_id": "206961",
+      "name": "Interactive: Plottimg points on a Cartesian plane",
+      "body": "Drag the points on the grid to their respective coordinates \\(A({@x_A@},{@y_A@})\\) \\(B({@x_B@},{@y_B@})\\) Note1: Please make sure you move both points, otherwise your answer will not be assessed. Note2: Your browser might ask you if you want to leave without saving when you submit your answer. Leaving will submit your answer and you will not lose your work. [[jsxgraph input-ref-ans1=\"sR1\" input-ref-ans2=\"sR2\"]] JXG.Options.text.useMathJax = true; var board = JXG.JSXGraph.initBoard(divid, { axis: true, showCopyright: false, boundingbox: [-6,6,6,-6], keepaspectratio: true, grid:true }); var p1 = board.create('point',[{#x_C#},{#y_C#}],{ name:'A', snapToGrid:true, size:3, snapSizeX:0.1, snapSizeY:0.1, showInfobox:false }); var p2 = board.create('point',[{#x_D#},{#y_D#}],{ name:'B', snapToGrid:true, size:3, snapSizeX:0.1, snapSizeY:0.1, showInfobox:false }); stack_jxg.bind_point(sR1,p1); stack_jxg.bind_point(sR2,p2); board.unsuspendUpdate(); [[/jsxgraph]] [[input:ans1]] [[validation:ans1]] [[input:ans2]] [[validation:ans2]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/4.0 Geometry/4.1 Coordinates and Graphs"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [
+          "GH-B9-ALG-LINEAR-RELATIONS"
+        ],
+        "decision": "prerequisite",
+        "alignment_strength": "strong",
+        "role": "foundation",
+        "notes": [
+          "Assesses plotting coordinates in the Cartesian plane.",
+          "Useful readiness evidence for graphing linear relations."
+        ]
+      }
+    },
+    {
+      "question_id": "207067",
+      "name": "Interactive: Sketching Straight Line graphs y=mx+c",
+      "body": "Move the points in the grid below so that the line passing through them has equation \\(y = {@if mm Note1: Please make sure you move both points, otherwise your answer will not be assessed. Note2: Your browser might ask you if you want to leave without saving when you submit your answer. Leaving will submit your answer and you will not lose your work. [[jsxgraph input-ref-ans1=\"sR1\" input-ref-ans2=\"sR2\"]] JXG.Options.text.useMathJax = true; var board = JXG.JSXGraph.initBoard(divid, { axis: true, showCopyright: false, boundingbox: [-6,6,6,-6], keepaspectratio: true, grid:true }); var p1 = board.create('point',[{#x1#},{#y1#}],{ name:'', snapToGrid:true, size:3, snapSizeX:0.1, snapSizeY:0.1, showInfobox:false }); var p2 = board.create('point',[{#x2#},{#y2#}],{ name:'', snapToGrid:true, size:3, snapSizeX:0.1, snapSizeY:0.1, showInfobox:false }); var l1 = board.create('line', [p1, p2], { fixed: true, straightFirst: true, straightLast: true, strokeWidth: 2 }); stack_jxg.bind_point(sR1,p1); stack_jxg.bind_point(sR2,p2); board.unsuspendUpdate(); [[/jsxgraph]] [[input:ans1]] [[validation:ans1]] [[input:ans2]] [[validation:ans2]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/4.0 Geometry/4.1 Coordinates and Graphs"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [
+          "GH-B9-ALG-LINEAR-RELATIONS"
+        ],
+        "decision": "prerequisite",
+        "alignment_strength": "strong",
+        "role": "visual",
+        "notes": [
+          "Interactive straight-line graphing in the form y = mx + c.",
+          "Strong preparation for paired linear-relation graphing."
+        ]
+      }
+    },
+    {
+      "question_id": "207346",
+      "name": "Select the pairs of equations of parallel lines",
+      "body": "Identify and select pairs of equations of parallel lines [[input:ans1]] [[validation:ans1]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/4.0 Geometry/4.1 Coordinates and Graphs"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [],
+        "decision": "out_of_scope",
+        "alignment_strength": null,
+        "role": null,
+        "notes": [
+          "Parallel-line equation recognition is more advanced than the direct B9 linear-relations standard."
+        ]
+      }
+    },
+    {
+      "question_id": "206939",
+      "name": "Writing down coordinates of a points in a graph.",
+      "body": "Write down the coordinates of the points on the Cartesian plane below. [[jsxgraph]] var board = JXG.JSXGraph.initBoard('jxgbox',{ boundingbox:[-7,6,7,-6], axis: true, showCopyright:false,keepAspectRatio:true }); var p1 = board.create('point', [{#x_A#},{#y_A#}] , {name:'A',fillColor:'red',strokeColor:'red', point: {visible: true}}); var p2 = board.create('point', [{#x_B#},{#y_B#}] , {name:'B',fillColor:'red',strokeColor:'red', point: {visible: true}}); [[/jsxgraph]] A: \\(\\big(\\) [[input:ans1]] [[validation:ans1]] \\(,\\) [[input:ans2]] [[validation:ans2]] \\(\\big)\\) B: \\(\\big(\\) [[input:ans3]] [[validation:ans3]] \\(,\\) [[input:ans4]] [[validation:ans4]] \\(\\big)\\)",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/4.0 Geometry/4.1 Coordinates and Graphs"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [
+          "GH-B9-ALG-LINEAR-RELATIONS"
+        ],
+        "decision": "prerequisite",
+        "alignment_strength": "strong",
+        "role": "foundation",
+        "notes": [
+          "Assesses coordinate reading needed before graphing linear relations.",
+          "Does not directly assess the B9 simultaneous-equations indicators."
+        ]
+      }
+    },
+    {
+      "question_id": "207606",
+      "name": "Determining the bearing of a point from another.(1)",
+      "body": "Determine: [[jsxgraph]] var board = JXG.JSXGraph.initBoard('jxgbox',{ boundingbox:[-5,10,5,-1], axis: false, showCopyright:false,keepAspectRatio:true }); var center = board.create('point',[0,0],{name:'O', size:3,fixed:true,color:'red', visible:true, label:{visible: true}} ); var N = board.create('point',[0,2],{name:'N', size:3, fixed:true, color:'black', visible:false, label:{visible: true}, offset: [0, 2.2], fontSize: 16} ); var S = board.create('point',[0,-2],{name:'S', size:3, fixed:true, color:'black', visible:false} ); var W = board.create('point',[-2,0],{name:'W', size:3, fixed:true, color:'black', visible:false} ); var E = board.create('point',[2,0],{name:'E', size:3, fixed:true, color:'purple', visible:false} ); // Create a line with arrowhead var compass = board.create('line', [S,N], {straightFirst: false, straightLast: false, strokeColor: 'red', strokeWidth: 3, lastArrow: true // adds arrowhead at the end } ); var WE = board.create('line',[W,E], {straightFirst:false, straightLast:false, strokeColor:'red', strokeWidth:3 } ); var point1 = board.create('point',{#coordinate_pointA#},{name:'A', size:3, fixed:true, color:'purple', visible:true} ); var line1 = board.create('line',[point1,center], {straightFirst:false, straightLast:false, strokeColor:'green', strokeWidth:2, name:'Radius' } ); var alpha = board.create('angle', [point1,center,N], {type:'sector', orthoType:'square', orthoSensitivity:2, radius:0.7, color:'green', name:'{#ta#}°'}); var N1 = board.create('point',{#N_1#},{name:'N1', size:3, fixed:true, color:'black', visible:false, label:{visible: true}, offset: [0, 2.2], fontSize: 16} ); var S1 = board.create('point',{#S_1#},{name:'S1', size:3, fixed:true, color:'black', visible:false, label:{visible: true}} ); var W1 = board.create('point',{#W_1#},{name:'W', size:3, fixed:true, color:'black', visible:false} ); var E1 = board.create('point',{#E_1#},{name:'E', size:3, fixed:true, color:'purple', visible:false} ); // Create a line with arrowhead var compass1 = board.create('line', [S1,N1], {straightFirst: false, straightLast: false, strokeColor: 'red', strokeWidth: 3, lastArrow: true // adds arrowhead at the end } ); var WE1 = board.create('line',[W1,E1], {straightFirst:false, straightLast:false, strokeColor:'red', strokeWidth:3 } ); var beta = board.create('angle', [center,point1,N1], {type:'sector', orthoType:'square', orthoSensitivity:2, radius:0.7, color:'blue', name:' '}); [[/jsxgraph]] a. The bearing of A from O: [[input:ans1]]\\(^\\circ\\) [[validation:ans1]][[feedback:prt1]] b. The bearing of O from A: [[input:ans2]]\\(^\\circ\\) [[validation:ans2]][[feedback:prt2]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/4.0 Geometry/4.2 Scale Drawing"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [
+          "GH-B9-GEO-VECTOR-OPERATIONS"
+        ],
+        "decision": "direct",
+        "alignment_strength": "strong",
+        "role": "visual",
+        "notes": [
+          "Directly assesses bearing of one point from another using a diagram.",
+          "Supports the B9.3.2.2 bearings component."
+        ]
+      }
+    },
+    {
+      "question_id": "207613",
+      "name": "Determining the beraing of a point from another (2)",
+      "body": "The bearing of Tumaini Hospital (T.H) from Tumaini School (T.S) is given as \\({@ta@}^\\circ.\\) Determine the bearing of Tumaini School from Tumaini Hospital [[jsxgraph]] var board = JXG.JSXGraph.initBoard('jxgbox',{ boundingbox:[-5,5,5,-5], axis: false, showCopyright:false,keepAspectRatio:true }); var center = board.create('point',[0,0],{name:'T.S', size:3,fixed:true,color:'red', visible:true, label:{visible: true}} ); var N = board.create('point',[0,2],{name:'N', size:3, fixed:true, color:'black', visible:false, label:{visible: true}, offset: [0, 2.2], fontSize: 16} ); var S = board.create('point',[0,-2],{name:'S', size:3, fixed:true, color:'black', visible:false} ); var W = board.create('point',[-2,0],{name:'W', size:3, fixed:true, color:'black', visible:false} ); var E = board.create('point',[2,0],{name:'E', size:3, fixed:true, color:'purple', visible:false} ); // Create a line with arrowhead var compass = board.create('line', [S,N], {straightFirst: false, straightLast: false, strokeColor: 'red', strokeWidth: 3, lastArrow: true // adds arrowhead at the end } ); var WE = board.create('line',[W,E], {straightFirst:false, straightLast:false, strokeColor:'red', strokeWidth:3 } ); var point1 = board.create('point',{#coordinate_pointA#},{name:'T.H', size:3, fixed:true, color:'purple', visible:true} ); var line1 = board.create('line',[point1,center], {straightFirst:false, straightLast:false, strokeColor:'green', strokeWidth:2, name:'Radius' } ); var alpha = board.create('angle', [point1,center,N], {type:'sector', orthoType:'square', orthoSensitivity:2, radius:0.7, color:'red', name:'{#ta#}°'}); var N1 = board.create('point',{#N_1#},{name:'N1', size:3, fixed:true, color:'black', visible:false, label:{visible: false}, offset: [0, 2.2], fontSize: 16} ); var S1 = board.create('point',{#S_1#},{name:'S1', size:3, fixed:true, color:'black', visible:false, label:{visible: false}} ); var W1 = board.create('point',{#W_1#},{name:'W', size:3, fixed:true, color:'black', visible:false} ); var E1 = board.create('point',{#E_1#},{name:'E', size:3, fixed:true, color:'purple', visible:false} ); // Create a line with arrowhead var compass1 = board.create('line', [S1,N1], {straightFirst: false, straightLast: false, strokeColor: 'red', strokeWidth: 3, lastArrow: true // adds arrowhead at the end } ); var WE1 = board.create('line',[W1,E1], {straightFirst:false, straightLast:false, strokeColor:'red', strokeWidth:3 } ); var beta = board.create('angle', [center,point1,N1], {type:'sector', orthoType:'square', orthoSensitivity:2, radius:0.7, color:'blue', name:' '}); [[/jsxgraph]] [[input:ans1]]\\(^\\circ\\) [[validation:ans1]][[feedback:prt1]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/4.0 Geometry/4.2 Scale Drawing"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [
+          "GH-B9-GEO-VECTOR-OPERATIONS"
+        ],
+        "decision": "direct",
+        "alignment_strength": "strong",
+        "role": "conceptual",
+        "notes": [
+          "Assesses reverse bearing between two locations.",
+          "Directly supports B9 bearing reasoning."
+        ]
+      }
+    },
+    {
+      "question_id": "207505",
+      "name": "Identifying compass and true bearing",
+      "body": "Determine the compass bearing and the true bearing point \\(A\\) from \\(O\\) in the figure below. [[jsxgraph]] var board = JXG.JSXGraph.initBoard('jxgbox',{ boundingbox:[-5,5,5,-5], axis: false, showCopyright:false,keepAspectRatio:true }); var center = board.create('point',[0,0],{name:'O', size:3,fixed:true,color:'red', visible:true, label:{visible: true}} ); var N = board.create('point',[0,2],{name:'N', size:3, fixed:true, color:'black', visible:false, label:{visible: true}, offset: [0, 2.2], fontSize: 16} ); var S = board.create('point',[0,-2],{name:'S', size:3, fixed:true, color:'black', visible:false} ); var W = board.create('point',[-2,0],{name:'W', size:3, fixed:true, color:'black', visible:false} ); var E = board.create('point',[2,0],{name:'E', size:3, fixed:true, color:'purple', visible:false} ); // Create a line with arrowhead var compass = board.create('line', [S,N], {straightFirst: false, straightLast: false, strokeColor: 'red', strokeWidth: 3, lastArrow: true // adds arrowhead at the end } ); var WE = board.create('line',[W,E], {straightFirst:false, straightLast:false, strokeColor:'red', strokeWidth:3 } ); var point1 = board.create('point',{#coordinate_pointA#},{name:'A', size:3, fixed:true, color:'purple', visible:true} ); var line1 = board.create('line',[point1,center], {straightFirst:false, straightLast:false, strokeColor:'green', strokeWidth:2, name:'Radius' } ); var alpha = board.create('angle', [point1,center,N], {type:'sector', orthoType:'square', orthoSensitivity:2, radius:0.7, color:'red', name:'{#ta#}°'}); [[/jsxgraph]] a. Compass bearing: N[[input:ans1]]\\(^\\circ\\)E [[validation:ans1]][[feedback:prt1]] b. True bearing: [[input:ans2]]\\(^\\circ\\) [[validation:ans2]][[feedback:prt2]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/4.0 Geometry/4.2 Scale Drawing"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [
+          "GH-B9-GEO-VECTOR-OPERATIONS"
+        ],
+        "decision": "direct",
+        "alignment_strength": "strong",
+        "role": "foundation",
+        "notes": [
+          "Assesses compass and true bearing from a diagram."
+        ]
+      }
+    },
+    {
+      "question_id": "207517",
+      "name": "Identifying compass and true bearing (2)",
+      "body": "Determine the compass bearing and the true bearing point \\(Q\\) from \\(P\\) in the figure below. [[jsxgraph]] var board = JXG.JSXGraph.initBoard('jxgbox',{ boundingbox:[-5,5,5,-5], axis: false, showCopyright:false,keepAspectRatio:true }); var center = board.create('point',[0,0],{name:'P', size:3,fixed:true,color:'red', visible:true, label:{visible: true}} ); var N = board.create('point',[0,2],{name:'N', size:3, fixed:true, color:'black', visible:false, label:{visible: true}, offset: [0, 2.2], fontSize: 16} ); var S = board.create('point',[0,-2],{name:'S', size:3, fixed:true, color:'black', visible:false} ); var W = board.create('point',[-2,0],{name:'W', size:3, fixed:true, color:'black', visible:false} ); var E = board.create('point',[2,0],{name:'E', size:3, fixed:true, color:'purple', visible:false} ); // Create a line with arrowhead var compass = board.create('line', [S,N], {straightFirst: false, straightLast: false, strokeColor: 'red', strokeWidth: 3, lastArrow: true // adds arrowhead at the end } ); var WE = board.create('line',[W,E], {straightFirst:false, straightLast:false, strokeColor:'red', strokeWidth:3 } ); var point1 = board.create('point',{#coordinate_pointQ#},{name:'Q', size:3, fixed:true, color:'purple', visible:true} ); var line1 = board.create('line',[point1,center], {straightFirst:false, straightLast:false, strokeColor:'green', strokeWidth:2, name:'Radius' } ); var alpha = board.create('angle', [point1,center,N], {type:'sector', orthoType:'square', orthoSensitivity:2, radius:0.7, color:'red', name:'{#ta#}°'}); [[/jsxgraph]] a. Compass bearing: S[[input:ans1]]\\(^\\circ\\)E [[validation:ans1]][[feedback:prt1]] b. True bearing: [[input:ans2]]\\(^\\circ\\) [[validation:ans2]][[feedback:prt2]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/4.0 Geometry/4.2 Scale Drawing"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [
+          "GH-B9-GEO-VECTOR-OPERATIONS"
+        ],
+        "decision": "direct",
+        "alignment_strength": "strong",
+        "role": "foundation",
+        "notes": [
+          "Assesses compass and true bearing between two points."
+        ]
+      }
+    },
+    {
+      "question_id": "207532",
+      "name": "Identifying compass and true bearing (3)",
+      "body": "Determine the compass bearing and the true bearing point \\(A\\) from \\(O\\) in the figure below. [[jsxgraph]] var board = JXG.JSXGraph.initBoard('jxgbox',{ boundingbox:[-5,5,5,-5], axis: false, showCopyright:false,keepAspectRatio:true }); var center = board.create('point',[0,0],{name:'O', size:3,fixed:true,color:'red', visible:true, label:{visible: true}} ); var N = board.create('point',[0,2],{name:'N', size:3, fixed:true, color:'black', visible:false, label:{visible: true}, offset: [0, 2.2], fontSize: 16} ); var S = board.create('point',[0,-2],{name:'S', size:3, fixed:true, color:'black', visible:false} ); var W = board.create('point',[-2,0],{name:'W', size:3, fixed:true, color:'black', visible:false} ); var E = board.create('point',[2,0],{name:'E', size:3, fixed:true, color:'purple', visible:false} ); // Create a line with arrowhead var compass = board.create('line', [S,N], {straightFirst: false, straightLast: false, strokeColor: 'red', strokeWidth: 3, lastArrow: true // adds arrowhead at the end } ); var WE = board.create('line',[W,E], {straightFirst:false, straightLast:false, strokeColor:'red', strokeWidth:3 } ); var point1 = board.create('point',{#coordinate_pointA#},{name:'A', size:3, fixed:true, color:'purple', visible:true} ); var line1 = board.create('line',[point1,center], {straightFirst:false, straightLast:false, strokeColor:'green', strokeWidth:2, name:'Radius' } ); var alpha = board.create('angle', [point1,center,N], {type:'sector', orthoType:'square', orthoSensitivity:2, radius:0.7, color:'red', name:'{#ta#}°'}); [[/jsxgraph]] a. Compass bearing: N[[input:ans1]]\\(^\\circ\\)W [[validation:ans1]][[feedback:prt1]] b. True bearing: [[input:ans2]]\\(^\\circ\\) [[validation:ans2]][[feedback:prt2]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/4.0 Geometry/4.2 Scale Drawing"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [
+          "GH-B9-GEO-VECTOR-OPERATIONS"
+        ],
+        "decision": "direct",
+        "alignment_strength": "strong",
+        "role": "foundation",
+        "notes": [
+          "Direct bearing-reading task using compass and true bearings."
+        ]
+      }
+    },
+    {
+      "question_id": "207541",
+      "name": "Identifying compass and true bearing (4)",
+      "body": "Determine the compass bearing and the true bearing point \\(A\\) from \\(O\\) in the figure below. [[jsxgraph]] var board = JXG.JSXGraph.initBoard('jxgbox',{ boundingbox:[-5,5,5,-5], axis: false, showCopyright:false,keepAspectRatio:true }); var center = board.create('point',[0,0],{name:'O', size:3,fixed:true,color:'red', visible:true, label:{visible: true}} ); var N = board.create('point',[0,2],{name:'N', size:3, fixed:true, color:'black', visible:false, label:{visible: true}, offset: [0, 2.2], fontSize: 16} ); var S = board.create('point',[0,-2],{name:'S', size:3, fixed:true, color:'black', visible:false} ); var W = board.create('point',[-2,0],{name:'W', size:3, fixed:true, color:'black', visible:false} ); var E = board.create('point',[2,0],{name:'E', size:3, fixed:true, color:'purple', visible:false} ); // Create a line with arrowhead var compass = board.create('line', [S,N], {straightFirst: false, straightLast: false, strokeColor: 'red', strokeWidth: 3, lastArrow: true // adds arrowhead at the end } ); var WE = board.create('line',[W,E], {straightFirst:false, straightLast:false, strokeColor:'red', strokeWidth:3 } ); var point1 = board.create('point',{#coordinate_pointA#},{name:'A', size:3, fixed:true, color:'purple', visible:true} ); var line1 = board.create('line',[point1,center], {straightFirst:false, straightLast:false, strokeColor:'green', strokeWidth:2, name:'Radius' } ); var alpha = board.create('angle', [point1,center,N], {type:'sector', orthoType:'square', orthoSensitivity:2, radius:0.7, color:'red', name:'{#ta#}°'}); [[/jsxgraph]] a. Compass bearing: S[[input:ans1]]\\(^\\circ\\)W [[validation:ans1]][[feedback:prt1]] b. True bearing: [[input:ans2]]\\(^\\circ\\) [[validation:ans2]][[feedback:prt2]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/4.0 Geometry/4.2 Scale Drawing"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [
+          "GH-B9-GEO-VECTOR-OPERATIONS"
+        ],
+        "decision": "direct",
+        "alignment_strength": "strong",
+        "role": "foundation",
+        "notes": [
+          "Direct bearing-reading task using a geometric representation."
+        ]
+      }
+    },
+    {
+      "question_id": "207829",
+      "name": "Locating a point using bearing and distance (2)",
+      "body": "You are watching a boat at sea from an observation point, \\(O\\). From your location the boat, at point \\(B\\), is on a bearing of \\({@obsBoatAng@}^\\circ\\). You can also see a lighthouse, at point \\(L\\), on a bearing of \\({@obsLightAng@}^\\circ\\). From the boat, the lighthouse is on a bearing of \\({@boatLightAng@}^\\circ\\). [[jsxgraph width=\"500px\" height=\"500px\"]] var obsBoatAng = {#obsBoatAng#}; var obsLightAng = {#obsLightAng#}; var boatLightAng = {#boatLightAng#}; var obsLightDist = {#obsLightDist#}; JXG.Options.text.useMathJax=true; var board = JXG.JSXGraph.initBoard(divid, { boundingBox:[-13.8,5.5,16.2,-24.5], showCopyright:false, showNavigation:false, keepaspectratio:true }); // Points var pointStyle = { fixed:true, highlight:false, showInfoBox:false, withLabel:true, name:\" \", label:{ fixed:true, highlight:false, fontSize:20, offset:[0,0], useMathJax:true, parse:false } }; pointStyle.name = \"\\\\(O\\\\)\"; pointStyle.label.offset = [-30,5]; var obsPoint = board.create(\"point\", [0,0], pointStyle); pointStyle.name = \"\\\\(L\\\\)\"; var lightPoint = board.create(\"point\", [-9.2,-7.7], pointStyle); pointStyle.name = \"\\\\(B\\\\)\"; pointStyle.label.offset = [15,5]; var boatPoint = board.create(\"point\", [11.3,-19.5], pointStyle); // Joining points with lines var lineStyle = { fixed:true, highlight:false, dash:1, name:\"\", withLabel:true, label:{ fixed:true, highlight:false, fontSize:15, offset:[0,0], useMathJax:true, parse:false } }; board.create(\"segment\", [lightPoint, boatPoint], lineStyle); lineStyle.name = \"\\\\(\".concat(obsLightDist,\"km\\\\)\"); lineStyle.label.offset = [-40,20]; board.create(\"segment\", [obsPoint, lightPoint], lineStyle); lineStyle.name = \"\\\\(x\\\\)\"; lineStyle.label.offset = [5,20]; board.create(\"segment\", [obsPoint, boatPoint], lineStyle); // Adding in north arrows var arrowStyle = { fixed:true, highlight:false, strokeColor:\"black\", name:\"\\\\(N\\\\)\", withLabel:true, label:{ fixed:true, highlight:false, fontSize:10, offset:[-5,60], useMathJax:true, parse:false } }; var obsNorthPoint = board.create(\"point\", [0,3], {visible:false}); var boatNorthPoint = board.create(\"point\", [11.3,-16.5], {visible:false}); var lightNorthPoint = board.create(\"point\", [-9.2,-4.7], {visible:false}); board.create(\"arrow\", [obsPoint, obsNorthPoint], arrowStyle); board.create(\"arrow\", [boatPoint, boatNorthPoint], arrowStyle); board.create(\"arrow\", [lightPoint, lightNorthPoint], arrowStyle); // Adding angles var angleStyle = { fixed:true, highlight:false, name:\" \", radius:1.75, withLabel:true, label:{ fixed:true, highlight:false, strokeColor:\"black\", fontSize:12, offset:[0,0], useMathJax:true, parse:false } }; angleStyle.name = \"\\\\(\".concat(obsBoatAng, \"^\\\\circ\\\\)\"); angleStyle.label.offset = [-5,-15]; board.create(\"angle\", [boatPoint, obsPoint, obsNorthPoint], angleStyle); angleStyle.radius = 1.25; angleStyle.name = \"\\\\(\".concat(obsLightAng, \"^\\\\circ\\\\)\"); angleStyle.label.offset = [-50,-30]; board.create(\"angle\", [lightPoint, obsPoint, obsNorthPoint], angleStyle); angleStyle.name = \"\\\\(\".concat(boatLightAng, \"^\\\\circ\\\\)\"); angleStyle.label.offset = [0,-15]; board.create(\"angle\", [lightPoint, boatPoint, boatNorthPoint], angleStyle); [[/jsxgraph]] Diagram not to scale (a) Find the bearing of the boat from the lighthouse. [[input:ans1]] \\(^\\circ\\) [[validation:ans1]] (1) [[feedback:prt1]] (b) Find the acute angle \\(B\\hat{L}O\\) in degrees. [[input:ans2]] \\(^\\circ\\) [[validation:ans2]] (2) [[feedback:prt2]] (c) Given you are \\({@obsLightDist@}km\\) from the lighthouse, find the distance \\(x\\) between your observation point and the boat. Give your answer to 3sf. [[input:ans3]] \\(km\\) [[validation:ans3]] (3) [[feedback:prt3]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/4.0 Geometry/4.2 Scale Drawing"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [
+          "GH-B9-GEO-VECTOR-OPERATIONS"
+        ],
+        "decision": "direct",
+        "alignment_strength": "strong",
+        "role": "challenge",
+        "notes": [
+          "Uses multiple bearings and locations in a contextual problem.",
+          "Provides higher-demand bearing reasoning within the B9 topic."
+        ]
+      }
+    },
+    {
+      "question_id": "207667",
+      "name": "Locating a point using bearing and distance(1)",
+      "body": "A point O is \\({@OB@} m\\) due east of point B. Another point C is \\({@OC@} m\\) due south of O. Use a scale of \\(1\\,cm\\,=\\,100\\,m\\) to draw a sketch of the given information and determine: a. Distance BC = [[input:ans1]] \\(m\\) [[validation:ans1]][[feedback:prt1]] b. Bearing of C from B = [[input:ans2]] \\(^\\circ\\)[[validation:ans2]][[feedback:prt2]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/4.0 Geometry/4.2 Scale Drawing"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [
+          "GH-B9-GEO-VECTOR-OPERATIONS"
+        ],
+        "decision": "direct",
+        "alignment_strength": "strong",
+        "role": "application",
+        "notes": [
+          "Combines scale drawing, distance and bearing in a contextual task."
+        ]
+      }
+    },
+    {
+      "question_id": "208044",
+      "name": "Locating points using bearing and distance(3)",
+      "body": "A \\(\\text{@B@}\\) is \\({@OB@} m\\) from a train station (T.S) on a bearing of \\({@theta_1@}^\\circ\\). A \\(\\text{@C@}\\) is \\({@OC@} m\\) from the train station on a bearing of \\({@theta_2@}^\\circ\\). Determine the distance between \\(\\text{@B@}\\) and \\(\\text{@C@}\\). [[input:ans1]]\\(m\\) [[validation:ans1]][[feedback:prt1]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/4.0 Geometry/4.2 Scale Drawing"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [
+          "GH-B9-GEO-VECTOR-OPERATIONS"
+        ],
+        "decision": "direct",
+        "alignment_strength": "moderate",
+        "role": "application",
+        "notes": [
+          "Uses bearing and distance information to determine distance between two locations.",
+          "Aligned to the bearings component, though the mathematical demand should be reviewed before mastery use."
+        ]
+      }
+    },
+    {
+      "question_id": "222191",
+      "name": "5.0.17 (Solve tan trig equation)",
+      "body": "Solve the following equation: \\( \\displaystyle {@tq@} \\) for \\( -90^\\circ \\leq x \\leq 90^\\circ\\) \\(x\\) = [[input:ans1]] [[validation:ans1]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/4.0 Geometry/4.4 Trigonometry"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [],
+        "decision": "out_of_scope",
+        "alignment_strength": null,
+        "role": null,
+        "notes": [
+          "Trigonometry is not part of the current Ghana Basic 9 concept inventory derived from the curriculum standards."
+        ]
+      }
+    },
+    {
+      "question_id": "207288",
+      "name": "Identifying Meal Distribution Matrices for School Classes Over Two Days",
+      "body": "A school cafeteria tracks the number of vegetarian and non-vegetarian meals served to students in three different classes \\((\\text{Class}\\, 7, \\,\\text{Class}\\, 8, \\,\\text{and}\\, \\,\\text{Class}\\, 9)\\) over two days. The data is recorded in the following matrices: {@M1@} where each row represents a class \\((\\text{Class}\\, 7, 8, 9)\\) and each column represents the type of meal (Vegetarian, Non-Vegetarian) served on Day \\(1\\). {@M2@} where the arrangement is the same for Day \\(2\\). What does the entry in the second row, first column of \\( {@M1@} \\) represent? Entry in the second raw first column \\(=\\) [[input:ans1]] [[validation:ans1]] [[feedback:prt1]] What is the total number of non-vegetarian meals served on Day \\(2\\)? The total served in day \\(2 = \\) [[input:ans2]] [[validation:ans2]] [[feedback:prt2]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/2.0. Algebra/2.1 Matrices"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [],
+        "decision": "out_of_scope",
+        "alignment_strength": null,
+        "role": null,
+        "notes": [
+          "Matrix interpretation is outside the Ghana Basic 9 concepts derived from the curriculum."
+        ]
+      }
+    },
+    {
+      "question_id": "235623",
+      "name": "Calculating cubes of numbers having decimal",
+      "body": "Calculate the cube of following numbers: a. \\({@number1@} ^ 3 = \\) [[input:ans1]] [[validation:ans1]] b. \\({@number2@} ^ 3 = \\) [[input:ans2]] [[validation:ans2]] [[feedback:prt1]] [[feedback:prt2]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/1.0. Whole Numbers/1.2 Cubes and Cube roots/Cubes"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [],
+        "decision": "out_of_scope",
+        "alignment_strength": null,
+        "role": null,
+        "notes": [
+          "Cube and cube-root practice is not a direct Ghana Basic 9 content indicator in the current curriculum inventory."
+        ]
+      }
+    },
+    {
+      "question_id": "207479",
+      "name": "Calculating cubes of positive number",
+      "body": "Calculate the cube root of following numbers: a. \\({@cubed_number1@} = \\) [[input:ans1]] [[validation:ans1]] b. \\({@cubed_number2@}= \\) [[input:ans2]] [[validation:ans2]] [[feedback:prt1]] [[feedback:prt2]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/1.0. Whole Numbers/1.2 Cubes and Cube roots/Cubes"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [],
+        "decision": "out_of_scope",
+        "alignment_strength": null,
+        "role": null,
+        "notes": [
+          "Cube and cube-root practice is not a direct Ghana Basic 9 content indicator in the current curriculum inventory."
+        ]
+      }
+    },
+    {
+      "question_id": "235537",
+      "name": "Calculating cubes using a mathematical table",
+      "body": "Calculate the cubes of following numbers, using a mathematical table: a. \\({@number_e@} = \\) [[input:ans1]] [[validation:ans1]] b. \\({@number_f@} = \\) [[input:ans2]] [[validation:ans2]] [[feedback:prt1]] [[feedback:prt2]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/1.0. Whole Numbers/1.2 Cubes and Cube roots/Cubes"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [],
+        "decision": "out_of_scope",
+        "alignment_strength": null,
+        "role": null,
+        "notes": [
+          "Cube and cube-root practice is not a direct Ghana Basic 9 content indicator in the current curriculum inventory."
+        ]
+      }
+    },
+    {
+      "question_id": "207474",
+      "name": "Cubes of negative numbers.",
+      "body": "Calculate the cube of following numbers: a. \\({@number1@} ^ 3 = \\) [[input:ans1]] [[validation:ans1]] b. \\({@number2@} ^ 3 = \\) [[input:ans2]] [[validation:ans2]] [[feedback:prt1]] [[feedback:prt2]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/1.0. Whole Numbers/1.2 Cubes and Cube roots/Cubes"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [],
+        "decision": "out_of_scope",
+        "alignment_strength": null,
+        "role": null,
+        "notes": [
+          "Cube and cube-root practice is not a direct Ghana Basic 9 content indicator in the current curriculum inventory."
+        ]
+      }
+    },
+    {
+      "question_id": "207522",
+      "name": "Finding cubes of numbers using a calculator",
+      "body": "Find the cube of the following numbers using a calculator. a) \\({@number_a@}\\) [[input:ans1]] [[feedback:prt1]] b) \\({@number_b@}\\) [[input:ans2]] [[feedback:prt2]] c) \\({@number_c@}\\) [[input:ans3]] [[feedback:prt3]] d) \\({@number_d@}\\) [[input:ans4]] [[feedback:prt4]] [[validation:ans1]][[validation:ans2]] [[validation:ans3]] [[validation:ans4]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/1.0. Whole Numbers/1.2 Cubes and Cube roots/Cubes"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [],
+        "decision": "out_of_scope",
+        "alignment_strength": null,
+        "role": null,
+        "notes": [
+          "Cube and cube-root practice is not a direct Ghana Basic 9 content indicator in the current curriculum inventory."
+        ]
+      }
+    },
+    {
+      "question_id": "207484",
+      "name": "Finding the cubes of unknown (letters).",
+      "body": "Calculate the cube of following numbers: a. \\({@var1@} \\) [[input:ans1]] [[validation:ans1]] b. \\({@var2@} \\) [[input:ans2]] [[validation:ans2]] [[feedback:prt1]] [[feedback:prt2]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/1.0. Whole Numbers/1.2 Cubes and Cube roots/Cubes"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [],
+        "decision": "out_of_scope",
+        "alignment_strength": null,
+        "role": null,
+        "notes": [
+          "Cube and cube-root practice is not a direct Ghana Basic 9 content indicator in the current curriculum inventory."
+        ]
+      }
+    },
+    {
+      "question_id": "207455",
+      "name": "Calculating cube root of positive numbers.",
+      "body": "Calculate the cube root of following numbers: a. \\({@cubed_number1@} = \\) [[input:ans1]] [[validation:ans1]] b. \\({@cubed_number2@} = \\) [[input:ans2]] [[validation:ans2]] [[feedback:prt1]] [[feedback:prt2]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/1.0. Whole Numbers/1.2 Cubes and Cube roots/Cube root"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [],
+        "decision": "out_of_scope",
+        "alignment_strength": null,
+        "role": null,
+        "notes": [
+          "Cube and cube-root practice is not a direct Ghana Basic 9 content indicator in the current curriculum inventory."
+        ]
+      }
+    },
+    {
+      "question_id": "207477",
+      "name": "Calculating cube root of unknown (letters)",
+      "body": "Calculate the cube root of following unknowns: a. \\({@cube_of_var1@} = \\) [[input:ans1]] [[validation:ans1]] b. \\({@cube_of_var2@} = \\) [[input:ans2]] [[validation:ans2]] [[feedback:prt1]] [[feedback:prt2]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/1.0. Whole Numbers/1.2 Cubes and Cube roots/Cube root"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [],
+        "decision": "out_of_scope",
+        "alignment_strength": null,
+        "role": null,
+        "notes": [
+          "Cube and cube-root practice is not a direct Ghana Basic 9 content indicator in the current curriculum inventory."
+        ]
+      }
+    },
+    {
+      "question_id": "207643",
+      "name": "Calculating cube root using a calculator",
+      "body": "Find the cube root of the following numbers using a calculator. a) \\({@cubed_number_a@}\\) [[input:ans1]] [[feedback:prt1]] b) \\({@cubed_number_b@}\\) [[input:ans2]] [[feedback:prt2]] c) \\({@cubed_number_c@}\\) [[input:ans3]] [[feedback:prt3]] d) \\({@cubed_number_d@}\\) [[input:ans4]] [[feedback:prt4]] [[validation:ans1]][[validation:ans2]] [[validation:ans3]] [[validation:ans4]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/1.0. Whole Numbers/1.2 Cubes and Cube roots/Cube root"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [],
+        "decision": "out_of_scope",
+        "alignment_strength": null,
+        "role": null,
+        "notes": [
+          "Cube and cube-root practice is not a direct Ghana Basic 9 content indicator in the current curriculum inventory."
+        ]
+      }
+    },
+    {
+      "question_id": "207463",
+      "name": "Cube root of numbers having decimals",
+      "body": "Calculate the cube root of following numbers: a. \\({@cube_of_number1@} = \\) [[input:ans1]] [[validation:ans1]] b. \\({@cube_of_number2@} = \\) [[input:ans2]] [[validation:ans2]] [[feedback:prt1]] [[feedback:prt2]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/1.0. Whole Numbers/1.2 Cubes and Cube roots/Cube root"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [],
+        "decision": "out_of_scope",
+        "alignment_strength": null,
+        "role": null,
+        "notes": [
+          "Cube and cube-root practice is not a direct Ghana Basic 9 content indicator in the current curriculum inventory."
+        ]
+      }
+    },
+    {
+      "question_id": "207457",
+      "name": "Finding cube root of negative numbers",
+      "body": "Calculate the cube root of following numbers: a. \\({@cube_of_number1@} = \\) [[input:ans1]] [[validation:ans1]] b. \\({@cube_of_number2@} = \\) [[input:ans2]] [[validation:ans2]] [[feedback:prt1]] [[feedback:prt2]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/1.0. Whole Numbers/1.2 Cubes and Cube roots/Cube root"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [],
+        "decision": "out_of_scope",
+        "alignment_strength": null,
+        "role": null,
+        "notes": [
+          "Cube and cube-root practice is not a direct Ghana Basic 9 content indicator in the current curriculum inventory."
+        ]
+      }
+    },
+    {
+      "question_id": "221909",
+      "name": "Calculating the length of the right angled triangle",
+      "body": "Determine the length of the side marked {@val_letter@} , to the nearest 2 decimal places. [[jsxgraph]] var board = JXG.JSXGraph.initBoard('jxgbox', { boundingbox: [-5, 5, 5, -5], keepAspectRatio: true }); // Function to generate random color function getRandomColor() { var letters = '0123456789ABCDEF'; var color = '#'; for (var i = 0; i {@val_letter@}= [[input:ans1]] cm[[validation:ans1]][[feedback:prt1]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/4.0 Geometry/4.4 Trigonometry/Applying trigonometric ratios to calculate lengths and angles of right angled triangles"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [],
+        "decision": "out_of_scope",
+        "alignment_strength": null,
+        "role": null,
+        "notes": [
+          "Trigonometry is not part of the current Ghana Basic 9 concept inventory derived from the curriculum standards."
+        ]
+      }
+    },
+    {
+      "question_id": "221908",
+      "name": "Finding the value of unknown angle using trigonometric ratio.",
+      "body": "Use trigometric ratios to find the value of the marked angles in the following triangles \\(Note\\):Write your answer correct to \\(2\\) decimal places. \\((a).\\) [[jsxgraph]] var board = JXG.JSXGraph.initBoard('jxgbox', { boundingbox: [-5, 5, 5, -5], keepAspectRatio: true }); // Function to generate random color function getRandomColor() { var letters = '0123456789ABCDEF'; var color = '#'; for (var i = 0; i Angle {@val_letter1@} = [[input:ans1]] ° [[validation:ans1]][[feedback:prt1]] \\((b).\\) [[jsxgraph]] var board = JXG.JSXGraph.initBoard('jxgbox', { boundingbox: [-5, 5, 5, -5], keepAspectRatio: true }); // Function to generate random color function getRandomColor() { var letters = '0123456789ABCDEF'; var color = '#'; for (var i = 0; i Angle {@val_letter2@} = [[input:ans2]] ° [[validation:ans2]][[feedback:prt2]] \\((c).\\) [[jsxgraph]] var board = JXG.JSXGraph.initBoard('jxgbox', { boundingbox: [-5, 5, 5, -5], keepAspectRatio: true }); // Function to generate random color function getRandomColor() { var letters = '0123456789ABCDEF'; var color = '#'; for (var i = 0; i Angle {@val_letter3@} = [[input:ans3]] ° [[validation:ans3]][[feedback:prt3]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/4.0 Geometry/4.4 Trigonometry/Applying trigonometric ratios to calculate lengths and angles of right angled triangles"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [],
+        "decision": "out_of_scope",
+        "alignment_strength": null,
+        "role": null,
+        "notes": [
+          "Trigonometry is not part of the current Ghana Basic 9 concept inventory derived from the curriculum standards."
+        ]
+      }
+    },
+    {
+      "question_id": "221194",
+      "name": "Identifying sides of right angled triangle.",
+      "body": "The figure below shows a right-angled triangle. [[jsxgraph]] var board = JXG.JSXGraph.initBoard('jxgbox', { boundingbox: [-5, 5, 5, -5], keepAspectRatio: true }); // Function to generate random color function getRandomColor() { var letters = '0123456789ABCDEF'; var color = '#'; for (var i = 0; i In the triangle shown above, each side is labeled as {@val_letter1@}, {@val_letter2@} and {@val_letter3@}. For the marked angle, identify each side as opposite, adjacent, or hypotenuse. 1.Side {@val_letter1@}= [[input:ans1]] [[validation:ans1]][[feedback:prt1]] 2.Side {@val_letter3@}= [[input:ans2]] [[validation:ans2]][[feedback:prt2]] 3.Side {@val_letter2@}= [[input:ans3]] [[validation:ans3]][[feedback:prt3]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/4.0 Geometry/4.4 Trigonometry/ Identifying Angles and Sides of Right Angled Triangles"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [],
+        "decision": "out_of_scope",
+        "alignment_strength": null,
+        "role": null,
+        "notes": [
+          "Trigonometry is not part of the current Ghana Basic 9 concept inventory derived from the curriculum standards."
+        ]
+      }
+    },
+    {
+      "question_id": "221196",
+      "name": "Determining the sine, cosine and tangent of an angle.",
+      "body": "In the figure below, a right-angled triangle is shown with the right angle at one of its vertices.. [[jsxgraph]] var board = JXG.JSXGraph.initBoard('jxgbox', { boundingbox: [-5, 5, 5, -5], keepAspectRatio: true }); // Function to generate random color function getRandomColor() { var letters = '0123456789ABCDEF'; var color = '#'; for (var i = 0; i Determine: (i) sin \\(\\theta\\) [[input:ans1]] [[validation:ans1]] [[feedback:prt1]] (ii) cos \\(\\theta\\) [[input:ans2]] [[validation:ans2]] [[feedback:prt2]] (iii) tan \\(\\theta\\) [[input:ans3]] [[validation:ans3]] [[feedback:prt3]] (iv) sin \\(\\alpha\\) [[input:ans4]] [[validation:ans4]] [[feedback:prt4]] (v) cos \\(\\alpha\\) [[input:ans5]] [[validation:ans5]] [[feedback:prt5]] (vi) tan \\(\\alpha\\) [[input:ans6]] [[validation:ans6]] [[feedback:prt6]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/4.0 Geometry/4.4 Trigonometry/Identifying Sine, Cosine and Tangent Ratios from a Right Angled Triangle"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [],
+        "decision": "out_of_scope",
+        "alignment_strength": null,
+        "role": null,
+        "notes": [
+          "Trigonometry is not part of the current Ghana Basic 9 concept inventory derived from the curriculum standards."
+        ]
+      }
+    },
+    {
+      "question_id": "221207",
+      "name": "Calculating sines,cosines and tangents of acute angles using a mathematical table",
+      "body": "Using a mathematical table, calculate the sine, cosine, and tangent of {@angle@}° (i). sin \\({@angle@}°=\\)[[input:ans1]] [[validation:ans1]][[feedback:prt1]] (ii). cos \\({@angle@}°=\\)[[input:ans2]] [[validation:ans2]][[feedback:prt2]] (iii). tan \\({@angle@}°=\\)[[input:ans3]] [[validation:ans3]][[feedback:prt3]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/4.0 Geometry/4.4 Trigonometry/Reading Tables of Trigonometric Ratios For Acute Angles"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [],
+        "decision": "out_of_scope",
+        "alignment_strength": null,
+        "role": null,
+        "notes": [
+          "Trigonometry is not part of the current Ghana Basic 9 concept inventory derived from the curriculum standards."
+        ]
+      }
+    },
+    {
+      "question_id": "221209",
+      "name": "Calculating sines,cosines and tangents of acute angles using a calculator",
+      "body": "Using a calculator, calculate the sine, cosine, and tangent of {@angle@}°, giving your answers correct to 4 decimal places. (i). sin \\({@angle@}°=\\)[[input:ans1]] [[validation:ans1]][[feedback:prt1]] (ii). cos \\({@angle@}°=\\)[[input:ans2]] [[validation:ans2]][[feedback:prt2]] (iii). tan \\({@angle@}°=\\)[[input:ans3]] [[validation:ans3]][[feedback:prt3]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/4.0 Geometry/4.4 Trigonometry/Determining Trigonometric Ratios of Acute Angles Using Calculators"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [],
+        "decision": "out_of_scope",
+        "alignment_strength": null,
+        "role": null,
+        "notes": [
+          "Trigonometry is not part of the current Ghana Basic 9 concept inventory derived from the curriculum standards."
+        ]
+      }
+    },
+    {
+      "question_id": "221322",
+      "name": "Determining similar figures",
+      "body": "Determine whether triangle \\(ABC\\) is similar to triangle \\(PQR\\). [[jsxgraph]] var board = JXG.JSXGraph.initBoard('jxgbox', { boundingbox: [-2, 12, 30, -2], keepAspectRatio: true, showCopyright: false }); // -------- Random Color Generator -------- function getRandomColor() { var letters = '0123456789ABCDEF'; var color = '#'; for (var i = 0; i (P.X()+Q.X())/2, ()=>(P.Y()+Q.Y())/2 - 0.3, \"{#sidePQ#} cm\"]); board.create('text', [()=>(Q.X()+R.X())/2, ()=>(Q.Y()+R.Y())/1.5, \"{#sideQR#} cm\"]); board.create('text', [()=>(P.X()+R.X())/2.8, ()=>(P.Y()+R.Y())/1.5, \"{#sidePR#} cm\"]); // Angles for PQR var angleP = board.create('angle', [Q, P, R], { name:()=> (JXG.Math.Geometry.rad(P,R,Q)*180/Math.PI).toFixed(1)+\"°\", radius:1, fillColor:\"red\", strokeColor:\"red\", label:{offset:[-10,0]} }); var angleQ = board.create('angle', [R, Q, P], { name:()=> (JXG.Math.Geometry.rad(Q,P,R)*180/Math.PI).toFixed(1)+\"°\", radius:1, fillColor:\"green\", strokeColor:\"green\", label:{offset:[10,0]} }); var angleR = board.create('angle', [P, R, Q], { name:()=> (JXG.Math.Geometry.rad(R,Q,P)*180/Math.PI).toFixed(1)+\"°\", radius:1, fillColor:\"blue\", strokeColor:\"blue\", label:{offset:[0,10]} }); // Hide angle at P (≈104°) angleP.setAttribute({visible:false}); // ========= Second Triangle ABC (scaled by 1.5) ========= var scale = 1.5; var A_X = 15; // shift to the right so triangles don't overlap var AB = scale*PQ, AC = scale*PR, BC = scale*QR; var A = board.create('point', [A_X, 0], {name: \"A\", visible: true, label:{offset:[-10,-15]}}); var B = board.create('point', [A_X + AB, 0], {name: \"B\", visible: true, label:{offset:[10,-15]}}); var xC = (AC*AC - BC*BC + AB*AB) / (2*AB); var yC = Math.sqrt(AC*AC - xC*xC); var C = board.create('point', [A_X + xC, yC], {name: \"C\", visible: true, label:{offset:[0,10]}}); var triangle2 = board.create('polygon', [A, B, C], { borders: {strokeColor: getRandomColor()}, fillColor: getRandomColor() }); // Side lengths for ABC board.create('text', [()=>(A.X()+B.X())/2, ()=>(A.Y()+B.Y())/2 - 0.3, \"{#sideAB#} cm\"]); board.create('text', [()=>(B.X()+C.X())/2, ()=>(B.Y()+C.Y())/2, \"{#sideBC#} cm\"]); board.create('text', [()=>(A.X()+C.X())/2.3, ()=>(A.Y()+C.Y())/2, \"{#sideAC#} cm\"]); // Angles for ABC (same as PQR, with same colors) var angleA = board.create('angle', [B, A, C], { name:()=> (JXG.Math.Geometry.rad(A,C,B)*180/Math.PI).toFixed(1)+\"°\", radius:1.2, fillColor:\"red\", strokeColor:\"red\", label:{offset:[-10,0]} }); var angleB = board.create('angle', [C, B, A], { name:()=> (JXG.Math.Geometry.rad(B,A,C)*180/Math.PI).toFixed(1)+\"°\", radius:1.2, fillColor:\"green\", strokeColor:\"green\", label:{offset:[10,0]} }); var angleC = board.create('angle', [A, C, B], { name:()=> (JXG.Math.Geometry.rad(C,B,A)*180/Math.PI).toFixed(1)+\"°\", radius:1.2, fillColor:\"blue\", strokeColor:\"blue\", label:{offset:[0,10]} }); // Hide angle at A (≈104°) angleA.setAttribute({visible:false}); [[/jsxgraph]] [[input:ans1]] [[validation:ans1]][[feedback:prt1]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/4.0 Geometry/4.3 Similarity and Enlargement/Identifying Similar Figures and Their Properties"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [
+          "GH-B9-GEO-SIMILARITY-CONGRUENCE"
+        ],
+        "decision": "direct",
+        "alignment_strength": "strong",
+        "role": "conceptual",
+        "notes": [
+          "Directly assesses recognition of similar figures."
+        ]
+      }
+    },
+    {
+      "question_id": "221366",
+      "name": "Determining the linear scale factor.",
+      "body": "The two rectangles given below are similar. [[jsxgraph]] var board = JXG.JSXGraph.initBoard('jxgbox', { boundingbox: [-2, 12, 30, -2], keepAspectRatio: true, showCopyright: false }); // -------- Random Color Generator -------- function getRandomColor() { var letters = '0123456789ABCDEF'; var color = '#'; for (var i = 0; i (P.X()+Q.X())/2, -0.5, \"{#length #} cm\"]); // bottom board.create('text', [width1 + 0.3, ()=>(Q.Y()+R.Y())/2, \"{#width#} cm\"]); // right // board.create('text', [()=>(S.X()+R.X())/2, height1 + 0.3, \"8 cm\"]); // top // board.create('text', [-1, ()=>(P.Y()+S.Y())/2, \"4 cm\"]); // left // ---- Center label (randomly Object or Image) ---- var center1X = (P.X() + R.X()) / 2; var center1Y = (P.Y() + R.Y()) / 2; board.create('text', [center1X, center1Y, labels[0]], { anchorX: 'middle', anchorY: 'middle', fontSize: 16, color: 'black' }); // ========= SECOND RECTANGLE ABCD (scaled by 1.5) ========= // Dimensions: 12 cm × 6 cm var scale = 1.5; var shiftX = 15; var width2 = scale * width1; // 12 cm var height2 = scale * height1; // 6 cm // Points for rectangle ABCD var A = board.create('point', [shiftX, 0], {name: \"A\", visible: true, label:{offset:[-10,-15]}}); var B = board.create('point', [shiftX + width2, 0], {name: \"B\", visible: true, label:{offset:[10,-15]}}); var C = board.create('point', [shiftX + width2, height2], {name: \"C\", visible: true, label:{offset:[10,10]}}); var D = board.create('point', [shiftX, height2], {name: \"D\", visible: true, label:{offset:[-10,10]}}); // Draw rectangle ABCD var rect2 = board.create('polygon', [A, B, C, D], { borders: {strokeColor: getRandomColor()}, fillColor: getRandomColor(), vertices: {visible: true} }); // Side length labels for 12 cm × 6 cm rectangle board.create('text', [()=>(A.X()+B.X())/2, -0.5, \"{#val_letter#} cm\"]); // bottom board.create('text', [shiftX + width2 + 0.3, ()=>(B.Y()+C.Y())/2, \"{#scaled_width #} cm\"]); // right // board.create('text', [()=>(D.X()+C.X())/2, height2 + 0.3, \"12 cm\"]); // top // board.create('text', [shiftX - 1, ()=>(A.Y()+D.Y())/2, \"1 cm\"]); // left // ---- Center label (randomly Object or Image) ---- var center2X = (A.X() + C.X()) / 2; var center2Y = (A.Y() + C.Y()) / 2; board.create('text', [center2X, center2Y, labels[1]], { anchorX: 'middle', anchorY: 'middle', fontSize: 16, color: 'black' }); [[/jsxgraph]] (a). Determine the linear scale factor = [[input:ans1]] [[validation:ans1]][[feedback:prt1]] (b). Determine the value of {@val_letter@} = [[input:ans2]] \\(\\text{cm}\\)[[validation:ans2]][[feedback:prt2]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/4.0 Geometry/4.3 Similarity and Enlargement/Determining The Linear Scale Factor of Similar Figures"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [
+          "GH-B9-GEO-ENLARGEMENT"
+        ],
+        "decision": "direct",
+        "alignment_strength": "strong",
+        "role": "procedural",
+        "notes": [
+          "Directly assesses linear scale-factor reasoning for similar shapes."
+        ]
+      }
+    },
+    {
+      "question_id": "207546",
+      "name": "Finding the Area of a Regular Pentagon",
+      "body": "Find the area of the figure below, centered at O, and round your answer to the nearest \\(\\textbf{whole number}\\). var board = JXG.JSXGraph.initBoard('box', { boundingbox: [-40, 40, 40, -40], axis: false, showCopyright: false }); // Centre point O var O = board.create('point', [0, 0], {name: 'O', fixed: true,visible: false}); // Draw pentagon vertices manually using radius 25.5 cm var A = board.create('point', [0, 25.5], {visible: false}); var B = board.create('point', [24.2, 7.9], {visible: false}); var C = board.create('point', [14.8, -20.6], {visible: false}); var D = board.create('point', [-14.8, -20.6], {visible: false}); var E = board.create('point', [-24.2, 7.9], {visible: false}); // Draw pentagon var pentagon = board.create('polygon', [A, B, C, D, E], { borders: {strokeColor: 'black'}, fillColor: 'none' }); // Draw radius line (25.5 cm) from centre to vertex C var radiusLine = board.create('line', [O, C], {straightFirst: false, straightLast: false, strokeColor: 'black'}); // Draw radius line (25.5 cm) from centre to vertex B var radiusLine = board.create('line', [O, B], {straightFirst: false, straightLast: false, strokeColor: 'black'}); board.create('text', [-1, -10, \"{#slant#} cm\"], {fontSize: 12,fixed: true}); board.create('text', [-0.2, 2, \"O\"], {fontSize: 12,fixed: true}); // Draw side base (approx 30 cm) between B and E var base = board.create('segment', [B, C], {strokeColor: 'black'}); board.create('text', [B.X() , B.Y() -15, \"{#base_length#} cm\"], {fontSize: 12,fixed: true}); // Draw perpendicular height from O to base BC // Draw perpendicular height from O to base BC var midpoint = board.create('midpoint', [B, C], {visible: false}); var heightLine = board.create('segment', [O, midpoint], {strokeColor: 'black', dash: 1}); // Draw right angle marker without alpha symbol var rightAngle = board.create('nonreflexangle', [B, midpoint, O], { radius: 3, type: 'square', name: '',fixed: true }); \\(\\text{Area} =\\)[[input:ans1]]\\(\\text{cm}^2\\) [[feedback:prt1]] [[validation:ans1]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/3.0. Measurements/3.1 Area/Area of a Pentagon"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [],
+        "decision": "out_of_scope",
+        "alignment_strength": null,
+        "role": null,
+        "notes": [
+          "Regular-polygon area is not a direct assessment of the B9 polygon-angle, construction, similarity, enlargement, or prism-surface-area indicators."
+        ]
+      }
+    },
+    {
+      "question_id": "222168",
+      "name": "Finding the area of a regular pentagon shaped Park",
+      "body": "A park is designed in the shape of a regular pentagon. Each side of the park measures \\({@side@}\\,\\text{m}\\) and the height of the pentagon park is \\({@height@} \\, \\text{m}\\). The designer wants to plant grass over the entire area of the park. Calculate the total area of the park to determine how much grass seed will be needed. \\(\\text{The area of the park} =\\) [[input:ans1]]\\(\\,\\text{m}^2\\)[[validation:ans1]][[feedback:prt1]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/3.0. Measurements/3.1 Area/Area of a Pentagon"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [],
+        "decision": "out_of_scope",
+        "alignment_strength": null,
+        "role": null,
+        "notes": [
+          "Regular-polygon area is not a direct assessment of the B9 polygon-angle, construction, similarity, enlargement, or prism-surface-area indicators."
+        ]
+      }
+    },
+    {
+      "question_id": "222155",
+      "name": "Finding the Area of a Regular Pentagon Using the Area of One Congruent Triangle",
+      "body": "The regular pentagon \\(ABCDE\\) below is divided into five congruent triangles. If the area of one triangle is \\({@triangle_area@}\\,\\text{cm}^2\\), find the total area of the pentagon. [[jsxgraph]] const board = JXG.JSXGraph.initBoard(divid, { boundingbox: [-3, 7, 7, -3], axis: false, keepaspectratio: false, showCopyright: false }); // Pentagon vertices with C and D on the left const A = board.create('point', [3, 6], {name: 'A', size: 0, fixed: true}); const B = board.create('point', [5.85, 4], {name: 'B', size: 0, fixed: true}); const E = board.create('point', [5, 1], {name: 'E', size: 0, fixed: true}); const D = board.create('point', [1, 1], {name: 'D', size: 0, fixed: true}); const C = board.create('point', [0.15, 4], {name: 'C', size: 0, fixed: true}); // Draw the pentagon const pentagon = board.create('polygon', [A, B, E, D, C], { borders: {strokeColor: '#e51d6a', strokeWidth: 3} }); // Center for diagonal lines const center = board.create('point', [ (A.X() + B.X() + E.X() + D.X() + C.X()) / 5, (A.Y() + B.Y() + E.Y() + D.Y() + C.Y()) / 5 ], {visible: false}); // Diagonal lines from center to vertices board.create('segment', [center, A], {strokeColor: '#e51d6a', strokeWidth: 2}); board.create('segment', [center, B], {strokeColor: '#e51d6a', strokeWidth: 2}); board.create('segment', [center, E], {strokeColor: '#e51d6a', strokeWidth: 2}); board.create('segment', [center, D], {strokeColor: '#e51d6a', strokeWidth: 2}); board.create('segment', [center, C], {strokeColor: '#e51d6a', strokeWidth: 2}); // Highlight the base triangle (D, C, center) to the left const tri = board.create('polygon', [D, C, center], { fillColor: 'yellow', fillOpacity: 0.7, borders: {strokeWidth: 2, strokeColor: '#e51d6a'} }); // Label for area board.create('text', [ (D.X()+C.X()+center.X())/3, (D.Y()+C.Y()+center.Y())/3, \"{#triangle_area#} cm²\" ], {fontSize: 16, cssStyle: \"background:yellow;\"}); [[/jsxgraph]] \\(\\text{Total area of pentagon}=\\)[[input:ans1]]\\(\\text{cm}^2\\) [[validation:ans1]][[feedback:prt1]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/3.0. Measurements/3.1 Area/Area of a Pentagon"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [],
+        "decision": "out_of_scope",
+        "alignment_strength": null,
+        "role": null,
+        "notes": [
+          "Regular-polygon area is not a direct assessment of the B9 polygon-angle, construction, similarity, enlargement, or prism-surface-area indicators."
+        ]
+      }
+    },
+    {
+      "question_id": "207638",
+      "name": "Area and Cost of a Hexagonal Trampoline Cover",
+      "body": "A hexagonal trampoline cover has sides of length {@side@} \\(\\text{m}\\)s each. a) Find the area of the material used to make the cover. \\(\\text{Area}=\\)[[input:ans1]] \\(\\text{m}^2\\)[[feedback:prt1]] b) Calculate the cost of the trampoline cover if the cost of the material is \\(sh.\\, {@cost@}\\) per square meter. \\(\\text{The total cost}= sh.\\) [[input:ans2]] [[feedback:prt2]] \\(\\text{Give your final answers as whole numbers.}\\) [[validation:ans1]][[validation:ans2]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/3.0. Measurements/3.1 Area/Area of hexagon"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [],
+        "decision": "out_of_scope",
+        "alignment_strength": null,
+        "role": null,
+        "notes": [
+          "Regular-polygon area is not a direct assessment of the B9 polygon-angle, construction, similarity, enlargement, or prism-surface-area indicators."
+        ]
+      }
+    },
+    {
+      "question_id": "222193",
+      "name": "Calculating the Floor Area Using Regular Hexagon Tiles",
+      "body": "A floor tile is in the shape of a regular hexagon with each side measuring \\({@side@}\\,\\text{cm}\\). If \\({@tiles@}\\) such tiles are used to cover a section of the floor, find the total area covered by the tiles (\\(\\text{correct to }\\,2 \\) \\(\\text{decimal places}\\)). Find the area of one tile: \\(\\text{Area of one tile} =\\) [[input:ans1]]\\(\\,\\text{cm}^2\\) [[validation:ans1]] [[feedback:prt1]] Find the total area covered by all the tiles: \\(\\text{Total area covered} =\\) [[input:ans2]]\\(\\,\\text{cm}^2\\) [[validation:ans2]][[feedback:prt2]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/3.0. Measurements/3.1 Area/Area of hexagon"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [],
+        "decision": "out_of_scope",
+        "alignment_strength": null,
+        "role": null,
+        "notes": [
+          "Regular-polygon area is not a direct assessment of the B9 polygon-angle, construction, similarity, enlargement, or prism-surface-area indicators."
+        ]
+      }
+    },
+    {
+      "question_id": "222200",
+      "name": "Finding the Area of a Regular Hexagon",
+      "body": "Calculate the area of the regular hexagon ABCDEF shown below, given that the length of one side is \\({@side@}\\, \\text{m}\\). Give your answer correct to 1 decimal place. [[jsxgraph]] const board = JXG.JSXGraph.initBoard(divid, { axis: false, boundingbox: [-5, 15, 25, -15], showNavigation: false, showCopyright: false }); // Coordinates of the vertices (flat-bottom hexagon) // Each side = 10 cm const A = board.create('point', [5, 8.66], {name: 'A', size: 0, fixed: true}); const B = board.create('point', [15, 8.66], {name: 'B', size: 0, fixed: true}); const C = board.create('point', [20, 0], {name: 'C', size: 0, fixed: true}); const D = board.create('point', [15, -8.66], {name: 'D', size: 0, fixed: true}); const E = board.create('point', [5, -8.66], {name: 'E', size: 0, fixed: true}); const F = board.create('point', [0, 0], {name: 'F', size: 0, fixed: true}); // Draw pink polygon const hexagon = board.create('polygon', [A, B, C, D, E, F], { fillColor: '#ffc0', fillOpacity: 0.5, borders: {strokeColor: 'blue', strokeWidth: 3} }); // Label the bottom side as 10 cm board.create('text', [9.5, -10.5, '{#side#} m'], {fontSize: 14}); [[/jsxgraph]] \\(\\text{Area of the hexagon}=\\)[[input:ans1]]\\(\\,\\text{m}^2\\)[[validation:ans1]][[feedback:prt1]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/3.0. Measurements/3.1 Area/Area of hexagon"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [],
+        "decision": "out_of_scope",
+        "alignment_strength": null,
+        "role": null,
+        "notes": [
+          "Regular-polygon area is not a direct assessment of the B9 polygon-angle, construction, similarity, enlargement, or prism-surface-area indicators."
+        ]
+      }
+    },
+    {
+      "question_id": "222222",
+      "name": "Finding the Surface Area of a Composite Solid",
+      "body": "The figure below is a composite solid made up of a rectangular prism and a triangular prism joined together. [[jsxgraph]] var board = JXG.JSXGraph.initBoard(divid, { boundingbox: [-5, 12, 30, -5], axis: false, showCopyright: false }); // Define points var A = board.create('point', [0, 0], {name: 'A', visible: false,fixed:true}); var B = board.create('point', [0, 6.2], {name: 'B', visible: false,fixed:true}); var C = board.create('point', [20, 6.2], {name: 'C', visible: false,fixed:true}); var D = board.create('point', [20, 0], {name: 'D', visible: false,fixed:true}); var E = board.create('point', [25, 3], {name: 'E', visible: false,fixed:true}); var F = board.create('point', [5, 3], {name: 'F', visible: false,fixed:true}); // Draw rectangle and triangle var rect = board.create('polygon', [A, B, C, D], {borders: {strokeColor: 'black'},fixed:true}); var triangle = board.create('polygon', [D, C, E], {borders: {strokeColor: 'black'},fixed:true}); // Draw diagonals board.create('line', [B, F], {dash: 2, straightFirst: false, straightLast: false,fixed:true}); board.create('line', [A, F], {dash: 2, straightFirst: false, straightLast: false,fixed:true}); board.create('line', [F, E], {dash: 2, straightFirst: false, straightLast: false,fixed:true}); // Add right-angle indicator at point A var RA1 = board.create('polygon', [ board.create('point', [0, 0], {visible: false ,fixed:true}), board.create('point', [0.8, 0.5], {visible: false,fixed:true}), board.create('point', [0.8, 1.2], {visible: false,fixed:true}), board.create('point', [0, 0.9], {visible: false,fixed:true}) ], { borders: {strokeColor: 'blue'}, fillColor: 'lightblue', highlight: false, withLines: true }); // Add right-angle indicator at point D (between 20 cm and 6 cm sides) var RA2 = board.create('polygon', [ board.create('point', [20, 0], {visible: false}), board.create('point', [20, 0.9], {visible: false}), board.create('point', [20.7, 1.1], {visible: false}), board.create('point', [20.7, 0.4], {visible: false}) ], { borders: {strokeColor: 'blue'}, fillColor: 'lightblue', highlight: false, withLines: true }); // Optional: label dimensions board.create('text', [-2, 4, '{#h#} cm'],{fixed:true}); board.create('text', [9, -1.1, '{#l#} cm'],{fixed:true}); board.create('text', [23, 1.5, '{#b#} cm'],{fixed:true}); [[/jsxgraph]] The rectangular part has a height of \\({@h@}\\, \\text{m}\\) and a length of \\({@l@}\\, \\text{m}\\). The triangular part is a right-angled triangle with a base of \\({@b@}\\, \\text{m}\\), a height of \\({@h@}\\, \\text{m}\\), and it shares the same width of \\({@l@}\\, \\text{m}\\) with the rectangular part. Calculate the total surface area of the rectangular part. \\(\\text{Area of the rectangular part} =\\) [[input:ans1]] \\(\\text{m}^2\\) [[feedback:prt1]] Calculate the total surface area of the triangular part. \\(\\text{Area of the triangular part} =\\) [[input:ans2]] \\(\\text{m}^2\\) [[feedback:prt2]] Calculate the total surface area of the solid. \\(\\text{Total surface area of the solid} =\\) [[input:ans3]] \\(\\text{m}^2\\) [[feedback:prt3]] [[validation:ans1]] [[validation:ans2]] [[validation:ans3]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/3.0. Measurements/3.1 Area/Surface area of triangular based prism"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [
+          "GH-B9-GEO-PRISM-SURFACE-AREA"
+        ],
+        "decision": "adaptable",
+        "alignment_strength": "moderate",
+        "role": "challenge",
+        "notes": [
+          "Composite-solid surface-area task extends beyond the direct B9 cuboid/triangular-prism requirement but can serve as challenge material."
+        ]
+      }
+    },
+    {
+      "question_id": "222221",
+      "name": "Finding the Surface Area of a Triangular Prism",
+      "body": "The figure below shows a triangular prism. [[jsxgraph]] const board = JXG.JSXGraph.initBoard(divid, { boundingbox: [-1, 9, 9, -1], axis: false, showNavigation: false, showCopyright: false }); // Base triangle (right triangle) const A = board.create('point', [1, 1], {name: 'A',visible:false, size: 0, fixed: true}); const B = board.create('point', [4, 1], {name: 'B', visible:false,size: 0, fixed: true}); const C = board.create('point', [1, 4], {name: 'C', visible:false,size: 0, fixed: true}); // Top triangle offset along prism's length (4.5 units) const offset = 4.5; const D = board.create('point', [A.X() + offset, A.Y() + 0.6], {name: 'D', visible:false,size: 0, fixed: true}); const E = board.create('point', [B.X() + offset, B.Y() + 0.3], {name: 'E', visible:false,size: 0, fixed: true}); const F = board.create('point', [C.X() + offset, C.Y() + 0.6], {name: 'F', visible:false,size: 0, fixed: true}); // Base and top triangles board.create('polygon', [A, B, C], { borders: {strokeColor: 'black', strokeWidth: 2} }); board.create('polygon', [D, E, F], { borders: {strokeColor: 'black', strokeWidth: 2, dash: 2} }); // Connect top and base board.create('segment', [A, D], {strokeColor: 'black', strokeWidth: 2}); board.create('segment', [B, E], {strokeColor: 'black', strokeWidth: 2}); board.create('segment', [C, F], {strokeColor: 'black', strokeWidth: 2, dash: 2}); // Optional dashed diagonals // Dimension labels board.create('text', [(A.X()+B.X())/2, A.Y()-0.5, \"{#h#} in.\"], {fontSize: 14}); board.create('text', [A.X()-0.7, (A.Y()+C.Y())/2, \"{#b#} in.\"], {fontSize: 14}); board.create('text', [(B.X()+E.X())/2, B.Y()-0.4, \"{#hyp#} in.\"], {fontSize: 14}); board.create('text', [A.X()+1.6, A.Y()+1.7, \"{#l#} in.\"], {fontSize: 14}); // === Right angle marker at ∠BAC === const rightMark1 = board.create('point', [A.X() + 0.3, A.Y()], {visible: false}); const rightMark2 = board.create('point', [A.X(), A.Y() + 0.3], {visible: false}); const rightMark3 = board.create('point', [A.X() + 0.3, A.Y() + 0.3], {visible: false}); board.create('polygon', [A, rightMark1, rightMark3, rightMark2], { borders: {strokeColor: 'black'}, fillColor: 'black', fillOpacity: 0.4, withLines: false }); [[/jsxgraph]] Find: The area of the triangular parts. \\(\\displaystyle \\text{Area}_{\\triangle} = \\) [[input:ans1]] [[validation:ans1]]\\(\\, \\text{in.}^2\\)[[feedback:prt1]] The area of rectangular lateral faces. \\(\\displaystyle \\text{Area}_{\\text{rect}} = \\) [[input:ans2]] [[validation:ans2]]\\(\\, \\text{in.}^2\\)[[feedback:prt2]] The total surface area of the prism. \\(\\displaystyle \\text{Total surface area} = \\) [[input:ans3]] [[validation:ans3]]\\(\\, \\text{in.}^2\\)[[feedback:prt3]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/3.0. Measurements/3.1 Area/Surface area of triangular based prism"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [
+          "GH-B9-GEO-PRISM-SURFACE-AREA"
+        ],
+        "decision": "direct",
+        "alignment_strength": "strong",
+        "role": "procedural",
+        "notes": [
+          "Direct triangular-prism surface-area task."
+        ]
+      }
+    },
+    {
+      "question_id": "222215",
+      "name": "Finding the Surface Area of a Triangular Prism (Tent Problem)",
+      "body": "A tent is shaped like a triangular prism. The triangular ends of the tent each have a base of \\({@big_base@}\\, \\text{cm}\\) and a height of \\({@h@}\\, \\text{cm}\\). The length of the tent is \\({@l@}\\, \\text{cm}\\). Calculate the total surface area of the tent’s canvas. \\(\\text{Total surface area of the tent’s canvas}=\\)[[input:ans1]]\\(\\,\\text{cm}^2\\)[[validation:ans1]][[feedback:prt1]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/3.0. Measurements/3.1 Area/Surface area of triangular based prism"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [
+          "GH-B9-GEO-PRISM-SURFACE-AREA"
+        ],
+        "decision": "direct",
+        "alignment_strength": "strong",
+        "role": "application",
+        "notes": [
+          "Real-world tent context using triangular-prism surface area."
+        ]
+      }
+    },
+    {
+      "question_id": "222251",
+      "name": "Calculating the speed of an airplane given distance and time",
+      "body": "An airplane flew from \\(\\text{@departure_city@}\\) city to \\(\\text{{@arrival_city@}}\\) city, covering a distance of {@distance_in_km@} kilometres in {@time_in_hours@} hours. What was the speed of the airplane in km/h? [[input:ans1]] km/h [[validation:ans1]][[feedback:prt1]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/3.0. Measurements/Time, Distance and Speed/Speed in km//hr"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [
+          "GH-B9-NUM-PROPORTIONAL-RELATIONSHIPS"
+        ],
+        "decision": "direct",
+        "alignment_strength": "strong",
+        "role": "application",
+        "notes": [
+          "Direct real-world rate problem using distance and time to calculate speed.",
+          "Supports the rate component of B9 proportional reasoning."
+        ]
+      }
+    },
+    {
+      "question_id": "222190",
+      "name": "Calculating the amount of bread each child receives in kilograms",
+      "body": "Onyango, a father of three, bought \\({@total_bread_mass_in_grams@}\\) grams of bread and divided it equally among his children. How many kilograms of bread did each child receive? [[input:ans1]] kg[[validation:ans1]][[feedback:prt1]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/3.0. Measurements/Mass, Volume, Weight and Density/Converting Units of Mass from One Form to Another"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [],
+        "decision": "out_of_scope",
+        "alignment_strength": null,
+        "role": null,
+        "notes": [
+          "This measurement, mass, weight, density, or unit-conversion task does not directly assess one of the current Ghana Basic 9 adaptive concepts."
+        ]
+      }
+    },
+    {
+      "question_id": "206991",
+      "name": "Converting different units of mass into decigrams",
+      "body": "Express the following masses into decigrams. a. \\({@mass_in_centigrams@}\\) centigrams \\( = \\) [[input:ans1]] decigrams[[validation:ans1]][[feedback:prt1]] b. \\({@mass_in_milligrams@}\\) milligrams \\( = \\) [[input:ans2]] decigrams[[validation:ans2]][[feedback:prt2]] c. \\({@mass_in_megagrams@}\\) megagrams \\( = \\) [[input:ans3]] decigrams[[validation:ans3]][[feedback:prt3]] d. \\({@mass_in_grams@}\\) grams \\( = \\) [[input:ans4]] decigrams[[validation:ans4]][[feedback:prt4]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/3.0. Measurements/Mass, Volume, Weight and Density/Converting Units of Mass from One Form to Another"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [],
+        "decision": "out_of_scope",
+        "alignment_strength": null,
+        "role": null,
+        "notes": [
+          "This measurement, mass, weight, density, or unit-conversion task does not directly assess one of the current Ghana Basic 9 adaptive concepts."
+        ]
+      }
+    },
+    {
+      "question_id": "206997",
+      "name": "Converting different units of mass into kilograms",
+      "body": "Convert the following masses into kilograms. \\({@mass_in_grams@}\\) g \\(=\\) [[input:ans1]] kg[[validation:ans1]][[feedback:prt1]] \\({@mass_in_decagrams@}\\) Dg \\(=\\) [[input:ans2]] kg[[validation:ans2]][[feedback:prt2]] \\({@mass_in_tonnes@}\\) t \\(=\\) [[input:ans3]] kg[[validation:ans3]][[feedback:prt3]] \\({@mass_in_hectograms@}\\) Hg \\(=\\) [[input:ans4]] kg[[validation:ans4]][[feedback:prt4]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/3.0. Measurements/Mass, Volume, Weight and Density/Converting Units of Mass from One Form to Another"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [],
+        "decision": "out_of_scope",
+        "alignment_strength": null,
+        "role": null,
+        "notes": [
+          "This measurement, mass, weight, density, or unit-conversion task does not directly assess one of the current Ghana Basic 9 adaptive concepts."
+        ]
+      }
+    },
+    {
+      "question_id": "206945",
+      "name": "Finding the total mass of multiple blocks in decigrams",
+      "body": "Wanjiku measured the mass of one block using a beam balance and found it to be \\({@mass_per_block_in_kg@}\\) kilograms. What is the total mass of \\({@number_of_blocks@}\\) such blocks in decigrams? [[input:ans1]] decigrams [[validation:ans1]][[feedback:prt1]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/3.0. Measurements/Mass, Volume, Weight and Density/Converting Units of Mass from One Form to Another"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [],
+        "decision": "out_of_scope",
+        "alignment_strength": null,
+        "role": null,
+        "notes": [
+          "This measurement, mass, weight, density, or unit-conversion task does not directly assess one of the current Ghana Basic 9 adaptive concepts."
+        ]
+      }
+    },
+    {
+      "question_id": "206910",
+      "name": "Calculating the mass of a car in decigrams given its weight.",
+      "body": "A car has a weight of \\({@weight_in_newtons@}\\) N. What is its mass in decigrams?(Take g\\( = 10\\) N/kg) Mass \\(=\\) [[input:ans1]] dg [[validation:ans1]] [[feedback:prt1]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/3.0. Measurements/Mass, Volume, Weight and Density/Relating Mass and Weight"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [],
+        "decision": "out_of_scope",
+        "alignment_strength": null,
+        "role": null,
+        "notes": [
+          "This measurement, mass, weight, density, or unit-conversion task does not directly assess one of the current Ghana Basic 9 adaptive concepts."
+        ]
+      }
+    },
+    {
+      "question_id": "206937",
+      "name": "Calculating weight from given masses.",
+      "body": "Calculate the weight of the following masses: (Take g \\(= 10\\) N/kg, where g is the gravitational force) a. \\({@mass_in_grams@}\\) grams [[input:ans1]] N[[validation:ans1]][[feedback:prt1]] b. \\({@mass_in_tonnes@}\\) tonnes [[input:ans2]] N[[validation:ans2]][[feedback:prt2]] c. \\({@mass_in_decigrams@}\\) decigrams [[input:ans3]] N[[validation:ans3]][[feedback:prt3]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/3.0. Measurements/Mass, Volume, Weight and Density/Relating Mass and Weight"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [],
+        "decision": "out_of_scope",
+        "alignment_strength": null,
+        "role": null,
+        "notes": [
+          "This measurement, mass, weight, density, or unit-conversion task does not directly assess one of the current Ghana Basic 9 adaptive concepts."
+        ]
+      }
+    },
+    {
+      "question_id": "206912",
+      "name": "Finding the weight of a given animal.",
+      "body": "An elephant has a mass of \\({@mass_in_kg@}\\) kg. What is the weight of the elephant? (Take g \\(= 10\\) N/kg) Weight \\(=\\) [[input:ans1]] N [[validation:ans1]][[feedback:prt1]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/3.0. Measurements/Mass, Volume, Weight and Density/Relating Mass and Weight"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [],
+        "decision": "out_of_scope",
+        "alignment_strength": null,
+        "role": null,
+        "notes": [
+          "This measurement, mass, weight, density, or unit-conversion task does not directly assess one of the current Ghana Basic 9 adaptive concepts."
+        ]
+      }
+    },
+    {
+      "question_id": "206907",
+      "name": "Finding the weight of an object on the Moon.",
+      "body": "The gravitational pull on the Moon is \\({@gravitational_pull_moon@}\\) N/kg. What is the weight of an object with a mass of \\({@mass_in_grams@}\\) grams on the surface of the Moon? Weight \\(=\\) [[input:ans1]] N [[validation:ans1]][[feedback:prt1]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/3.0. Measurements/Mass, Volume, Weight and Density/Relating Mass and Weight"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [],
+        "decision": "out_of_scope",
+        "alignment_strength": null,
+        "role": null,
+        "notes": [
+          "This measurement, mass, weight, density, or unit-conversion task does not directly assess one of the current Ghana Basic 9 adaptive concepts."
+        ]
+      }
+    },
+    {
+      "question_id": "206905",
+      "name": "Calculating the Mass of a Cylindrical Container in Decigrams",
+      "body": "A cylindrical container has a height of \\({@height_in_meters@}\\) metres, a radius of \\({@radius_in_meters@}\\) metres, and a density of \\({@density_in_kg_per_m3@}\\) kg/m\\(^3\\). What is its mass in decigrams? Note: Give your answer correct to two decimal places. Mass of the Cylinder \\( = \\) [[input:ans1]] [[validation:ans1]][[feedback:prt1]] dg",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/3.0. Measurements/Mass, Volume, Weight and Density/Mass, Volume and Density"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [],
+        "decision": "out_of_scope",
+        "alignment_strength": null,
+        "role": null,
+        "notes": [
+          "This measurement, mass, weight, density, or unit-conversion task does not directly assess one of the current Ghana Basic 9 adaptive concepts."
+        ]
+      }
+    },
+    {
+      "question_id": "206850",
+      "name": "Finding the density of a given object.",
+      "body": "A block has a mass of \\({@mass_of_block_in_grams@}\\) g and a volume of \\({@volume_of_block_in_cm3@}\\) cm\\(^3\\). What is its density in kg/m\\(^3\\)? Note: Give your answer correct to two decimal places. Density of the block \\( = \\) [[input:ans1]] kg/m\\(^3\\) [[validation:ans1]][[feedback:prt1]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/3.0. Measurements/Mass, Volume, Weight and Density/Mass, Volume and Density"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [],
+        "decision": "out_of_scope",
+        "alignment_strength": null,
+        "role": null,
+        "notes": [
+          "This measurement, mass, weight, density, or unit-conversion task does not directly assess one of the current Ghana Basic 9 adaptive concepts."
+        ]
+      }
+    },
+    {
+      "question_id": "206904",
+      "name": "Finding the Volume of a Bar of Soap from Mass and Density",
+      "body": "A bar of soap has a mass of \\({@mass_in_grams@}\\) grams and a density of \\({@density_in_g_per_cm3@}\\) g/cm\\(^3\\). What is its volume in cubic metres (m\\(^3\\))? Note: Give your answer correct to seven decimal places. Volume \\( = \\) [[input:ans1]] m\\(^3\\) [[validation:ans1]][[feedback:prt1]]",
+      "source": {
+        "type": "stack_xml",
+        "file": "grade9_questions.xml",
+        "original_category": "$course$/top/Grade 9/3.0. Measurements/Mass, Volume, Weight and Density/Mass, Volume and Density"
+      },
+      "ghana_alignment": {
+        "candidate_concept_ids": [],
+        "decision": "out_of_scope",
+        "alignment_strength": null,
+        "role": null,
+        "notes": [
+          "This measurement, mass, weight, density, or unit-conversion task does not directly assess one of the current Ghana Basic 9 adaptive concepts."
+        ]
+      }
+    }
+  ]
+}

@@ -1,3 +1,5 @@
+﻿from __future__ import annotations
+
 from backend.app.integrations.stack_api.client import (
     StackEvaluationClient,
 )
@@ -13,8 +15,9 @@ from backend.app.learning.session.models import (
 
 class StackEvaluationAdapter:
     """
-    Convert STACK evaluation results into the internal outcome
-    consumed by the adaptive learning session engine.
+    Convert STACK results into one adaptive session outcome.
+
+    A learner task may depend on one or several STACK PRTs.
     """
 
     def __init__(
@@ -31,6 +34,7 @@ class StackEvaluationAdapter:
         question_xml: str,
         student_answers: dict[str, str],
         target_prt_name: str | None = None,
+        target_prt_names: list[str] | None = None,
         seed: int | None = None,
     ) -> ScoredStackOutcome:
         request = StackEvaluationRequest(
@@ -40,13 +44,16 @@ class StackEvaluationAdapter:
             seed=seed,
         )
 
-        result = self.client.evaluate(request)
+        result = self.client.evaluate(
+            request
+        )
 
         return self.to_session_outcome(
             student_id=student_id,
             concept_id=concept_id,
             result=result,
             target_prt_name=target_prt_name,
+            target_prt_names=target_prt_names,
         )
 
     def to_session_outcome(
@@ -55,10 +62,13 @@ class StackEvaluationAdapter:
         concept_id: str,
         result: NormalizedStackResult,
         target_prt_name: str | None = None,
+        target_prt_names: list[str] | None = None,
     ) -> ScoredStackOutcome:
         if not result.valid:
-            error_message = self._build_error_message(
-                result
+            error_message = (
+                self._build_error_message(
+                    result
+                )
             )
 
             raise ValueError(
@@ -66,22 +76,25 @@ class StackEvaluationAdapter:
                 f"response. {error_message}"
             )
 
-        selected_prt = self._select_prt(
+        selected_prts = self._select_prts(
             result=result,
             target_prt_name=target_prt_name,
+            target_prt_names=target_prt_names,
         )
 
-        outcome_code = self._select_answer_note(
-            selected_prt
+        score = self._aggregate_score(
+            selected_prts
+        )
+
+        outcome_code = (
+            self._build_outcome_code(
+                selected_prts
+            )
         )
 
         feedback = self._combine_feedback(
             result=result,
-            selected_prt=selected_prt,
-        )
-
-        normalized_score = self._normalize_score(
-            selected_prt.score
+            selected_prts=selected_prts,
         )
 
         return ScoredStackOutcome(
@@ -89,36 +102,127 @@ class StackEvaluationAdapter:
             concept_id=concept_id,
             question_id=result.question_id,
             outcome_code=outcome_code,
-            score=normalized_score,
+            score=score,
             stack_feedback=feedback,
         )
 
     @staticmethod
-    def _select_prt(
+    def _select_prts(
+        *,
         result: NormalizedStackResult,
         target_prt_name: str | None,
-    ) -> StackPRTResult:
+        target_prt_names: list[str] | None,
+    ) -> list[StackPRTResult]:
         if not result.prts:
             raise ValueError(
                 "STACK returned no PRT results."
             )
 
-        if target_prt_name is None:
-            if len(result.prts) > 1:
+        requested_many = [
+            name
+            for name in (
+                target_prt_names or []
+            )
+            if name
+        ]
+
+        if (
+            target_prt_name is not None
+            and requested_many
+        ):
+            raise ValueError(
+                "Specify either target_prt_name or "
+                "target_prt_names, not both."
+            )
+
+        if requested_many:
+            unique_names: list[str] = []
+
+            for name in requested_many:
+                if name not in unique_names:
+                    unique_names.append(
+                        name
+                    )
+
+            available = {
+                prt.prt_name: prt
+                for prt in result.prts
+            }
+
+            missing = [
+                name
+                for name in unique_names
+                if name not in available
+            ]
+
+            if missing:
                 raise ValueError(
-                    "STACK returned multiple PRT results. "
-                    "A target PRT name must be provided."
+                    "STACK result does not contain PRT "
+                    + ", ".join(missing)
+                    + "."
                 )
 
-            return result.prts[0]
+            return [
+                available[name]
+                for name in unique_names
+            ]
 
-        for prt in result.prts:
-            if prt.prt_name == target_prt_name:
-                return prt
+        if target_prt_name is not None:
+            for prt in result.prts:
+                if (
+                    prt.prt_name
+                    == target_prt_name
+                ):
+                    return [prt]
 
-        raise ValueError(
-            f"STACK result does not contain PRT "
-            f"{target_prt_name}."
+            raise ValueError(
+                "STACK result does not contain PRT "
+                f"{target_prt_name}."
+            )
+
+        if len(result.prts) > 1:
+            raise ValueError(
+                "STACK returned multiple PRT results. "
+                "A target PRT name or target PRT names "
+                "must be provided."
+            )
+
+        return [
+            result.prts[0]
+        ]
+
+    @classmethod
+    def _aggregate_score(
+        cls,
+        prts: list[StackPRTResult],
+    ) -> float:
+        scores = [
+            cls._normalize_score(
+                prt.score
+            )
+            for prt in prts
+        ]
+
+        return sum(scores) / len(scores)
+
+    @classmethod
+    def _build_outcome_code(
+        cls,
+        prts: list[StackPRTResult],
+    ) -> str:
+        notes = [
+            cls._select_answer_note(
+                prt
+            )
+            for prt in prts
+        ]
+
+        if len(notes) == 1:
+            return notes[0]
+
+        return (
+            "adaptive-task:"
+            + "|".join(notes)
         )
 
     @staticmethod
@@ -127,8 +231,8 @@ class StackEvaluationAdapter:
     ) -> str:
         if not prt.answer_notes:
             raise ValueError(
-                f"STACK PRT {prt.prt_name} returned no "
-                "answer note."
+                f"STACK PRT {prt.prt_name} returned "
+                "no answer note."
             )
 
         return prt.answer_notes[-1]
@@ -144,22 +248,41 @@ class StackEvaluationAdapter:
 
     @staticmethod
     def _combine_feedback(
+        *,
         result: NormalizedStackResult,
-        selected_prt: StackPRTResult,
+        selected_prts: list[StackPRTResult],
     ) -> str | None:
-        feedback_parts = [
-            feedback.strip()
-            for feedback in [
-                selected_prt.feedback,
-                result.raw_feedback,
-            ]
-            if feedback and feedback.strip()
-        ]
+        feedback_parts: list[str] = []
+
+        for prt in selected_prts:
+            feedback = prt.feedback
+
+            if (
+                feedback
+                and feedback.strip()
+                and feedback.strip()
+                not in feedback_parts
+            ):
+                feedback_parts.append(
+                    feedback.strip()
+                )
+
+        if (
+            result.raw_feedback
+            and result.raw_feedback.strip()
+            and result.raw_feedback.strip()
+            not in feedback_parts
+        ):
+            feedback_parts.append(
+                result.raw_feedback.strip()
+            )
 
         if not feedback_parts:
             return None
 
-        return " ".join(feedback_parts)
+        return " ".join(
+            feedback_parts
+        )
 
     @staticmethod
     def _build_error_message(

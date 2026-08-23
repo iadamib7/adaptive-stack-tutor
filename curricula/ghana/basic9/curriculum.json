@@ -1,0 +1,905 @@
+{
+  "version": "1.1",
+  "name": "Ghana Basic 9 Mathematics",
+  "identity": {
+    "id": "ghana-basic9-mathematics",
+    "country": "Ghana",
+    "education_system": "Common Core Programme",
+    "source_level_id": "B9",
+    "source_level_label": "Basic 9",
+    "target_level_id": "SHS1",
+    "target_level_label": "Senior High School 1",
+    "curriculum_version": "2020-2023"
+  },
+  "intended_use": "Adaptive mathematics tutoring and SHS1 readiness preparation.",
+  "development_status": "development",
+  "source_documents": [
+    "Ghana - MATHEMATICS_Curr.- JHS(G7-G9).pdf",
+    "Mathematics-Curriculum(Grade 10-12) (2).pdf"
+  ],
+  "curriculum_review_notes": [
+    "The Basic 9 summary table reports 17 content standards, while the detailed curriculum pages explicitly include both B9.3.1.1 and B9.3.1.2. This inventory follows the detailed standards and indicators.",
+    "The curriculum source prints the approximation-of-square-roots indicator as B9.1.2.3.4 under content standard B9.1.2.4. The source identifier is preserved pending curriculum review."
+  ],
+  "concepts": [
+    {
+      "id": "GH-B9-NUM-PLACE-VALUE-ROUNDING",
+      "knowledge_concept_id": "number-sense",
+      "level_id": "B9",
+      "level_label": "Basic 9",
+      "progression_order": 1,
+      "strand": "Number",
+      "sub_strand": "Number and Numeration System",
+      "name": "Place Value, Rounding and Standard Form",
+      "description": "Use place value with large integers, decimal places, significant figures, and standard-form representations in mathematical and real-life problems.",
+      "content_standard_ids": [
+        "B9.1.1.1"
+      ],
+      "learning_indicator_ids": [
+        "B9.1.1.1.1",
+        "B9.1.1.1.2"
+      ],
+      "learning_outcomes": [
+        "Round integers to specified significant figures.",
+        "Round decimal numbers to specified decimal places.",
+        "Use place value to solve real-life problems.",
+        "Represent large values in standard form."
+      ],
+      "readiness_target_ids": [],
+      "prerequisite_concept_ids": [],
+      "next_concept_ids": [],
+      "stack_question_ids": [],
+      "status": "target",
+      "supporting_knowledge_concept_ids": []
+    },
+    {
+      "id": "GH-B9-NUM-REAL-NUMBERS-SETS",
+      "knowledge_concept_id": "number-sense",
+      "level_id": "B9",
+      "level_label": "Basic 9",
+      "progression_order": 2,
+      "strand": "Number",
+      "sub_strand": "Number and Numeration System",
+      "name": "Real Numbers and Sets",
+      "description": "Classify members of the real number system and apply union, intersection, and set representations to problems.",
+      "content_standard_ids": [
+        "B9.1.1.2"
+      ],
+      "learning_indicator_ids": [
+        "B9.1.1.2.1",
+        "B9.1.1.2.2"
+      ],
+      "learning_outcomes": [
+        "Distinguish natural, whole, integer, rational and irrational numbers.",
+        "Represent number-set relationships using set diagrams.",
+        "Determine unions and intersections of sets.",
+        "Solve real-life set problems."
+      ],
+      "readiness_target_ids": [],
+      "prerequisite_concept_ids": [],
+      "next_concept_ids": [],
+      "stack_question_ids": [],
+      "status": "target",
+      "supporting_knowledge_concept_ids": []
+    },
+    {
+      "id": "GH-B9-NUM-POWERS-OF-TEN",
+      "knowledge_concept_id": "number-sense",
+      "level_id": "B9",
+      "level_label": "Basic 9",
+      "progression_order": 3,
+      "strand": "Number",
+      "sub_strand": "Number Operations",
+      "name": "Powers of Ten and Benchmark Numbers",
+      "description": "Multiply and divide whole numbers, decimals and benchmark fractions by powers of ten.",
+      "content_standard_ids": [
+        "B9.1.2.1"
+      ],
+      "learning_indicator_ids": [
+        "B9.1.2.1.1"
+      ],
+      "learning_outcomes": [
+        "Recall multiplication and related division facts.",
+        "Convert benchmark fractions, decimals and percentages.",
+        "Multiply and divide decimals by powers of ten."
+      ],
+      "readiness_target_ids": [],
+      "prerequisite_concept_ids": [],
+      "next_concept_ids": [],
+      "stack_question_ids": [],
+      "status": "target",
+      "supporting_knowledge_concept_ids": []
+    },
+    {
+      "id": "GH-B9-NUM-NUMBER-PROPERTIES",
+      "knowledge_concept_id": "order-of-operations",
+      "level_id": "B9",
+      "level_label": "Basic 9",
+      "progression_order": 4,
+      "strand": "Number",
+      "sub_strand": "Number Operations",
+      "name": "Number Properties and Mental Strategies",
+      "description": "Apply commutative, associative and distributive properties to calculations and mental mathematics.",
+      "content_standard_ids": [
+        "B9.1.2.1"
+      ],
+      "learning_indicator_ids": [
+        "B9.1.2.1.2",
+        "B9.1.2.1.3",
+        "B9.1.2.1.4"
+      ],
+      "learning_outcomes": [
+        "Apply the commutative property.",
+        "Apply the associative property.",
+        "Apply the distributive property.",
+        "Use number properties to simplify calculations."
+      ],
+      "readiness_target_ids": [],
+      "prerequisite_concept_ids": [],
+      "next_concept_ids": [],
+      "stack_question_ids": [],
+      "status": "target",
+      "supporting_knowledge_concept_ids": []
+    },
+    {
+      "id": "GH-B9-NUM-DECIMAL-OPERATIONS",
+      "knowledge_concept_id": "decimals",
+      "level_id": "B9",
+      "level_label": "Basic 9",
+      "progression_order": 5,
+      "strand": "Number",
+      "sub_strand": "Number Operations",
+      "name": "Decimal Operations and Estimation",
+      "description": "Solve multi-operation decimal problems and round answers to appropriate decimal places and significant figures.",
+      "content_standard_ids": [
+        "B9.1.2.2"
+      ],
+      "learning_indicator_ids": [
+        "B9.1.2.2.1",
+        "B9.1.2.2.2"
+      ],
+      "learning_outcomes": [
+        "Add, subtract, multiply and divide decimal numbers.",
+        "Solve word problems involving decimal operations.",
+        "Round calculated answers to decimal places.",
+        "Round calculated answers to significant figures."
+      ],
+      "readiness_target_ids": [],
+      "prerequisite_concept_ids": [],
+      "next_concept_ids": [],
+      "stack_question_ids": [],
+      "status": "target",
+      "supporting_knowledge_concept_ids": []
+    },
+    {
+      "id": "GH-B9-NUM-SURDS",
+      "knowledge_concept_id": "roots-and-surds",
+      "level_id": "B9",
+      "level_label": "Basic 9",
+      "progression_order": 6,
+      "strand": "Number",
+      "sub_strand": "Number Operations",
+      "name": "Roots and Surds",
+      "description": "Identify, simplify and operate with simple and compound surds and approximate roots of non-perfect squares.",
+      "content_standard_ids": [
+        "B9.1.2.4"
+      ],
+      "learning_indicator_ids": [
+        "B9.1.2.4.1",
+        "B9.1.2.4.2",
+        "B9.1.2.4.3",
+        "B9.1.2.3.4"
+      ],
+      "learning_outcomes": [
+        "Identify simple and compound surds.",
+        "Apply identities and rules of surds.",
+        "Simplify surd expressions.",
+        "Approximate square roots of non-perfect squares."
+      ],
+      "readiness_target_ids": [],
+      "prerequisite_concept_ids": [],
+      "next_concept_ids": [],
+      "stack_question_ids": [],
+      "status": "target",
+      "supporting_knowledge_concept_ids": []
+    },
+    {
+      "id": "GH-B9-NUM-FRACTION-OPERATIONS",
+      "knowledge_concept_id": "fractions",
+      "level_id": "B9",
+      "level_label": "Basic 9",
+      "progression_order": 7,
+      "strand": "Number",
+      "sub_strand": "Fractions, Decimals and Percentages",
+      "name": "Fraction Operations and Order of Operations",
+      "description": "Perform operations on fractions and apply BODMAS or PEMDAS to expressions containing multiple operations.",
+      "content_standard_ids": [
+        "B9.1.3.1"
+      ],
+      "learning_indicator_ids": [
+        "B9.1.3.1.1",
+        "B9.1.3.1.2"
+      ],
+      "learning_outcomes": [
+        "Review equivalent, proper, improper and mixed fractions.",
+        "Perform the four operations on fractions.",
+        "Apply BODMAS or PEMDAS correctly.",
+        "Solve multi-operation fraction expressions."
+      ],
+      "readiness_target_ids": [],
+      "prerequisite_concept_ids": [],
+      "next_concept_ids": [],
+      "stack_question_ids": [],
+      "status": "target",
+      "supporting_knowledge_concept_ids": [
+        "order-of-operations"
+      ]
+    },
+    {
+      "id": "GH-B9-NUM-FRACTION-PERCENT-APPLICATIONS",
+      "knowledge_concept_id": "percentages",
+      "level_id": "B9",
+      "level_label": "Basic 9",
+      "progression_order": 8,
+      "strand": "Number",
+      "sub_strand": "Fractions, Decimals and Percentages",
+      "name": "Fraction and Percentage Applications",
+      "description": "Apply fractions and percentages to contextual and real-life problems.",
+      "content_standard_ids": [
+        "B9.1.3.1"
+      ],
+      "learning_indicator_ids": [
+        "B9.1.3.1.3"
+      ],
+      "learning_outcomes": [
+        "Solve word problems involving fractions.",
+        "Find percentages of quantities.",
+        "Determine percentage increase or decrease.",
+        "Compare quantities expressed as fractions or percentages."
+      ],
+      "readiness_target_ids": [],
+      "prerequisite_concept_ids": [],
+      "next_concept_ids": [],
+      "stack_question_ids": [],
+      "status": "target",
+      "supporting_knowledge_concept_ids": [
+        "fractions",
+        "decimals"
+      ]
+    },
+    {
+      "id": "GH-B9-NUM-PROPORTIONAL-RELATIONSHIPS",
+      "knowledge_concept_id": "ratio-and-proportion",
+      "level_id": "B9",
+      "level_label": "Basic 9",
+      "progression_order": 9,
+      "strand": "Number",
+      "sub_strand": "Number: Ratios and Proportion",
+      "name": "Proportional Relationships and Unit Rate",
+      "description": "Represent proportional relationships with equations and graphs and interpret unit rate as graph slope.",
+      "content_standard_ids": [
+        "B9.1.4.1"
+      ],
+      "learning_indicator_ids": [
+        "B9.1.4.1.1",
+        "B9.1.4.1.4"
+      ],
+      "learning_outcomes": [
+        "Represent proportional relationships with equations.",
+        "Recognise proportional relationships.",
+        "Graph proportional relationships.",
+        "Interpret unit rate as slope."
+      ],
+      "readiness_target_ids": [],
+      "prerequisite_concept_ids": [],
+      "next_concept_ids": [],
+      "stack_question_ids": [],
+      "status": "target",
+      "supporting_knowledge_concept_ids": [
+        "coordinate-graphs",
+        "gradient"
+      ]
+    },
+    {
+      "id": "GH-B9-NUM-FINANCIAL-RATES",
+      "knowledge_concept_id": "percentages",
+      "level_id": "B9",
+      "level_label": "Basic 9",
+      "progression_order": 10,
+      "strand": "Number",
+      "sub_strand": "Number: Ratios and Proportion",
+      "name": "Financial Mathematics and Rates",
+      "description": "Use ratio, rate and percentage reasoning for interest, tax, discounts, commission, depreciation, insurance and related applications.",
+      "content_standard_ids": [
+        "B9.1.4.1"
+      ],
+      "learning_indicator_ids": [
+        "B9.1.4.1.2",
+        "B9.1.4.1.3"
+      ],
+      "learning_outcomes": [
+        "Solve simple-interest problems.",
+        "Solve tax, discount and commission problems.",
+        "Solve depreciation and insurance problems.",
+        "Apply rates to social-security contribution and benefit problems."
+      ],
+      "readiness_target_ids": [],
+      "prerequisite_concept_ids": [],
+      "next_concept_ids": [],
+      "stack_question_ids": [],
+      "status": "target",
+      "supporting_knowledge_concept_ids": [
+        "ratio-and-proportion"
+      ]
+    },
+    {
+      "id": "GH-B9-ALG-LINEAR-RELATIONS",
+      "knowledge_concept_id": "simultaneous-equations",
+      "level_id": "B9",
+      "level_label": "Basic 9",
+      "progression_order": 11,
+      "strand": "Algebra",
+      "sub_strand": "Patterns and Relations",
+      "name": "Linear Relations and Simultaneous Equations",
+      "description": "Construct tables for pairs of linear relations, graph the relations, determine intersections and solve simultaneous linear equations graphically.",
+      "content_standard_ids": [
+        "B9.2.1.1"
+      ],
+      "learning_indicator_ids": [
+        "B9.2.1.1.1",
+        "B9.2.1.1.2",
+        "B9.2.1.1.3"
+      ],
+      "learning_outcomes": [
+        "Construct tables of values for two linear relations.",
+        "Graph two linear relations.",
+        "Determine missing ordered-pair values from graphs.",
+        "Determine the intersection of two straight lines.",
+        "Solve simultaneous linear equations graphically."
+      ],
+      "readiness_target_ids": [
+        "GH-SHS1-ALG-STRAIGHT-LINES"
+      ],
+      "prerequisite_concept_ids": [
+        "GH-B8-ALG-STRAIGHT-LINES"
+      ],
+      "next_concept_ids": [],
+      "stack_question_ids": [
+        "206939",
+        "206961",
+        "207067",
+        "207059"
+      ],
+      "status": "target",
+      "supporting_knowledge_concept_ids": [
+        "coordinate-graphs",
+        "linear-equations",
+        "gradient"
+      ]
+    },
+    {
+      "id": "GH-B9-ALG-CHANGE-SUBJECT",
+      "knowledge_concept_id": "algebraic-expressions",
+      "level_id": "B9",
+      "level_label": "Basic 9",
+      "progression_order": 12,
+      "strand": "Algebra",
+      "sub_strand": "Algebraic Expressions",
+      "name": "Change of Subject",
+      "description": "Rearrange formulae to make a specified variable the subject and apply rearranged formulae to problems.",
+      "content_standard_ids": [
+        "B9.2.2.1"
+      ],
+      "learning_indicator_ids": [
+        "B9.2.2.1.1"
+      ],
+      "learning_outcomes": [
+        "Change the subject of a formula.",
+        "Rearrange formulae involving several operations.",
+        "Use rearranged formulae to solve contextual problems."
+      ],
+      "readiness_target_ids": [],
+      "prerequisite_concept_ids": [],
+      "next_concept_ids": [],
+      "stack_question_ids": [],
+      "status": "target",
+      "supporting_knowledge_concept_ids": [
+        "linear-equations"
+      ]
+    },
+    {
+      "id": "GH-B9-ALG-SUBSTITUTION",
+      "knowledge_concept_id": "algebraic-expressions",
+      "level_id": "B9",
+      "level_label": "Basic 9",
+      "progression_order": 13,
+      "strand": "Algebra",
+      "sub_strand": "Algebraic Expressions",
+      "name": "Substitution and Evaluation",
+      "description": "Substitute numerical values into algebraic expressions and formulae and evaluate them.",
+      "content_standard_ids": [
+        "B9.2.2.1"
+      ],
+      "learning_indicator_ids": [
+        "B9.2.2.1.2"
+      ],
+      "learning_outcomes": [
+        "Substitute values into algebraic expressions.",
+        "Evaluate formulae accurately.",
+        "Use substitution in contextual formula problems."
+      ],
+      "readiness_target_ids": [],
+      "prerequisite_concept_ids": [],
+      "next_concept_ids": [],
+      "stack_question_ids": [],
+      "status": "target",
+      "supporting_knowledge_concept_ids": []
+    },
+    {
+      "id": "GH-B9-ALG-FACTORISATION",
+      "knowledge_concept_id": "factorisation",
+      "level_id": "B9",
+      "level_label": "Basic 9",
+      "progression_order": 14,
+      "strand": "Algebra",
+      "sub_strand": "Algebraic Expressions",
+      "name": "Factorisation",
+      "description": "Factorise algebraic expressions with simple common and binomial factors.",
+      "content_standard_ids": [
+        "B9.2.2.1"
+      ],
+      "learning_indicator_ids": [
+        "B9.2.2.1.3"
+      ],
+      "learning_outcomes": [
+        "Identify common factors in algebraic expressions.",
+        "Factorise expressions with simple factors.",
+        "Check factorisation by expansion."
+      ],
+      "readiness_target_ids": [],
+      "prerequisite_concept_ids": [],
+      "next_concept_ids": [],
+      "stack_question_ids": [],
+      "status": "target",
+      "supporting_knowledge_concept_ids": [
+        "algebraic-expressions"
+      ]
+    },
+    {
+      "id": "GH-B9-ALG-MODELLING",
+      "knowledge_concept_id": "algebraic-expressions",
+      "level_id": "B9",
+      "level_label": "Basic 9",
+      "progression_order": 15,
+      "strand": "Algebra",
+      "sub_strand": "Algebraic Expressions",
+      "name": "Algebraic Modelling and Applications",
+      "description": "Use simplifying, substitution and factorisation knowledge to model and solve real-world situations.",
+      "content_standard_ids": [
+        "B9.2.2.1"
+      ],
+      "learning_indicator_ids": [
+        "B9.2.2.1.4"
+      ],
+      "learning_outcomes": [
+        "Translate contextual situations into algebraic expressions.",
+        "Evaluate algebraic models.",
+        "Use algebraic reasoning to solve real-world problems."
+      ],
+      "readiness_target_ids": [],
+      "prerequisite_concept_ids": [],
+      "next_concept_ids": [],
+      "stack_question_ids": [],
+      "status": "target",
+      "supporting_knowledge_concept_ids": [
+        "factorisation"
+      ]
+    },
+    {
+      "id": "GH-B9-ALG-LINEAR-INEQUALITIES",
+      "knowledge_concept_id": "inequalities",
+      "level_id": "B9",
+      "level_label": "Basic 9",
+      "progression_order": 16,
+      "strand": "Algebra",
+      "sub_strand": "Variables and Equations",
+      "name": "Linear Equations and Inequalities",
+      "description": "Solve single-variable linear inequalities with rational coefficients and represent their solution sets graphically.",
+      "content_standard_ids": [
+        "B9.2.3.1"
+      ],
+      "learning_indicator_ids": [
+        "B9.2.3.1.1",
+        "B9.2.3.1.2"
+      ],
+      "learning_outcomes": [
+        "Solve single-variable linear inequalities.",
+        "Verify solutions to inequalities.",
+        "Compare inequality solution sets.",
+        "Represent solutions on a number line.",
+        "Interpret graphical representations of inequalities."
+      ],
+      "readiness_target_ids": [],
+      "prerequisite_concept_ids": [],
+      "next_concept_ids": [],
+      "stack_question_ids": [],
+      "status": "target",
+      "supporting_knowledge_concept_ids": [
+        "linear-equations"
+      ]
+    },
+    {
+      "id": "GH-B9-ALG-EQUATION-APPLICATIONS",
+      "knowledge_concept_id": "linear-equations",
+      "level_id": "B9",
+      "level_label": "Basic 9",
+      "progression_order": 17,
+      "strand": "Algebra",
+      "sub_strand": "Variables and Equations",
+      "name": "Equation and Inequality Applications",
+      "description": "Form and solve linear equations and inequalities arising from real-life situations.",
+      "content_standard_ids": [
+        "B9.2.3.1"
+      ],
+      "learning_indicator_ids": [
+        "B9.2.3.1.3"
+      ],
+      "learning_outcomes": [
+        "Form linear equations from contextual information.",
+        "Solve real-life linear-equation problems.",
+        "Form inequalities from constraints.",
+        "Solve real-life inequality problems."
+      ],
+      "readiness_target_ids": [],
+      "prerequisite_concept_ids": [],
+      "next_concept_ids": [],
+      "stack_question_ids": [],
+      "status": "target",
+      "supporting_knowledge_concept_ids": [
+        "inequalities"
+      ]
+    },
+    {
+      "id": "GH-B9-GEO-POLYGON-ANGLES",
+      "knowledge_concept_id": "angles",
+      "level_id": "B9",
+      "level_label": "Basic 9",
+      "progression_order": 18,
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Shapes and Space",
+      "name": "Polygon and Angle Relationships",
+      "description": "Apply angle properties and the interior-angle sum of polygons to determine unknown angles.",
+      "content_standard_ids": [
+        "B9.3.1.1"
+      ],
+      "learning_indicator_ids": [
+        "B9.3.1.1.1"
+      ],
+      "learning_outcomes": [
+        "Identify common polygons.",
+        "Derive the polygon interior-angle sum formula.",
+        "Calculate interior-angle sums.",
+        "Find missing angles in polygons."
+      ],
+      "readiness_target_ids": [],
+      "prerequisite_concept_ids": [],
+      "next_concept_ids": [],
+      "stack_question_ids": [],
+      "status": "target",
+      "supporting_knowledge_concept_ids": [
+        "geometry"
+      ]
+    },
+    {
+      "id": "GH-B9-GEO-SIMILARITY-CONGRUENCE",
+      "knowledge_concept_id": "similarity",
+      "level_id": "B9",
+      "level_label": "Basic 9",
+      "progression_order": 19,
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Shapes and Space",
+      "name": "Similarity and Congruence",
+      "description": "Identify similar and congruent triangles and use their properties to solve problems.",
+      "content_standard_ids": [
+        "B9.3.1.1"
+      ],
+      "learning_indicator_ids": [
+        "B9.3.1.1.2"
+      ],
+      "learning_outcomes": [
+        "Recognise similar triangles.",
+        "Recognise congruent triangles.",
+        "Use similarity to determine unknown values.",
+        "Use congruence to determine unknown values."
+      ],
+      "readiness_target_ids": [],
+      "prerequisite_concept_ids": [],
+      "next_concept_ids": [],
+      "stack_question_ids": [],
+      "status": "target",
+      "supporting_knowledge_concept_ids": [
+        "triangles"
+      ]
+    },
+    {
+      "id": "GH-B9-GEO-CONSTRUCTIONS",
+      "knowledge_concept_id": "geometry",
+      "level_id": "B9",
+      "level_label": "Basic 9",
+      "progression_order": 20,
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Shapes and Space",
+      "name": "Geometric Constructions",
+      "description": "Construct inscribed and circumscribed triangles, circles and parallelograms under specified conditions.",
+      "content_standard_ids": [
+        "B9.3.1.2"
+      ],
+      "learning_indicator_ids": [
+        "B9.3.1.2.1",
+        "B9.3.1.2.2"
+      ],
+      "learning_outcomes": [
+        "Construct incircles and circumcircles for triangles.",
+        "Locate incentres and circumcentres.",
+        "Construct squares, rectangles and rhombi.",
+        "Construct parallelograms from given dimensions."
+      ],
+      "readiness_target_ids": [],
+      "prerequisite_concept_ids": [],
+      "next_concept_ids": [],
+      "stack_question_ids": [],
+      "status": "target",
+      "supporting_knowledge_concept_ids": []
+    },
+    {
+      "id": "GH-B9-GEO-PRISM-SURFACE-AREA",
+      "knowledge_concept_id": "surface-area-and-volume",
+      "level_id": "B9",
+      "level_label": "Basic 9",
+      "progression_order": 21,
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Measurement",
+      "name": "Prisms, Nets and Surface Area",
+      "description": "Use nets and derived formulae to determine surface areas of cuboids and triangular prisms.",
+      "content_standard_ids": [
+        "B9.3.2.1"
+      ],
+      "learning_indicator_ids": [
+        "B9.3.2.1.1",
+        "B9.3.2.1.2",
+        "B9.3.2.1.3"
+      ],
+      "learning_outcomes": [
+        "Identify cuboids and triangular prisms.",
+        "Recognise and construct prism nets.",
+        "Determine surface area of cuboids.",
+        "Determine surface area of triangular prisms."
+      ],
+      "readiness_target_ids": [],
+      "prerequisite_concept_ids": [],
+      "next_concept_ids": [],
+      "stack_question_ids": [],
+      "status": "target",
+      "supporting_knowledge_concept_ids": [
+        "mensuration"
+      ]
+    },
+    {
+      "id": "GH-B9-GEO-POSITION-VECTORS",
+      "knowledge_concept_id": "coordinate-graphs",
+      "level_id": "B9",
+      "level_label": "Basic 9",
+      "progression_order": 22,
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Measurement",
+      "name": "Coordinates and Position Vectors",
+      "description": "Represent points in the Cartesian plane as position vectors.",
+      "content_standard_ids": [
+        "B9.3.2.1"
+      ],
+      "learning_indicator_ids": [
+        "B9.3.2.1.4"
+      ],
+      "learning_outcomes": [
+        "Identify the origin in a Cartesian plane.",
+        "Represent coordinate points as position vectors.",
+        "Interpret position vectors geometrically."
+      ],
+      "readiness_target_ids": [],
+      "prerequisite_concept_ids": [],
+      "next_concept_ids": [],
+      "stack_question_ids": [],
+      "status": "target",
+      "supporting_knowledge_concept_ids": []
+    },
+    {
+      "id": "GH-B9-GEO-VECTOR-OPERATIONS",
+      "knowledge_concept_id": null,
+      "level_id": "B9",
+      "level_label": "Basic 9",
+      "progression_order": 23,
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Measurement",
+      "name": "Vector Relationships and Operations",
+      "description": "Reason about parallel and perpendicular vectors and apply triangle and parallelogram laws of vector addition.",
+      "content_standard_ids": [
+        "B9.3.2.2"
+      ],
+      "learning_indicator_ids": [
+        "B9.3.2.2.1",
+        "B9.3.2.2.2"
+      ],
+      "learning_outcomes": [
+        "Identify parallel vectors.",
+        "Identify perpendicular vectors.",
+        "Express displacements as column vectors.",
+        "Add vectors using triangle and parallelogram laws."
+      ],
+      "readiness_target_ids": [],
+      "prerequisite_concept_ids": [],
+      "next_concept_ids": [],
+      "stack_question_ids": [],
+      "status": "target",
+      "supporting_knowledge_concept_ids": [
+        "coordinate-graphs",
+        "geometry"
+      ]
+    },
+    {
+      "id": "GH-B9-GEO-ENLARGEMENT",
+      "knowledge_concept_id": "similarity",
+      "level_id": "B9",
+      "level_label": "Basic 9",
+      "progression_order": 24,
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Position and Transformation",
+      "name": "Enlargement and Scale Factor",
+      "description": "Perform and analyse enlargements using positive, negative and fractional scale factors.",
+      "content_standard_ids": [
+        "B9.3.3.1"
+      ],
+      "learning_indicator_ids": [
+        "B9.3.3.1.1",
+        "B9.3.3.1.2",
+        "B9.3.3.1.3"
+      ],
+      "learning_outcomes": [
+        "Recognise enlargement in real-life contexts.",
+        "Enlarge shapes using a given scale factor.",
+        "Determine scale factors from objects and images.",
+        "Investigate similarity and congruence under enlargement."
+      ],
+      "readiness_target_ids": [],
+      "prerequisite_concept_ids": [],
+      "next_concept_ids": [],
+      "stack_question_ids": [],
+      "status": "target",
+      "supporting_knowledge_concept_ids": [
+        "geometry"
+      ]
+    },
+    {
+      "id": "GH-B9-DATA-COLLECTION",
+      "knowledge_concept_id": "statistics",
+      "level_id": "B9",
+      "level_label": "Basic 9",
+      "progression_order": 25,
+      "strand": "Handling Data",
+      "sub_strand": "Data",
+      "name": "Data Collection and Representation",
+      "description": "Select suitable methods for collecting quantitative and qualitative data and organise data in appropriate representations.",
+      "content_standard_ids": [
+        "B9.4.1.1"
+      ],
+      "learning_indicator_ids": [
+        "B9.4.1.1.1",
+        "B9.4.1.1.2"
+      ],
+      "learning_outcomes": [
+        "Select an appropriate data-collection method.",
+        "Justify a data source and collection method.",
+        "Construct frequency tables.",
+        "Represent grouped and ungrouped data.",
+        "Interpret graphical and tabular representations."
+      ],
+      "readiness_target_ids": [],
+      "prerequisite_concept_ids": [],
+      "next_concept_ids": [],
+      "stack_question_ids": [],
+      "status": "target",
+      "supporting_knowledge_concept_ids": []
+    },
+    {
+      "id": "GH-B9-DATA-HISTOGRAMS",
+      "knowledge_concept_id": "statistics",
+      "level_id": "B9",
+      "level_label": "Basic 9",
+      "progression_order": 26,
+      "strand": "Handling Data",
+      "sub_strand": "Data",
+      "name": "Histograms and Frequency Distributions",
+      "description": "Construct and interpret frequency tables and histograms and determine modal classes.",
+      "content_standard_ids": [
+        "B9.4.1.1"
+      ],
+      "learning_indicator_ids": [
+        "B9.4.1.1.3"
+      ],
+      "learning_outcomes": [
+        "Create grouped frequency tables.",
+        "Construct histograms.",
+        "Interpret histogram intervals.",
+        "Determine modal classes from histograms."
+      ],
+      "readiness_target_ids": [],
+      "prerequisite_concept_ids": [],
+      "next_concept_ids": [],
+      "stack_question_ids": [],
+      "status": "target",
+      "supporting_knowledge_concept_ids": []
+    },
+    {
+      "id": "GH-B9-DATA-DESCRIPTIVE-STATISTICS",
+      "knowledge_concept_id": "statistics",
+      "level_id": "B9",
+      "level_label": "Basic 9",
+      "progression_order": 27,
+      "strand": "Handling Data",
+      "sub_strand": "Data",
+      "name": "Data Quality and Descriptive Statistics",
+      "description": "Evaluate data-collection bias and analyse data using minimum, maximum, central tendency and range, including the effect of extreme values.",
+      "content_standard_ids": [
+        "B9.4.1.2"
+      ],
+      "learning_indicator_ids": [
+        "B9.4.1.2.1",
+        "B9.4.1.2.2",
+        "B9.4.1.2.3"
+      ],
+      "learning_outcomes": [
+        "Identify bias in data-collection methods.",
+        "Evaluate ethical and cultural issues in survey questions.",
+        "Calculate minimum, maximum and range.",
+        "Calculate mean, median and mode.",
+        "Investigate effects of extreme values on descriptive statistics."
+      ],
+      "readiness_target_ids": [],
+      "prerequisite_concept_ids": [],
+      "next_concept_ids": [],
+      "stack_question_ids": [],
+      "status": "target",
+      "supporting_knowledge_concept_ids": []
+    },
+    {
+      "id": "GH-B9-DATA-DEPENDENT-PROBABILITY",
+      "knowledge_concept_id": "probability",
+      "level_id": "B9",
+      "level_label": "Basic 9",
+      "progression_order": 28,
+      "strand": "Handling Data",
+      "sub_strand": "Chance or Probability",
+      "name": "Dependent Events and Probability Trees",
+      "description": "Determine sample spaces and probabilities for dependent events and represent outcomes with tree diagrams and related organisers.",
+      "content_standard_ids": [
+        "B9.4.2.1"
+      ],
+      "learning_indicator_ids": [
+        "B9.4.2.1.1",
+        "B9.4.2.1.2"
+      ],
+      "learning_outcomes": [
+        "Identify dependent events.",
+        "Construct sample spaces for dependent experiments.",
+        "Calculate probabilities without replacement.",
+        "Construct and interpret probability trees.",
+        "Express probabilities as fractions, decimals, percentages and ratios."
+      ],
+      "readiness_target_ids": [],
+      "prerequisite_concept_ids": [],
+      "next_concept_ids": [],
+      "stack_question_ids": [],
+      "status": "target",
+      "supporting_knowledge_concept_ids": []
+    }
+  ]
+}

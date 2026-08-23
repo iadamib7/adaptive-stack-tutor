@@ -1,0 +1,585 @@
+<quiz><question type="stack">
+    <name>
+      <text>Interactive: Sketching Straight Line graphs y=mx+c</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;Move the points in the grid below so that the line passing through them has equation \(y = {@if mm&lt;0 then "-" else ""@} {@abs(mm)@} x {@S1(cc)@}\).&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Note1:&lt;/b&gt; Please make sure you move both points, otherwise your answer will not be assessed.&lt;/p&gt;
+
+&lt;p&gt;&lt;b&gt;Note2:&lt;/b&gt; Your browser might ask you if you want to leave without saving when you submit your answer. Leaving &lt;b&gt;will&lt;/b&gt; submit your answer and you &lt;b&gt;will not&lt;/b&gt; lose your work.&lt;/p&gt;
+
+&lt;center&gt;
+[[jsxgraph input-ref-ans1="sR1" input-ref-ans2="sR2"]]
+JXG.Options.text.useMathJax = true;
+var board = JXG.JSXGraph.initBoard(divid, {
+  axis: true,
+  showCopyright: false,
+  boundingbox: [-6,6,6,-6],
+  keepaspectratio: true,
+  grid:true
+});
+
+var p1 = board.create('point',[{#x1#},{#y1#}],{
+  name:'',
+  snapToGrid:true,
+  size:3,
+  snapSizeX:0.1,
+  snapSizeY:0.1,
+  showInfobox:false
+});
+
+var p2 = board.create('point',[{#x2#},{#y2#}],{
+  name:'',
+  snapToGrid:true,
+  size:3,
+  snapSizeX:0.1,
+  snapSizeY:0.1,
+  showInfobox:false
+});
+
+var l1 = board.create('line', [p1, p2], {
+  fixed: true,
+  straightFirst: true,
+  straightLast: true,
+  strokeWidth: 2
+});
+
+stack_jxg.bind_point(sR1,p1);
+stack_jxg.bind_point(sR2,p2);
+
+board.unsuspendUpdate();
+[[/jsxgraph]]
+&lt;/center&gt;
+
+&lt;p style="visibility:hidden"&gt;[[input:ans1]] [[validation:ans1]] &lt;/p&gt;
+
+&lt;p style="visibility:hidden"&gt;[[input:ans2]] [[validation:ans2]]&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text />
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.1000000</penalty>
+    <hidden>0</hidden>
+    <idnumber />
+    <stackversion>
+      <text>2023060500</text>
+    </stackversion>
+    <questionvariables>
+      <text>/* Define the equation of the line */
+mm:rand([-1,1])*rand([2,4,6])/rand([3,5]);
+cc:(if mm&lt;0 then 1 else -1)*(rand(4)+1);
+equation:y=mm*x+cc;
+
+/* Model Solution, one point on y-intercept, one point dependent on gradient */
+tax1:0;
+tay1:cc
+tax2:denom(mm);
+tay2:cc+num(mm);
+
+/* Coordinates of the points to be moved */
+x1:rand_with_prohib(-5,5,[tax1,tax2]);
+y1:rand_with_prohib(-5,5,[tay1,tay2]);
+x2:rand_with_prohib(-5,5,[x1,tax1,tax2]);
+y2:rand_with_prohib(-5,5,[y1,tay1,tay2]);
+
+
+
+
+
+
+/*-------------------------------------------------------------------------------------------*/
+/*Define function S(n) that given a number n, returns the string "+n" if positive (or zero) and "-n" if negative, if n=+1 or -1 it returns + or - respectively*/
+S(n):= block([], if (n=1) then return("+") elseif (n=-1) then return("-") elseif (n&gt;=0) then return(vconcat("+", abs(n)))  else  return(vconcat("-", abs(n))));
+
+/*Define function S1(n) that given a number n, returns the string "+n" if positive (or zero) and "-n" if negative (1 and -1 are treated as the other numbers)*/
+S1(n):= block([], if (n&gt;=0) then return(vconcat("+", abs(n)))  else  return(vconcat("-", abs(n))));
+
+/*Define function SP(n) that given a number n, returns the string "n" if positive (or zero) and "(-n)" if negative*/
+SP(n):= block([], if (n&gt;=0) then return(n)  else  return(vconcat("(-", abs(n), ")")));
+
+/*-------------------------------------------------------------------------------------------*/</text>
+    </questionvariables>
+    <specificfeedback format="html">
+      <text>[[feedback:prt1]]</text>
+    </specificfeedback>
+    <questionnote format="moodle_auto_format">
+      <text>1</text>
+    </questionnote>
+    <questiondescription format="moodle_auto_format">
+      <text />
+    </questiondescription>
+    <questionsimplify>1</questionsimplify>
+    <assumepositive>0</assumepositive>
+    <assumereal>0</assumereal>
+    <prtcorrect format="html">
+      <text>&lt;span style="font-size: 1.5em; color:green;"&gt;&lt;i class="fa fa-check"&gt;&lt;/i&gt;&lt;/span&gt; Correct answer, well done.</text>
+    </prtcorrect>
+    <prtpartiallycorrect format="html">
+      <text>&lt;span style="font-size: 1.5em; color:orange;"&gt;&lt;i class="fa fa-adjust"&gt;&lt;/i&gt;&lt;/span&gt; Your answer is partially correct.</text>
+    </prtpartiallycorrect>
+    <prtincorrect format="html">
+      <text>&lt;span style="font-size: 1.5em; color:red;"&gt;&lt;i class="fa fa-times"&gt;&lt;/i&gt;&lt;/span&gt; Incorrect answer.</text>
+    </prtincorrect>
+    <decimals>.</decimals>
+    <scientificnotation>*10</scientificnotation>
+    <multiplicationsign>none</multiplicationsign>
+    <sqrtsign>1</sqrtsign>
+    <complexno>i</complexno>
+    <inversetrig>cos-1</inversetrig>
+    <logicsymbol>lang</logicsymbol>
+    <matrixparens>[</matrixparens>
+    <isbroken>0</isbroken>
+    <variantsselectionseed />
+    <input>
+      <name>ans1</name>
+      <type>algebraic</type>
+      <tans>[tax1,tay1]</tans>
+      <boxsize>15</boxsize>
+      <strictsyntax>1</strictsyntax>
+      <insertstars>0</insertstars>
+      <syntaxhint />
+      <syntaxattribute>0</syntaxattribute>
+      <forbidwords />
+      <allowwords />
+      <forbidfloat>0</forbidfloat>
+      <requirelowestterms>0</requirelowestterms>
+      <checkanswertype>0</checkanswertype>
+      <mustverify>0</mustverify>
+      <showvalidation>0</showvalidation>
+      <options />
+    </input>
+    <input>
+      <name>ans2</name>
+      <type>algebraic</type>
+      <tans>[tax2,tay2]</tans>
+      <boxsize>15</boxsize>
+      <strictsyntax>1</strictsyntax>
+      <insertstars>0</insertstars>
+      <syntaxhint />
+      <syntaxattribute>0</syntaxattribute>
+      <forbidwords />
+      <allowwords />
+      <forbidfloat>0</forbidfloat>
+      <requirelowestterms>0</requirelowestterms>
+      <checkanswertype>0</checkanswertype>
+      <mustverify>0</mustverify>
+      <showvalidation>0</showvalidation>
+      <options />
+    </input>
+    <prt>
+      <name>prt1</name>
+      <value>1.0000000</value>
+      <autosimplify>1</autosimplify>
+      <feedbackstyle>1</feedbackstyle>
+      <feedbackvariables>
+        <text>/* Finding the equation of the straight line going through the student points */
+sans_equation:y=(ans1[2]-ans2[2])/(ans1[1]-ans2[1])*(x-ans1[1])+ans1[2];
+
+/* Node 1: Checks that the student equation is the same as the one generated */
+
+/* Node 2: check that the y-intercept is close enough */
+sans_c:coeff(expand(rhs(sans_equation)),x,0);
+
+/* Node 3: check that the y-intercept is close but less accurate or not close enough*/
+
+/* Node 4: check that the gradient is close enough */
+sans_m:coeff(expand(rhs(sans_equation)),x,1);
+
+/* Node 5: check that the gradient is close but less accurate or not close enough*/
+
+/* Node 6: Checks the reciprocal of the gradient assuming the y-intercept is correct */
+mistake6:(tax1-tax2)/(tay1-tay2);
+
+/* Node 7: two different worked solutions. If correct the worked solution directly. If incorrect, the correct graph and the student plot */</text>
+      </feedbackvariables>
+      <node>
+        <name>0</name>
+        <description />
+        <answertest>AlgEquiv</answertest>
+        <sans>sans_equation</sans>
+        <tans>equation</tans>
+        <testoptions />
+        <quiet>1</quiet>
+        <truescoremode>=</truescoremode>
+        <truescore>1</truescore>
+        <truepenalty />
+        <truenextnode>6</truenextnode>
+        <trueanswernote>prt1-1-T</trueanswernote>
+        <truefeedback format="html">
+          <text />
+        </truefeedback>
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>1</falsenextnode>
+        <falseanswernote>prt1-1-F</falseanswernote>
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+      <node>
+        <name>1</name>
+        <description />
+        <answertest>NumAbsolute</answertest>
+        <sans>sans_c</sans>
+        <tans>cc</tans>
+        <testoptions>0.1</testoptions>
+        <quiet>1</quiet>
+        <truescoremode>+</truescoremode>
+        <truescore>0.5</truescore>
+        <truepenalty />
+        <truenextnode>3</truenextnode>
+        <trueanswernote>prt1-2-T</trueanswernote>
+        <truefeedback format="html">
+          <text>&lt;p&gt;The \(y\)-intercept for your line seems to be close enough to the correct one.&lt;/p&gt;</text>
+        </truefeedback>
+        <falsescoremode>-</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>2</falsenextnode>
+        <falseanswernote>prt1-2-F</falseanswernote>
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+      <node>
+        <name>2</name>
+        <description />
+        <answertest>NumAbsolute</answertest>
+        <sans>sans_c</sans>
+        <tans>cc</tans>
+        <testoptions>0.2</testoptions>
+        <quiet>1</quiet>
+        <truescoremode>+</truescoremode>
+        <truescore>0.25</truescore>
+        <truepenalty />
+        <truenextnode>3</truenextnode>
+        <trueanswernote>prt1-3-T</trueanswernote>
+        <truefeedback format="html">
+          <text>&lt;p&gt;The \(y\)-intercept for your line seems to be close to the correct one but it's not accurate enough.&lt;/p&gt;</text>
+        </truefeedback>
+        <falsescoremode>-</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>3</falsenextnode>
+        <falseanswernote>prt1-3-F</falseanswernote>
+        <falsefeedback format="html">
+          <text>&lt;p&gt;The \(y\)-intercept for your is not close enough to the correct one.&lt;/p&gt;</text>
+        </falsefeedback>
+      </node>
+      <node>
+        <name>3</name>
+        <description />
+        <answertest>NumAbsolute</answertest>
+        <sans>sans_m</sans>
+        <tans>mm</tans>
+        <testoptions>0.1</testoptions>
+        <quiet>0</quiet>
+        <truescoremode>+</truescoremode>
+        <truescore>0.5</truescore>
+        <truepenalty />
+        <truenextnode>6</truenextnode>
+        <trueanswernote>prt1-4-T</trueanswernote>
+        <truefeedback format="html">
+          <text>&lt;p&gt;The gradient your line seems to be close enough to the correct one.&lt;/p&gt;</text>
+        </truefeedback>
+        <falsescoremode>-</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>4</falsenextnode>
+        <falseanswernote>prt1-4-F</falseanswernote>
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+      <node>
+        <name>4</name>
+        <description />
+        <answertest>NumAbsolute</answertest>
+        <sans>sans_m</sans>
+        <tans>mm</tans>
+        <testoptions>0.2</testoptions>
+        <quiet>0</quiet>
+        <truescoremode>+</truescoremode>
+        <truescore>0.25</truescore>
+        <truepenalty />
+        <truenextnode>6</truenextnode>
+        <trueanswernote>prt1-5-T</trueanswernote>
+        <truefeedback format="html">
+          <text>&lt;p&gt;The gradient of your line seems to be close to the correct one but it's not accurate enough.&lt;/p&gt;</text>
+        </truefeedback>
+        <falsescoremode>-</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>5</falsenextnode>
+        <falseanswernote>prt1-5-F</falseanswernote>
+        <falsefeedback format="html">
+          <text>&lt;p&gt;The gradient of your line is not close enough to the correct one .&lt;/p&gt;</text>
+        </falsefeedback>
+      </node>
+      <node>
+        <name>5</name>
+        <description />
+        <answertest>NumRelative</answertest>
+        <sans>sans_m</sans>
+        <tans>mistake6</tans>
+        <testoptions>0.1</testoptions>
+        <quiet>0</quiet>
+        <truescoremode>+</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>6</truenextnode>
+        <trueanswernote>prt1-6-T</trueanswernote>
+        <truefeedback format="html">
+          <text>&lt;p&gt;It looks like you used the numerator of the gradient for the change in \(x\) and the denominator for the change in \(y\), when it should be the other way round.&lt;/p&gt;</text>
+        </truefeedback>
+        <falsescoremode>-</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>6</falsenextnode>
+        <falseanswernote>prt1-6-F</falseanswernote>
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+      <node>
+        <name>6</name>
+        <description />
+        <answertest>AlgEquiv</answertest>
+        <sans>sans_equation</sans>
+        <tans>equation</tans>
+        <testoptions />
+        <quiet>0</quiet>
+        <truescoremode>+</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-7-T</trueanswernote>
+        <truefeedback format="html">
+          <text>&lt;p&gt;&lt;b&gt;Worked Solution:&lt;/b&gt;&lt;/p&gt;
+
+&lt;p&gt;Recall that the equation of a straight line is given by \(y = mx + c\), where \(m\) is the gradient and \(c\) is the \(y\)-intercept. In this case  \(y = {@if mm&lt;0 then "-" else ""@} {@abs(mm)@} x {@S1(cc)@}\), so the gradient is  \({@if mm&lt;0 then "-" else ""@} {@abs(mm)@}\) and the \(y\)-intercept is {@cc@}.&lt;/p&gt;
+
+&lt;p&gt;So, we start by placing the first point at \( (0,{@cc@})\), that is, where the line will cross the \(y\)-axis. Then we note that the gradient is \(y = {@if mm&lt;0 then "-" else ""@} {@abs(mm)@} x {@S1(cc)@}\), so we know that for every {@denom(mm)@} we go across we go {@abs(num(mm))@} {@if mm&lt;0 then "down" else "up"@}, and we follow these directions from the first point to place the second point at \( (0 + {@denom(mm)@}, {@cc@} {@S1(num(mm))@}) = ({@tax2@},{@tay2@})\), as shown in the following diagram:&lt;/p&gt;
+
+[[jsxgraph]]
+var board = JXG.JSXGraph.initBoard(divid, {
+  axis: true,
+  showCopyright: false,
+  boundingbox: [-6,6,6,-6],
+  keepaspectratio: true
+});
+
+var p1 = board.create('point',[{#tax1#},{#tay1#}],{
+  name:'',
+  snapToGrid:true,
+  size:3,
+  snapSizeX:0.125,
+  snapSizeY:0.125,
+  showInfobox:false,
+  fixed:true
+});
+
+var p2 = board.create('point',[{#tax2#},{#tay2#}],{
+  name:'',
+  snapToGrid:true,
+  size:3,
+  snapSizeX:0.125,
+  snapSizeY:0.125,
+  showInfobox:false,
+  fixed:true
+});
+
+var l1 = board.create('line', [p1, p2], {
+  fixed: true,
+  straightFirst: true,
+  straightLast: true,
+  strokeWidth: 2
+});
+
+var l2 = board.create('line', [p1, [p2.X(),p1.Y()]], {
+  fixed: true,
+  straightFirst: false,
+  straightLast: false,
+  strokeWidth: 2,
+ dash:2
+});
+
+var l3 = board.create('line', [p2, [p2.X(),p1.Y()]], {
+  fixed: true,
+  straightFirst: false,
+  straightLast: false,
+  strokeWidth: 2,
+ dash:2
+});
+
+var txt = board.create('text', [(p1.X() + p2.X()) / 2-0.5, p1.Y() + {#if mm&lt;0 then 0.5 else -0.5#}, {#denom(mm)#}+' across'], {
+  fontSize: 15,
+  fixed: true
+});
+
+var txt = board.create('text', [p2.X()+0.5, (p1.Y()+p2.Y())/2, {#abs(num(mm))#}+' '+{#if mm&lt;0 then "down" else "up"#}], {
+  fontSize: 15,
+  fixed: true
+});
+
+[[/jsxgraph]]</text>
+        </truefeedback>
+        <falsescoremode>-</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>-1</falsenextnode>
+        <falseanswernote>prt1-7-F</falseanswernote>
+        <falsefeedback format="html">
+          <text>&lt;p&gt;The following diagram shows your line (solid) and the correct line (dashed):&lt;/p&gt;
+
+[[jsxgraph]]
+var board = JXG.JSXGraph.initBoard(divid, {
+  axis: true,
+  showCopyright: false,
+  boundingbox: [-6,6,6,-6],
+  keepaspectratio: true
+});
+
+var p1 = board.create('point',[{#ans1[1]#},{#ans1[2]#}],{
+  name:'',
+  snapToGrid:true,
+  size:3,
+  snapSizeX:0.125,
+  snapSizeY:0.125,
+  showInfobox:false,
+  fixed:true
+});
+
+var p2 = board.create('point',[{#ans2[1]#},{#ans2[2]#}],{
+  name:'',
+  snapToGrid:true,
+  size:3,
+  snapSizeX:0.125,
+  snapSizeY:0.125,
+  showInfobox:false,
+  fixed:true
+});
+
+var l1 = board.create('line', [p1, p2], {
+  fixed: true,
+  straightFirst: true,
+  straightLast: true,
+  strokeWidth: 2
+});
+
+var l2 = board.create('line', [[{#tax1#},{#tay1#}], [{#tax2#},{#tay2#}]], {
+  fixed: true,
+  straightFirst: true,
+  straightLast: true,
+  strokeWidth: 2,
+  dash:2
+});
+
+[[/jsxgraph]]
+
+
+&lt;p&gt;Worked Solution:&lt;/p&gt;
+
+&lt;p&gt;Recall that the equation of a straight line is given by \(y = mx + c\), where \(m\) is the gradient and \(c\) is the \(y\)-intercept. In this case  \(y = {@if mm&lt;0 then "-" else ""@} {@abs(mm)@} x {@S1(cc)@}\), so the gradient is  \({@if mm&lt;0 then "-" else ""@} {@abs(mm)@}\) and the \(y\)-intercept is {@cc@}.&lt;/p&gt;
+
+&lt;p&gt;So, we start by placing the first point at \( (0,{@cc@})\), that is, where the line will cross the \(y\)-axis. Then we note that the gradient is \(y = {@if mm&lt;0 then "-" else ""@} {@abs(mm)@} x {@S1(cc)@}\), so we know that for every {@denom(mm)@} we go across we go {@abs(num(mm))@} {@if mm&lt;0 then "down" else "up"@}, and we follow these directions from the first point to place the second point at \( (0 + {@denom(mm)@}, {@cc@} {@S1(num(mm))@}) = ({@tax2@},{@tay2@})\), as shown in the following diagram:&lt;/p&gt;
+
+[[jsxgraph]]
+var board = JXG.JSXGraph.initBoard(divid, {
+  axis: true,
+  showCopyright: false,
+  boundingbox: [-6,6,6,-6],
+  keepaspectratio: true
+});
+
+var p1 = board.create('point',[{#tax1#},{#tay1#}],{
+  name:'',
+  snapToGrid:true,
+  size:3,
+  snapSizeX:0.125,
+  snapSizeY:0.125,
+  showInfobox:false,
+  fixed:true
+});
+
+var p2 = board.create('point',[{#tax2#},{#tay2#}],{
+  name:'',
+  snapToGrid:true,
+  size:3,
+  snapSizeX:0.125,
+  snapSizeY:0.125,
+  showInfobox:false,
+  fixed:true
+});
+
+var l1 = board.create('line', [p1, p2], {
+  fixed: true,
+  straightFirst: true,
+  straightLast: true,
+  strokeWidth: 2
+});
+
+var l2 = board.create('line', [p1, [p2.X(),p1.Y()]], {
+  fixed: true,
+  straightFirst: false,
+  straightLast: false,
+  strokeWidth: 2,
+ dash:2
+});
+
+var l3 = board.create('line', [p2, [p2.X(),p1.Y()]], {
+  fixed: true,
+  straightFirst: false,
+  straightLast: false,
+  strokeWidth: 2,
+ dash:2
+});
+
+var txt = board.create('text', [(p1.X() + p2.X()) / 2-0.5, p1.Y() + {#if mm&lt;0 then 0.5 else -0.5#}, {#denom(mm)#}+' across'], {
+  fontSize: 15,
+  fixed: true
+});
+
+var txt = board.create('text', [p2.X()+0.5, (p1.Y()+p2.Y())/2, {#abs(num(mm))#}+' '+{#if mm&lt;0 then "down" else "up"#}], {
+  fontSize: 15,
+  fixed: true
+});
+
+[[/jsxgraph]]</text>
+        </falsefeedback>
+      </node>
+    </prt>
+    <qtest>
+      <testcase>1</testcase>
+      <description />
+      <testinput>
+        <name>ans1</name>
+        <value>ta1</value>
+      </testinput>
+      <expected>
+        <name>prt1</name>
+        <expectedscore>1.0000000</expectedscore>
+        <expectedpenalty>0.0000000</expectedpenalty>
+        <expectedanswernote>prt1-4-T</expectedanswernote>
+      </expected>
+    </qtest>
+    <qtest>
+      <testcase>2</testcase>
+      <description />
+      <testinput>
+        <name>ans1</name>
+        <value>pa1</value>
+      </testinput>
+      <expected>
+        <name>prt1</name>
+        <expectedscore>0.2500000</expectedscore>
+        <expectedpenalty>0.1000000</expectedpenalty>
+        <expectedanswernote>prt1-4-T</expectedanswernote>
+      </expected>
+    </qtest>
+  <deployedseed>1175526267</deployedseed><deployedseed>2134346137</deployedseed><deployedseed>1475647605</deployedseed><deployedseed>929899804</deployedseed><deployedseed>1362908445</deployedseed></question>
+
+</quiz>

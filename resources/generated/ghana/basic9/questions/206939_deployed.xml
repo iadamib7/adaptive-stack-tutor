@@ -1,0 +1,428 @@
+<quiz><question type="stack">
+    <name>
+      <text>Writing down coordinates of a points in a graph.</text>
+    </name>
+    <questiontext format="moodle_auto_format">
+      <text>&lt;p&gt;Write down the coordinates of the points on the Cartesian plane below.&lt;/p&gt;
+[[jsxgraph]]
+var board = JXG.JSXGraph.initBoard('jxgbox',{
+                boundingbox:[-7,6,7,-6],
+                axis: true,
+                showCopyright:false,keepAspectRatio:true
+
+            });
+
+           var p1 = board.create('point', [{#x_A#},{#y_A#}] , {name:'A',fillColor:'red',strokeColor:'red', point: {visible: true}});
+           var p2 = board.create('point', [{#x_B#},{#y_B#}] , {name:'B',fillColor:'red',strokeColor:'red', point: {visible: true}});
+
+
+[[/jsxgraph]]
+
+&lt;p&gt;A: \(\big(\) [[input:ans1]] [[validation:ans1]] \(,\) [[input:ans2]] [[validation:ans2]] \(\big)\)&lt;/p&gt;
+&lt;p&gt;B: \(\big(\) [[input:ans3]] [[validation:ans3]] \(,\) [[input:ans4]] [[validation:ans4]] \(\big)\)&lt;/p&gt;</text>
+    </questiontext>
+    <generalfeedback format="moodle_auto_format">
+      <text>&lt;h3&gt;Worked Solution&lt;/h3&gt;
+&lt;p&gt; A point is represented as \( (x,y)\) where "x" tells you how far to move left or right, and "y" tells you how far to move up or down on the Cartesian plane.
+&lt;/p&gt;
+&lt;p&gt;The coordinates of the given points are:&lt;/p&gt;
+&lt;p&gt;\(A({@x_A@},{@y_A@})\)&lt;/p&gt;
+&lt;p&gt;\(B({@x_B@},{@y_B@})\)&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>2.0000000</defaultgrade>
+    <penalty>0.1000000</penalty>
+    <hidden>0</hidden>
+    <idnumber />
+    <stackversion>
+      <text>2025012100</text>
+    </stackversion>
+    <questionvariables>
+      <text>/*x and y coordinates for the points*/
+x_A:rand_with_step(-5,5,1);
+y_A:rand_with_step(-5,5,1);
+x_B:rand_with_prohib(-5,5,[x_A]);
+y_B:rand_with_prohib(-5,5,[y_A]);
+
+/*teacher answers*/
+ta_A:[x_A,y_A];
+ta_B:[x_B,y_B];
+</text>
+    </questionvariables>
+    <specificfeedback format="html">
+      <text>[[feedback:prt1]]</text>
+    </specificfeedback>
+    <questionnote format="html">
+      <text>&lt;p&gt;{@ta_A@}&lt;/p&gt;
+&lt;p&gt;{@ta_B@}&lt;/p&gt;</text>
+    </questionnote>
+    <questiondescription format="html">
+      <text />
+    </questiondescription>
+    <questionsimplify>1</questionsimplify>
+    <assumepositive>0</assumepositive>
+    <assumereal>0</assumereal>
+    <prtcorrect format="html">
+      <text>&lt;span style="font-size: 1.5em; color:green;"&gt;&lt;i class="fa fa-check"&gt;&lt;/i&gt;&lt;/span&gt; Correct answer, well done.</text>
+    </prtcorrect>
+    <prtpartiallycorrect format="html">
+      <text>&lt;span style="font-size: 1.5em; color:orange;"&gt;&lt;i class="fa fa-adjust"&gt;&lt;/i&gt;&lt;/span&gt; Your answer is partially correct.</text>
+    </prtpartiallycorrect>
+    <prtincorrect format="html">
+      <text>&lt;span style="font-size: 1.5em; color:red;"&gt;&lt;i class="fa fa-times"&gt;&lt;/i&gt;&lt;/span&gt; Incorrect answer.</text>
+    </prtincorrect>
+    <decimals>.</decimals>
+    <scientificnotation>*10</scientificnotation>
+    <multiplicationsign>none</multiplicationsign>
+    <sqrtsign>1</sqrtsign>
+    <complexno>i</complexno>
+    <inversetrig>cos-1</inversetrig>
+    <logicsymbol>lang</logicsymbol>
+    <matrixparens>[</matrixparens>
+    <isbroken>0</isbroken>
+    <variantsselectionseed />
+    <input>
+      <name>ans1</name>
+      <type>algebraic</type>
+      <tans>x_A</tans>
+      <boxsize>6</boxsize>
+      <strictsyntax>1</strictsyntax>
+      <insertstars>0</insertstars>
+      <syntaxhint />
+      <syntaxattribute>0</syntaxattribute>
+      <forbidwords />
+      <allowwords />
+      <forbidfloat>1</forbidfloat>
+      <requirelowestterms>0</requirelowestterms>
+      <checkanswertype>0</checkanswertype>
+      <mustverify>1</mustverify>
+      <showvalidation>3</showvalidation>
+      <options />
+    </input>
+    <input>
+      <name>ans2</name>
+      <type>algebraic</type>
+      <tans>y_A</tans>
+      <boxsize>6</boxsize>
+      <strictsyntax>1</strictsyntax>
+      <insertstars>0</insertstars>
+      <syntaxhint />
+      <syntaxattribute>0</syntaxattribute>
+      <forbidwords />
+      <allowwords />
+      <forbidfloat>1</forbidfloat>
+      <requirelowestterms>0</requirelowestterms>
+      <checkanswertype>0</checkanswertype>
+      <mustverify>1</mustverify>
+      <showvalidation>3</showvalidation>
+      <options />
+    </input>
+    <input>
+      <name>ans3</name>
+      <type>algebraic</type>
+      <tans>x_B</tans>
+      <boxsize>6</boxsize>
+      <strictsyntax>1</strictsyntax>
+      <insertstars>0</insertstars>
+      <syntaxhint />
+      <syntaxattribute>0</syntaxattribute>
+      <forbidwords />
+      <allowwords />
+      <forbidfloat>1</forbidfloat>
+      <requirelowestterms>0</requirelowestterms>
+      <checkanswertype>0</checkanswertype>
+      <mustverify>1</mustverify>
+      <showvalidation>3</showvalidation>
+      <options />
+    </input>
+    <input>
+      <name>ans4</name>
+      <type>algebraic</type>
+      <tans>y_B</tans>
+      <boxsize>6</boxsize>
+      <strictsyntax>1</strictsyntax>
+      <insertstars>0</insertstars>
+      <syntaxhint />
+      <syntaxattribute>0</syntaxattribute>
+      <forbidwords />
+      <allowwords />
+      <forbidfloat>1</forbidfloat>
+      <requirelowestterms>0</requirelowestterms>
+      <checkanswertype>0</checkanswertype>
+      <mustverify>1</mustverify>
+      <showvalidation>3</showvalidation>
+      <options />
+    </input>
+    <prt>
+      <name>prt1</name>
+      <value>1.0000000</value>
+      <autosimplify>1</autosimplify>
+      <feedbackstyle>1</feedbackstyle>
+      <feedbackvariables>
+        <text>/*Node 1: Checks if the correct answer for x value of point A*/
+/*Node 2: Checks if the correct answer for y value of point A*/
+/*Node 3: Checks if y value has been given as the x value*/
+mistake_1:y_A;
+/*Node4: Checks if x value has been given as the y value*/
+mistake_2:x_A;
+
+/*Node 5: Checks if the correct answer for x value of point B*/
+/*Node 6: Checks if the correct answer for y value of point B*/
+/*Node 7: Checks if y value has been given as the x value*/
+mistake_3:y_B;
+/*Node 8: Checks if x value has been given as the y value*/
+mistake_4:x_B;</text>
+      </feedbackvariables>
+      <node>
+        <name>0</name>
+        <description>Checks if the correct answer for x value of point A</description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans1</sans>
+        <tans>x_A</tans>
+        <testoptions />
+        <quiet>0</quiet>
+        <truescoremode>=</truescoremode>
+        <truescore>0.5</truescore>
+        <truepenalty />
+        <truenextnode>1</truenextnode>
+        <trueanswernote>prt1-1-T</trueanswernote>
+        <truefeedback format="html">
+          <text />
+        </truefeedback>
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>2</falsenextnode>
+        <falseanswernote>prt1-1-F</falseanswernote>
+        <falsefeedback format="html">
+          <text>&lt;p&gt;Your x value for point A is incorrect&lt;/p&gt;</text>
+        </falsefeedback>
+      </node>
+      <node>
+        <name>1</name>
+        <description>Checks if the correct answer for y value of point A</description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans2</sans>
+        <tans>y_A</tans>
+        <testoptions />
+        <quiet>0</quiet>
+        <truescoremode>+</truescoremode>
+        <truescore>0.5</truescore>
+        <truepenalty />
+        <truenextnode>4</truenextnode>
+        <trueanswernote>prt1-2-T</trueanswernote>
+        <truefeedback format="html">
+          <text />
+        </truefeedback>
+        <falsescoremode>-</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>3</falsenextnode>
+        <falseanswernote>prt1-2-F</falseanswernote>
+        <falsefeedback format="html">
+          <text>&lt;p&gt;Your y value for point A is incorrect&lt;/p&gt;</text>
+        </falsefeedback>
+      </node>
+      <node>
+        <name>2</name>
+        <description>Checks if y value has been given as the x value</description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans1</sans>
+        <tans>mistake_1</tans>
+        <testoptions />
+        <quiet>0</quiet>
+        <truescoremode>+</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>3</truenextnode>
+        <trueanswernote>prt1-3-T</trueanswernote>
+        <truefeedback format="html">
+          <text />
+        </truefeedback>
+        <falsescoremode>-</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>1</falsenextnode>
+        <falseanswernote>prt1-3-F</falseanswernote>
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+      <node>
+        <name>3</name>
+        <description>Checks if x value has been given as the y value</description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans2</sans>
+        <tans>mistake_2</tans>
+        <testoptions />
+        <quiet>0</quiet>
+        <truescoremode>+</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>4</truenextnode>
+        <trueanswernote>prt1-4-T</trueanswernote>
+        <truefeedback format="html">
+          <text>&lt;p&gt;You have interchanged the x and y coordinates for point A&lt;/p&gt;</text>
+        </truefeedback>
+        <falsescoremode>-</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>4</falsenextnode>
+        <falseanswernote>prt1-4-F</falseanswernote>
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+      <node>
+        <name>4</name>
+        <description>Checks if the correct answer for x value of point B</description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans3</sans>
+        <tans>x_B</tans>
+        <testoptions />
+        <quiet>0</quiet>
+        <truescoremode>+</truescoremode>
+        <truescore>0.5</truescore>
+        <truepenalty />
+        <truenextnode>5</truenextnode>
+        <trueanswernote>prt1-5-T</trueanswernote>
+        <truefeedback format="html">
+          <text />
+        </truefeedback>
+        <falsescoremode>-</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>6</falsenextnode>
+        <falseanswernote>prt1-5-F</falseanswernote>
+        <falsefeedback format="html">
+          <text>&lt;p&gt;Your x value for point B is incorrect&lt;/p&gt;</text>
+        </falsefeedback>
+      </node>
+      <node>
+        <name>5</name>
+        <description>Checks if the correct answer for y value of point B</description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans4</sans>
+        <tans>y_B</tans>
+        <testoptions />
+        <quiet>0</quiet>
+        <truescoremode>+</truescoremode>
+        <truescore>0.5</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-6-T</trueanswernote>
+        <truefeedback format="html">
+          <text />
+        </truefeedback>
+        <falsescoremode>-</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>7</falsenextnode>
+        <falseanswernote>prt1-6-F</falseanswernote>
+        <falsefeedback format="html">
+          <text>&lt;p&gt;Your y value for point B is incorrect&lt;/p&gt;</text>
+        </falsefeedback>
+      </node>
+      <node>
+        <name>6</name>
+        <description>Checks if y value has been given as the x value</description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans3</sans>
+        <tans>mistake_3</tans>
+        <testoptions />
+        <quiet>0</quiet>
+        <truescoremode>+</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>7</truenextnode>
+        <trueanswernote>prt1-7-T</trueanswernote>
+        <truefeedback format="html">
+          <text />
+        </truefeedback>
+        <falsescoremode>-</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>5</falsenextnode>
+        <falseanswernote>prt1-7-F</falseanswernote>
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+      <node>
+        <name>7</name>
+        <description>Checks if x value has been given as the y value</description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans4</sans>
+        <tans>mistake_4</tans>
+        <testoptions />
+        <quiet>0</quiet>
+        <truescoremode>+</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-8-T</trueanswernote>
+        <truefeedback format="html">
+          <text>&lt;p&gt;You have interchanged the x and y coordinates for point B&lt;/p&gt;</text>
+        </truefeedback>
+        <falsescoremode>-</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>-1</falsenextnode>
+        <falseanswernote>prt1-8-F</falseanswernote>
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+    </prt>
+    <deployedseed>1571261656</deployedseed>
+    <deployedseed>2044518568</deployedseed>
+    <deployedseed>155440173</deployedseed>
+    <deployedseed>650688386</deployedseed>
+    <deployedseed>498476643</deployedseed>
+    <deployedseed>596498539</deployedseed>
+    <deployedseed>1625467247</deployedseed>
+    <deployedseed>662736699</deployedseed>
+    <deployedseed>1963065343</deployedseed>
+    <deployedseed>891865165</deployedseed>
+    <deployedseed>1683417786</deployedseed>
+    <deployedseed>1280318596</deployedseed>
+    <deployedseed>1158352956</deployedseed>
+    <deployedseed>1117336987</deployedseed>
+    <deployedseed>265672796</deployedseed>
+    <deployedseed>417567409</deployedseed>
+    <deployedseed>1951568491</deployedseed>
+    <deployedseed>216563846</deployedseed>
+    <deployedseed>1662920718</deployedseed>
+    <deployedseed>1703463844</deployedseed>
+    <deployedseed>1380986207</deployedseed>
+    <deployedseed>990414689</deployedseed>
+    <deployedseed>1099184403</deployedseed>
+    <deployedseed>406572573</deployedseed>
+    <deployedseed>119885453</deployedseed>
+    <deployedseed>211801716</deployedseed>
+    <deployedseed>1485368200</deployedseed>
+    <deployedseed>1293774687</deployedseed>
+    <deployedseed>655687693</deployedseed>
+    <deployedseed>1395921411</deployedseed>
+    <deployedseed>1224678628</deployedseed>
+    <deployedseed>148222104</deployedseed>
+    <deployedseed>59106339</deployedseed>
+    <deployedseed>366214065</deployedseed>
+    <deployedseed>348773498</deployedseed>
+    <deployedseed>802264406</deployedseed>
+    <deployedseed>2127226024</deployedseed>
+    <deployedseed>16806138</deployedseed>
+    <deployedseed>966669683</deployedseed>
+    <deployedseed>1858406353</deployedseed>
+    <deployedseed>713069966</deployedseed>
+    <deployedseed>694751257</deployedseed>
+    <deployedseed>172136799</deployedseed>
+    <deployedseed>1594869169</deployedseed>
+    <deployedseed>309811825</deployedseed>
+    <deployedseed>1220316747</deployedseed>
+    <deployedseed>721365577</deployedseed>
+    <deployedseed>674963681</deployedseed>
+    <deployedseed>19748291</deployedseed>
+    <deployedseed>1139596094</deployedseed>
+  </question>
+
+</quiz>

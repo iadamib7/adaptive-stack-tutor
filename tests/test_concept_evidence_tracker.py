@@ -233,3 +233,58 @@ def test_failed_mastery_check_prevents_mastery() -> None:
 
     assert summary.concept_mastered is False
     assert summary.passed_mastery_question_ids == []
+
+
+
+def test_concept_without_mastery_check_cannot_be_mastered(
+) -> None:
+    ghana_map_path = Path(
+        "examples/curriculum_mapping/"
+        "ghana_basic9_linear_readiness.json"
+    )
+
+    curriculum_map = load_curriculum_question_map(
+        ghana_map_path
+    )
+
+    mapping_repository = CurriculumMappingRepository(
+        curriculum_map
+    )
+
+    tracker = ConceptEvidenceTracker(
+        mapping_repository=mapping_repository
+    )
+
+    tracker.record_outcome(
+        student_id=99,
+        question_id=(
+            "lr_01_table_linear_relation"
+        ),
+        outcome_code="correct",
+        score=1.0,
+    )
+
+    summary = tracker.summarize(
+        student_id=99,
+        concept_id="simultaneous-equations",
+    )
+
+    assert summary.attempts == 1
+    assert summary.evidence_score == 1.0
+
+    assert (
+        summary.required_mastery_question_ids
+        == []
+    )
+
+    assert (
+        summary.passed_mastery_question_ids
+        == []
+    )
+
+    assert summary.concept_mastered is False
+
+    assert (
+        "No concept-level mastery-check question"
+        in summary.recommendation
+    )

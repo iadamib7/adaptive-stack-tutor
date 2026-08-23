@@ -1,0 +1,984 @@
+<?xml version='1.0' encoding='utf-8'?>
+<quiz>
+  <question type="stack">
+    <name>
+      <text>Shared: Graph relations from a table and equation</text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;
+Two linear relations are represented
+in different ways.
+&lt;/p&gt;
+
+&lt;p&gt;
+&lt;strong&gt;Relation A&lt;/strong&gt; is shown
+in the table.
+&lt;/p&gt;
+
+&lt;table border="1"
+       cellpadding="6"
+       style="border-collapse:collapse;
+              margin:auto;"&gt;
+&lt;tr&gt;
+&lt;th&gt;\(x\)&lt;/th&gt;
+&lt;th&gt;\(y\)&lt;/th&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;{@xA1@}&lt;/td&gt;
+&lt;td&gt;{@yA1@}&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;{@xA2@}&lt;/td&gt;
+&lt;td&gt;{@yA2@}&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td&gt;{@xA3@}&lt;/td&gt;
+&lt;td&gt;{@yA3@}&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+
+&lt;p&gt;
+&lt;strong&gt;Relation B&lt;/strong&gt; is given
+by the equation
+&lt;/p&gt;
+
+&lt;p&gt;
+\[
+y={@m2@}x+({@c2@})
+\]
+&lt;/p&gt;
+
+&lt;p&gt;
+Plot &lt;strong&gt;both&lt;/strong&gt; relations
+on the Cartesian plane.
+&lt;/p&gt;
+
+&lt;p&gt;
+Use points \(A_1\) and \(A_2\) to
+create the line represented by the
+table.
+&lt;/p&gt;
+
+&lt;p&gt;
+Use points \(B_1\) and \(B_2\) to
+create the line represented by the
+equation.
+&lt;/p&gt;
+
+&lt;center&gt;
+
+[[jsxgraph
+input-ref-ans1="sA1"
+input-ref-ans2="sA2"
+input-ref-ans3="sB1"
+input-ref-ans4="sB2"]]
+
+JXG.Options.text.useMathJax = true;
+
+var board = JXG.JSXGraph.initBoard(
+    divid,
+    {
+        axis: true,
+        showCopyright: false,
+        boundingbox: [-6,6,6,-6],
+        keepaspectratio: true,
+        grid: true
+    }
+);
+
+
+var a1 = board.create(
+    'point',
+    [{#start_ax1#},{#start_ay1#}],
+    {
+        name:'A1',
+        snapToGrid:true,
+        size:3,
+        snapSizeX:0.1,
+        snapSizeY:0.1,
+        showInfobox:false
+    }
+);
+
+
+var a2 = board.create(
+    'point',
+    [{#start_ax2#},{#start_ay2#}],
+    {
+        name:'A2',
+        snapToGrid:true,
+        size:3,
+        snapSizeX:0.1,
+        snapSizeY:0.1,
+        showInfobox:false
+    }
+);
+
+
+var lineA = board.create(
+    'line',
+    [a1,a2],
+    {
+        fixed:true,
+        straightFirst:true,
+        straightLast:true,
+        strokeWidth:2
+    }
+);
+
+
+var b1 = board.create(
+    'point',
+    [{#start_bx1#},{#start_by1#}],
+    {
+        name:'B1',
+        snapToGrid:true,
+        size:3,
+        snapSizeX:0.1,
+        snapSizeY:0.1,
+        showInfobox:false
+    }
+);
+
+
+var b2 = board.create(
+    'point',
+    [{#start_bx2#},{#start_by2#}],
+    {
+        name:'B2',
+        snapToGrid:true,
+        size:3,
+        snapSizeX:0.1,
+        snapSizeY:0.1,
+        showInfobox:false
+    }
+);
+
+
+var lineB = board.create(
+    'line',
+    [b1,b2],
+    {
+        fixed:true,
+        straightFirst:true,
+        straightLast:true,
+        strokeWidth:2,
+        dash:2
+    }
+);
+
+
+stack_jxg.bind_point(
+    sA1,
+    a1
+);
+
+stack_jxg.bind_point(
+    sA2,
+    a2
+);
+
+stack_jxg.bind_point(
+    sB1,
+    b1
+);
+
+stack_jxg.bind_point(
+    sB2,
+    b2
+);
+
+
+board.unsuspendUpdate();
+
+[[/jsxgraph]]
+
+&lt;/center&gt;
+
+
+&lt;p style="visibility:hidden"&gt;
+[[input:ans1]]
+[[validation:ans1]]
+&lt;/p&gt;
+
+&lt;p style="visibility:hidden"&gt;
+[[input:ans2]]
+[[validation:ans2]]
+&lt;/p&gt;
+
+&lt;p style="visibility:hidden"&gt;
+[[input:ans3]]
+[[validation:ans3]]
+&lt;/p&gt;
+
+&lt;p style="visibility:hidden"&gt;
+[[input:ans4]]
+[[validation:ans4]]
+&lt;/p&gt;
+
+[[feedback:prt1]]
+[[feedback:prt2]]</text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;h3&gt;Worked solution&lt;/h3&gt;
+
+&lt;p&gt;
+For a line
+\[
+y=mx+c,
+\]
+one convenient point is its
+\(y\)-intercept:
+\[
+(0,c).
+\]
+&lt;/p&gt;
+
+&lt;p&gt;
+For Relation A,
+\[
+y={@m1@}x+({@c1@}),
+\]
+two points are
+\[
+(0,{@c1@})
+\]
+and
+\[
+(1,{@m1+c1@}).
+\]
+&lt;/p&gt;
+
+&lt;p&gt;
+For Relation B,
+\[
+y={@m2@}x+({@c2@}),
+\]
+two points are
+\[
+(0,{@c2@})
+\]
+and
+\[
+(1,{@m2+c2@}).
+\]
+&lt;/p&gt;
+
+&lt;p&gt;
+Any two distinct points lying on the
+correct relation define the same
+straight line, so your points do not
+have to match these example points.
+&lt;/p&gt;</text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.1000000</penalty>
+    <hidden>0</hidden>
+    <idnumber />
+    <stackversion>
+      <text>2023060500</text>
+    </stackversion>
+    <questionvariables>
+      <text>/*
+Shared Curriculum-Independent
+Question Bank
+
+Linear Relations
+QLIN-06
+
+Relation A is represented by a table.
+
+Relation B is represented by an
+equation.
+
+Both generate straight lines on the
+same Cartesian plane.
+*/
+
+
+/*
+Generate two distinct non-horizontal
+linear relations with small integer
+coefficients.
+*/
+
+m1:rand_with_prohib(
+    -2,
+    2,
+    [0]
+);
+
+
+m2:rand_with_prohib(
+    -2,
+    2,
+    [0,m1]
+);
+
+
+c1:rand(5)-2;
+
+
+c2:rand_with_prohib(
+    -2,
+    2,
+    [c1]
+);
+
+
+/*
+Target equations used internally
+for grading.
+
+Relation A is NOT displayed to the
+learner as an equation.
+*/
+
+equation1:y=m1*x+c1;
+
+equation2:y=m2*x+c2;
+
+
+/*
+Three table rows for Relation A.
+
+Using -1, 0 and 1 keeps the values
+readable while still requiring the
+learner to interpret the table as a
+linear relation.
+*/
+
+xA1:-1;
+xA2:0;
+xA3:1;
+
+yA1:m1*xA1+c1;
+yA2:m1*xA2+c1;
+yA3:m1*xA3+c1;
+
+
+/*
+Convenient teacher/model points.
+
+The grading does not require these
+exact coordinates. Any two distinct
+points on the correct line are valid.
+*/
+
+ta1:[0,c1];
+ta2:[1,m1+c1];
+
+tb1:[0,c2];
+tb2:[1,m2+c2];
+
+
+/*
+Initial draggable-point positions.
+
+These are only starting positions.
+They do not define the answer.
+*/
+
+start_ax1:-5;
+start_ay1:5;
+
+start_ax2:-4;
+start_ay2:4;
+
+start_bx1:4;
+start_by1:4;
+
+start_bx2:5;
+start_by2:5;</text>
+    </questionvariables>
+    <specificfeedback format="html">
+      <text>[[feedback:prt1]]</text>
+    </specificfeedback>
+    <questionnote format="moodle_auto_format">
+      <text>&lt;p&gt;
+Shared Question Bank |
+Linear Relations |
+QLIN-06
+&lt;/p&gt;
+
+&lt;p&gt;
+relationA:
+table;
+m=\({@m1@}\);
+c=\({@c1@}\)
+&lt;/p&gt;
+
+&lt;p&gt;
+tableA:
+({@xA1@},{@yA1@}),
+({@xA2@},{@yA2@}),
+({@xA3@},{@yA3@})
+&lt;/p&gt;
+
+&lt;p&gt;
+relationB:
+equation;
+m=\({@m2@}\);
+c=\({@c2@}\)
+&lt;/p&gt;
+
+&lt;p&gt;
+teacherA:
+{@ta1@},
+{@ta2@}
+&lt;/p&gt;
+
+&lt;p&gt;
+teacherB:
+{@tb1@},
+{@tb2@}
+&lt;/p&gt;</text>
+    </questionnote>
+    <questiondescription format="moodle_auto_format">
+      <text>&lt;p id="bank"&gt;
+Shared Curriculum-Independent
+Question Bank
+&lt;/p&gt;
+
+&lt;p id="shared-question-id"&gt;
+QLIN-06
+&lt;/p&gt;
+
+&lt;p id="knowledge-concept"&gt;
+linear-relations
+&lt;/p&gt;
+
+&lt;p id="secondary-concept"&gt;
+coordinate-graphs
+&lt;/p&gt;
+
+&lt;p id="role"&gt;
+visual
+&lt;/p&gt;
+
+&lt;p id="interaction"&gt;
+graph-table-and-equation
+&lt;/p&gt;
+
+&lt;p id="description"&gt;
+Learners graph two linear relations
+represented in different forms:
+one as a table of values and one as
+an equation.
+&lt;/p&gt;
+
+&lt;p id="assessment-distinction"&gt;
+Unlike QLIN-05, this task requires
+translation from a table representation
+before graphical construction.
+&lt;/p&gt;
+
+&lt;p id="provenance"&gt;
+Original STACK question design using
+the established STACK-JSXGraph point
+binding interaction pattern.
+No external question wording or
+mathematical content is copied.
+&lt;/p&gt;
+
+&lt;p id="curriculum-policy"&gt;
+Curriculum alignment is maintained
+outside the shared question source.
+&lt;/p&gt;</text>
+    </questiondescription>
+    <questionsimplify>1</questionsimplify>
+    <assumepositive>0</assumepositive>
+    <assumereal>0</assumereal>
+    <prtcorrect format="html">
+      <text>&lt;span style="font-size: 1.5em; color:green;"&gt;&lt;i class="fa fa-check"&gt;&lt;/i&gt;&lt;/span&gt; Correct answer, well done.</text>
+    </prtcorrect>
+    <prtpartiallycorrect format="html">
+      <text>&lt;span style="font-size: 1.5em; color:orange;"&gt;&lt;i class="fa fa-adjust"&gt;&lt;/i&gt;&lt;/span&gt; Your answer is partially correct.</text>
+    </prtpartiallycorrect>
+    <prtincorrect format="html">
+      <text>&lt;span style="font-size: 1.5em; color:red;"&gt;&lt;i class="fa fa-times"&gt;&lt;/i&gt;&lt;/span&gt; Incorrect answer.</text>
+    </prtincorrect>
+    <decimals>.</decimals>
+    <scientificnotation>*10</scientificnotation>
+    <multiplicationsign>none</multiplicationsign>
+    <sqrtsign>1</sqrtsign>
+    <complexno>i</complexno>
+    <inversetrig>cos-1</inversetrig>
+    <logicsymbol>lang</logicsymbol>
+    <matrixparens>[</matrixparens>
+    <isbroken>0</isbroken>
+    <variantsselectionseed />
+    <input>
+      <name>ans1</name>
+      <type>algebraic</type>
+      <tans>ta1</tans>
+      <boxsize>15</boxsize>
+      <strictsyntax>1</strictsyntax>
+      <insertstars>0</insertstars>
+      <syntaxhint />
+      <syntaxattribute>0</syntaxattribute>
+      <forbidwords />
+      <allowwords />
+      <forbidfloat>0</forbidfloat>
+      <requirelowestterms>0</requirelowestterms>
+      <checkanswertype>0</checkanswertype>
+      <mustverify>0</mustverify>
+      <showvalidation>0</showvalidation>
+      <options />
+    </input>
+    <input>
+      <name>ans2</name>
+      <type>algebraic</type>
+      <tans>ta2</tans>
+      <boxsize>15</boxsize>
+      <strictsyntax>1</strictsyntax>
+      <insertstars>0</insertstars>
+      <syntaxhint />
+      <syntaxattribute>0</syntaxattribute>
+      <forbidwords />
+      <allowwords />
+      <forbidfloat>0</forbidfloat>
+      <requirelowestterms>0</requirelowestterms>
+      <checkanswertype>0</checkanswertype>
+      <mustverify>0</mustverify>
+      <showvalidation>0</showvalidation>
+      <options />
+    </input>
+    <input>
+      <name>ans3</name>
+      <type>algebraic</type>
+      <tans>tb1</tans>
+      <boxsize>15</boxsize>
+      <strictsyntax>1</strictsyntax>
+      <insertstars>0</insertstars>
+      <syntaxhint />
+      <syntaxattribute>0</syntaxattribute>
+      <forbidwords />
+      <allowwords />
+      <forbidfloat>0</forbidfloat>
+      <requirelowestterms>0</requirelowestterms>
+      <checkanswertype>0</checkanswertype>
+      <mustverify>0</mustverify>
+      <showvalidation>0</showvalidation>
+      <options />
+    </input>
+    <input>
+      <name>ans4</name>
+      <type>algebraic</type>
+      <tans>tb2</tans>
+      <boxsize>15</boxsize>
+      <strictsyntax>1</strictsyntax>
+      <insertstars>0</insertstars>
+      <syntaxhint />
+      <syntaxattribute>0</syntaxattribute>
+      <forbidwords />
+      <allowwords />
+      <forbidfloat>0</forbidfloat>
+      <requirelowestterms>0</requirelowestterms>
+      <checkanswertype>0</checkanswertype>
+      <mustverify>0</mustverify>
+      <showvalidation>0</showvalidation>
+      <options />
+    </input>
+    <prt>
+      <name>prt1</name>
+      <value>0.5000000</value>
+      <autosimplify>1</autosimplify>
+      <feedbackstyle>1</feedbackstyle>
+      <feedbackvariables>
+        <text>
+/*
+Distance between the two A points.
+A single duplicated point must not
+define a line.
+*/
+
+distA:
+    (ans1[1]-ans2[1])^2
+    +
+    (ans1[2]-ans2[2])^2;
+
+
+/*
+Residuals against Relation A.
+Both draggable points must lie on
+the required line.
+*/
+
+resA1:
+    ans1[2]
+    -
+    (m1*ans1[1]+c1);
+
+resA2:
+    ans2[2]
+    -
+    (m1*ans2[1]+c1);
+
+errorA:
+    resA1^2
+    +
+    resA2^2;
+
+
+/*
+Swapped-line diagnostic:
+A points were placed on Relation B.
+*/
+
+swapA1:
+    ans1[2]
+    -
+    (m2*ans1[1]+c2);
+
+swapA2:
+    ans2[2]
+    -
+    (m2*ans2[1]+c2);
+
+swapErrorA:
+    swapA1^2
+    +
+    swapA2^2;
+    </text>
+      </feedbackvariables>
+      <node>
+        <name>0</name>
+        <description>
+Checks that A1 and A2 are distinct.
+    </description>
+        <answertest>NumAbsolute</answertest>
+        <sans>distA</sans>
+        <tans>0</tans>
+        <testoptions>0.001</testoptions>
+        <quiet>1</quiet>
+        <truescoremode>=</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>
+prt1-1-T
+    </trueanswernote>
+        <truefeedback format="html">
+          <text>&lt;p&gt;
+Use two different points for
+Relation A.
+&lt;/p&gt;</text>
+        </truefeedback>
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>1</falsenextnode>
+        <falseanswernote>
+prt1-1-F
+    </falseanswernote>
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+      <node>
+        <name>1</name>
+        <description>
+Checks Relation A.
+    </description>
+        <answertest>NumAbsolute</answertest>
+        <sans>errorA</sans>
+        <tans>0</tans>
+        <testoptions>0.001</testoptions>
+        <quiet>0</quiet>
+        <truescoremode>=</truescoremode>
+        <truescore>1</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>
+prt1-2-T
+    </trueanswernote>
+        <truefeedback format="html">
+          <text>&lt;p&gt;
+Relation A is correct.
+&lt;/p&gt;</text>
+        </truefeedback>
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>2</falsenextnode>
+        <falseanswernote>
+prt1-2-F
+    </falseanswernote>
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+      <node>
+        <name>2</name>
+        <description>
+Checks whether Relation B was plotted
+using the A points.
+    </description>
+        <answertest>NumAbsolute</answertest>
+        <sans>swapErrorA</sans>
+        <tans>0</tans>
+        <testoptions>0.001</testoptions>
+        <quiet>0</quiet>
+        <truescoremode>=</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>
+prt1-3-T
+    </trueanswernote>
+        <truefeedback format="html">
+          <text>&lt;p&gt;
+Your A-points appear to lie on
+Relation B.
+
+Relation A is represented by the
+table. Use \(A_1,A_2\) to graph
+the line that passes through the
+table values.
+&lt;/p&gt;</text>
+        </truefeedback>
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>-1</falsenextnode>
+        <falseanswernote>
+prt1-3-F
+    </falseanswernote>
+        <falsefeedback format="html">
+          <text>&lt;p&gt;
+Relation A is not correct yet.
+
+Use the table values to check the
+rate of change and where the line
+should pass through the graph.
+&lt;/p&gt;</text>
+        </falsefeedback>
+      </node>
+    </prt>
+    <prt>
+      <name>prt2</name>
+      <value>0.5000000</value>
+      <autosimplify>1</autosimplify>
+      <feedbackstyle>1</feedbackstyle>
+      <feedbackvariables>
+        <text>
+/*
+Distance between the two B points.
+*/
+
+distB:
+    (ans3[1]-ans4[1])^2
+    +
+    (ans3[2]-ans4[2])^2;
+
+
+/*
+Residuals against Relation B.
+*/
+
+resB1:
+    ans3[2]
+    -
+    (m2*ans3[1]+c2);
+
+resB2:
+    ans4[2]
+    -
+    (m2*ans4[1]+c2);
+
+errorB:
+    resB1^2
+    +
+    resB2^2;
+
+
+/*
+Swapped-line diagnostic.
+*/
+
+swapB1:
+    ans3[2]
+    -
+    (m1*ans3[1]+c1);
+
+swapB2:
+    ans4[2]
+    -
+    (m1*ans4[1]+c1);
+
+swapErrorB:
+    swapB1^2
+    +
+    swapB2^2;
+    </text>
+      </feedbackvariables>
+      <node>
+        <name>0</name>
+        <description>
+Checks that B1 and B2 are distinct.
+    </description>
+        <answertest>NumAbsolute</answertest>
+        <sans>distB</sans>
+        <tans>0</tans>
+        <testoptions>0.001</testoptions>
+        <quiet>1</quiet>
+        <truescoremode>=</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>
+prt2-1-T
+    </trueanswernote>
+        <truefeedback format="html">
+          <text>&lt;p&gt;
+Use two different points for
+Relation B.
+&lt;/p&gt;</text>
+        </truefeedback>
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>1</falsenextnode>
+        <falseanswernote>
+prt2-1-F
+    </falseanswernote>
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+      <node>
+        <name>1</name>
+        <description>
+Checks Relation B.
+    </description>
+        <answertest>NumAbsolute</answertest>
+        <sans>errorB</sans>
+        <tans>0</tans>
+        <testoptions>0.001</testoptions>
+        <quiet>0</quiet>
+        <truescoremode>=</truescoremode>
+        <truescore>1</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>
+prt2-2-T
+    </trueanswernote>
+        <truefeedback format="html">
+          <text>&lt;p&gt;
+Relation B is correct.
+&lt;/p&gt;</text>
+        </truefeedback>
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>2</falsenextnode>
+        <falseanswernote>
+prt2-2-F
+    </falseanswernote>
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+      <node>
+        <name>2</name>
+        <description>
+Checks whether Relation A was plotted
+using the B points.
+    </description>
+        <answertest>NumAbsolute</answertest>
+        <sans>swapErrorB</sans>
+        <tans>0</tans>
+        <testoptions>0.001</testoptions>
+        <quiet>0</quiet>
+        <truescoremode>=</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>
+prt2-3-T
+    </trueanswernote>
+        <truefeedback format="html">
+          <text>&lt;p&gt;
+Your B-points appear to lie on
+Relation A.
+
+Relation B is represented by the
+equation
+\[
+y={@m2@}x+({@c2@}).
+\]
+
+Use \(B_1,B_2\) for that
+equation.
+&lt;/p&gt;</text>
+        </truefeedback>
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>-1</falsenextnode>
+        <falseanswernote>
+prt2-3-F
+    </falseanswernote>
+        <falsefeedback format="html">
+          <text>&lt;p&gt;
+Relation B is not correct yet.
+
+Check its gradient and
+\(y\)-intercept.
+&lt;/p&gt;</text>
+        </falsefeedback>
+      </node>
+    </prt>
+    <qtest>
+      <testcase>1</testcase>
+      <description>
+Teacher points for both relations
+should receive full credit.
+  </description>
+      <testinput>
+        <name>ans1</name>
+        <value>ta1</value>
+      </testinput>
+      <testinput>
+        <name>ans2</name>
+        <value>ta2</value>
+      </testinput>
+      <testinput>
+        <name>ans3</name>
+        <value>tb1</value>
+      </testinput>
+      <testinput>
+        <name>ans4</name>
+        <value>tb2</value>
+      </testinput>
+      <expected>
+        <name>prt1</name>
+        <expectedscore>
+1.0000000
+    </expectedscore>
+        <expectedpenalty>
+0.0000000
+    </expectedpenalty>
+        <expectedanswernote>
+prt1-2-T
+    </expectedanswernote>
+      </expected>
+      <expected>
+        <name>prt2</name>
+        <expectedscore>
+1.0000000
+    </expectedscore>
+        <expectedpenalty>
+0.0000000
+    </expectedpenalty>
+        <expectedanswernote>
+prt2-2-T
+    </expectedanswernote>
+      </expected>
+    </qtest>
+  </question>
+</quiz>

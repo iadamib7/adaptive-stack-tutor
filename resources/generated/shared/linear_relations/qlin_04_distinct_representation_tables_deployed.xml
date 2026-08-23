@@ -1,0 +1,916 @@
+<quiz>
+  <question type="stack">
+
+    <name>
+      <text>Shared: Complete tables from different linear representations</text>
+    </name>
+
+
+    <questiontext format="html">
+      <text>&lt;p&gt;
+Two linear relations are given in
+different forms.
+&lt;/p&gt;
+
+&lt;p&gt;
+The first relation is
+\[
+y={@m1@}x+({@c1@}).
+\]
+&lt;/p&gt;
+
+&lt;p&gt;
+The second relation is
+\[
+({@a2@})x+z={@b2@}.
+\]
+&lt;/p&gt;
+
+&lt;p&gt;
+Complete the missing values in both
+rows of the table.
+&lt;/p&gt;
+
+&lt;p&gt;
+For the second relation, you may find
+it helpful to rearrange the equation
+so that \(z\) is by itself.
+&lt;/p&gt;
+
+&lt;table border="1"
+       cellpadding="8"
+       style="border-collapse:collapse;
+              text-align:center;"&gt;
+
+&lt;tr&gt;
+  &lt;th&gt;\(x\)&lt;/th&gt;
+  &lt;td&gt;\({@x1@}\)&lt;/td&gt;
+  &lt;td&gt;\({@x2@}\)&lt;/td&gt;
+  &lt;td&gt;\({@x3@}\)&lt;/td&gt;
+  &lt;td&gt;\({@x4@}\)&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+  &lt;th&gt;\(y\)&lt;/th&gt;
+
+  &lt;td&gt;
+    \({@y1@}\)
+  &lt;/td&gt;
+
+  &lt;td&gt;
+    [[input:ans1]]
+    [[validation:ans1]]
+    [[feedback:prt1]]
+  &lt;/td&gt;
+
+  &lt;td&gt;
+    [[input:ans2]]
+    [[validation:ans2]]
+    [[feedback:prt2]]
+  &lt;/td&gt;
+
+  &lt;td&gt;
+    \({@y4@}\)
+  &lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+  &lt;th&gt;\(z\)&lt;/th&gt;
+
+  &lt;td&gt;
+    [[input:ans3]]
+    [[validation:ans3]]
+    [[feedback:prt3]]
+  &lt;/td&gt;
+
+  &lt;td&gt;
+    \({@z2@}\)
+  &lt;/td&gt;
+
+  &lt;td&gt;
+    \({@z3@}\)
+  &lt;/td&gt;
+
+  &lt;td&gt;
+    [[input:ans4]]
+    [[validation:ans4]]
+    [[feedback:prt4]]
+  &lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;/table&gt;
+      </text>
+    </questiontext>
+
+
+    <generalfeedback format="html">
+      <text>&lt;h3&gt;Worked solution&lt;/h3&gt;
+
+&lt;p&gt;
+For the first relation,
+\[
+y={@m1@}x+({@c1@}).
+\]
+Substitute each \(x\)-value directly.
+&lt;/p&gt;
+
+&lt;p&gt;
+For example, at \(x={@x2@}\),
+\[
+y=({@m1@})({@x2@})+({@c1@})
+={@y2@}.
+\]
+&lt;/p&gt;
+
+&lt;p&gt;
+The second relation is
+\[
+({@a2@})x+z={@b2@}.
+\]
+&lt;/p&gt;
+
+&lt;p&gt;
+Rearrange it:
+\[
+z={@b2@}-({@a2@})x.
+\]
+This is equivalent to
+\[
+z={@m2@}x+({@c2@}).
+\]
+&lt;/p&gt;
+
+&lt;p&gt;
+At \(x={@x1@}\),
+\[
+z={@b2@}-({@a2@})({@x1@})
+={@z1@}.
+\]
+&lt;/p&gt;
+
+&lt;p&gt;
+At \(x={@x4@}\),
+\[
+z={@b2@}-({@a2@})({@x4@})
+={@z4@}.
+\]
+&lt;/p&gt;
+
+&lt;p&gt;
+The important step is recognizing that
+the second relation represents a
+straight-line rule even though it was
+not initially written with \(z\)
+isolated.
+&lt;/p&gt;
+      </text>
+    </generalfeedback>
+
+
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.1000000</penalty>
+    <hidden>0</hidden>
+    <idnumber />
+
+
+    <stackversion>
+      <text>2025012100</text>
+    </stackversion>
+
+
+    <questionvariables>
+      <text>
+/*
+Shared Question Bank
+Linear Relations
+QLIN-04
+
+The first relation is displayed in
+slope-intercept form:
+
+y = m1*x + c1
+
+The second relation is displayed in
+standard-like form:
+
+a2*x + z = b2
+
+Internally:
+
+a2 = -m2
+b2 = c2
+
+so that:
+
+z = m2*x + c2
+*/
+
+
+/*
+First relation.
+*/
+
+m1:rand_with_prohib(
+    -4,
+    4,
+    [0]
+);
+
+c1:rand(9)-4;
+
+
+/*
+Second relation.
+
+Choose a distinct non-zero slope.
+*/
+
+m2:rand_with_prohib(
+    -4,
+    4,
+    [0,m1]
+);
+
+
+/*
+Shared x-values.
+*/
+
+x1:-2;
+x2:-1;
+x3:1;
+x4:2;
+
+
+/*
+Choose c2 so that the two relations
+do not produce the same output at any
+x-value used in this table.
+
+For an intersection at x:
+
+m1*x+c1 = m2*x+c2
+
+therefore the forbidden c2 value is:
+
+c1+(m1-m2)*x
+*/
+
+c2:rand_with_prohib(
+    -4,
+    4,
+    [
+        c1+(m1-m2)*x1,
+        c1+(m1-m2)*x2,
+        c1+(m1-m2)*x3,
+        c1+(m1-m2)*x4
+    ]
+);
+
+
+/*
+Alternative representation of the
+second relation.
+
+a2*x + z = b2
+
+is equivalent to
+
+z = m2*x + c2.
+*/
+
+a2:-m2;
+b2:c2;
+
+
+/*
+First relation outputs.
+*/
+
+y1:m1*x1+c1;
+y2:m1*x2+c1;
+y3:m1*x3+c1;
+y4:m1*x4+c1;
+
+
+/*
+Second relation outputs.
+*/
+
+z1:m2*x1+c2;
+z2:m2*x2+c2;
+z3:m2*x3+c2;
+z4:m2*x4+c2;
+
+
+/*
+Diagnostic wrong answers.
+
+For y-row cells:
+student incorrectly uses the second
+relation.
+
+For z-row cells:
+student incorrectly uses the first
+relation.
+*/
+
+wrong1:m2*x2+c2;
+wrong2:m2*x3+c2;
+
+wrong3:b2+a2*x1;
+wrong4:b2+a2*x4;
+      </text>
+    </questionvariables>
+
+
+    <specificfeedback format="html">
+      <text />
+    </specificfeedback>
+
+
+    <questionnote format="html">
+      <text>&lt;p&gt;
+Shared Question Bank |
+Linear Relations |
+QLIN-04
+&lt;/p&gt;
+
+&lt;p&gt;
+relation1:
+y=\({@m1@}\)x+\({@c1@}\)
+&lt;/p&gt;
+
+&lt;p&gt;
+relation2:
+\({@a2@}\)x+z=\({@b2@}\)
+&lt;/p&gt;
+
+&lt;p&gt;
+equivalent relation2:
+z=\({@m2@}\)x+\({@c2@}\)
+&lt;/p&gt;
+
+&lt;p&gt;
+answers=
+{@y2@},
+{@y3@},
+{@z1@},
+{@z4@}
+&lt;/p&gt;
+      </text>
+    </questionnote>
+
+
+    <questiondescription format="html">
+      <text>&lt;p id="bank"&gt;
+Shared Curriculum-Independent Question Bank
+&lt;/p&gt;
+
+&lt;p id="shared-question-id"&gt;
+QLIN-04
+&lt;/p&gt;
+
+&lt;p id="knowledge-concept"&gt;
+linear-relations
+&lt;/p&gt;
+
+&lt;p id="secondary-concept"&gt;
+equivalent-linear-representations
+&lt;/p&gt;
+
+&lt;p id="role"&gt;
+procedural
+&lt;/p&gt;
+
+&lt;p id="interaction"&gt;
+distinct-representation-table-completion
+&lt;/p&gt;
+
+&lt;p id="description"&gt;
+Learners work with two linear relations
+presented in different algebraic forms.
+They must interpret the second relation,
+rearrange it conceptually, and complete
+selected outputs for both relations.
+&lt;/p&gt;
+
+&lt;p id="provenance"&gt;
+Original STACK implementation informed by
+open linear-relation and table-completion
+interaction patterns. No external wording
+or mathematical content is copied.
+&lt;/p&gt;
+
+&lt;p id="curriculum-policy"&gt;
+Curriculum alignment is maintained outside
+the question source and can differ between
+Ghana, Kenya, and future curricula.
+&lt;/p&gt;
+      </text>
+    </questiondescription>
+
+
+    <questionsimplify>1</questionsimplify>
+    <assumepositive>0</assumepositive>
+    <assumereal>0</assumereal>
+
+
+    <prtcorrect format="html">
+      <text>&lt;p&gt;Correct.&lt;/p&gt;</text>
+    </prtcorrect>
+
+
+    <prtpartiallycorrect format="html">
+      <text>&lt;p&gt;
+Some values are correct.
+Check that you are using the correct
+relation for each table row.
+&lt;/p&gt;</text>
+    </prtpartiallycorrect>
+
+
+    <prtincorrect format="html">
+      <text>&lt;p&gt;
+That value is not correct.
+Substitute the given \(x\)-value into
+the equation for the correct row.
+&lt;/p&gt;</text>
+    </prtincorrect>
+
+
+    <decimals>.</decimals>
+    <scientificnotation>*10</scientificnotation>
+    <multiplicationsign>none</multiplicationsign>
+    <sqrtsign>1</sqrtsign>
+    <complexno>i</complexno>
+    <inversetrig>cos-1</inversetrig>
+    <logicsymbol>lang</logicsymbol>
+    <matrixparens>[</matrixparens>
+    <isbroken>0</isbroken>
+    <variantsselectionseed />
+
+
+    <input>
+      <name>ans1</name>
+      <type>algebraic</type>
+      <tans>y2</tans>
+      <boxsize>5</boxsize>
+      <strictsyntax>1</strictsyntax>
+      <insertstars>0</insertstars>
+      <syntaxhint />
+      <syntaxattribute>0</syntaxattribute>
+      <forbidwords />
+      <allowwords />
+      <forbidfloat>0</forbidfloat>
+      <requirelowestterms>0</requirelowestterms>
+      <checkanswertype>0</checkanswertype>
+      <mustverify>1</mustverify>
+      <showvalidation>3</showvalidation>
+      <options />
+    </input>
+
+
+    <input>
+      <name>ans2</name>
+      <type>algebraic</type>
+      <tans>y3</tans>
+      <boxsize>5</boxsize>
+      <strictsyntax>1</strictsyntax>
+      <insertstars>0</insertstars>
+      <syntaxhint />
+      <syntaxattribute>0</syntaxattribute>
+      <forbidwords />
+      <allowwords />
+      <forbidfloat>0</forbidfloat>
+      <requirelowestterms>0</requirelowestterms>
+      <checkanswertype>0</checkanswertype>
+      <mustverify>1</mustverify>
+      <showvalidation>3</showvalidation>
+      <options />
+    </input>
+
+
+    <input>
+      <name>ans3</name>
+      <type>algebraic</type>
+      <tans>z1</tans>
+      <boxsize>5</boxsize>
+      <strictsyntax>1</strictsyntax>
+      <insertstars>0</insertstars>
+      <syntaxhint />
+      <syntaxattribute>0</syntaxattribute>
+      <forbidwords />
+      <allowwords />
+      <forbidfloat>0</forbidfloat>
+      <requirelowestterms>0</requirelowestterms>
+      <checkanswertype>0</checkanswertype>
+      <mustverify>1</mustverify>
+      <showvalidation>3</showvalidation>
+      <options />
+    </input>
+
+
+    <input>
+      <name>ans4</name>
+      <type>algebraic</type>
+      <tans>z4</tans>
+      <boxsize>5</boxsize>
+      <strictsyntax>1</strictsyntax>
+      <insertstars>0</insertstars>
+      <syntaxhint />
+      <syntaxattribute>0</syntaxattribute>
+      <forbidwords />
+      <allowwords />
+      <forbidfloat>0</forbidfloat>
+      <requirelowestterms>0</requirelowestterms>
+      <checkanswertype>0</checkanswertype>
+      <mustverify>1</mustverify>
+      <showvalidation>3</showvalidation>
+      <options />
+    </input>
+
+
+    <prt>
+      <name>prt1</name>
+      <value>0.2500000</value>
+      <autosimplify>1</autosimplify>
+      <feedbackstyle>1</feedbackstyle>
+      <feedbackvariables>
+        <text />
+      </feedbackvariables>
+
+      <node>
+        <name>0</name>
+        <description>
+Checks y at x2.
+        </description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans1</sans>
+        <tans>y2</tans>
+        <testoptions />
+        <quiet>0</quiet>
+
+        <truescoremode>=</truescoremode>
+        <truescore>1</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-1-T</trueanswernote>
+        <truefeedback format="html">
+          <text />
+        </truefeedback>
+
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>1</falsenextnode>
+        <falseanswernote>prt1-1-F</falseanswernote>
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+
+      <node>
+        <name>1</name>
+        <description>
+Checks whether the second relation was used.
+        </description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans1</sans>
+        <tans>wrong1</tans>
+        <testoptions />
+        <quiet>1</quiet>
+
+        <truescoremode>=</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-2-T</trueanswernote>
+
+        <truefeedback format="html">
+          <text>&lt;p&gt;
+You appear to have used the second relation.
+This cell belongs to the \(y\)-row, so use
+\[
+y={@m1@}x+({@c1@}).
+\]
+&lt;/p&gt;</text>
+        </truefeedback>
+
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>-1</falsenextnode>
+        <falseanswernote>prt1-2-F</falseanswernote>
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+    </prt>
+
+
+    <prt>
+      <name>prt2</name>
+      <value>0.2500000</value>
+      <autosimplify>1</autosimplify>
+      <feedbackstyle>1</feedbackstyle>
+      <feedbackvariables>
+        <text />
+      </feedbackvariables>
+
+      <node>
+        <name>0</name>
+        <description>
+Checks y at x3.
+        </description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans2</sans>
+        <tans>y3</tans>
+        <testoptions />
+        <quiet>0</quiet>
+
+        <truescoremode>=</truescoremode>
+        <truescore>1</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt2-1-T</trueanswernote>
+        <truefeedback format="html">
+          <text />
+        </truefeedback>
+
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>1</falsenextnode>
+        <falseanswernote>prt2-1-F</falseanswernote>
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+
+      <node>
+        <name>1</name>
+        <description>
+Checks whether the second relation was used.
+        </description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans2</sans>
+        <tans>wrong2</tans>
+        <testoptions />
+        <quiet>1</quiet>
+
+        <truescoremode>=</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt2-2-T</trueanswernote>
+
+        <truefeedback format="html">
+          <text>&lt;p&gt;
+Check which equation belongs to this row.
+For the \(y\)-row, use the first relation.
+&lt;/p&gt;</text>
+        </truefeedback>
+
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>-1</falsenextnode>
+        <falseanswernote>prt2-2-F</falseanswernote>
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+    </prt>
+
+
+    <prt>
+      <name>prt3</name>
+      <value>0.2500000</value>
+      <autosimplify>1</autosimplify>
+      <feedbackstyle>1</feedbackstyle>
+      <feedbackvariables>
+        <text />
+      </feedbackvariables>
+
+      <node>
+        <name>0</name>
+        <description>
+Checks z at x1.
+        </description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans3</sans>
+        <tans>z1</tans>
+        <testoptions />
+        <quiet>0</quiet>
+
+        <truescoremode>=</truescoremode>
+        <truescore>1</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt3-1-T</trueanswernote>
+        <truefeedback format="html">
+          <text />
+        </truefeedback>
+
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>1</falsenextnode>
+        <falseanswernote>prt3-1-F</falseanswernote>
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+
+      <node>
+        <name>1</name>
+        <description>
+Checks whether the first relation was used.
+        </description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans3</sans>
+        <tans>wrong3</tans>
+        <testoptions />
+        <quiet>1</quiet>
+
+        <truescoremode>=</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt3-2-T</trueanswernote>
+
+        <truefeedback format="html">
+          <text>&lt;p&gt;
+Check the sign when you rearrange the
+second relation.
+From
+\[
+({@a2@})x+z={@b2@},
+\]
+moving \(({@a2@})x\) to the other side gives
+\[
+z={@b2@}-({@a2@})x,
+\]
+not
+\[
+z={@b2@}+({@a2@})x.
+\]
+&lt;/p&gt;</text>
+        </truefeedback>
+
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>-1</falsenextnode>
+        <falseanswernote>prt3-2-F</falseanswernote>
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+    </prt>
+
+
+    <prt>
+      <name>prt4</name>
+      <value>0.2500000</value>
+      <autosimplify>1</autosimplify>
+      <feedbackstyle>1</feedbackstyle>
+      <feedbackvariables>
+        <text />
+      </feedbackvariables>
+
+      <node>
+        <name>0</name>
+        <description>
+Checks z at x4.
+        </description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans4</sans>
+        <tans>z4</tans>
+        <testoptions />
+        <quiet>0</quiet>
+
+        <truescoremode>=</truescoremode>
+        <truescore>1</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt4-1-T</trueanswernote>
+        <truefeedback format="html">
+          <text />
+        </truefeedback>
+
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>1</falsenextnode>
+        <falseanswernote>prt4-1-F</falseanswernote>
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+
+      <node>
+        <name>1</name>
+        <description>
+Checks whether the first relation was used.
+        </description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans4</sans>
+        <tans>wrong4</tans>
+        <testoptions />
+        <quiet>1</quiet>
+
+        <truescoremode>=</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt4-2-T</trueanswernote>
+
+        <truefeedback format="html">
+          <text>&lt;p&gt;
+You have the correct relation, but check
+the rearrangement sign.
+From
+\[
+({@a2@})x+z={@b2@},
+\]
+the isolated form is
+\[
+z={@b2@}-({@a2@})x.
+\]
+&lt;/p&gt;</text>
+        </truefeedback>
+
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>-1</falsenextnode>
+        <falseanswernote>prt4-2-F</falseanswernote>
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+    </prt>
+
+
+    <qtest>
+      <testcase>1</testcase>
+
+      <description>
+Teacher answers should receive full credit
+for all four missing values.
+      </description>
+
+      <testinput>
+        <name>ans1</name>
+        <value>y2</value>
+      </testinput>
+
+      <testinput>
+        <name>ans2</name>
+        <value>y3</value>
+      </testinput>
+
+      <testinput>
+        <name>ans3</name>
+        <value>z1</value>
+      </testinput>
+
+      <testinput>
+        <name>ans4</name>
+        <value>z4</value>
+      </testinput>
+
+      <expected>
+        <name>prt1</name>
+        <expectedscore>1.0000000</expectedscore>
+        <expectedpenalty>0.0000000</expectedpenalty>
+        <expectedanswernote>prt1-1-T</expectedanswernote>
+      </expected>
+
+      <expected>
+        <name>prt2</name>
+        <expectedscore>1.0000000</expectedscore>
+        <expectedpenalty>0.0000000</expectedpenalty>
+        <expectedanswernote>prt2-1-T</expectedanswernote>
+      </expected>
+
+      <expected>
+        <name>prt3</name>
+        <expectedscore>1.0000000</expectedscore>
+        <expectedpenalty>0.0000000</expectedpenalty>
+        <expectedanswernote>prt3-1-T</expectedanswernote>
+      </expected>
+
+      <expected>
+        <name>prt4</name>
+        <expectedscore>1.0000000</expectedscore>
+        <expectedpenalty>0.0000000</expectedpenalty>
+        <expectedanswernote>prt4-1-T</expectedanswernote>
+      </expected>
+
+    </qtest>
+
+  <deployedseed>1793541255</deployedseed><deployedseed>1331816809</deployedseed><deployedseed>1089061832</deployedseed><deployedseed>443036714</deployedseed><deployedseed>1824724111</deployedseed></question>
+</quiz>

@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+﻿from dataclasses import dataclass
 from enum import Enum
 
 from backend.app.content.models import (
@@ -30,10 +30,9 @@ class PathwayDecision:
 
 class AdaptivePathwayPolicy:
     """
-    Combine concept-level and content-level selection.
+    Deterministic curriculum and question pathway policy.
 
-    The policy is deterministic and keeps curriculum
-    progression separate from question retrieval.
+    The same learner state always produces the same decision.
     """
 
     def __init__(
@@ -51,28 +50,17 @@ class AdaptivePathwayPolicy:
         seen_content_ids: set[str] | None = None,
         *,
         concept_mastered: bool,
+        repeat_attempt_counts: (
+            dict[str, int] | None
+        ) = None,
     ) -> PathwayDecision:
         seen = set(
             seen_content_ids or set()
         )
 
-        question = (
-            self.content_selector.select_question(
-                concept_id=current_concept_id,
-                seen_content_ids=seen,
-            )
-        )
-
-        if question is not None:
-            return PathwayDecision(
-                action=PathwayAction.PRACTICE,
-                concept_id=current_concept_id,
-                question=question,
-                reason=(
-                    "Unseen deliverable content remains "
-                    "for the current concept."
-                ),
-            )
+        # --------------------------------------------------
+        # Mastery: advance immediately when possible.
+        # --------------------------------------------------
 
         if concept_mastered:
             next_concept = (
@@ -106,11 +94,51 @@ class AdaptivePathwayPolicy:
                     ),
                     question=next_question,
                     reason=(
-                        "Current concept is mastered "
-                        "and its unseen content is "
-                        "exhausted."
+                        "Current concept mastery has "
+                        "been demonstrated, so the "
+                        "learner advances to the next "
+                        "eligible concept."
                     ),
                 )
+
+            return PathwayDecision(
+                action=PathwayAction.NO_CONTENT,
+                concept_id=current_concept_id,
+                question=None,
+                reason=(
+                    "Current concept is mastered and "
+                    "no further eligible concept "
+                    "remains."
+                ),
+            )
+
+        # --------------------------------------------------
+        # Prefer unseen current-concept practice.
+        # --------------------------------------------------
+
+        question = (
+            self.content_selector.select_question(
+                concept_id=current_concept_id,
+                seen_content_ids=seen,
+            )
+        )
+
+        if question is not None:
+            return PathwayDecision(
+                action=PathwayAction.PRACTICE,
+                concept_id=current_concept_id,
+                question=question,
+                reason=(
+                    "Current concept is not yet "
+                    "mastered and unseen practice "
+                    "content remains."
+                ),
+            )
+
+        # --------------------------------------------------
+        # Current content exhausted:
+        # try an unmastered prerequisite.
+        # --------------------------------------------------
 
         remediation = (
             self.concept_selector
@@ -148,17 +176,26 @@ class AdaptivePathwayPolicy:
                     ),
                     reason=(
                         "Current concept is not "
-                        "mastered and unseen "
-                        "remediation content is "
-                        "available."
+                        "mastered and its available "
+                        "practice is exhausted. "
+                        "The learner is redirected "
+                        "to an unmastered prerequisite."
                     ),
                 )
+
+        # --------------------------------------------------
+        # No remediation:
+        # repeat the least-attempted question.
+        # --------------------------------------------------
 
         repeat = (
             self.content_selector.select_question(
                 concept_id=current_concept_id,
                 seen_content_ids=seen,
                 allow_repeat=True,
+                repeat_attempt_counts=(
+                    repeat_attempt_counts
+                ),
             )
         )
 
@@ -168,9 +205,11 @@ class AdaptivePathwayPolicy:
                 concept_id=current_concept_id,
                 question=repeat,
                 reason=(
-                    "No unseen content or usable "
-                    "remediation remains, so a "
-                    "repeat is explicitly allowed."
+                    "No unseen practice or usable "
+                    "prerequisite remediation remains. "
+                    "The least-attempted question is "
+                    "selected for deterministic "
+                    "targeted repetition."
                 ),
             )
 
@@ -179,7 +218,7 @@ class AdaptivePathwayPolicy:
             concept_id=current_concept_id,
             question=None,
             reason=(
-                "No deliverable content is "
-                "available for the pathway."
+                "No deliverable content is available "
+                "for this pathway."
             ),
         )

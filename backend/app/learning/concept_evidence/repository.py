@@ -1,4 +1,4 @@
-from collections import defaultdict
+﻿from collections import defaultdict
 
 from backend.app.learning.concept_evidence.models import (
     ConceptEvidenceEvent,
@@ -28,7 +28,9 @@ class ConceptEvidenceRepository:
             event.concept_id,
         )
 
-        self._events[key].append(event)
+        self._events[key].append(
+            event
+        )
 
     def get_events(
         self,
@@ -42,17 +44,81 @@ class ConceptEvidenceRepository:
             )
         ].copy()
 
+    def get_question_attempt_counts(
+        self,
+        student_id: int,
+        concept_id: str,
+    ) -> dict[str, int]:
+        counts: dict[str, int] = {}
+
+        for event in self.get_events(
+            student_id=student_id,
+            concept_id=concept_id,
+        ):
+            counts[event.question_id] = (
+                counts.get(
+                    event.question_id,
+                    0,
+                )
+                + 1
+            )
+
+        return counts
+
     def get_student_events(
         self,
         student_id: int,
     ) -> list[ConceptEvidenceEvent]:
-        events: list[ConceptEvidenceEvent] = []
+        events: list[
+            ConceptEvidenceEvent
+        ] = []
 
         for (
             stored_student_id,
             _,
         ), concept_events in self._events.items():
             if stored_student_id == student_id:
-                events.extend(concept_events)
+                events.extend(
+                    concept_events
+                )
 
-        return events
+        return events.copy()
+
+    def snapshot_student(
+        self,
+        student_id: int,
+    ) -> list[ConceptEvidenceEvent]:
+        return [
+            event.model_copy(
+                deep=True
+            )
+            for event in self.get_student_events(
+                student_id
+            )
+        ]
+
+    def restore_student(
+        self,
+        student_id: int,
+        events: list[
+            ConceptEvidenceEvent
+        ],
+    ) -> None:
+        keys_to_remove = [
+            key
+            for key in self._events
+            if key[0] == student_id
+        ]
+
+        for key in keys_to_remove:
+            self._events.pop(
+                key,
+                None,
+            )
+
+        for event in events:
+            self.save(
+                event.model_copy(
+                    deep=True
+                )
+            )

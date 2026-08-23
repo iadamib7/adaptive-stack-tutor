@@ -1,0 +1,1820 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
+
+    <title>Adaptive STACK Tutor</title>
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [
+                    ["\\(", "\\)"],
+                    ["$", "$"]
+                ],
+                displayMath: [
+                    ["\\[", "\\]"],
+                    ["$$", "$$"]
+                ]
+            },
+            svg: {
+                fontCache: "global"
+            }
+        };
+    </script>
+
+    <script
+        async
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"
+    ></script>
+
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraph.css"
+    >
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/jsxgraph/distrib/jsxgraphcore.js"
+    ></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family:
+                Inter,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+            background:
+                linear-gradient(
+                    180deg,
+                    #f4f8ff 0%,
+                    #ffffff 55%
+                );
+            color: #172033;
+        }
+
+        button,
+        input {
+            font: inherit;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .app-shell {
+            width: min(
+                100% - 28px,
+                840px
+            );
+            margin: 0 auto;
+            padding:
+                28px
+                0
+                56px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 26px;
+        }
+
+        .brand-mark {
+            width: 48px;
+            height: 48px;
+            border-radius: 15px;
+            display: grid;
+            place-items: center;
+            background: #2563eb;
+            color: white;
+            font-size: 24px;
+            font-weight: 900;
+            box-shadow:
+                0 8px 24px
+                rgba(37, 99, 235, 0.22);
+        }
+
+        .brand h1 {
+            margin: 0;
+            font-size: clamp(
+                1.45rem,
+                4vw,
+                2rem
+            );
+            letter-spacing: -0.03em;
+        }
+
+        .brand p {
+            margin:
+                4px
+                0
+                0;
+            color: #64748b;
+            font-size: 0.94rem;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid #e5eaf2;
+            border-radius: 24px;
+            box-shadow:
+                0 18px 50px
+                rgba(15, 23, 42, 0.07);
+        }
+
+        .start-card {
+            max-width: 540px;
+            margin: 48px auto 0;
+            padding: 32px;
+        }
+
+        .start-card h2 {
+            margin:
+                0
+                0
+                8px;
+            font-size: 1.55rem;
+        }
+
+        .start-card p {
+            margin:
+                0
+                0
+                26px;
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        .field-label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 0.9rem;
+            font-weight: 750;
+            color: #334155;
+        }
+
+        .student-id-input,
+        .curriculum-select {
+            width: 100%;
+            border: 2px solid #dbe3ef;
+            border-radius: 14px;
+            padding:
+                14px
+                16px;
+            outline: none;
+            background: white;
+            transition:
+                border-color 0.18s,
+                box-shadow 0.18s;
+        }
+
+        .student-id-input:focus,
+        .curriculum-select:focus {
+            border-color: #2563eb;
+            box-shadow:
+                0 0 0 4px
+                rgba(37, 99, 235, 0.11);
+        }
+
+        .curriculum-field {
+            margin-top: 18px;
+        }
+
+        .primary-button {
+            width: 100%;
+            border: 0;
+            border-radius: 14px;
+            padding:
+                14px
+                18px;
+            margin-top: 16px;
+            background: #2563eb;
+            color: white;
+            font-weight: 800;
+            transition:
+                transform 0.15s,
+                box-shadow 0.15s,
+                opacity 0.15s;
+            box-shadow:
+                0 8px 20px
+                rgba(37, 99, 235, 0.22);
+        }
+
+        .primary-button:hover:not(:disabled) {
+            transform: translateY(-1px);
+            box-shadow:
+                0 11px 26px
+                rgba(37, 99, 235, 0.27);
+        }
+
+        .primary-button:disabled {
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .learning-layout {
+            display: grid;
+            gap: 18px;
+        }
+
+        .top-card {
+            padding:
+                20px
+                22px;
+        }
+
+        .concept-row {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .eyebrow {
+            margin-bottom: 5px;
+            color: #64748b;
+            font-size: 0.76rem;
+            font-weight: 800;
+            letter-spacing: 0.09em;
+            text-transform: uppercase;
+        }
+
+        #concept-title {
+            margin: 0;
+            font-size: clamp(
+                1.35rem,
+                4vw,
+                1.8rem
+            );
+            letter-spacing: -0.025em;
+        }
+
+        .task-counter {
+            flex: 0 0 auto;
+            border-radius: 999px;
+            padding:
+                7px
+                11px;
+            background: #eff6ff;
+            color: #1d4ed8;
+            font-size: 0.8rem;
+            font-weight: 800;
+        }
+
+        .progress-track {
+            height: 9px;
+            margin-top: 18px;
+            overflow: hidden;
+            border-radius: 999px;
+            background: #edf1f6;
+        }
+
+        .progress-fill {
+            width: 0%;
+            height: 100%;
+            border-radius: inherit;
+            background:
+                linear-gradient(
+                    90deg,
+                    #2563eb,
+                    #4f8cff
+                );
+            transition: width 0.35s ease;
+        }
+
+        .progress-caption {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            margin-top: 9px;
+            color: #64748b;
+            font-size: 0.82rem;
+        }
+
+        .question-card {
+            padding:
+                clamp(
+                    22px,
+                    5vw,
+                    38px
+                );
+        }
+
+        .question-heading {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 22px;
+        }
+
+        .question-number {
+            width: 32px;
+            height: 32px;
+            border-radius: 10px;
+            display: grid;
+            place-items: center;
+            background: #eef4ff;
+            color: #2563eb;
+            font-weight: 900;
+        }
+
+        .question-heading strong {
+            font-size: 0.98rem;
+        }
+
+        #question-container {
+            font-size: clamp(
+                1.06rem,
+                2.7vw,
+                1.25rem
+            );
+            line-height: 1.85;
+            overflow-wrap: anywhere;
+        }
+
+        #question-container p {
+            margin:
+                10px
+                0;
+        }
+
+        #question-container
+        input[type="text"] {
+            display: inline-block;
+            width: 88px !important;
+            min-width: 72px;
+            max-width: 150px;
+            height: 46px;
+            margin:
+                3px
+                6px;
+            padding:
+                7px
+                10px;
+            border: 2px solid #b9c6d8;
+            border-radius: 11px;
+            background: #fbfdff;
+            color: #172033;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: 750;
+            outline: none;
+            vertical-align: middle;
+            transition:
+                border-color 0.16s,
+                box-shadow 0.16s,
+                background 0.16s;
+        }
+
+        #question-container
+        input[type="text"]:focus {
+            border-color: #2563eb;
+            background: white;
+            box-shadow:
+                0 0 0 4px
+                rgba(37, 99, 235, 0.1);
+        }
+
+        /*
+        STACK validation elements are useful internally,
+        but the learner should receive our own feedback.
+        */
+        #question-container
+        .stackinputfeedback,
+        #question-container
+        [name^="validation-"],
+        #question-container
+        [name^="feedback-"] {
+            display: none !important;
+        }
+
+        .submit-row {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 28px;
+        }
+
+        #submit-button {
+            min-width: 180px;
+            border: 0;
+            border-radius: 14px;
+            padding:
+                13px
+                22px;
+            background: #2563eb;
+            color: white;
+            font-weight: 850;
+            box-shadow:
+                0 7px 18px
+                rgba(37, 99, 235, 0.2);
+        }
+
+        #submit-button:disabled {
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        .feedback {
+            padding:
+                20px
+                22px;
+            border-radius: 18px;
+            line-height: 1.55;
+        }
+
+        .feedback-title {
+            display: block;
+            margin-bottom: 7px;
+            font-size: 1.05rem;
+            font-weight: 900;
+        }
+
+        .success-feedback {
+            border: 1px solid #bce8ce;
+            background: #f0fdf4;
+            color: #166534;
+        }
+
+        .support-feedback {
+            border: 1px solid #fde1a7;
+            background: #fffbeb;
+            color: #92400e;
+        }
+
+        .neutral-feedback {
+            border: 1px solid #dbe7f7;
+            background: #f8fbff;
+            color: #334155;
+        }
+
+        .error-card {
+            padding:
+                16px
+                18px;
+            border: 1px solid #fecaca;
+            border-radius: 16px;
+            background: #fff7f7;
+            color: #991b1b;
+            line-height: 1.5;
+        }
+
+        .completion-card {
+            padding:
+                34px
+                26px;
+            text-align: center;
+        }
+
+        .completion-badge {
+            width: 62px;
+            height: 62px;
+            margin:
+                0
+                auto
+                16px;
+            display: grid;
+            place-items: center;
+            border-radius: 20px;
+            background: #eff6ff;
+            color: #2563eb;
+            font-size: 1.6rem;
+            font-weight: 950;
+        }
+
+        .completion-card h2 {
+            margin:
+                0
+                0
+                9px;
+        }
+
+        .completion-card p {
+            margin: 0;
+            color: #64748b;
+            line-height: 1.6;
+        }
+
+        .status-line {
+            color: #64748b;
+            font-size: 0.88rem;
+        }
+
+        @media (
+            max-width: 600px
+        ) {
+            .app-shell {
+                width: min(
+                    100% - 18px,
+                    840px
+                );
+                padding-top: 18px;
+            }
+
+            .brand {
+                align-items: flex-start;
+            }
+
+            .brand-mark {
+                width: 42px;
+                height: 42px;
+                border-radius: 13px;
+            }
+
+            .start-card {
+                margin-top: 28px;
+                padding: 24px 20px;
+            }
+
+            .concept-row {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .question-card {
+                border-radius: 20px;
+            }
+
+            .submit-row {
+                display: block;
+            }
+
+            #submit-button {
+                width: 100%;
+            }
+
+            #question-container
+            input[type="text"] {
+                width: 74px !important;
+                min-width: 64px;
+            }#question-container iframe[id^="stack-iframe-"] {
+    display: block;
+    width: 100% !important;
+    min-height: 520px;
+    border: 0;
+}
+
+#question-container [id^="stack-iframe-holder-"] {
+    width: 100% !important;
+    min-height: 520px;
+}
+        }
+    </style>
+</head>
+
+<body>
+<main class="app-shell">
+
+    <header class="brand">
+        <div class="brand-mark">
+            A
+        </div>
+
+        <div>
+            <h1>
+                Adaptive STACK Tutor
+            </h1>
+
+            <p>
+                Mathematics practice that adapts as you learn.
+            </p>
+        </div>
+    </header>
+
+
+    <section
+        id="start-section"
+        class="card start-card"
+    >
+        <h2>
+            Ready to practise?
+        </h2>
+
+        <p>
+            Enter your learner ID to begin.
+            Your questions will adjust as you progress.
+        </p>
+
+        <label
+            class="field-label"
+            for="student-id"
+        >
+            Learner ID
+        </label>
+
+        <input
+            id="student-id"
+            class="student-id-input"
+            type="number"
+            min="1"
+            inputmode="numeric"
+            placeholder="Enter your learner ID"
+        >
+
+        <div class="curriculum-field">
+            <label
+                class="field-label"
+                for="curriculum-profile"
+            >
+                Curriculum
+            </label>
+
+            <select
+                id="curriculum-profile"
+                class="curriculum-select"
+            >
+                <option
+                    value="kenya-grade9-development"
+                    selected
+                >
+                    Kenya Grade 9 Development
+                </option>
+
+                <option
+                    value="ghana-basic9-mathematics"
+                >
+                    Ghana Basic 9 Mathematics
+                </option>
+            </select>
+        </div>
+
+        <button
+            id="start-button"
+            class="primary-button"
+        >
+            Start Learning
+        </button>
+    </section>
+
+
+    <section
+        id="learning-section"
+        class="learning-layout hidden"
+    >
+        <section class="card top-card">
+            <div class="concept-row">
+                <div>
+                    <div class="eyebrow">
+                        Current topic
+                    </div>
+
+                    <h2 id="concept-title">
+                        Mathematics
+                    </h2>
+                </div>
+
+                <div
+                    id="task-counter"
+                    class="task-counter"
+                >
+                    Current activity
+                </div>
+            </div>
+
+            <div class="progress-track">
+                <div
+                    id="progress-fill"
+                    class="progress-fill"
+                ></div>
+            </div>
+
+            <div class="progress-caption">
+                <span id="progress-message">
+                    Keep going
+                </span>
+
+                <span id="attempt-count"></span>
+            </div>
+        </section>
+
+
+        <section
+            id="question-card"
+            class="card question-card"
+        >
+            <div class="question-heading">
+                <div
+                    id="question-number"
+                    class="question-number"
+                >
+                    1
+                </div>
+
+                <strong id="question-label">
+                    Solve this question
+                </strong>
+            </div>
+
+            <div
+                id="question-container"
+                aria-live="polite"
+            ></div>
+
+            <div class="submit-row">
+                <button id="submit-button">
+                    Check Answer
+                </button>
+            </div>
+        </section>
+
+
+        <section
+            id="feedback"
+            class="feedback neutral-feedback hidden"
+            aria-live="polite"
+        ></section>
+
+
+        <section
+            id="completion"
+            class="card completion-card hidden"
+        >
+            <div class="completion-badge">
+                OK
+            </div>
+
+            <h2>
+                Great work!
+            </h2>
+
+            <p id="completion-message">
+                You completed this learning activity.
+            </p>
+        </section>
+
+
+        <section
+            id="error"
+            class="error-card hidden"
+            aria-live="assertive"
+        ></section>
+    </section>
+
+</main>
+
+
+<script>
+let currentConceptId = null;
+
+let studentId = null;
+let currentQuestionId = null;
+let currentSeed = null;
+let currentTaskInputNames = [];
+let currentTaskId = null;
+
+
+const startSection =
+    document.getElementById(
+        "start-section"
+    );
+
+const learningSection =
+    document.getElementById(
+        "learning-section"
+    );
+
+const startButton =
+    document.getElementById(
+        "start-button"
+    );
+
+const submitButton =
+    document.getElementById(
+        "submit-button"
+    );
+
+const studentIdInput =
+    document.getElementById(
+        "student-id"
+    );
+
+const curriculumProfileSelect =
+    document.getElementById(
+        "curriculum-profile"
+    );
+
+const conceptTitle =
+    document.getElementById(
+        "concept-title"
+    );
+
+const taskCounter =
+    document.getElementById(
+        "task-counter"
+    );
+
+const progressFill =
+    document.getElementById(
+        "progress-fill"
+    );
+
+const progressMessage =
+    document.getElementById(
+        "progress-message"
+    );
+
+const attemptCount =
+    document.getElementById(
+        "attempt-count"
+    );
+
+const questionCard =
+    document.getElementById(
+        "question-card"
+    );
+
+const questionNumber =
+    document.getElementById(
+        "question-number"
+    );
+
+const questionLabel =
+    document.getElementById(
+        "question-label"
+    );
+
+const questionContainer =
+    document.getElementById(
+        "question-container"
+    );
+
+const feedbackBox =
+    document.getElementById(
+        "feedback"
+    );
+
+const completionBox =
+    document.getElementById(
+        "completion"
+    );
+
+const completionMessage =
+    document.getElementById(
+        "completion-message"
+    );
+
+const errorBox =
+    document.getElementById(
+        "error"
+    );
+
+
+function clearError() {
+    errorBox.textContent = "";
+
+    errorBox.classList.add(
+        "hidden"
+    );
+}
+
+
+function showFriendlyError(
+    message = "Something unexpected happened. Please try again."
+) {
+    errorBox.textContent =
+        message;
+
+    errorBox.classList.remove(
+        "hidden"
+    );
+}
+
+
+function cleanFeedbackHtml(
+    message
+) {
+    if (!message) {
+        return "";
+    }
+
+    return message
+        .replace(/\?\?/g, "")
+        .trim();
+}
+
+
+function setFeedback(
+    message,
+    kind = "neutral"
+) {
+    const cleanMessage =
+        cleanFeedbackHtml(
+            message
+        );
+
+    feedbackBox.classList.remove(
+        "success-feedback",
+        "support-feedback",
+        "neutral-feedback"
+    );
+
+    if (!cleanMessage) {
+        feedbackBox.innerHTML =
+            "";
+
+        feedbackBox.classList.add(
+            "hidden"
+        );
+
+        return;
+    }
+
+    if (kind === "success") {
+        feedbackBox.classList.add(
+            "success-feedback"
+        );
+    }
+    else if (kind === "support") {
+        feedbackBox.classList.add(
+            "support-feedback"
+        );
+    }
+    else {
+        feedbackBox.classList.add(
+            "neutral-feedback"
+        );
+    }
+
+    feedbackBox.innerHTML =
+        cleanMessage;
+
+    feedbackBox.classList.remove(
+        "hidden"
+    );
+}
+
+
+async function renderMath() {
+    if (
+        window.MathJax
+        && window.MathJax.typesetPromise
+    ) {
+        await window.MathJax
+            .typesetPromise(
+                [questionContainer]
+            );
+    }
+}
+
+
+function hideStackFeedbackElements() {
+    const selectors = [
+        ".stackinputfeedback",
+        "[name^='validation-']",
+        "[name^='feedback-']"
+    ];
+
+    for (
+        const selector
+        of selectors
+    ) {
+        questionContainer
+            .querySelectorAll(
+                selector
+            )
+            .forEach(
+                element => {
+                    element.style.display =
+                        "none";
+                }
+            );
+    }
+}
+
+
+function getTaskInputs() {
+    const answers = {};
+
+    for (
+        const inputName
+        of currentTaskInputNames
+    ) {
+        const input =
+            questionContainer
+                .querySelector(
+                    `[name="student-${inputName}"]`
+                );
+
+        if (!input) {
+            throw new Error(
+                `Missing input ${inputName}`
+            );
+        }
+
+        const value =
+            input.value.trim();
+
+        if (!value) {
+            input.focus();
+
+            throw new Error(
+                "Please complete every answer field."
+            );
+        }
+
+        answers[inputName] =
+            value;
+    }
+
+    return answers;
+}
+
+
+function focusFirstTaskInput() {
+    const firstInputName =
+        currentTaskInputNames[0];
+
+    if (!firstInputName) {
+        return;
+    }
+
+    const firstInput =
+        questionContainer
+            .querySelector(
+                `[name="student-${firstInputName}"]`
+            );
+
+    if (firstInput) {
+        firstInput.focus();
+    }
+}
+
+
+function updateProgress(
+    session,
+    rendered
+) {
+    conceptTitle.textContent =
+        session.progress.concept_name;
+
+    const attempts =
+        session.progress.attempts || 0;
+
+    attemptCount.textContent =
+        attempts === 1
+        ? "1 completed attempt"
+        : `${attempts} completed attempts`;
+
+    if (!rendered) {
+        progressFill.style.width =
+            "100%";
+
+        taskCounter.textContent =
+            "Complete";
+
+        progressMessage.textContent =
+            "Topic complete";
+
+        return;
+    }
+
+    const taskCount =
+        Math.max(
+            rendered.task_count || 1,
+            1
+        );
+
+    const taskIndex =
+        Math.max(
+            rendered.task_index || 0,
+            0
+        );
+
+    const taskNumber =
+        Math.min(
+            taskIndex + 1,
+            taskCount
+        );
+
+    currentTaskId =
+        rendered.task_id;
+
+    questionNumber.textContent =
+        String(
+            taskNumber
+        );
+
+    if (taskCount > 1) {
+        taskCounter.textContent =
+            `Part ${taskNumber} of ${taskCount}`;
+
+        questionLabel.textContent =
+            `Complete part ${taskNumber}`;
+
+        const percentage =
+            Math.round(
+                (
+                    taskIndex
+                    / taskCount
+                )
+                * 100
+            );
+
+        progressFill.style.width =
+            `${percentage}%`;
+
+        progressMessage.textContent =
+            "Complete each part to move forward";
+    }
+    else {
+        taskCounter.textContent =
+            "Current challenge";
+
+        questionLabel.textContent =
+            "Solve this question";
+
+        const percentage =
+            Math.min(
+                15 + attempts * 16,
+                90
+            );
+
+        progressFill.style.width =
+            `${percentage}%`;
+
+        progressMessage.textContent =
+            "Keep building your skills";
+    }
+}
+
+
+function activateEmbeddedScripts(
+    container
+) {
+    const scripts =
+        container.querySelectorAll(
+            "script"
+        );
+
+    for (const oldScript of scripts) {
+        const newScript =
+            document.createElement(
+                "script"
+            );
+
+        for (
+            const attribute
+            of oldScript.attributes
+        ) {
+            newScript.setAttribute(
+                attribute.name,
+                attribute.value
+            );
+        }
+
+        newScript.textContent =
+            oldScript.textContent;
+
+        oldScript.replaceWith(
+            newScript
+        );
+    }
+}
+
+
+/*
+STACK interactive questions such as JSXGraph
+run inside iframes. This bridge connects the
+iframe to the learner-facing STACK inputs.
+*/
+window.__stackInputValues =
+    window.__stackInputValues || {};
+
+
+window.addEventListener(
+    "message",
+    event => {
+        if (
+            typeof event.data !== "string"
+        ) {
+            return;
+        }
+
+        let message;
+
+        try {
+            message =
+                JSON.parse(
+                    event.data
+                );
+        }
+        catch {
+            return;
+        }
+
+        if (
+            !message.version
+            || !message.version.startsWith(
+                "STACK-JS"
+            )
+        ) {
+            return;
+        }
+
+        const frame =
+            [
+                ...document.querySelectorAll(
+                    "#question-container iframe"
+                )
+            ].find(
+                candidate =>
+                    candidate.contentWindow
+                    === event.source
+            );
+
+        if (!frame) {
+            return;
+        }
+
+        const sendToFrame =
+            payload => {
+                frame.contentWindow
+                    .postMessage(
+                        JSON.stringify(
+                            payload
+                        ),
+                        "*"
+                    );
+            };
+
+        if (
+            message.type === "ping"
+        ) {
+            sendToFrame({
+                version:
+                    "STACK-JS:1.0.0",
+
+                type:
+                    "ping",
+
+                tgt:
+                    message.src
+            });
+
+            return;
+        }
+
+        if (
+            message.type
+            ===
+            "register-input-listener"
+        ) {
+            const name =
+                message.name;
+
+            const input =
+                questionContainer
+                    .querySelector(
+                        `[name="student-${name}"]`
+                    );
+
+            let value = "";
+
+            if (input) {
+                value =
+                    input.value;
+            }
+            else if (
+                name in
+                window.__stackInputValues
+            ) {
+                value =
+                    window.__stackInputValues[
+                        name
+                    ];
+            }
+
+            window.__stackInputValues[
+                name
+            ] = value;
+
+            sendToFrame({
+                version:
+                    "STACK-JS:1.3.0",
+
+                type:
+                    "initial-input",
+
+                tgt:
+                    message.src,
+
+                name:
+                    name,
+
+                value:
+                    value,
+
+                "input-readonly":
+                    false,
+
+                "input-dataset":
+                    {}
+            });
+
+            if (
+                input
+                && !input.dataset
+                    .stackBridgeBound
+            ) {
+                const syncInput =
+                    () => {
+                        window.__stackInputValues[
+                            name
+                        ] = input.value;
+
+                        sendToFrame({
+                            version:
+                                "STACK-JS:1.0.0",
+
+                            type:
+                                "changed-input",
+
+                            tgt:
+                                message.src,
+
+                            name:
+                                name,
+
+                            value:
+                                input.value
+                        });
+                    };
+
+                input.addEventListener(
+                    "input",
+                    syncInput
+                );
+
+                input.addEventListener(
+                    "change",
+                    syncInput
+                );
+
+                input.dataset
+                    .stackBridgeBound =
+                    "true";
+            }
+
+            return;
+        }
+
+        if (
+            message.type
+            ===
+            "changed-input"
+        ) {
+            const name =
+                message.name;
+
+            window.__stackInputValues[
+                name
+            ] =
+                message.value;
+
+            const input =
+                questionContainer
+                    .querySelector(
+                        `[name="student-${name}"]`
+                    );
+
+            if (input) {
+                input.value =
+                    message.value;
+            }
+
+            return;
+        }
+    }
+);
+
+
+async function renderQuestion(
+    rendered
+) {
+    currentQuestionId =
+        rendered.question_id;
+
+    currentSeed =
+        rendered.seed;
+
+    currentTaskInputNames =
+        rendered.task_input_names
+        && rendered.task_input_names.length
+        ? rendered.task_input_names
+        : Object.keys(
+            rendered.inputs || {}
+        );
+
+    questionContainer.innerHTML =
+        rendered.html;
+
+    activateEmbeddedScripts(
+        questionContainer
+    );
+
+    hideStackFeedbackElements();
+
+    await renderMath();
+
+    hideStackFeedbackElements();
+
+    submitButton.classList.remove(
+        "hidden"
+    );
+
+    questionCard.classList.remove(
+        "hidden"
+    );
+
+    focusFirstTaskInput();
+}
+
+
+function showCompletion(
+    session
+) {
+    questionCard.classList.add(
+        "hidden"
+    );
+
+    submitButton.classList.add(
+        "hidden"
+    );
+
+    completionMessage.textContent =
+        `You completed ${
+            session.progress.concept_name
+        }.`;
+
+    completionBox.classList.remove(
+        "hidden"
+    );
+}
+
+
+function inferFeedbackKind(
+    message
+) {
+    if (!message) {
+        return "neutral";
+    }
+
+    const text =
+        message
+            .replace(/<[^>]*>/g, " ")
+            .toLowerCase();
+
+    const positiveWords = [
+        "excellent",
+        "great",
+        "correct",
+        "well done",
+        "nicely done",
+        "fantastic"
+    ];
+
+    const supportWords = [
+        "try",
+        "close",
+        "not quite",
+        "another look",
+        "correction"
+    ];
+
+    if (
+        positiveWords.some(
+            word => text.includes(
+                word
+            )
+        )
+    ) {
+        return "success";
+    }
+
+    if (
+        supportWords.some(
+            word => text.includes(
+                word
+            )
+        )
+    ) {
+        return "support";
+    }
+
+    return "neutral";
+}
+
+
+async function showResponse(
+    data
+) {
+    const session =
+        data.session;
+
+    const rendered =
+        data.rendered_question;
+
+    currentConceptId =
+        session.current_concept_id;
+
+    startSection.classList.add(
+        "hidden"
+    );
+
+    learningSection.classList.remove(
+        "hidden"
+    );
+
+    completionBox.classList.add(
+        "hidden"
+    );
+
+    clearError();
+
+    updateProgress(
+        session,
+        rendered
+    );
+
+    setFeedback(
+        data.submitted_feedback,
+        inferFeedbackKind(
+            data.submitted_feedback
+        )
+    );
+
+    if (!rendered) {
+        showCompletion(
+            session
+        );
+
+        return;
+    }
+
+    await renderQuestion(
+        rendered
+    );
+}
+
+
+async function startLearning() {
+    clearError();
+
+    const enteredStudentId =
+        Number(
+            studentIdInput.value
+        );
+
+    if (
+        !Number.isInteger(
+            enteredStudentId
+        )
+        || enteredStudentId <= 0
+    ) {
+        showFriendlyError(
+            "Please enter a valid learner ID."
+        );
+
+        studentIdInput.focus();
+
+        return;
+    }
+
+    studentId =
+        enteredStudentId;
+
+    startButton.disabled =
+        true;
+
+    startButton.textContent =
+        "Preparing your lesson...";
+
+    try {
+        const response =
+            await fetch(
+                "/live-sessions/start",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body: JSON.stringify({
+                        student_id:
+                            studentId,
+
+                        curriculum_profile_id:
+                            curriculumProfileSelect
+                                .value
+                    })
+                }
+            );
+
+        const data =
+            await response.json();
+
+        if (!response.ok) {
+            console.error(
+                "Start session failed:",
+                data
+            );
+
+            throw new Error(
+                "start_failed"
+            );
+        }
+
+        await showResponse(
+            data
+        );
+    }
+    catch (error) {
+        console.error(
+            error
+        );
+
+        showFriendlyError(
+            "We could not prepare your lesson. "
+            + "Please try again."
+        );
+    }
+    finally {
+        startButton.disabled =
+            false;
+
+        startButton.textContent =
+            "Start Learning";
+    }
+}
+
+
+async function submitCurrentAnswer() {
+    clearError();
+
+    let studentAnswers;
+
+    try {
+        studentAnswers =
+            getTaskInputs();
+    }
+    catch (error) {
+        if (
+            error.message
+            ===
+            "Please complete every answer field."
+        ) {
+            showFriendlyError(
+                error.message
+            );
+
+            return;
+        }
+
+        console.error(
+            error
+        );
+
+        showFriendlyError(
+            "This question did not load correctly. "
+            + "Please refresh the page."
+        );
+
+        return;
+    }
+
+    submitButton.disabled =
+        true;
+
+    submitButton.textContent =
+        "Checking...";
+
+    try {
+        const response =
+            await fetch(
+                "/live-sessions/submit-answer",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body: JSON.stringify({
+                        student_id:
+                            studentId,
+
+                        concept_id:
+                            currentConceptId,
+
+                        question_id:
+                            currentQuestionId,
+
+                        student_answers:
+                            studentAnswers,
+
+                        seed:
+                            currentSeed
+                    })
+                }
+            );
+
+        const data =
+            await response.json();
+
+        if (!response.ok) {
+            console.error(
+                "Answer submission failed:",
+                data
+            );
+
+            throw new Error(
+                "submission_failed"
+            );
+        }
+
+        await showResponse(
+            data
+        );
+    }
+    catch (error) {
+        console.error(
+            error
+        );
+
+        showFriendlyError(
+            "We could not check your answer just now. "
+            + "Please try again."
+        );
+    }
+    finally {
+        submitButton.disabled =
+            false;
+
+        submitButton.textContent =
+            "Check Answer";
+    }
+}
+
+
+startButton.addEventListener(
+    "click",
+    startLearning
+);
+
+
+studentIdInput.addEventListener(
+    "keydown",
+    event => {
+        if (event.key === "Enter") {
+            startLearning();
+        }
+    }
+);
+
+
+submitButton.addEventListener(
+    "click",
+    submitCurrentAnswer
+);
+
+
+questionContainer.addEventListener(
+    "keydown",
+    event => {
+        if (
+            event.key === "Enter"
+            && event.target.matches(
+                "input[type='text']"
+            )
+            && !submitButton.disabled
+        ) {
+            event.preventDefault();
+
+            submitCurrentAnswer();
+        }
+    }
+);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,403 @@
+{
+  "version": "1.0",
+  "curriculum_profile_id": "ghana-basic9-mathematics",
+  "curriculum_concept_id": "GH-B9-ALG-LINEAR-RELATIONS",
+  "concept_name": "Linear Relations and Simultaneous Equations",
+  "content_standard_ids": [
+    "B9.2.1.1"
+  ],
+  "learning_indicator_ids": [
+    "B9.2.1.1.1",
+    "B9.2.1.1.2",
+    "B9.2.1.1.3"
+  ],
+  "bank_targets": {
+    "first_delivery": 12,
+    "strong_bank": 25,
+    "mature_bank": 35
+  },
+  "existing_direct_count": 0,
+  "existing_prerequisite_question_ids": [
+    "206939",
+    "206961",
+    "207067",
+    "207059"
+  ],
+  "acquisition_policy": [
+    "mine_open_source_first",
+    "adapt_when_mathematically_suitable",
+    "author_only_for_remaining_gaps",
+    "verify_license_before_reuse",
+    "do_not_count_parameter_variants_as_distinct_templates",
+    "require_direct_indicator_alignment_before_counting_as_direct"
+  ],
+  "known_sources": [
+    {
+      "source_id": "NUMBAS-15890",
+      "platform": "Numbas",
+      "title": "Simultaneous linear equations (variables)",
+      "source_url": "https://numbas.mathcentre.ac.uk/question/15890/simultaneous-linear-equations-variables/",
+      "reported_status": "ready_to_use_family",
+      "license": "needs_item_level_verification",
+      "potential_slots": [
+        "LR-10",
+        "LR-11"
+      ],
+      "decision": "candidate",
+      "notes": [
+        "Useful simultaneous-equation question family.",
+        "Must verify the exact item and license before reuse or adaptation.",
+        "Likely needs graphical adaptation for direct Ghana B9 alignment."
+      ]
+    },
+    {
+      "source_id": "NUMBAS-17144",
+      "platform": "Numbas",
+      "title": "Mock exam Simultaneous linear equations (variables)",
+      "source_url": "https://numbas.mathcentre.ac.uk/question/17144/mock-exam-simultaneous-linear-equations-variables/preview/",
+      "reported_status": "published_preview",
+      "license": "CC BY 4.0",
+      "potential_slots": [
+        "LR-10",
+        "LR-11"
+      ],
+      "decision": "candidate",
+      "notes": [
+        "Published preview explicitly reports Creative Commons Attribution 4.0.",
+        "Mathematical structure may be adapted into a graphical STACK question."
+      ]
+    },
+    {
+      "source_id": "NUMBAS-HOWTO-PAIR",
+      "platform": "Numbas",
+      "title": "Solve a pair of simultaneous equations",
+      "source_url": "https://numbas.mathcentre.ac.uk/project/697/search/?item_types=questions",
+      "reported_status": "draft_how_to",
+      "license": "verify_before_reuse",
+      "potential_slots": [
+        "LR-10",
+        "LR-11",
+        "LR-12"
+      ],
+      "decision": "implementation_reference",
+      "notes": [
+        "Uses backward generation: choose the solution first, then generate coefficients consistent with it.",
+        "Useful implementation pattern for deterministic randomised pairs."
+      ]
+    },
+    {
+      "source_id": "NUMBAS-150943",
+      "platform": "Numbas",
+      "title": "Fill in a table of values",
+      "source_url": "https://numbas.mathcentre.ac.uk/question/150943/fill-in-a-table-of-values/",
+      "reported_status": "ready_to_use",
+      "license": "verify_before_reuse",
+      "potential_slots": [
+        "LR-01",
+        "LR-02",
+        "LR-03",
+        "LR-04"
+      ],
+      "decision": "implementation_reference",
+      "notes": [
+        "Uses a spreadsheet-style table for completing function values.",
+        "Published example uses a quadratic function, so the interaction pattern should be adapted to Ghana B9 linear relations.",
+        "Do not reuse content until exact item-level usage rights are verified."
+      ]
+    },
+    {
+      "source_id": "NUMBAS-150944",
+      "platform": "Numbas",
+      "title": "Fill in a table of values which is automatically plotted",
+      "source_url": "https://numbas.mathcentre.ac.uk/question/150944/fill-in-a-table-of-values-which-is-automatically-p/",
+      "reported_status": "ready_to_use",
+      "license": "verify_before_reuse",
+      "potential_slots": [
+        "LR-03",
+        "LR-04",
+        "LR-05",
+        "LR-06"
+      ],
+      "decision": "implementation_reference",
+      "notes": [
+        "Combines a value table with an automatically updated JSXGraph.",
+        "Excellent interaction model for the Ghana table-to-graph sequence.",
+        "Published example uses a quadratic function; adapt the mechanics to two linear relations."
+      ]
+    },
+    {
+      "source_id": "NUMBAS-130545",
+      "platform": "Numbas",
+      "title": "Graphing functions and finding domain and range",
+      "source_url": "https://numbas.mathcentre.ac.uk/question/130545/2-2-1-2-graphing-functions-and-finding-domain-and-/",
+      "reported_status": "ready_to_use",
+      "license": "verify_before_reuse",
+      "potential_slots": [
+        "LR-05",
+        "LR-06"
+      ],
+      "decision": "candidate",
+      "notes": [
+        "Includes graphing of a linear or quadratic function.",
+        "Potential graphing reference, but should be narrowed to paired linear relations for direct Ghana alignment."
+      ]
+    },
+    {
+      "source_id": "NUMBAS-104226",
+      "platform": "Numbas",
+      "title": "Linear graphs: Reading gradient and intercept from an equation",
+      "source_url": "https://numbas.mathcentre.ac.uk/question/104226/linear-graphs-reading-gradient-and-intercept-from-/",
+      "reported_status": "ready_to_use",
+      "license": "verify_before_reuse",
+      "potential_slots": [
+        "LR-05",
+        "LR-06"
+      ],
+      "decision": "supporting_candidate",
+      "notes": [
+        "Ready-to-use linear graph item focused on y = mx + c.",
+        "Useful supporting material for graph generation and interpretation.",
+        "Not sufficient by itself for the paired-relations B9 indicator."
+      ]
+    },
+    {
+      "source_id": "NUMBAS-15752",
+      "platform": "Numbas",
+      "title": "Graphs I: Linear - Coordinates",
+      "source_url": "https://numbas.mathcentre.ac.uk/question/15752/graphs-i-linear-coordinates/",
+      "reported_status": "ready_to_use_family",
+      "license": "verify_before_reuse",
+      "potential_slots": [
+        "LR-07",
+        "LR-08"
+      ],
+      "decision": "adaptation_reference",
+      "notes": [
+        "Linear-coordinate question family useful for reading coordinates and graph information.",
+        "Adapt to two simultaneous linear relations rather than a single-line coordinate task."
+      ]
+    },
+    {
+      "source_id": "NUMBAS-17290",
+      "platform": "Numbas",
+      "title": "Graphs I: Linear - Line equation",
+      "source_url": "https://numbas.mathcentre.ac.uk/question/17290/hannah-s-copy-of-graphs-i-linear-line-equation/preview/",
+      "reported_status": "published_preview",
+      "license": "CC BY 4.0",
+      "potential_slots": [
+        "LR-07",
+        "LR-08",
+        "LR-09"
+      ],
+      "decision": "adaptation_candidate",
+      "notes": [
+        "Published preview explicitly reports CC BY 4.0.",
+        "Linear graph/equation structure can support graph-reading and intersection adaptations."
+      ]
+    },
+    {
+      "source_id": "NUMBAS-31346",
+      "platform": "Numbas",
+      "title": "Straight line graph",
+      "source_url": "https://numbas.mathcentre.ac.uk/question/31346/straight-line-graph/",
+      "reported_status": "ready_to_download",
+      "license": "verify_before_reuse",
+      "potential_slots": [
+        "LR-08",
+        "LR-09"
+      ],
+      "decision": "adaptation_reference",
+      "notes": [
+        "Used in straight-line equations and graphs assessments.",
+        "Useful visual structure for intersection and contextual graph interpretation."
+      ]
+    }
+  ],
+  "slots": [
+    {
+      "slot_id": "LR-01",
+      "role": "foundation",
+      "question_type": "table_completion",
+      "target_indicator_ids": [
+        "B9.2.1.1.1"
+      ],
+      "learning_goal": "Complete a table of values for one linear relation.",
+      "preferred_source": "numbas_or_stack",
+      "status": "candidate_found",
+      "candidate_source_ids": [
+        "NUMBAS-150943"
+      ],
+      "acquisition_decision": "adapt_interaction_pattern"
+    },
+    {
+      "slot_id": "LR-02",
+      "role": "foundation",
+      "question_type": "table_completion",
+      "target_indicator_ids": [
+        "B9.2.1.1.1"
+      ],
+      "learning_goal": "Complete a second table of values for a linear relation expressed in a different algebraic form.",
+      "preferred_source": "numbas_or_stack",
+      "status": "candidate_found",
+      "candidate_source_ids": [
+        "NUMBAS-150943"
+      ],
+      "acquisition_decision": "adapt_interaction_pattern"
+    },
+    {
+      "slot_id": "LR-03",
+      "role": "procedural",
+      "question_type": "paired_table_completion",
+      "target_indicator_ids": [
+        "B9.2.1.1.1"
+      ],
+      "learning_goal": "Complete tables for two linear relations over the same x-values.",
+      "preferred_source": "numbas_or_stack",
+      "status": "candidate_found",
+      "candidate_source_ids": [
+        "NUMBAS-150943",
+        "NUMBAS-150944"
+      ],
+      "acquisition_decision": "adapt_to_two_linear_relations"
+    },
+    {
+      "slot_id": "LR-04",
+      "role": "procedural",
+      "question_type": "paired_table_completion",
+      "target_indicator_ids": [
+        "B9.2.1.1.1"
+      ],
+      "learning_goal": "Complete tables for two relations before graphical comparison.",
+      "preferred_source": "numbas_or_stack",
+      "status": "candidate_found",
+      "candidate_source_ids": [
+        "NUMBAS-150943",
+        "NUMBAS-150944"
+      ],
+      "acquisition_decision": "adapt_to_two_linear_relations"
+    },
+    {
+      "slot_id": "LR-05",
+      "role": "visual",
+      "question_type": "graph_two_relations",
+      "target_indicator_ids": [
+        "B9.2.1.1.1"
+      ],
+      "learning_goal": "Plot two linear relations on the same Cartesian plane.",
+      "preferred_source": "stack_or_adapted",
+      "status": "candidate_found",
+      "candidate_source_ids": [
+        "NUMBAS-150944",
+        "NUMBAS-130545",
+        "NUMBAS-104226"
+      ],
+      "acquisition_decision": "adapt_to_paired_linear_graph"
+    },
+    {
+      "slot_id": "LR-06",
+      "role": "visual",
+      "question_type": "graph_two_relations",
+      "target_indicator_ids": [
+        "B9.2.1.1.1"
+      ],
+      "learning_goal": "Graph two linear relations from tables or equations.",
+      "preferred_source": "stack_or_adapted",
+      "status": "candidate_found",
+      "candidate_source_ids": [
+        "NUMBAS-150944",
+        "NUMBAS-130545",
+        "NUMBAS-104226"
+      ],
+      "acquisition_decision": "adapt_to_paired_linear_graph"
+    },
+    {
+      "slot_id": "LR-07",
+      "role": "conceptual",
+      "question_type": "missing_ordered_pair",
+      "target_indicator_ids": [
+        "B9.2.1.1.2"
+      ],
+      "learning_goal": "Use graphs of two linear relations to determine missing ordered-pair values.",
+      "preferred_source": "stack_or_adapted",
+      "status": "candidate_found",
+      "candidate_source_ids": [
+        "NUMBAS-15752",
+        "NUMBAS-17290"
+      ],
+      "acquisition_decision": "adapt_to_missing_ordered_pair",
+      "proposed_design": "Display two linear relations on the same Cartesian plane. Give one or more incomplete ordered pairs and require the learner to read the missing coordinate from the appropriate graph."
+    },
+    {
+      "slot_id": "LR-08",
+      "role": "conceptual",
+      "question_type": "intersection_identification",
+      "target_indicator_ids": [
+        "B9.2.1.1.2",
+        "B9.2.1.1.3"
+      ],
+      "learning_goal": "Identify the coordinate where two linear graphs intersect.",
+      "preferred_source": "numbas_or_stack",
+      "status": "candidate_found",
+      "candidate_source_ids": [
+        "NUMBAS-15752",
+        "NUMBAS-17290",
+        "NUMBAS-31346"
+      ],
+      "acquisition_decision": "adapt_to_intersection_reading",
+      "proposed_design": "Display two linear graphs and require the learner to enter the ordered pair representing their intersection."
+    },
+    {
+      "slot_id": "LR-09",
+      "role": "application",
+      "question_type": "intersection_interpretation",
+      "target_indicator_ids": [
+        "B9.2.1.1.2",
+        "B9.2.1.1.3"
+      ],
+      "learning_goal": "Interpret the intersection of two linear relations in context.",
+      "preferred_source": "adapted",
+      "status": "candidate_found",
+      "candidate_source_ids": [
+        "NUMBAS-17290",
+        "NUMBAS-31346"
+      ],
+      "acquisition_decision": "adapt_to_contextual_intersection",
+      "proposed_design": "Represent two real-world linear relationships on one graph and ask the learner to interpret the meaning of the intersection."
+    },
+    {
+      "slot_id": "LR-10",
+      "role": "procedural",
+      "question_type": "graphical_simultaneous_equations",
+      "target_indicator_ids": [
+        "B9.2.1.1.3"
+      ],
+      "learning_goal": "Solve a pair of simultaneous linear equations graphically.",
+      "preferred_source": "numbas_or_stack",
+      "status": "candidate_found"
+    },
+    {
+      "slot_id": "LR-11",
+      "role": "challenge",
+      "question_type": "graphical_simultaneous_equations",
+      "target_indicator_ids": [
+        "B9.2.1.1.3"
+      ],
+      "learning_goal": "Solve a less-direct pair of simultaneous equations graphically.",
+      "preferred_source": "numbas_or_stack",
+      "status": "candidate_found"
+    },
+    {
+      "slot_id": "LR-12",
+      "role": "mastery",
+      "question_type": "table_graph_intersection_mastery",
+      "target_indicator_ids": [
+        "B9.2.1.1.1",
+        "B9.2.1.1.2",
+        "B9.2.1.1.3"
+      ],
+      "learning_goal": "Complete tables, graph two relations, identify their intersection, and state the simultaneous-equation solution.",
+      "preferred_source": "adapted_or_original",
+      "status": "to_mine"
+    }
+  ]
+}

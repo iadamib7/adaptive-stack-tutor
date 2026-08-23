@@ -259,12 +259,13 @@ def test_full_stack_flow_completes_concept() -> None:
         )
 
     assert session.action == (
-        ConceptDecisionAction.COMPLETE_CONCEPT
+        ConceptDecisionAction.ADVANCE_CONCEPT
     )
 
-    assert session.session_complete is True
-    assert session.progress.concept_mastered is True
-    assert session.question is None
+    assert session.next_concept_id == (
+        "KE-G9-INDICES-EXPONENTS"
+    )
+
 
 
 def test_service_requires_active_session() -> None:

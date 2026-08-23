@@ -179,7 +179,8 @@ class ConceptEvidenceTracker:
         )
 
         mastery_requirements_met = (
-            set(required_mastery_question_ids)
+            bool(required_mastery_question_ids)
+            and set(required_mastery_question_ids)
             <= set(passed_mastery_question_ids)
         )
 
@@ -282,6 +283,13 @@ class ConceptEvidenceTracker:
                 f"evidence requirements for {concept_name}. "
                 "The sequencing engine may consider the "
                 "next curriculum concept."
+            )
+
+        if not required_mastery_question_ids:
+            return (
+                f"Continue working on {concept_name}. "
+                "No concept-level mastery-check question "
+                "is currently defined."
             )
 
         missing_mastery_questions = sorted(

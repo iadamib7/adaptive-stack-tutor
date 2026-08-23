@@ -1,0 +1,60 @@
+{
+  "version": "1.0",
+  "name": "Ghana Basic 8 Mathematics",
+  "identity": {
+    "id": "ghana-basic8-mathematics",
+    "country": "Ghana",
+    "education_system": "Common Core Programme",
+    "source_level_id": "B8",
+    "source_level_label": "Basic 8",
+    "target_level_id": "B9",
+    "target_level_label": "Basic 9",
+    "curriculum_version": "2020"
+  },
+  "intended_use": "Adaptive mathematics tutoring and prerequisite remediation for Basic 9.",
+  "development_status": "development",
+  "source_documents": [
+    "Ghana - MATHEMATICS_Curr.- JHS(G7-G9).pdf"
+  ],
+  "concepts": [
+    {
+      "id": "GH-B8-ALG-STRAIGHT-LINES",
+      "knowledge_concept_id": "gradient",
+      "level_id": "B8",
+      "level_label": "Basic 8",
+      "progression_order": 1,
+      "strand": "Algebra",
+      "sub_strand": "Patterns and Relations",
+      "name": "Gradient and Straight-Line Equations",
+      "description": "Determine gradient, graph a linear relation, and write equations of straight lines including y = mx + c.",
+      "content_standard_ids": [
+        "B8.2.1.1"
+      ],
+      "learning_indicator_ids": [
+        "B8.2.1.1.1"
+      ],
+      "learning_outcomes": [
+        "Determine the gradient of a straight line.",
+        "Write the equation of a line in the form y = mx + c.",
+        "Use slope and intercept information to determine a line equation.",
+        "Use point-slope reasoning to determine equations of straight lines."
+      ],
+      "readiness_target_ids": [
+        "GH-B9-ALG-LINEAR-RELATIONS"
+      ],
+      "prerequisite_concept_ids": [],
+      "next_concept_ids": [
+        "GH-B9-ALG-LINEAR-RELATIONS"
+      ],
+      "stack_question_ids": [
+        "207067",
+        "207059"
+      ],
+      "status": "foundation",
+      "supporting_knowledge_concept_ids": [
+        "coordinate-graphs",
+        "linear-equations"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,1850 @@
+{
+  "version": "1.0",
+  "curriculum_profile_id": "ghana-basic9-mathematics",
+  "curriculum_name": "Ghana Basic 9 Mathematics",
+  "target_questions_per_concept": 35,
+  "concept_count": 28,
+  "coverage_policy": {
+    "minimum_deliverable": 12,
+    "strong_bank": 25,
+    "mature_bank": 35
+  },
+  "question_role_policy": {
+    "foundation": 4,
+    "procedural": 7,
+    "conceptual": 5,
+    "visual": 3,
+    "application": 4,
+    "diagnostic": 3,
+    "remediation": 3,
+    "challenge": 3,
+    "mastery": 3
+  },
+  "concepts": [
+    {
+      "concept_id": "GH-B9-NUM-PLACE-VALUE-ROUNDING",
+      "knowledge_concept_id": "number-sense",
+      "strand": "Number",
+      "sub_strand": "Number and Numeration System",
+      "concept_name": "Place Value, Rounding and Standard Form",
+      "content_standard_ids": [
+        "B9.1.1.1"
+      ],
+      "learning_indicator_ids": [
+        "B9.1.1.1.1",
+        "B9.1.1.1.2"
+      ],
+      "question_target": {
+        "minimum_deliverable": 12,
+        "strong_bank": 25,
+        "mature_bank": 35
+      },
+      "existing_questions": {
+        "stack": [],
+        "numbas": [],
+        "other": [],
+        "stack_prerequisite": [],
+        "stack_adaptable": []
+      },
+      "counts": {
+        "stack": 0,
+        "numbas": 0,
+        "other": 0,
+        "validated": 0,
+        "stack_direct": 0,
+        "stack_prerequisite": 0,
+        "stack_adaptable": 0,
+        "stack_reusable_total": 0
+      },
+      "gap_to_mature_bank": 35,
+      "priority": "critical",
+      "role_targets": {
+        "foundation": 4,
+        "procedural": 7,
+        "conceptual": 5,
+        "visual": 3,
+        "application": 4,
+        "diagnostic": 3,
+        "remediation": 3,
+        "challenge": 3,
+        "mastery": 3
+      },
+      "role_counts": {
+        "foundation": 0,
+        "procedural": 0,
+        "conceptual": 0,
+        "visual": 0,
+        "application": 0,
+        "diagnostic": 0,
+        "remediation": 0,
+        "challenge": 0,
+        "mastery": 0
+      },
+      "mining_status": "not_started",
+      "review_status": "pending",
+      "notes": []
+    },
+    {
+      "concept_id": "GH-B9-NUM-REAL-NUMBERS-SETS",
+      "knowledge_concept_id": "number-sense",
+      "strand": "Number",
+      "sub_strand": "Number and Numeration System",
+      "concept_name": "Real Numbers and Sets",
+      "content_standard_ids": [
+        "B9.1.1.2"
+      ],
+      "learning_indicator_ids": [
+        "B9.1.1.2.1",
+        "B9.1.1.2.2"
+      ],
+      "question_target": {
+        "minimum_deliverable": 12,
+        "strong_bank": 25,
+        "mature_bank": 35
+      },
+      "existing_questions": {
+        "stack": [],
+        "numbas": [],
+        "other": [],
+        "stack_prerequisite": [],
+        "stack_adaptable": []
+      },
+      "counts": {
+        "stack": 0,
+        "numbas": 0,
+        "other": 0,
+        "validated": 0,
+        "stack_direct": 0,
+        "stack_prerequisite": 0,
+        "stack_adaptable": 0,
+        "stack_reusable_total": 0
+      },
+      "gap_to_mature_bank": 35,
+      "priority": "critical",
+      "role_targets": {
+        "foundation": 4,
+        "procedural": 7,
+        "conceptual": 5,
+        "visual": 3,
+        "application": 4,
+        "diagnostic": 3,
+        "remediation": 3,
+        "challenge": 3,
+        "mastery": 3
+      },
+      "role_counts": {
+        "foundation": 0,
+        "procedural": 0,
+        "conceptual": 0,
+        "visual": 0,
+        "application": 0,
+        "diagnostic": 0,
+        "remediation": 0,
+        "challenge": 0,
+        "mastery": 0
+      },
+      "mining_status": "not_started",
+      "review_status": "pending",
+      "notes": []
+    },
+    {
+      "concept_id": "GH-B9-NUM-POWERS-OF-TEN",
+      "knowledge_concept_id": "number-sense",
+      "strand": "Number",
+      "sub_strand": "Number Operations",
+      "concept_name": "Powers of Ten and Benchmark Numbers",
+      "content_standard_ids": [
+        "B9.1.2.1"
+      ],
+      "learning_indicator_ids": [
+        "B9.1.2.1.1"
+      ],
+      "question_target": {
+        "minimum_deliverable": 12,
+        "strong_bank": 25,
+        "mature_bank": 35
+      },
+      "existing_questions": {
+        "stack": [],
+        "numbas": [],
+        "other": [],
+        "stack_prerequisite": [
+          "206793",
+          "206819",
+          "206873",
+          "206946",
+          "207419",
+          "207420"
+        ],
+        "stack_adaptable": []
+      },
+      "counts": {
+        "stack": 0,
+        "numbas": 0,
+        "other": 0,
+        "validated": 0,
+        "stack_direct": 0,
+        "stack_prerequisite": 6,
+        "stack_adaptable": 0,
+        "stack_reusable_total": 6
+      },
+      "gap_to_mature_bank": 35,
+      "priority": "critical",
+      "role_targets": {
+        "foundation": 4,
+        "procedural": 7,
+        "conceptual": 5,
+        "visual": 3,
+        "application": 4,
+        "diagnostic": 3,
+        "remediation": 3,
+        "challenge": 3,
+        "mastery": 3
+      },
+      "role_counts": {
+        "foundation": 0,
+        "procedural": 0,
+        "conceptual": 0,
+        "visual": 0,
+        "application": 0,
+        "diagnostic": 0,
+        "remediation": 0,
+        "challenge": 0,
+        "mastery": 0
+      },
+      "mining_status": "prerequisite_or_adaptable_content_only",
+      "review_status": "pending",
+      "notes": []
+    },
+    {
+      "concept_id": "GH-B9-NUM-NUMBER-PROPERTIES",
+      "knowledge_concept_id": "order-of-operations",
+      "strand": "Number",
+      "sub_strand": "Number Operations",
+      "concept_name": "Number Properties and Mental Strategies",
+      "content_standard_ids": [
+        "B9.1.2.1"
+      ],
+      "learning_indicator_ids": [
+        "B9.1.2.1.2",
+        "B9.1.2.1.3",
+        "B9.1.2.1.4"
+      ],
+      "question_target": {
+        "minimum_deliverable": 12,
+        "strong_bank": 25,
+        "mature_bank": 35
+      },
+      "existing_questions": {
+        "stack": [],
+        "numbas": [],
+        "other": [],
+        "stack_prerequisite": [
+          "207582",
+          "207589",
+          "207591",
+          "207596",
+          "207630"
+        ],
+        "stack_adaptable": []
+      },
+      "counts": {
+        "stack": 0,
+        "numbas": 0,
+        "other": 0,
+        "validated": 0,
+        "stack_direct": 0,
+        "stack_prerequisite": 5,
+        "stack_adaptable": 0,
+        "stack_reusable_total": 5
+      },
+      "gap_to_mature_bank": 35,
+      "priority": "critical",
+      "role_targets": {
+        "foundation": 4,
+        "procedural": 7,
+        "conceptual": 5,
+        "visual": 3,
+        "application": 4,
+        "diagnostic": 3,
+        "remediation": 3,
+        "challenge": 3,
+        "mastery": 3
+      },
+      "role_counts": {
+        "foundation": 0,
+        "procedural": 0,
+        "conceptual": 0,
+        "visual": 0,
+        "application": 0,
+        "diagnostic": 0,
+        "remediation": 0,
+        "challenge": 0,
+        "mastery": 0
+      },
+      "mining_status": "prerequisite_or_adaptable_content_only",
+      "review_status": "pending",
+      "notes": []
+    },
+    {
+      "concept_id": "GH-B9-NUM-DECIMAL-OPERATIONS",
+      "knowledge_concept_id": "decimals",
+      "strand": "Number",
+      "sub_strand": "Number Operations",
+      "concept_name": "Decimal Operations and Estimation",
+      "content_standard_ids": [
+        "B9.1.2.2"
+      ],
+      "learning_indicator_ids": [
+        "B9.1.2.2.1",
+        "B9.1.2.2.2"
+      ],
+      "question_target": {
+        "minimum_deliverable": 12,
+        "strong_bank": 25,
+        "mature_bank": 35
+      },
+      "existing_questions": {
+        "stack": [],
+        "numbas": [],
+        "other": [],
+        "stack_prerequisite": [],
+        "stack_adaptable": []
+      },
+      "counts": {
+        "stack": 0,
+        "numbas": 0,
+        "other": 0,
+        "validated": 0,
+        "stack_direct": 0,
+        "stack_prerequisite": 0,
+        "stack_adaptable": 0,
+        "stack_reusable_total": 0
+      },
+      "gap_to_mature_bank": 35,
+      "priority": "critical",
+      "role_targets": {
+        "foundation": 4,
+        "procedural": 7,
+        "conceptual": 5,
+        "visual": 3,
+        "application": 4,
+        "diagnostic": 3,
+        "remediation": 3,
+        "challenge": 3,
+        "mastery": 3
+      },
+      "role_counts": {
+        "foundation": 0,
+        "procedural": 0,
+        "conceptual": 0,
+        "visual": 0,
+        "application": 0,
+        "diagnostic": 0,
+        "remediation": 0,
+        "challenge": 0,
+        "mastery": 0
+      },
+      "mining_status": "not_started",
+      "review_status": "pending",
+      "notes": []
+    },
+    {
+      "concept_id": "GH-B9-NUM-SURDS",
+      "knowledge_concept_id": "roots-and-surds",
+      "strand": "Number",
+      "sub_strand": "Number Operations",
+      "concept_name": "Roots and Surds",
+      "content_standard_ids": [
+        "B9.1.2.4"
+      ],
+      "learning_indicator_ids": [
+        "B9.1.2.4.1",
+        "B9.1.2.4.2",
+        "B9.1.2.4.3",
+        "B9.1.2.3.4"
+      ],
+      "question_target": {
+        "minimum_deliverable": 12,
+        "strong_bank": 25,
+        "mature_bank": 35
+      },
+      "existing_questions": {
+        "stack": [],
+        "numbas": [],
+        "other": [],
+        "stack_prerequisite": [],
+        "stack_adaptable": []
+      },
+      "counts": {
+        "stack": 0,
+        "numbas": 0,
+        "other": 0,
+        "validated": 0,
+        "stack_direct": 0,
+        "stack_prerequisite": 0,
+        "stack_adaptable": 0,
+        "stack_reusable_total": 0
+      },
+      "gap_to_mature_bank": 35,
+      "priority": "critical",
+      "role_targets": {
+        "foundation": 4,
+        "procedural": 7,
+        "conceptual": 5,
+        "visual": 3,
+        "application": 4,
+        "diagnostic": 3,
+        "remediation": 3,
+        "challenge": 3,
+        "mastery": 3
+      },
+      "role_counts": {
+        "foundation": 0,
+        "procedural": 0,
+        "conceptual": 0,
+        "visual": 0,
+        "application": 0,
+        "diagnostic": 0,
+        "remediation": 0,
+        "challenge": 0,
+        "mastery": 0
+      },
+      "mining_status": "not_started",
+      "review_status": "pending",
+      "notes": []
+    },
+    {
+      "concept_id": "GH-B9-NUM-FRACTION-OPERATIONS",
+      "knowledge_concept_id": "fractions",
+      "strand": "Number",
+      "sub_strand": "Fractions, Decimals and Percentages",
+      "concept_name": "Fraction Operations and Order of Operations",
+      "content_standard_ids": [
+        "B9.1.3.1"
+      ],
+      "learning_indicator_ids": [
+        "B9.1.3.1.1",
+        "B9.1.3.1.2"
+      ],
+      "question_target": {
+        "minimum_deliverable": 12,
+        "strong_bank": 25,
+        "mature_bank": 35
+      },
+      "existing_questions": {
+        "stack": [],
+        "numbas": [],
+        "other": [],
+        "stack_prerequisite": [],
+        "stack_adaptable": []
+      },
+      "counts": {
+        "stack": 0,
+        "numbas": 0,
+        "other": 0,
+        "validated": 0,
+        "stack_direct": 0,
+        "stack_prerequisite": 0,
+        "stack_adaptable": 0,
+        "stack_reusable_total": 0
+      },
+      "gap_to_mature_bank": 35,
+      "priority": "critical",
+      "role_targets": {
+        "foundation": 4,
+        "procedural": 7,
+        "conceptual": 5,
+        "visual": 3,
+        "application": 4,
+        "diagnostic": 3,
+        "remediation": 3,
+        "challenge": 3,
+        "mastery": 3
+      },
+      "role_counts": {
+        "foundation": 0,
+        "procedural": 0,
+        "conceptual": 0,
+        "visual": 0,
+        "application": 0,
+        "diagnostic": 0,
+        "remediation": 0,
+        "challenge": 0,
+        "mastery": 0
+      },
+      "mining_status": "not_started",
+      "review_status": "pending",
+      "notes": []
+    },
+    {
+      "concept_id": "GH-B9-NUM-FRACTION-PERCENT-APPLICATIONS",
+      "knowledge_concept_id": "percentages",
+      "strand": "Number",
+      "sub_strand": "Fractions, Decimals and Percentages",
+      "concept_name": "Fraction and Percentage Applications",
+      "content_standard_ids": [
+        "B9.1.3.1"
+      ],
+      "learning_indicator_ids": [
+        "B9.1.3.1.3"
+      ],
+      "question_target": {
+        "minimum_deliverable": 12,
+        "strong_bank": 25,
+        "mature_bank": 35
+      },
+      "existing_questions": {
+        "stack": [],
+        "numbas": [],
+        "other": [],
+        "stack_prerequisite": [],
+        "stack_adaptable": []
+      },
+      "counts": {
+        "stack": 0,
+        "numbas": 0,
+        "other": 0,
+        "validated": 0,
+        "stack_direct": 0,
+        "stack_prerequisite": 0,
+        "stack_adaptable": 0,
+        "stack_reusable_total": 0
+      },
+      "gap_to_mature_bank": 35,
+      "priority": "critical",
+      "role_targets": {
+        "foundation": 4,
+        "procedural": 7,
+        "conceptual": 5,
+        "visual": 3,
+        "application": 4,
+        "diagnostic": 3,
+        "remediation": 3,
+        "challenge": 3,
+        "mastery": 3
+      },
+      "role_counts": {
+        "foundation": 0,
+        "procedural": 0,
+        "conceptual": 0,
+        "visual": 0,
+        "application": 0,
+        "diagnostic": 0,
+        "remediation": 0,
+        "challenge": 0,
+        "mastery": 0
+      },
+      "mining_status": "not_started",
+      "review_status": "pending",
+      "notes": []
+    },
+    {
+      "concept_id": "GH-B9-NUM-PROPORTIONAL-RELATIONSHIPS",
+      "knowledge_concept_id": "ratio-and-proportion",
+      "strand": "Number",
+      "sub_strand": "Number: Ratios and Proportion",
+      "concept_name": "Proportional Relationships and Unit Rate",
+      "content_standard_ids": [
+        "B9.1.4.1"
+      ],
+      "learning_indicator_ids": [
+        "B9.1.4.1.1",
+        "B9.1.4.1.4"
+      ],
+      "question_target": {
+        "minimum_deliverable": 12,
+        "strong_bank": 25,
+        "mature_bank": 35
+      },
+      "existing_questions": {
+        "stack": [
+          "207534",
+          "207542",
+          "207616",
+          "207646",
+          "222251"
+        ],
+        "numbas": [],
+        "other": [],
+        "stack_prerequisite": [],
+        "stack_adaptable": []
+      },
+      "counts": {
+        "stack": 5,
+        "numbas": 0,
+        "other": 0,
+        "validated": 5,
+        "stack_direct": 5,
+        "stack_prerequisite": 0,
+        "stack_adaptable": 0,
+        "stack_reusable_total": 5
+      },
+      "gap_to_mature_bank": 30,
+      "priority": "high",
+      "role_targets": {
+        "foundation": 4,
+        "procedural": 7,
+        "conceptual": 5,
+        "visual": 3,
+        "application": 4,
+        "diagnostic": 3,
+        "remediation": 3,
+        "challenge": 3,
+        "mastery": 3
+      },
+      "role_counts": {
+        "foundation": 0,
+        "procedural": 0,
+        "conceptual": 0,
+        "visual": 0,
+        "application": 0,
+        "diagnostic": 0,
+        "remediation": 0,
+        "challenge": 0,
+        "mastery": 0
+      },
+      "mining_status": "existing_content_audited",
+      "review_status": "pending",
+      "notes": []
+    },
+    {
+      "concept_id": "GH-B9-NUM-FINANCIAL-RATES",
+      "knowledge_concept_id": "percentages",
+      "strand": "Number",
+      "sub_strand": "Number: Ratios and Proportion",
+      "concept_name": "Financial Mathematics and Rates",
+      "content_standard_ids": [
+        "B9.1.4.1"
+      ],
+      "learning_indicator_ids": [
+        "B9.1.4.1.2",
+        "B9.1.4.1.3"
+      ],
+      "question_target": {
+        "minimum_deliverable": 12,
+        "strong_bank": 25,
+        "mature_bank": 35
+      },
+      "existing_questions": {
+        "stack": [],
+        "numbas": [],
+        "other": [],
+        "stack_prerequisite": [],
+        "stack_adaptable": []
+      },
+      "counts": {
+        "stack": 0,
+        "numbas": 0,
+        "other": 0,
+        "validated": 0,
+        "stack_direct": 0,
+        "stack_prerequisite": 0,
+        "stack_adaptable": 0,
+        "stack_reusable_total": 0
+      },
+      "gap_to_mature_bank": 35,
+      "priority": "critical",
+      "role_targets": {
+        "foundation": 4,
+        "procedural": 7,
+        "conceptual": 5,
+        "visual": 3,
+        "application": 4,
+        "diagnostic": 3,
+        "remediation": 3,
+        "challenge": 3,
+        "mastery": 3
+      },
+      "role_counts": {
+        "foundation": 0,
+        "procedural": 0,
+        "conceptual": 0,
+        "visual": 0,
+        "application": 0,
+        "diagnostic": 0,
+        "remediation": 0,
+        "challenge": 0,
+        "mastery": 0
+      },
+      "mining_status": "not_started",
+      "review_status": "pending",
+      "notes": []
+    },
+    {
+      "concept_id": "GH-B9-ALG-LINEAR-RELATIONS",
+      "knowledge_concept_id": "simultaneous-equations",
+      "strand": "Algebra",
+      "sub_strand": "Patterns and Relations",
+      "concept_name": "Linear Relations and Simultaneous Equations",
+      "content_standard_ids": [
+        "B9.2.1.1"
+      ],
+      "learning_indicator_ids": [
+        "B9.2.1.1.1",
+        "B9.2.1.1.2",
+        "B9.2.1.1.3"
+      ],
+      "question_target": {
+        "minimum_deliverable": 12,
+        "strong_bank": 25,
+        "mature_bank": 35
+      },
+      "existing_questions": {
+        "stack": [
+          "lr_01_table_linear_relation",
+          "qlin_02_partial_table_linear_relation",
+          "qlin_03_paired_linear_tables",
+          "qlin_04_distinct_representation_tables",
+          "qlin_05_graph_two_linear_relations"
+        ],
+        "numbas": [],
+        "other": [],
+        "stack_prerequisite": [
+          "206939",
+          "206961",
+          "207059",
+          "207067"
+        ],
+        "stack_adaptable": []
+      },
+      "counts": {
+        "stack": 5,
+        "numbas": 0,
+        "other": 0,
+        "validated": 5,
+        "stack_direct": 5,
+        "stack_prerequisite": 4,
+        "stack_adaptable": 0,
+        "stack_reusable_total": 9
+      },
+      "gap_to_mature_bank": 30,
+      "priority": "high",
+      "role_targets": {
+        "foundation": 4,
+        "procedural": 7,
+        "conceptual": 5,
+        "visual": 3,
+        "application": 4,
+        "diagnostic": 3,
+        "remediation": 3,
+        "challenge": 3,
+        "mastery": 3
+      },
+      "role_counts": {
+        "foundation": 2,
+        "procedural": 2,
+        "conceptual": 0,
+        "visual": 1,
+        "application": 0,
+        "diagnostic": 0,
+        "remediation": 0,
+        "challenge": 0,
+        "mastery": 0
+      },
+      "mining_status": "implementation_in_progress",
+      "review_status": "live_content_validated",
+      "notes": [
+        "QLIN-02 is a shared curriculum-independent STACK question mapped directly to Ghana B9.2.1.1.1. It passed local validation, STACK testing, five-variant deployment, rendering, correct/partial/misconception grading, curriculum mapping, and live adaptive learner delivery.",
+        "QLIN-03 is a shared curriculum-independent STACK procedural question mapped directly to Ghana B9.2.1.1.1. It passed STACK testing, five-variant deployment, diagnostic-distinctness checks, correct/partial/misconception grading validation, curriculum mapping, and live adaptive delivery through LR-01 -> QLIN-02 -> QLIN-03.",
+        "QLIN-04 is a shared curriculum-independent STACK procedural question mapped directly to Ghana B9.2.1.1.1. It presents two linear relations in different algebraic forms and diagnoses the common sign error when rearranging ax+z=b. It passed authored tests, five-variant deployment, correct/partial/misconception grading validation, curriculum mapping, and live adaptive delivery through LR-01 -> QLIN-02 -> QLIN-03 -> QLIN-04.",
+        "QLIN-05 is a shared curriculum-independent STACK visual question mapped directly to Ghana B9.2.1.1.1. It uses JSXGraph to plot two linear relations with four bound learner inputs and two PRTs. It passed authored tests, five-variant deployment, correct/partial/swapped-relation grading validation, alternative-valid-point validation, curriculum mapping, and live adaptive delivery through LR-01 -> QLIN-02 -> QLIN-03 -> QLIN-04 -> QLIN-05."
+      ]
+    },
+    {
+      "concept_id": "GH-B9-ALG-CHANGE-SUBJECT",
+      "knowledge_concept_id": "algebraic-expressions",
+      "strand": "Algebra",
+      "sub_strand": "Algebraic Expressions",
+      "concept_name": "Change of Subject",
+      "content_standard_ids": [
+        "B9.2.2.1"
+      ],
+      "learning_indicator_ids": [
+        "B9.2.2.1.1"
+      ],
+      "question_target": {
+        "minimum_deliverable": 12,
+        "strong_bank": 25,
+        "mature_bank": 35
+      },
+      "existing_questions": {
+        "stack": [],
+        "numbas": [],
+        "other": [],
+        "stack_prerequisite": [],
+        "stack_adaptable": []
+      },
+      "counts": {
+        "stack": 0,
+        "numbas": 0,
+        "other": 0,
+        "validated": 0,
+        "stack_direct": 0,
+        "stack_prerequisite": 0,
+        "stack_adaptable": 0,
+        "stack_reusable_total": 0
+      },
+      "gap_to_mature_bank": 35,
+      "priority": "critical",
+      "role_targets": {
+        "foundation": 4,
+        "procedural": 7,
+        "conceptual": 5,
+        "visual": 3,
+        "application": 4,
+        "diagnostic": 3,
+        "remediation": 3,
+        "challenge": 3,
+        "mastery": 3
+      },
+      "role_counts": {
+        "foundation": 0,
+        "procedural": 0,
+        "conceptual": 0,
+        "visual": 0,
+        "application": 0,
+        "diagnostic": 0,
+        "remediation": 0,
+        "challenge": 0,
+        "mastery": 0
+      },
+      "mining_status": "not_started",
+      "review_status": "pending",
+      "notes": []
+    },
+    {
+      "concept_id": "GH-B9-ALG-SUBSTITUTION",
+      "knowledge_concept_id": "algebraic-expressions",
+      "strand": "Algebra",
+      "sub_strand": "Algebraic Expressions",
+      "concept_name": "Substitution and Evaluation",
+      "content_standard_ids": [
+        "B9.2.2.1"
+      ],
+      "learning_indicator_ids": [
+        "B9.2.2.1.2"
+      ],
+      "question_target": {
+        "minimum_deliverable": 12,
+        "strong_bank": 25,
+        "mature_bank": 35
+      },
+      "existing_questions": {
+        "stack": [],
+        "numbas": [],
+        "other": [],
+        "stack_prerequisite": [],
+        "stack_adaptable": []
+      },
+      "counts": {
+        "stack": 0,
+        "numbas": 0,
+        "other": 0,
+        "validated": 0,
+        "stack_direct": 0,
+        "stack_prerequisite": 0,
+        "stack_adaptable": 0,
+        "stack_reusable_total": 0
+      },
+      "gap_to_mature_bank": 35,
+      "priority": "critical",
+      "role_targets": {
+        "foundation": 4,
+        "procedural": 7,
+        "conceptual": 5,
+        "visual": 3,
+        "application": 4,
+        "diagnostic": 3,
+        "remediation": 3,
+        "challenge": 3,
+        "mastery": 3
+      },
+      "role_counts": {
+        "foundation": 0,
+        "procedural": 0,
+        "conceptual": 0,
+        "visual": 0,
+        "application": 0,
+        "diagnostic": 0,
+        "remediation": 0,
+        "challenge": 0,
+        "mastery": 0
+      },
+      "mining_status": "not_started",
+      "review_status": "pending",
+      "notes": []
+    },
+    {
+      "concept_id": "GH-B9-ALG-FACTORISATION",
+      "knowledge_concept_id": "factorisation",
+      "strand": "Algebra",
+      "sub_strand": "Algebraic Expressions",
+      "concept_name": "Factorisation",
+      "content_standard_ids": [
+        "B9.2.2.1"
+      ],
+      "learning_indicator_ids": [
+        "B9.2.2.1.3"
+      ],
+      "question_target": {
+        "minimum_deliverable": 12,
+        "strong_bank": 25,
+        "mature_bank": 35
+      },
+      "existing_questions": {
+        "stack": [],
+        "numbas": [],
+        "other": [],
+        "stack_prerequisite": [],
+        "stack_adaptable": []
+      },
+      "counts": {
+        "stack": 0,
+        "numbas": 0,
+        "other": 0,
+        "validated": 0,
+        "stack_direct": 0,
+        "stack_prerequisite": 0,
+        "stack_adaptable": 0,
+        "stack_reusable_total": 0
+      },
+      "gap_to_mature_bank": 35,
+      "priority": "critical",
+      "role_targets": {
+        "foundation": 4,
+        "procedural": 7,
+        "conceptual": 5,
+        "visual": 3,
+        "application": 4,
+        "diagnostic": 3,
+        "remediation": 3,
+        "challenge": 3,
+        "mastery": 3
+      },
+      "role_counts": {
+        "foundation": 0,
+        "procedural": 0,
+        "conceptual": 0,
+        "visual": 0,
+        "application": 0,
+        "diagnostic": 0,
+        "remediation": 0,
+        "challenge": 0,
+        "mastery": 0
+      },
+      "mining_status": "not_started",
+      "review_status": "pending",
+      "notes": []
+    },
+    {
+      "concept_id": "GH-B9-ALG-MODELLING",
+      "knowledge_concept_id": "algebraic-expressions",
+      "strand": "Algebra",
+      "sub_strand": "Algebraic Expressions",
+      "concept_name": "Algebraic Modelling and Applications",
+      "content_standard_ids": [
+        "B9.2.2.1"
+      ],
+      "learning_indicator_ids": [
+        "B9.2.2.1.4"
+      ],
+      "question_target": {
+        "minimum_deliverable": 12,
+        "strong_bank": 25,
+        "mature_bank": 35
+      },
+      "existing_questions": {
+        "stack": [],
+        "numbas": [],
+        "other": [],
+        "stack_prerequisite": [],
+        "stack_adaptable": []
+      },
+      "counts": {
+        "stack": 0,
+        "numbas": 0,
+        "other": 0,
+        "validated": 0,
+        "stack_direct": 0,
+        "stack_prerequisite": 0,
+        "stack_adaptable": 0,
+        "stack_reusable_total": 0
+      },
+      "gap_to_mature_bank": 35,
+      "priority": "critical",
+      "role_targets": {
+        "foundation": 4,
+        "procedural": 7,
+        "conceptual": 5,
+        "visual": 3,
+        "application": 4,
+        "diagnostic": 3,
+        "remediation": 3,
+        "challenge": 3,
+        "mastery": 3
+      },
+      "role_counts": {
+        "foundation": 0,
+        "procedural": 0,
+        "conceptual": 0,
+        "visual": 0,
+        "application": 0,
+        "diagnostic": 0,
+        "remediation": 0,
+        "challenge": 0,
+        "mastery": 0
+      },
+      "mining_status": "not_started",
+      "review_status": "pending",
+      "notes": []
+    },
+    {
+      "concept_id": "GH-B9-ALG-LINEAR-INEQUALITIES",
+      "knowledge_concept_id": "inequalities",
+      "strand": "Algebra",
+      "sub_strand": "Variables and Equations",
+      "concept_name": "Linear Equations and Inequalities",
+      "content_standard_ids": [
+        "B9.2.3.1"
+      ],
+      "learning_indicator_ids": [
+        "B9.2.3.1.1",
+        "B9.2.3.1.2"
+      ],
+      "question_target": {
+        "minimum_deliverable": 12,
+        "strong_bank": 25,
+        "mature_bank": 35
+      },
+      "existing_questions": {
+        "stack": [],
+        "numbas": [],
+        "other": [],
+        "stack_prerequisite": [],
+        "stack_adaptable": []
+      },
+      "counts": {
+        "stack": 0,
+        "numbas": 0,
+        "other": 0,
+        "validated": 0,
+        "stack_direct": 0,
+        "stack_prerequisite": 0,
+        "stack_adaptable": 0,
+        "stack_reusable_total": 0
+      },
+      "gap_to_mature_bank": 35,
+      "priority": "critical",
+      "role_targets": {
+        "foundation": 4,
+        "procedural": 7,
+        "conceptual": 5,
+        "visual": 3,
+        "application": 4,
+        "diagnostic": 3,
+        "remediation": 3,
+        "challenge": 3,
+        "mastery": 3
+      },
+      "role_counts": {
+        "foundation": 0,
+        "procedural": 0,
+        "conceptual": 0,
+        "visual": 0,
+        "application": 0,
+        "diagnostic": 0,
+        "remediation": 0,
+        "challenge": 0,
+        "mastery": 0
+      },
+      "mining_status": "not_started",
+      "review_status": "pending",
+      "notes": []
+    },
+    {
+      "concept_id": "GH-B9-ALG-EQUATION-APPLICATIONS",
+      "knowledge_concept_id": "linear-equations",
+      "strand": "Algebra",
+      "sub_strand": "Variables and Equations",
+      "concept_name": "Equation and Inequality Applications",
+      "content_standard_ids": [
+        "B9.2.3.1"
+      ],
+      "learning_indicator_ids": [
+        "B9.2.3.1.3"
+      ],
+      "question_target": {
+        "minimum_deliverable": 12,
+        "strong_bank": 25,
+        "mature_bank": 35
+      },
+      "existing_questions": {
+        "stack": [],
+        "numbas": [],
+        "other": [],
+        "stack_prerequisite": [],
+        "stack_adaptable": []
+      },
+      "counts": {
+        "stack": 0,
+        "numbas": 0,
+        "other": 0,
+        "validated": 0,
+        "stack_direct": 0,
+        "stack_prerequisite": 0,
+        "stack_adaptable": 0,
+        "stack_reusable_total": 0
+      },
+      "gap_to_mature_bank": 35,
+      "priority": "critical",
+      "role_targets": {
+        "foundation": 4,
+        "procedural": 7,
+        "conceptual": 5,
+        "visual": 3,
+        "application": 4,
+        "diagnostic": 3,
+        "remediation": 3,
+        "challenge": 3,
+        "mastery": 3
+      },
+      "role_counts": {
+        "foundation": 0,
+        "procedural": 0,
+        "conceptual": 0,
+        "visual": 0,
+        "application": 0,
+        "diagnostic": 0,
+        "remediation": 0,
+        "challenge": 0,
+        "mastery": 0
+      },
+      "mining_status": "not_started",
+      "review_status": "pending",
+      "notes": []
+    },
+    {
+      "concept_id": "GH-B9-GEO-POLYGON-ANGLES",
+      "knowledge_concept_id": "angles",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Shapes and Space",
+      "concept_name": "Polygon and Angle Relationships",
+      "content_standard_ids": [
+        "B9.3.1.1"
+      ],
+      "learning_indicator_ids": [
+        "B9.3.1.1.1"
+      ],
+      "question_target": {
+        "minimum_deliverable": 12,
+        "strong_bank": 25,
+        "mature_bank": 35
+      },
+      "existing_questions": {
+        "stack": [],
+        "numbas": [],
+        "other": [],
+        "stack_prerequisite": [],
+        "stack_adaptable": []
+      },
+      "counts": {
+        "stack": 0,
+        "numbas": 0,
+        "other": 0,
+        "validated": 0,
+        "stack_direct": 0,
+        "stack_prerequisite": 0,
+        "stack_adaptable": 0,
+        "stack_reusable_total": 0
+      },
+      "gap_to_mature_bank": 35,
+      "priority": "critical",
+      "role_targets": {
+        "foundation": 4,
+        "procedural": 7,
+        "conceptual": 5,
+        "visual": 3,
+        "application": 4,
+        "diagnostic": 3,
+        "remediation": 3,
+        "challenge": 3,
+        "mastery": 3
+      },
+      "role_counts": {
+        "foundation": 0,
+        "procedural": 0,
+        "conceptual": 0,
+        "visual": 0,
+        "application": 0,
+        "diagnostic": 0,
+        "remediation": 0,
+        "challenge": 0,
+        "mastery": 0
+      },
+      "mining_status": "not_started",
+      "review_status": "pending",
+      "notes": []
+    },
+    {
+      "concept_id": "GH-B9-GEO-SIMILARITY-CONGRUENCE",
+      "knowledge_concept_id": "similarity",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Shapes and Space",
+      "concept_name": "Similarity and Congruence",
+      "content_standard_ids": [
+        "B9.3.1.1"
+      ],
+      "learning_indicator_ids": [
+        "B9.3.1.1.2"
+      ],
+      "question_target": {
+        "minimum_deliverable": 12,
+        "strong_bank": 25,
+        "mature_bank": 35
+      },
+      "existing_questions": {
+        "stack": [
+          "221322"
+        ],
+        "numbas": [],
+        "other": [],
+        "stack_prerequisite": [],
+        "stack_adaptable": []
+      },
+      "counts": {
+        "stack": 1,
+        "numbas": 0,
+        "other": 0,
+        "validated": 1,
+        "stack_direct": 1,
+        "stack_prerequisite": 0,
+        "stack_adaptable": 0,
+        "stack_reusable_total": 1
+      },
+      "gap_to_mature_bank": 34,
+      "priority": "high",
+      "role_targets": {
+        "foundation": 4,
+        "procedural": 7,
+        "conceptual": 5,
+        "visual": 3,
+        "application": 4,
+        "diagnostic": 3,
+        "remediation": 3,
+        "challenge": 3,
+        "mastery": 3
+      },
+      "role_counts": {
+        "foundation": 0,
+        "procedural": 0,
+        "conceptual": 0,
+        "visual": 0,
+        "application": 0,
+        "diagnostic": 0,
+        "remediation": 0,
+        "challenge": 0,
+        "mastery": 0
+      },
+      "mining_status": "existing_content_audited",
+      "review_status": "pending",
+      "notes": []
+    },
+    {
+      "concept_id": "GH-B9-GEO-CONSTRUCTIONS",
+      "knowledge_concept_id": "geometry",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Shapes and Space",
+      "concept_name": "Geometric Constructions",
+      "content_standard_ids": [
+        "B9.3.1.2"
+      ],
+      "learning_indicator_ids": [
+        "B9.3.1.2.1",
+        "B9.3.1.2.2"
+      ],
+      "question_target": {
+        "minimum_deliverable": 12,
+        "strong_bank": 25,
+        "mature_bank": 35
+      },
+      "existing_questions": {
+        "stack": [],
+        "numbas": [],
+        "other": [],
+        "stack_prerequisite": [],
+        "stack_adaptable": []
+      },
+      "counts": {
+        "stack": 0,
+        "numbas": 0,
+        "other": 0,
+        "validated": 0,
+        "stack_direct": 0,
+        "stack_prerequisite": 0,
+        "stack_adaptable": 0,
+        "stack_reusable_total": 0
+      },
+      "gap_to_mature_bank": 35,
+      "priority": "critical",
+      "role_targets": {
+        "foundation": 4,
+        "procedural": 7,
+        "conceptual": 5,
+        "visual": 3,
+        "application": 4,
+        "diagnostic": 3,
+        "remediation": 3,
+        "challenge": 3,
+        "mastery": 3
+      },
+      "role_counts": {
+        "foundation": 0,
+        "procedural": 0,
+        "conceptual": 0,
+        "visual": 0,
+        "application": 0,
+        "diagnostic": 0,
+        "remediation": 0,
+        "challenge": 0,
+        "mastery": 0
+      },
+      "mining_status": "not_started",
+      "review_status": "pending",
+      "notes": []
+    },
+    {
+      "concept_id": "GH-B9-GEO-PRISM-SURFACE-AREA",
+      "knowledge_concept_id": "surface-area-and-volume",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Measurement",
+      "concept_name": "Prisms, Nets and Surface Area",
+      "content_standard_ids": [
+        "B9.3.2.1"
+      ],
+      "learning_indicator_ids": [
+        "B9.3.2.1.1",
+        "B9.3.2.1.2",
+        "B9.3.2.1.3"
+      ],
+      "question_target": {
+        "minimum_deliverable": 12,
+        "strong_bank": 25,
+        "mature_bank": 35
+      },
+      "existing_questions": {
+        "stack": [
+          "222215",
+          "222221"
+        ],
+        "numbas": [],
+        "other": [],
+        "stack_prerequisite": [],
+        "stack_adaptable": [
+          "222222"
+        ]
+      },
+      "counts": {
+        "stack": 2,
+        "numbas": 0,
+        "other": 0,
+        "validated": 2,
+        "stack_direct": 2,
+        "stack_prerequisite": 0,
+        "stack_adaptable": 1,
+        "stack_reusable_total": 3
+      },
+      "gap_to_mature_bank": 33,
+      "priority": "high",
+      "role_targets": {
+        "foundation": 4,
+        "procedural": 7,
+        "conceptual": 5,
+        "visual": 3,
+        "application": 4,
+        "diagnostic": 3,
+        "remediation": 3,
+        "challenge": 3,
+        "mastery": 3
+      },
+      "role_counts": {
+        "foundation": 0,
+        "procedural": 0,
+        "conceptual": 0,
+        "visual": 0,
+        "application": 0,
+        "diagnostic": 0,
+        "remediation": 0,
+        "challenge": 0,
+        "mastery": 0
+      },
+      "mining_status": "existing_content_audited",
+      "review_status": "pending",
+      "notes": []
+    },
+    {
+      "concept_id": "GH-B9-GEO-POSITION-VECTORS",
+      "knowledge_concept_id": "coordinate-graphs",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Measurement",
+      "concept_name": "Coordinates and Position Vectors",
+      "content_standard_ids": [
+        "B9.3.2.1"
+      ],
+      "learning_indicator_ids": [
+        "B9.3.2.1.4"
+      ],
+      "question_target": {
+        "minimum_deliverable": 12,
+        "strong_bank": 25,
+        "mature_bank": 35
+      },
+      "existing_questions": {
+        "stack": [],
+        "numbas": [],
+        "other": [],
+        "stack_prerequisite": [],
+        "stack_adaptable": []
+      },
+      "counts": {
+        "stack": 0,
+        "numbas": 0,
+        "other": 0,
+        "validated": 0,
+        "stack_direct": 0,
+        "stack_prerequisite": 0,
+        "stack_adaptable": 0,
+        "stack_reusable_total": 0
+      },
+      "gap_to_mature_bank": 35,
+      "priority": "critical",
+      "role_targets": {
+        "foundation": 4,
+        "procedural": 7,
+        "conceptual": 5,
+        "visual": 3,
+        "application": 4,
+        "diagnostic": 3,
+        "remediation": 3,
+        "challenge": 3,
+        "mastery": 3
+      },
+      "role_counts": {
+        "foundation": 0,
+        "procedural": 0,
+        "conceptual": 0,
+        "visual": 0,
+        "application": 0,
+        "diagnostic": 0,
+        "remediation": 0,
+        "challenge": 0,
+        "mastery": 0
+      },
+      "mining_status": "not_started",
+      "review_status": "pending",
+      "notes": []
+    },
+    {
+      "concept_id": "GH-B9-GEO-VECTOR-OPERATIONS",
+      "knowledge_concept_id": null,
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Measurement",
+      "concept_name": "Vector Relationships and Operations",
+      "content_standard_ids": [
+        "B9.3.2.2"
+      ],
+      "learning_indicator_ids": [
+        "B9.3.2.2.1",
+        "B9.3.2.2.2"
+      ],
+      "question_target": {
+        "minimum_deliverable": 12,
+        "strong_bank": 25,
+        "mature_bank": 35
+      },
+      "existing_questions": {
+        "stack": [
+          "207505",
+          "207517",
+          "207532",
+          "207541",
+          "207606",
+          "207613",
+          "207667",
+          "207829",
+          "208044"
+        ],
+        "numbas": [],
+        "other": [],
+        "stack_prerequisite": [],
+        "stack_adaptable": []
+      },
+      "counts": {
+        "stack": 9,
+        "numbas": 0,
+        "other": 0,
+        "validated": 9,
+        "stack_direct": 9,
+        "stack_prerequisite": 0,
+        "stack_adaptable": 0,
+        "stack_reusable_total": 9
+      },
+      "gap_to_mature_bank": 26,
+      "priority": "high",
+      "role_targets": {
+        "foundation": 4,
+        "procedural": 7,
+        "conceptual": 5,
+        "visual": 3,
+        "application": 4,
+        "diagnostic": 3,
+        "remediation": 3,
+        "challenge": 3,
+        "mastery": 3
+      },
+      "role_counts": {
+        "foundation": 0,
+        "procedural": 0,
+        "conceptual": 0,
+        "visual": 0,
+        "application": 0,
+        "diagnostic": 0,
+        "remediation": 0,
+        "challenge": 0,
+        "mastery": 0
+      },
+      "mining_status": "existing_content_audited",
+      "review_status": "pending",
+      "notes": []
+    },
+    {
+      "concept_id": "GH-B9-GEO-ENLARGEMENT",
+      "knowledge_concept_id": "similarity",
+      "strand": "Geometry and Measurement",
+      "sub_strand": "Position and Transformation",
+      "concept_name": "Enlargement and Scale Factor",
+      "content_standard_ids": [
+        "B9.3.3.1"
+      ],
+      "learning_indicator_ids": [
+        "B9.3.3.1.1",
+        "B9.3.3.1.2",
+        "B9.3.3.1.3"
+      ],
+      "question_target": {
+        "minimum_deliverable": 12,
+        "strong_bank": 25,
+        "mature_bank": 35
+      },
+      "existing_questions": {
+        "stack": [
+          "221366"
+        ],
+        "numbas": [],
+        "other": [],
+        "stack_prerequisite": [],
+        "stack_adaptable": []
+      },
+      "counts": {
+        "stack": 1,
+        "numbas": 0,
+        "other": 0,
+        "validated": 1,
+        "stack_direct": 1,
+        "stack_prerequisite": 0,
+        "stack_adaptable": 0,
+        "stack_reusable_total": 1
+      },
+      "gap_to_mature_bank": 34,
+      "priority": "high",
+      "role_targets": {
+        "foundation": 4,
+        "procedural": 7,
+        "conceptual": 5,
+        "visual": 3,
+        "application": 4,
+        "diagnostic": 3,
+        "remediation": 3,
+        "challenge": 3,
+        "mastery": 3
+      },
+      "role_counts": {
+        "foundation": 0,
+        "procedural": 0,
+        "conceptual": 0,
+        "visual": 0,
+        "application": 0,
+        "diagnostic": 0,
+        "remediation": 0,
+        "challenge": 0,
+        "mastery": 0
+      },
+      "mining_status": "existing_content_audited",
+      "review_status": "pending",
+      "notes": []
+    },
+    {
+      "concept_id": "GH-B9-DATA-COLLECTION",
+      "knowledge_concept_id": "statistics",
+      "strand": "Handling Data",
+      "sub_strand": "Data",
+      "concept_name": "Data Collection and Representation",
+      "content_standard_ids": [
+        "B9.4.1.1"
+      ],
+      "learning_indicator_ids": [
+        "B9.4.1.1.1",
+        "B9.4.1.1.2"
+      ],
+      "question_target": {
+        "minimum_deliverable": 12,
+        "strong_bank": 25,
+        "mature_bank": 35
+      },
+      "existing_questions": {
+        "stack": [],
+        "numbas": [],
+        "other": [],
+        "stack_prerequisite": [],
+        "stack_adaptable": []
+      },
+      "counts": {
+        "stack": 0,
+        "numbas": 0,
+        "other": 0,
+        "validated": 0,
+        "stack_direct": 0,
+        "stack_prerequisite": 0,
+        "stack_adaptable": 0,
+        "stack_reusable_total": 0
+      },
+      "gap_to_mature_bank": 35,
+      "priority": "critical",
+      "role_targets": {
+        "foundation": 4,
+        "procedural": 7,
+        "conceptual": 5,
+        "visual": 3,
+        "application": 4,
+        "diagnostic": 3,
+        "remediation": 3,
+        "challenge": 3,
+        "mastery": 3
+      },
+      "role_counts": {
+        "foundation": 0,
+        "procedural": 0,
+        "conceptual": 0,
+        "visual": 0,
+        "application": 0,
+        "diagnostic": 0,
+        "remediation": 0,
+        "challenge": 0,
+        "mastery": 0
+      },
+      "mining_status": "not_started",
+      "review_status": "pending",
+      "notes": []
+    },
+    {
+      "concept_id": "GH-B9-DATA-HISTOGRAMS",
+      "knowledge_concept_id": "statistics",
+      "strand": "Handling Data",
+      "sub_strand": "Data",
+      "concept_name": "Histograms and Frequency Distributions",
+      "content_standard_ids": [
+        "B9.4.1.1"
+      ],
+      "learning_indicator_ids": [
+        "B9.4.1.1.3"
+      ],
+      "question_target": {
+        "minimum_deliverable": 12,
+        "strong_bank": 25,
+        "mature_bank": 35
+      },
+      "existing_questions": {
+        "stack": [],
+        "numbas": [],
+        "other": [],
+        "stack_prerequisite": [],
+        "stack_adaptable": []
+      },
+      "counts": {
+        "stack": 0,
+        "numbas": 0,
+        "other": 0,
+        "validated": 0,
+        "stack_direct": 0,
+        "stack_prerequisite": 0,
+        "stack_adaptable": 0,
+        "stack_reusable_total": 0
+      },
+      "gap_to_mature_bank": 35,
+      "priority": "critical",
+      "role_targets": {
+        "foundation": 4,
+        "procedural": 7,
+        "conceptual": 5,
+        "visual": 3,
+        "application": 4,
+        "diagnostic": 3,
+        "remediation": 3,
+        "challenge": 3,
+        "mastery": 3
+      },
+      "role_counts": {
+        "foundation": 0,
+        "procedural": 0,
+        "conceptual": 0,
+        "visual": 0,
+        "application": 0,
+        "diagnostic": 0,
+        "remediation": 0,
+        "challenge": 0,
+        "mastery": 0
+      },
+      "mining_status": "not_started",
+      "review_status": "pending",
+      "notes": []
+    },
+    {
+      "concept_id": "GH-B9-DATA-DESCRIPTIVE-STATISTICS",
+      "knowledge_concept_id": "statistics",
+      "strand": "Handling Data",
+      "sub_strand": "Data",
+      "concept_name": "Data Quality and Descriptive Statistics",
+      "content_standard_ids": [
+        "B9.4.1.2"
+      ],
+      "learning_indicator_ids": [
+        "B9.4.1.2.1",
+        "B9.4.1.2.2",
+        "B9.4.1.2.3"
+      ],
+      "question_target": {
+        "minimum_deliverable": 12,
+        "strong_bank": 25,
+        "mature_bank": 35
+      },
+      "existing_questions": {
+        "stack": [
+          "220747"
+        ],
+        "numbas": [],
+        "other": [],
+        "stack_prerequisite": [],
+        "stack_adaptable": []
+      },
+      "counts": {
+        "stack": 1,
+        "numbas": 0,
+        "other": 0,
+        "validated": 1,
+        "stack_direct": 1,
+        "stack_prerequisite": 0,
+        "stack_adaptable": 0,
+        "stack_reusable_total": 1
+      },
+      "gap_to_mature_bank": 34,
+      "priority": "high",
+      "role_targets": {
+        "foundation": 4,
+        "procedural": 7,
+        "conceptual": 5,
+        "visual": 3,
+        "application": 4,
+        "diagnostic": 3,
+        "remediation": 3,
+        "challenge": 3,
+        "mastery": 3
+      },
+      "role_counts": {
+        "foundation": 0,
+        "procedural": 0,
+        "conceptual": 0,
+        "visual": 0,
+        "application": 0,
+        "diagnostic": 0,
+        "remediation": 0,
+        "challenge": 0,
+        "mastery": 0
+      },
+      "mining_status": "existing_content_audited",
+      "review_status": "pending",
+      "notes": []
+    },
+    {
+      "concept_id": "GH-B9-DATA-DEPENDENT-PROBABILITY",
+      "knowledge_concept_id": "probability",
+      "strand": "Handling Data",
+      "sub_strand": "Chance or Probability",
+      "concept_name": "Dependent Events and Probability Trees",
+      "content_standard_ids": [
+        "B9.4.2.1"
+      ],
+      "learning_indicator_ids": [
+        "B9.4.2.1.1",
+        "B9.4.2.1.2"
+      ],
+      "question_target": {
+        "minimum_deliverable": 12,
+        "strong_bank": 25,
+        "mature_bank": 35
+      },
+      "existing_questions": {
+        "stack": [],
+        "numbas": [],
+        "other": [],
+        "stack_prerequisite": [],
+        "stack_adaptable": []
+      },
+      "counts": {
+        "stack": 0,
+        "numbas": 0,
+        "other": 0,
+        "validated": 0,
+        "stack_direct": 0,
+        "stack_prerequisite": 0,
+        "stack_adaptable": 0,
+        "stack_reusable_total": 0
+      },
+      "gap_to_mature_bank": 35,
+      "priority": "critical",
+      "role_targets": {
+        "foundation": 4,
+        "procedural": 7,
+        "conceptual": 5,
+        "visual": 3,
+        "application": 4,
+        "diagnostic": 3,
+        "remediation": 3,
+        "challenge": 3,
+        "mastery": 3
+      },
+      "role_counts": {
+        "foundation": 0,
+        "procedural": 0,
+        "conceptual": 0,
+        "visual": 0,
+        "application": 0,
+        "diagnostic": 0,
+        "remediation": 0,
+        "challenge": 0,
+        "mastery": 0
+      },
+      "mining_status": "not_started",
+      "review_status": "pending",
+      "notes": []
+    }
+  ],
+  "existing_stack_audit": {
+    "source_question_count": 79,
+    "direct_count": 24,
+    "prerequisite_count": 15,
+    "adaptable_count": 1,
+    "out_of_scope_count": 44,
+    "unreviewed_count": 0,
+    "counting_policy": "Only direct questions count toward mature-bank coverage. Existing-source questions use the first candidate concept as their primary counting concept. Newly authored questions count only after STACK deployment, grading validation, curriculum mapping, and live learner delivery are verified."
+  }
+}

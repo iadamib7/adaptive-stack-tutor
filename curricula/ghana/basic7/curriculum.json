@@ -1,0 +1,54 @@
+{
+  "version": "1.0",
+  "name": "Ghana Basic 7 Mathematics",
+  "identity": {
+    "id": "ghana-basic7-mathematics",
+    "country": "Ghana",
+    "education_system": "Common Core Programme",
+    "source_level_id": "B7",
+    "source_level_label": "Basic 7",
+    "target_level_id": "B8",
+    "target_level_label": "Basic 8",
+    "curriculum_version": "2020"
+  },
+  "intended_use": "Adaptive mathematics tutoring and prerequisite remediation for Basic 8 and Basic 9.",
+  "development_status": "development",
+  "source_documents": [
+    "Ghana - MATHEMATICS_Curr.- JHS(G7-G9).pdf"
+  ],
+  "concepts": [
+    {
+      "id": "GH-B7-ALG-RELATION-FOUNDATIONS",
+      "knowledge_concept_id": "relation-foundations",
+      "level_id": "B7",
+      "level_label": "Basic 7",
+      "progression_order": 1,
+      "strand": "Algebra",
+      "sub_strand": "Patterns and Relations",
+      "name": "Relation Foundations",
+      "description": "Derive rules for relations, construct tables of values, graph relations in the number plane, and make predictions from patterns.",
+      "content_standard_ids": [
+        "B7.2.1.1"
+      ],
+      "learning_indicator_ids": [],
+      "learning_outcomes": [
+        "Derive a rule for a set of points in a relation.",
+        "Construct a table of values for a relation.",
+        "Graph a relation in a number plane.",
+        "Predict subsequent elements of a relation."
+      ],
+      "readiness_target_ids": [
+        "GH-B8-ALG-STRAIGHT-LINES"
+      ],
+      "prerequisite_concept_ids": [],
+      "next_concept_ids": [
+        "GH-B8-ALG-STRAIGHT-LINES"
+      ],
+      "stack_question_ids": [
+        "206939"
+      ],
+      "status": "foundation",
+      "supporting_knowledge_concept_ids": []
+    }
+  ]
+}

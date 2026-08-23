@@ -1,0 +1,224 @@
+{
+  "version": "1.0",
+  "name": "Ghana Basic 9 Linear Relations Readiness Map",
+  "intended_context": "Adaptive mathematics practice supporting Ghana Basic 9 linear-relations learning and preparation for SHS1.",
+  "development_context": "Initial Ghana curriculum-aligned slice using validated existing STACK questions. Coverage gaps are retained explicitly rather than inferred from loosely related questions.",
+  "mappings": [
+    {
+      "concept_id": "coordinate-graphs",
+      "concept_name": "Coordinate Foundations and Graphs",
+      "curriculum_profile_id": "ghana-basic9-mathematics",
+      "level_id": "B8-B9",
+      "strand": "Algebra",
+      "sub_strand": "Patterns and Relations",
+      "learning_outcome": "Read and plot Cartesian coordinates as prerequisite evidence for graphing linear relations.",
+      "prerequisite_concept_ids": [],
+      "next_concept_ids": [
+        "gradient"
+      ],
+      "questions": [
+        {
+          "question_id": "206939",
+          "question_name": "Writing down coordinates of points in a graph",
+          "source_profile_id": "ghana-basic9-mathematics",
+          "source_file": "grade9_questions.xml",
+          "role": "foundation",
+          "sequence_order": 1,
+          "required_for_mastery": false,
+          "notes": "Existing STACK item used as prerequisite coordinate-reading evidence. It does not by itself establish mastery of B9 simultaneous linear equations."
+        },
+        {
+          "question_id": "206961",
+          "question_name": "Plotting points on a Cartesian plane",
+          "source_profile_id": "ghana-basic9-mathematics",
+          "source_file": "grade9_questions.xml",
+          "role": "practice",
+          "sequence_order": 2,
+          "required_for_mastery": true,
+          "notes": "Interactive coordinate-plotting evidence used to establish readiness for straight-line graph work."
+        }
+      ],
+      "mapping_status": "review_required",
+      "source_basis": "Existing STACK coordinate questions aligned as prerequisite evidence for Ghana B8-B9 Patterns and Relations.",
+      "reviewer_notes": "Prerequisite/remediation content. Curriculum alignment requires educational review before production use."
+    },
+    {
+      "concept_id": "gradient",
+      "concept_name": "Gradient and Straight-Line Equations",
+      "curriculum_profile_id": "ghana-basic9-mathematics",
+      "level_id": "B8-B9",
+      "strand": "Algebra",
+      "sub_strand": "Patterns and Relations",
+      "learning_outcome": "Graph straight-line relations and determine equations of straight lines as preparation for paired linear relations.",
+      "prerequisite_concept_ids": [
+        "coordinate-graphs"
+      ],
+      "next_concept_ids": [
+        "simultaneous-equations"
+      ],
+      "questions": [
+        {
+          "question_id": "207067",
+          "question_name": "Sketching straight-line graphs y = mx + c",
+          "source_profile_id": "ghana-basic9-mathematics",
+          "source_file": "grade9_questions.xml",
+          "role": "practice",
+          "sequence_order": 1,
+          "required_for_mastery": false,
+          "notes": "Direct evidence for straight-line graphing and the y = mx + c representation."
+        },
+        {
+          "question_id": "207059",
+          "question_name": "Determining the equation of a straight line",
+          "source_profile_id": "ghana-basic9-mathematics",
+          "source_file": "grade9_questions.xml",
+          "role": "mastery_check",
+          "sequence_order": 2,
+          "required_for_mastery": true,
+          "notes": "Readiness mastery evidence for determining a straight-line equation. This does not assess graphical solution of two simultaneous equations."
+        }
+      ],
+      "mapping_status": "review_required",
+      "source_basis": "Existing STACK straight-line questions aligned with Ghana B8 straight-line foundations and B9 readiness requirements.",
+      "reviewer_notes": "Strong prerequisite/readiness coverage, but not sufficient evidence for the complete B9 linear-relations standard."
+    },
+    {
+      "concept_id": "simultaneous-equations",
+      "concept_name": "Simultaneous Linear Equations",
+      "curriculum_profile_id": "ghana-basic9-mathematics",
+      "level_id": "B9",
+      "strand": "Algebra",
+      "sub_strand": "Patterns and Relations",
+      "learning_outcome": "Construct and graph two linear relations and use their point of intersection to solve simultaneous linear equations.",
+      "prerequisite_concept_ids": [
+        "gradient"
+      ],
+      "next_concept_ids": [],
+      "questions": [
+        {
+          "question_id": "lr_01_table_linear_relation",
+          "question_name": "Complete a table for a linear relation",
+          "source_profile_id": "ghana-basic9-mathematics",
+          "source_file": "lr_01_table_linear_relation.xml",
+          "role": "foundation",
+          "sequence_order": 1,
+          "required_for_mastery": false,
+          "notes": "Direct Ghana B9 item aligned to B9.2.1.1.1. Learners complete a table of values for a linear relation. This begins direct coverage of the B9 simultaneous-equations progression but does not yet establish full mastery of the concept."
+        },
+        {
+          "question_id": "qlin_02_partial_table_linear_relation",
+          "question_name": "Complete a partially filled linear-relation table",
+          "source_profile_id": "shared-question-bank",
+          "source_file": "qlin_02_partial_table_linear_relation.xml",
+          "role": "foundation",
+          "sequence_order": 2,
+          "required_for_mastery": false,
+          "notes": "Shared curriculum-independent question mapped as direct Ghana Basic 9 evidence for B9.2.1.1.1. Learners interpret a linear relation not initially solved for y and complete missing values in a partially populated table."
+        },
+        {
+          "question_id": "qlin_03_paired_linear_tables",
+          "question_name": "Complete paired linear-relation tables",
+          "source_profile_id": "shared-question-bank",
+          "source_file": "qlin_03_paired_linear_tables.xml",
+          "role": "practice",
+          "sequence_order": 3,
+          "required_for_mastery": false,
+          "notes": "Shared curriculum-independent question mapped as direct Ghana Basic 9 evidence for B9.2.1.1.1. Learners complete selected outputs for two distinct linear relations using common x-values and receive diagnostic feedback when the wrong relation is used."
+        },
+        {
+          "question_id": "qlin_04_distinct_representation_tables",
+          "question_name": "Complete tables from different linear representations",
+          "source_profile_id": "shared-question-bank",
+          "source_file": "qlin_04_distinct_representation_tables.xml",
+          "role": "practice",
+          "sequence_order": 4,
+          "required_for_mastery": false,
+          "notes": "Shared curriculum-independent procedural question mapped as direct Ghana Basic 9 evidence for B9.2.1.1.1. Learners work with two linear relations in different algebraic forms and must correctly interpret and rearrange the second relation before completing its table."
+        },
+        {
+          "question_id": "qlin_05_graph_two_linear_relations",
+          "question_name": "Graph two linear relations",
+          "source_profile_id": "shared-question-bank",
+          "source_file": "qlin_05_graph_two_linear_relations.xml",
+          "role": "practice",
+          "sequence_order": 5,
+          "required_for_mastery": false,
+          "notes": "Shared curriculum-independent visual question mapped as direct Ghana Basic 9 evidence for B9.2.1.1.1. Learners graph two distinct linear relations on the same Cartesian plane using draggable point pairs."
+        },
+        {
+          "question_id": "qlin_06_table_and_equation_graph",
+          "question_name": "Graph relations from a table and equation",
+          "source_profile_id": "shared-question-bank",
+          "source_file": "qlin_06_table_and_equation_graph.xml",
+          "role": "practice",
+          "sequence_order": 6,
+          "required_for_mastery": false,
+          "notes": "Shared curriculum-independent visual question mapped as direct Ghana Basic 9 evidence for B9.2.1.1.1. Learners graph two linear relations represented in different forms: Relation A from a table of values and Relation B from an equation. The task adds representational translation evidence beyond QLIN-05."
+        },
+        {
+          "question_id": "qlin_07_missing_ordered_pair",
+          "question_name": "Read missing coordinates from two linear graphs",
+          "source_profile_id": "shared-question-bank",
+          "source_file": "qlin_07_missing_ordered_pair.xml",
+          "role": "integration",
+          "sequence_order": 7,
+          "required_for_mastery": false,
+          "notes": "Shared curriculum-independent conceptual question mapped as direct Ghana Basic 9 evidence for B9.2.1.1.2. Learners interpret two fixed linear graphs and complete missing coordinates in ordered pairs. The task adds graph-reading and coordinate-interpretation evidence without requiring learners to construct the lines."
+        },
+        {
+          "question_id": "qlin_08_intersection_identification",
+          "question_name": "Identify the intersection of two linear graphs",
+          "source_profile_id": "shared-question-bank",
+          "source_file": "qlin_08_intersection_identification.xml",
+          "role": "integration",
+          "sequence_order": 8,
+          "required_for_mastery": false,
+          "notes": "Direct Ghana Basic 9 evidence for identifying the common solution of two linear relations from their graph intersection."
+        },
+        {
+          "question_id": "qlin_09_contextual_intersection",
+          "question_name": "Interpret the intersection of two service plans",
+          "source_profile_id": "shared-question-bank",
+          "source_file": "qlin_09_contextual_intersection.xml",
+          "role": "integration",
+          "sequence_order": 9,
+          "required_for_mastery": false,
+          "notes": "Direct Ghana Basic 9 evidence for interpreting both coordinates of the intersection of two linear relations in a real-world context."
+        },
+        {
+          "question_id": "qlin_10_graphical_simultaneous_equations",
+          "question_name": "Solve simultaneous linear equations graphically",
+          "source_profile_id": "shared-question-bank",
+          "source_file": "qlin_10_graphical_simultaneous_equations.xml",
+          "role": "practice",
+          "sequence_order": 10,
+          "required_for_mastery": false,
+          "notes": "Direct Ghana Basic 9 evidence for B9.2.1.1.3. Learners construct both linear graphs from their equations on the same Cartesian plane and use the point of intersection as the graphical solution of the simultaneous equations."
+        },
+        {
+          "question_id": "qlin_11_context_to_graph_simultaneous_equations",
+          "question_name": "Model and solve two service plans graphically",
+          "source_profile_id": "shared-question-bank",
+          "source_file": "qlin_11_context_to_graph_simultaneous_equations.xml",
+          "role": "integration",
+          "sequence_order": 11,
+          "required_for_mastery": false,
+          "notes": "Direct Ghana Basic 9 challenge evidence for B9.2.1.1.3. Learners translate two contextual linear relationships into equations, construct both graphs, identify their intersection, and interpret both coordinates in the original context. This extends QLIN-10 by requiring the equations to be formed before graphical solution."
+        },
+        {
+          "question_id": "qlin_12_table_graph_intersection_mastery",
+          "question_name": "Complete tables, graph two relations, and solve simultaneous equations",
+          "source_profile_id": "shared-question-bank",
+          "source_file": "qlin_12_table_graph_intersection_mastery.xml",
+          "role": "mastery_check",
+          "sequence_order": 12,
+          "required_for_mastery": true,
+          "notes": "Final integrated Ghana Basic 9 mastery evidence for B9.2.1.1.1, B9.2.1.1.2, and B9.2.1.1.3. Learners complete values in two linear-relation tables, construct both graphs, identify their intersection, and state the simultaneous-equation solution. The item has been validated against live STACK grading with diagnostics for wrong-relation table entries, graph errors, duplicate points, swapped lines, reversed intersections, and incorrect final solutions."
+        }
+      ],
+      "mapping_status": "review_required",
+      "source_basis": "Ghana Basic 9 Patterns and Relations requires graphical solution of simultaneous linear equations.",
+      "reviewer_notes": "Direct coverage now progresses from tables and algebraic representations through graph construction, graph reading, intersection identification, contextual interpretation, graphical solution, harder context-to-equation-to-graph reasoning, and a final integrated table-to-graph-to-intersection mastery check. QLIN-12 is the required mastery evidence for this Ghana Basic 9 linear-relations slice."
+    }
+  ]
+}

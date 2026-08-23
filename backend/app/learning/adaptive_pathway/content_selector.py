@@ -1,4 +1,4 @@
-from backend.app.content.models import (
+﻿from backend.app.content.models import (
     LearningContentItem,
 )
 from backend.app.content.repository import (
@@ -8,7 +8,11 @@ from backend.app.content.repository import (
 
 class AdaptiveContentSelector:
     """
-    Select deliverable unseen content for a concept.
+    Deterministically select deliverable content.
+
+    Unseen questions are preferred first. When repetition
+    is required, the least-attempted question is selected.
+    Curriculum order breaks ties.
     """
 
     def __init__(
@@ -22,6 +26,9 @@ class AdaptiveContentSelector:
         concept_id: str,
         seen_content_ids: set[str] | None = None,
         allow_repeat: bool = False,
+        repeat_attempt_counts: (
+            dict[str, int] | None
+        ) = None,
     ) -> LearningContentItem | None:
         seen = set(
             seen_content_ids or set()
@@ -45,7 +52,26 @@ class AdaptiveContentSelector:
         if unseen:
             return unseen[0]
 
-        if allow_repeat and questions:
-            return questions[0]
+        if not allow_repeat:
+            return None
 
-        return None
+        if not questions:
+            return None
+
+        counts = (
+            repeat_attempt_counts
+            or {}
+        )
+
+        return min(
+            questions,
+            key=lambda question: (
+                counts.get(
+                    question.content_id,
+                    0,
+                ),
+                questions.index(
+                    question
+                ),
+            ),
+        )

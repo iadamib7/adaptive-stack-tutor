@@ -1,0 +1,1319 @@
+{
+  "version": "1.0",
+  "bank_type": "shared_curriculum_independent",
+  "knowledge_domain": "linear-relations",
+  "description": "Shared Linear Relations candidate inventory. Mathematical questions are stored independently from curriculum-specific standards and mapped separately to each supported curriculum.",
+  "bank_targets": {
+    "first_delivery": 12,
+    "strong_bank": 25,
+    "mature_bank": 35
+  },
+  "acquisition_policy": [
+    "mine_openly_licensed_sources_first",
+    "verify_license_before_reuse",
+    "preserve_source_provenance",
+    "adapt_when_curriculum_alignment_requires_it",
+    "author_only_for_remaining_gaps",
+    "do_not_duplicate_questions_by_curriculum",
+    "do_not_count_parameter_variants_as_distinct_templates",
+    "review_alignment_separately_for_each_curriculum"
+  ],
+  "known_sources": [
+    {
+      "source_id": "NUMBAS-15890",
+      "platform": "Numbas",
+      "title": "Simultaneous linear equations (variables)",
+      "source_url": "https://numbas.mathcentre.ac.uk/question/15890/simultaneous-linear-equations-variables/",
+      "reported_status": "ready_to_use_family",
+      "license": "needs_item_level_verification",
+      "potential_slots": [
+        "LR-10",
+        "LR-11"
+      ],
+      "decision": "candidate",
+      "notes": [
+        "Useful simultaneous-equation question family.",
+        "Must verify the exact item and license before reuse or adaptation.",
+        "Likely needs graphical adaptation for direct Ghana B9 alignment."
+      ]
+    },
+    {
+      "source_id": "NUMBAS-17144",
+      "platform": "Numbas",
+      "title": "Mock exam Simultaneous linear equations (variables)",
+      "source_url": "https://numbas.mathcentre.ac.uk/question/17144/mock-exam-simultaneous-linear-equations-variables/preview/",
+      "reported_status": "published_preview",
+      "license": "CC BY 4.0",
+      "potential_slots": [
+        "LR-10",
+        "LR-11"
+      ],
+      "decision": "candidate",
+      "notes": [
+        "Published preview explicitly reports Creative Commons Attribution 4.0.",
+        "Mathematical structure may be adapted into a graphical STACK question."
+      ]
+    },
+    {
+      "source_id": "NUMBAS-HOWTO-PAIR",
+      "platform": "Numbas",
+      "title": "Solve a pair of simultaneous equations",
+      "source_url": "https://numbas.mathcentre.ac.uk/project/697/search/?item_types=questions",
+      "reported_status": "draft_how_to",
+      "license": "verify_before_reuse",
+      "potential_slots": [
+        "LR-10",
+        "LR-11",
+        "LR-12"
+      ],
+      "decision": "implementation_reference",
+      "notes": [
+        "Uses backward generation: choose the solution first, then generate coefficients consistent with it.",
+        "Useful implementation pattern for deterministic randomised pairs."
+      ]
+    },
+    {
+      "source_id": "NUMBAS-150943",
+      "platform": "Numbas",
+      "title": "Fill in a table of values",
+      "source_url": "https://numbas.mathcentre.ac.uk/question/150943/fill-in-a-table-of-values/",
+      "reported_status": "ready_to_use",
+      "license": "verify_before_reuse",
+      "potential_slots": [
+        "LR-01",
+        "LR-02",
+        "LR-03",
+        "LR-04"
+      ],
+      "decision": "implementation_reference",
+      "notes": [
+        "Uses a spreadsheet-style table for completing function values.",
+        "Published example uses a quadratic function, so the interaction pattern should be adapted to Ghana B9 linear relations.",
+        "Do not reuse content until exact item-level usage rights are verified."
+      ]
+    },
+    {
+      "source_id": "NUMBAS-150944",
+      "platform": "Numbas",
+      "title": "Fill in a table of values which is automatically plotted",
+      "source_url": "https://numbas.mathcentre.ac.uk/question/150944/fill-in-a-table-of-values-which-is-automatically-p/",
+      "reported_status": "ready_to_use",
+      "license": "verify_before_reuse",
+      "potential_slots": [
+        "LR-03",
+        "LR-04",
+        "LR-05",
+        "LR-06"
+      ],
+      "decision": "implementation_reference",
+      "notes": [
+        "Combines a value table with an automatically updated JSXGraph.",
+        "Excellent interaction model for the Ghana table-to-graph sequence.",
+        "Published example uses a quadratic function; adapt the mechanics to two linear relations."
+      ]
+    },
+    {
+      "source_id": "NUMBAS-130545",
+      "platform": "Numbas",
+      "title": "Graphing functions and finding domain and range",
+      "source_url": "https://numbas.mathcentre.ac.uk/question/130545/2-2-1-2-graphing-functions-and-finding-domain-and-/",
+      "reported_status": "ready_to_use",
+      "license": "verify_before_reuse",
+      "potential_slots": [
+        "LR-05",
+        "LR-06"
+      ],
+      "decision": "candidate",
+      "notes": [
+        "Includes graphing of a linear or quadratic function.",
+        "Potential graphing reference, but should be narrowed to paired linear relations for direct Ghana alignment."
+      ]
+    },
+    {
+      "source_id": "NUMBAS-104226",
+      "platform": "Numbas",
+      "title": "Linear graphs: Reading gradient and intercept from an equation",
+      "source_url": "https://numbas.mathcentre.ac.uk/question/104226/linear-graphs-reading-gradient-and-intercept-from-/",
+      "reported_status": "ready_to_use",
+      "license": "verify_before_reuse",
+      "potential_slots": [
+        "LR-05",
+        "LR-06"
+      ],
+      "decision": "supporting_candidate",
+      "notes": [
+        "Ready-to-use linear graph item focused on y = mx + c.",
+        "Useful supporting material for graph generation and interpretation.",
+        "Not sufficient by itself for the paired-relations B9 indicator."
+      ]
+    },
+    {
+      "source_id": "NUMBAS-15752",
+      "platform": "Numbas",
+      "title": "Graphs I: Linear - Coordinates",
+      "source_url": "https://numbas.mathcentre.ac.uk/question/15752/graphs-i-linear-coordinates/",
+      "reported_status": "ready_to_use_family",
+      "license": "verify_before_reuse",
+      "potential_slots": [
+        "LR-07",
+        "LR-08"
+      ],
+      "decision": "adaptation_reference",
+      "notes": [
+        "Linear-coordinate question family useful for reading coordinates and graph information.",
+        "Adapt to two simultaneous linear relations rather than a single-line coordinate task."
+      ]
+    },
+    {
+      "source_id": "NUMBAS-17290",
+      "platform": "Numbas",
+      "title": "Graphs I: Linear - Line equation",
+      "source_url": "https://numbas.mathcentre.ac.uk/question/17290/hannah-s-copy-of-graphs-i-linear-line-equation/preview/",
+      "reported_status": "published_preview",
+      "license": "CC BY 4.0",
+      "potential_slots": [
+        "LR-07",
+        "LR-08",
+        "LR-09"
+      ],
+      "decision": "adaptation_candidate",
+      "notes": [
+        "Published preview explicitly reports CC BY 4.0.",
+        "Linear graph/equation structure can support graph-reading and intersection adaptations."
+      ]
+    },
+    {
+      "source_id": "NUMBAS-31346",
+      "platform": "Numbas",
+      "title": "Straight line graph",
+      "source_url": "https://numbas.mathcentre.ac.uk/question/31346/straight-line-graph/",
+      "reported_status": "ready_to_download",
+      "license": "verify_before_reuse",
+      "potential_slots": [
+        "LR-08",
+        "LR-09"
+      ],
+      "decision": "adaptation_reference",
+      "notes": [
+        "Used in straight-line equations and graphs assessments.",
+        "Useful visual structure for intersection and contextual graph interpretation."
+      ]
+    },
+    {
+      "source_id": "STACK-ALGEBRA-REFRESHER",
+      "platform": "STACK",
+      "title": "Algebra Refresher question library",
+      "source_url": "https://docs.stack-assessment.org/en/STACK_question_admin/Library/Algebra_refresher/",
+      "license": "CC BY-SA 4.0",
+      "license_verified": true,
+      "license_notes": "STACK sample questions and materials are released under Creative Commons Attribution-ShareAlike 4.0.",
+      "potential_shared_question_ids": [
+        "QLIN-03",
+        "QLIN-04",
+        "QLIN-10",
+        "QLIN-11"
+      ],
+      "decision": "implementation_and_content_reference",
+      "notes": [
+        "Contains elementary algebra question families.",
+        "Section 12 covers simultaneous linear equations with multiple coefficient structures.",
+        "Technically compatible with the STACK runtime used by this project."
+      ]
+    },
+    {
+      "source_id": "WEBWORK-OPL-LINEAR-SYSTEMS",
+      "platform": "WeBWorK OPL",
+      "title": "Systems of Linear Equations problem collections",
+      "source_url": "https://github.com/openwebwork/webwork-open-problem-library",
+      "license": "CC BY-NC-SA 3.0 default",
+      "license_verified": true,
+      "commercial_restriction": true,
+      "share_alike_required": true,
+      "potential_shared_question_ids": [
+        "QLIN-03",
+        "QLIN-04",
+        "QLIN-08",
+        "QLIN-10",
+        "QLIN-11"
+      ],
+      "decision": "content_reference_or_adaptation",
+      "notes": [
+        "The OPL includes Systems of Linear Equations and lines/linear-equation collections.",
+        "Default OPL license is CC BY-NC-SA 3.0 unless an individual contribution states another license."
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "shared_question_id": "QLIN-01",
+      "legacy_slot_id": "LR-01",
+      "mathematical_concepts": [
+        "linear-relations",
+        "tables-of-values"
+      ],
+      "question_role": "foundation",
+      "interaction_type": "table_completion",
+      "learning_goal": "Complete a table of values for one linear relation.",
+      "status": "candidate_found",
+      "candidate_source_ids": [
+        "NUMBAS-150943"
+      ],
+      "acquisition_decision": "adapt_interaction_pattern",
+      "proposed_design": null,
+      "implementation": {
+        "stack_source_file": null,
+        "stack_deployed_file": null,
+        "runtime_ready": false
+      },
+      "curriculum_alignments": {
+        "ghana-basic9-mathematics": {
+          "curriculum_concept_id": "GH-B9-ALG-LINEAR-RELATIONS",
+          "content_standard_ids": [
+            "B9.2.1.1"
+          ],
+          "learning_indicator_ids": [
+            "B9.2.1.1.1"
+          ],
+          "alignment_status": "direct_target",
+          "alignment_strength": "strong",
+          "notes": "Designed as direct evidence for Ghana Basic 9 linear relations."
+        },
+        "kenya-grade9-development": {
+          "curriculum_concept_id": "coordinate-graphs",
+          "content_standard_ids": [],
+          "learning_indicator_ids": [],
+          "alignment_status": "prerequisite",
+          "alignment_strength": "moderate",
+          "notes": "Completing a table of values supports later straight-line graphing, but the current Kenya development map does not explicitly identify table construction as a direct outcome.",
+          "alignment_basis": "current_development_question_map",
+          "official_curriculum_verified": false
+        }
+      }
+    },
+    {
+      "shared_question_id": "QLIN-02",
+      "legacy_slot_id": "LR-02",
+      "mathematical_concepts": [
+        "linear-relations",
+        "tables-of-values"
+      ],
+      "question_role": "foundation",
+      "interaction_type": "table_completion",
+      "learning_goal": "Complete a second table of values for a linear relation expressed in a different algebraic form.",
+      "status": "live_validated",
+      "candidate_source_ids": [
+        "NUMBAS-150943"
+      ],
+      "acquisition_decision": "adapt_interaction_pattern",
+      "proposed_design": null,
+      "implementation": {
+        "stack_source_file": "resources/generated/shared/linear_relations/qlin_02_partial_table_linear_relation.xml",
+        "stack_deployed_file": "resources/generated/shared/linear_relations/qlin_02_partial_table_linear_relation_deployed.xml",
+        "runtime_ready": true,
+        "deployed_variant_count": 5,
+        "deployed_seeds": [
+          1083979126,
+          1217147976,
+          580475820,
+          1158892325,
+          1235965908
+        ]
+      },
+      "curriculum_alignments": {
+        "ghana-basic9-mathematics": {
+          "curriculum_concept_id": "GH-B9-ALG-LINEAR-RELATIONS",
+          "content_standard_ids": [
+            "B9.2.1.1"
+          ],
+          "learning_indicator_ids": [
+            "B9.2.1.1.1"
+          ],
+          "alignment_status": "direct_target",
+          "alignment_strength": "strong",
+          "notes": "Designed as direct evidence for Ghana Basic 9 linear relations."
+        },
+        "kenya-grade9-development": {
+          "curriculum_concept_id": "coordinate-graphs",
+          "content_standard_ids": [],
+          "learning_indicator_ids": [],
+          "alignment_status": "prerequisite",
+          "alignment_strength": "moderate",
+          "notes": "Additional table-of-values practice supports sketching straight-line graphs but is treated as prerequisite evidence under the current Kenya map.",
+          "alignment_basis": "current_development_question_map",
+          "official_curriculum_verified": false
+        }
+      },
+      "mining_summary": "Use the Numbas table-completion interaction pattern, but author a distinct linear-relation task in STACK.",
+      "selected_source_ids": [
+        "NUMBAS-150943"
+      ],
+      "implementation_strategy": "adapt_interaction_author_math",
+      "validation": {
+        "local_structure": "passed",
+        "stack_recognition": "passed",
+        "authored_tests": "passed",
+        "variant_deployment": "passed",
+        "render_validation": "passed",
+        "grading_validation": {
+          "correct_score": 1.0,
+          "partial_score": 0.6666666,
+          "misconception_score": 0.0,
+          "misconception_feedback": "validated"
+        }
+      },
+      "provenance": {
+        "implementation_type": "original_stack_question",
+        "interaction_reference": "Numbas table-completion interaction pattern",
+        "copied_wording": false,
+        "copied_mathematical_content": false,
+        "license_dependency": "none_for_original_content"
+      },
+      "live_validation": {
+        "curriculum_profile_id": "ghana-basic9-mathematics",
+        "concept_id": "simultaneous-equations",
+        "student_id": 92002,
+        "previous_question_id": "lr_01_table_linear_relation",
+        "previous_score": 0.6,
+        "adaptive_action": "target_practice",
+        "selected_question_id": "qlin_02_partial_table_linear_relation",
+        "selected_seed": 1083979126,
+        "task_input_names": [
+          "ans1",
+          "ans2",
+          "ans3"
+        ],
+        "task_prt_names": [
+          "prt1",
+          "prt2",
+          "prt3"
+        ],
+        "live_delivery": "passed"
+      }
+    },
+    {
+      "shared_question_id": "QLIN-03",
+      "legacy_slot_id": "LR-03",
+      "mathematical_concepts": [
+        "linear-relations",
+        "tables-of-values"
+      ],
+      "question_role": "procedural",
+      "interaction_type": "paired_table_completion",
+      "learning_goal": "Complete tables for two linear relations over the same x-values.",
+      "status": "live_validated",
+      "candidate_source_ids": [
+        "NUMBAS-150943",
+        "NUMBAS-150944"
+      ],
+      "acquisition_decision": "adapt_to_two_linear_relations",
+      "proposed_design": "Present two distinct linear relations over the same x-values and require the learner to complete missing outputs in both tables. Wrong-row use is diagnosed explicitly.",
+      "implementation": {
+        "stack_source_file": "resources/generated/shared/linear_relations/qlin_03_paired_linear_tables.xml",
+        "stack_deployed_file": "resources/generated/shared/linear_relations/qlin_03_paired_linear_tables_deployed.xml",
+        "runtime_ready": true
+      },
+      "curriculum_alignments": {
+        "ghana-basic9-mathematics": {
+          "curriculum_concept_id": "GH-B9-ALG-LINEAR-RELATIONS",
+          "content_standard_ids": [
+            "B9.2.1.1"
+          ],
+          "learning_indicator_ids": [
+            "B9.2.1.1.1"
+          ],
+          "alignment_status": "direct_target",
+          "alignment_strength": "strong",
+          "notes": "Designed as direct evidence for Ghana Basic 9 linear relations."
+        },
+        "kenya-grade9-development": {
+          "curriculum_concept_id": "coordinate-graphs",
+          "content_standard_ids": [],
+          "learning_indicator_ids": [],
+          "alignment_status": "prerequisite",
+          "alignment_strength": "moderate",
+          "notes": "Paired tables prepare learners for graphing multiple straight-line relations. Simultaneous relations are not explicitly represented in the current Kenya development map.",
+          "alignment_basis": "current_development_question_map",
+          "official_curriculum_verified": false
+        }
+      },
+      "mining_summary": "Use Numbas paired/table interaction ideas and STACK Algebra Refresher as mathematical/technical references.",
+      "selected_source_ids": [
+        "NUMBAS-150943",
+        "NUMBAS-150944",
+        "STACK-ALGEBRA-REFRESHER"
+      ],
+      "implementation_strategy": "author_paired_linear_tables_in_stack",
+      "validation": {
+        "local_structure": "passed",
+        "stack_recognition": "passed",
+        "authored_tests": "passed",
+        "variant_deployment": "passed",
+        "render_validation": "passed",
+        "deployed_seeds": [
+          445558287,
+          1115666323,
+          1694536337,
+          569224313,
+          846526445
+        ],
+        "variant_distinctness": "passed",
+        "grading_validation": {
+          "correct_score": 1.0,
+          "partial_score": 0.75,
+          "misconception_score": 0.0,
+          "misconception_feedback": "validated"
+        }
+      },
+      "provenance": {
+        "implementation_type": "original_stack_question",
+        "interaction_reference": "Numbas paired/table interaction ideas and STACK Algebra Refresher references",
+        "copied_wording": false,
+        "copied_mathematical_content": false,
+        "license_dependency": "none_for_original_content"
+      },
+      "live_validation": {
+        "curriculum_profile_id": "ghana-basic9-mathematics",
+        "concept_id": "simultaneous-equations",
+        "student_id": 92008,
+        "previous_question_id": "qlin_02_partial_table_linear_relation",
+        "adaptive_path": [
+          "lr_01_table_linear_relation",
+          "qlin_02_partial_table_linear_relation",
+          "qlin_03_paired_linear_tables"
+        ],
+        "adaptive_action": "target_practice",
+        "selected_question_id": "qlin_03_paired_linear_tables",
+        "live_delivery": "passed",
+        "server_port": 8020
+      }
+    },
+    {
+      "shared_question_id": "QLIN-04",
+      "legacy_slot_id": "LR-04",
+      "mathematical_concepts": [
+        "linear-relations",
+        "tables-of-values"
+      ],
+      "question_role": "procedural",
+      "interaction_type": "paired_table_completion",
+      "learning_goal": "Complete tables for two relations before graphical comparison.",
+      "status": "live_validated",
+      "candidate_source_ids": [
+        "NUMBAS-150943",
+        "NUMBAS-150944"
+      ],
+      "acquisition_decision": "adapt_to_two_linear_relations",
+      "proposed_design": "Present two linear relations in different algebraic forms. The first is shown as y=mx+c while the second is shown as ax+z=b. Learners must interpret and rearrange the second relation before completing paired tables.",
+      "implementation": {
+        "stack_source_file": "resources/generated/shared/linear_relations/qlin_04_distinct_representation_tables.xml",
+        "stack_deployed_file": "resources/generated/shared/linear_relations/qlin_04_distinct_representation_tables_deployed.xml",
+        "runtime_ready": true
+      },
+      "curriculum_alignments": {
+        "ghana-basic9-mathematics": {
+          "curriculum_concept_id": "GH-B9-ALG-LINEAR-RELATIONS",
+          "content_standard_ids": [
+            "B9.2.1.1"
+          ],
+          "learning_indicator_ids": [
+            "B9.2.1.1.1"
+          ],
+          "alignment_status": "direct_target",
+          "alignment_strength": "strong",
+          "notes": "Designed as direct evidence for Ghana Basic 9 linear relations."
+        },
+        "kenya-grade9-development": {
+          "curriculum_concept_id": "coordinate-graphs",
+          "content_standard_ids": [],
+          "learning_indicator_ids": [],
+          "alignment_status": "prerequisite",
+          "alignment_strength": "moderate",
+          "notes": "Interpreting linear relations in different algebraic forms supports straight-line graph readiness.",
+          "alignment_basis": "current_development_question_map",
+          "official_curriculum_verified": false
+        }
+      },
+      "mining_summary": "Use STACK/WeBWorK linear-system structures as content references while authoring a curriculum-neutral paired-table question.",
+      "selected_source_ids": [
+        "STACK-ALGEBRA-REFRESHER",
+        "WEBWORK-OPL-LINEAR-SYSTEMS"
+      ],
+      "implementation_strategy": "author_distinct_representation_task",
+      "validation": {
+        "local_structure": "passed",
+        "stack_recognition": "passed",
+        "authored_tests": "passed",
+        "variant_deployment": "passed",
+        "render_validation": "passed",
+        "deployed_seeds": [
+          1793541255,
+          1331816809,
+          1089061832,
+          443036714,
+          1824724111
+        ],
+        "grading_validation": {
+          "correct_score": 1.0,
+          "partial_score": 0.75,
+          "misconception_score": 0.0,
+          "misconception_feedback": "validated",
+          "misconception": "sign error while rearranging ax+z=b into z=b-ax"
+        }
+      },
+      "provenance": {
+        "implementation_type": "original_stack_question",
+        "interaction_reference": "Open linear-relation and table-completion interaction patterns",
+        "copied_wording": false,
+        "copied_mathematical_content": false,
+        "license_dependency": "none_for_original_content"
+      },
+      "live_validation": {
+        "curriculum_profile_id": "ghana-basic9-mathematics",
+        "concept_id": "simultaneous-equations",
+        "student_id": 92009,
+        "adaptive_path": [
+          "lr_01_table_linear_relation",
+          "qlin_02_partial_table_linear_relation",
+          "qlin_03_paired_linear_tables",
+          "qlin_04_distinct_representation_tables"
+        ],
+        "adaptive_action": "target_practice",
+        "selected_question_id": "qlin_04_distinct_representation_tables",
+        "server_port": 8020,
+        "live_delivery": "passed"
+      }
+    },
+    {
+      "shared_question_id": "QLIN-05",
+      "legacy_slot_id": "LR-05",
+      "mathematical_concepts": [
+        "linear-relations",
+        "coordinate-graphs"
+      ],
+      "question_role": "visual",
+      "interaction_type": "graph_two_relations",
+      "learning_goal": "Plot two linear relations on the same Cartesian plane.",
+      "status": "live_validated",
+      "candidate_source_ids": [
+        "NUMBAS-150944",
+        "NUMBAS-130545",
+        "NUMBAS-104226"
+      ],
+      "acquisition_decision": "adapt_to_paired_linear_graph",
+      "proposed_design": "Present two linear relations on the same Cartesian plane. Learners drag two distinct points for each relation to construct both lines. Grade each relation independently and diagnose the misconception of swapping the two relations.",
+      "implementation": {
+        "stack_source_file": "resources/generated/shared/linear_relations/qlin_05_graph_two_linear_relations.xml",
+        "stack_deployed_file": "resources/generated/shared/linear_relations/qlin_05_graph_two_linear_relations_deployed.xml",
+        "runtime_ready": true
+      },
+      "curriculum_alignments": {
+        "ghana-basic9-mathematics": {
+          "curriculum_concept_id": "GH-B9-ALG-LINEAR-RELATIONS",
+          "content_standard_ids": [
+            "B9.2.1.1"
+          ],
+          "learning_indicator_ids": [
+            "B9.2.1.1.1"
+          ],
+          "alignment_status": "direct_target",
+          "alignment_strength": "strong",
+          "notes": "Designed as direct evidence for Ghana Basic 9 linear relations."
+        },
+        "kenya-grade9-development": {
+          "curriculum_concept_id": "coordinate-graphs",
+          "content_standard_ids": [],
+          "learning_indicator_ids": [],
+          "alignment_status": "direct",
+          "alignment_strength": "strong",
+          "notes": "Directly exercises sketching straight-line graphs, which is explicitly included in the current Kenya coordinate-graphs outcome.",
+          "alignment_basis": "current_development_question_map",
+          "official_curriculum_verified": false
+        }
+      },
+      "mining_summary": "Use open graphing-question interaction patterns as references while authoring a curriculum-neutral two-relation JSXGraph task.",
+      "selected_source_ids": [
+        "NUMBAS-150944",
+        "NUMBAS-130545",
+        "NUMBAS-104226"
+      ],
+      "implementation_strategy": "author_two_relation_jsxgraph_task",
+      "validation": {
+        "local_structure": "passed",
+        "stack_recognition": "passed",
+        "authored_tests": "passed",
+        "variant_deployment": "passed",
+        "render_validation": "passed",
+        "deployed_seeds": [
+          119883402,
+          1104277820,
+          1563935947,
+          756709653,
+          1236632338
+        ],
+        "grading_validation": {
+          "correct_score": 1.0,
+          "partial_score": 0.5,
+          "misconception_score": 0.0,
+          "misconception_feedback": "validated",
+          "misconception": "swapping Relation A and Relation B",
+          "alternative_valid_points": "validated"
+        }
+      },
+      "provenance": {
+        "implementation_type": "original_stack_question",
+        "interaction_reference": "Open graphing interaction patterns and existing STACK JSXGraph binding mechanics",
+        "copied_wording": false,
+        "copied_mathematical_content": false,
+        "license_dependency": "none_for_original_content"
+      },
+      "live_validation": {
+        "curriculum_profile_id": "ghana-basic9-mathematics",
+        "concept_id": "simultaneous-equations",
+        "student_id": 92012,
+        "adaptive_path": [
+          "lr_01_table_linear_relation",
+          "qlin_02_partial_table_linear_relation",
+          "qlin_03_paired_linear_tables",
+          "qlin_04_distinct_representation_tables",
+          "qlin_05_graph_two_linear_relations"
+        ],
+        "adaptive_action": "target_practice",
+        "selected_question_id": "qlin_05_graph_two_linear_relations",
+        "task_input_names": [
+          "ans1",
+          "ans2",
+          "ans3",
+          "ans4"
+        ],
+        "server_port": 8020,
+        "live_delivery": "passed"
+      }
+    },
+    {
+      "shared_question_id": "QLIN-06",
+      "legacy_slot_id": "LR-06",
+      "mathematical_concepts": [
+        "linear-relations",
+        "coordinate-graphs"
+      ],
+      "question_role": "visual",
+      "interaction_type": "graph_two_relations",
+      "learning_goal": "Graph two linear relations from tables or equations.",
+      "status": "candidate_found",
+      "candidate_source_ids": [
+        "NUMBAS-150944",
+        "NUMBAS-130545",
+        "NUMBAS-104226"
+      ],
+      "acquisition_decision": "adapt_to_paired_linear_graph",
+      "proposed_design": null,
+      "implementation": {
+        "stack_source_file": null,
+        "stack_deployed_file": null,
+        "runtime_ready": false
+      },
+      "curriculum_alignments": {
+        "ghana-basic9-mathematics": {
+          "curriculum_concept_id": "GH-B9-ALG-LINEAR-RELATIONS",
+          "content_standard_ids": [
+            "B9.2.1.1"
+          ],
+          "learning_indicator_ids": [
+            "B9.2.1.1.1"
+          ],
+          "alignment_status": "direct_target",
+          "alignment_strength": "strong",
+          "notes": "Designed as direct evidence for Ghana Basic 9 linear relations."
+        },
+        "kenya-grade9-development": {
+          "curriculum_concept_id": "coordinate-graphs",
+          "content_standard_ids": [],
+          "learning_indicator_ids": [],
+          "alignment_status": "direct",
+          "alignment_strength": "strong",
+          "notes": "Directly supports straight-line graphing from equations or table representations.",
+          "alignment_basis": "current_development_question_map",
+          "official_curriculum_verified": false
+        }
+      }
+    },
+    {
+      "shared_question_id": "QLIN-07",
+      "legacy_slot_id": "LR-07",
+      "mathematical_concepts": [
+        "linear-relations",
+        "coordinate-graphs"
+      ],
+      "question_role": "conceptual",
+      "interaction_type": "missing_ordered_pair",
+      "learning_goal": "Use graphs of two linear relations to determine missing ordered-pair values.",
+      "status": "live_validated",
+      "candidate_source_ids": [
+        "NUMBAS-17290",
+        "NUMBAS-15752"
+      ],
+      "acquisition_decision": "adapt_from_verified_open_source",
+      "proposed_design": "Display two linear relations on the same Cartesian plane. Give one or more incomplete ordered pairs and require the learner to read the missing coordinate from the appropriate graph.",
+      "implementation": {
+        "stack_source_file": "qlin_07_missing_ordered_pair.xml",
+        "stack_deployed_file": "qlin_07_missing_ordered_pair_deployed.xml",
+        "runtime_ready": true,
+        "adaptive_task_count": 2,
+        "live_validation": {
+          "validated": true,
+          "validated_seed": 2029929245,
+          "task_1": {
+            "input_names": [
+              "ans1"
+            ],
+            "prt_names": [
+              "prt1"
+            ]
+          },
+          "task_2": {
+            "input_names": [
+              "ans2"
+            ],
+            "prt_names": [
+              "prt2"
+            ]
+          }
+        }
+      },
+      "curriculum_alignments": {
+        "ghana-basic9-mathematics": {
+          "curriculum_concept_id": "GH-B9-ALG-LINEAR-RELATIONS",
+          "content_standard_ids": [
+            "B9.2.1.1"
+          ],
+          "learning_indicator_ids": [
+            "B9.2.1.1.2"
+          ],
+          "alignment_status": "direct_target",
+          "alignment_strength": "strong",
+          "notes": "Designed as direct evidence for Ghana Basic 9 linear relations."
+        },
+        "kenya-grade9-development": {
+          "curriculum_concept_id": "coordinate-graphs",
+          "content_standard_ids": [],
+          "learning_indicator_ids": [],
+          "alignment_status": "direct",
+          "alignment_strength": "strong",
+          "notes": "Reading a missing ordered pair from a graph directly supports coordinate interpretation in the current Kenya development outcome.",
+          "alignment_basis": "current_development_question_map",
+          "official_curriculum_verified": false
+        }
+      },
+      "source_selection": {
+        "primary_source_id": "NUMBAS-17290",
+        "primary_source_role": "licensed_adaptation_source",
+        "license": "CC BY 4.0",
+        "attribution_required": true,
+        "secondary_reference_id": "NUMBAS-15752",
+        "secondary_reference_role": "conceptual_reference_only",
+        "selection_notes": [
+          "NUMBAS-17290 has a verified CC BY 4.0 licence.",
+          "Adapt the straight-line graph structure to a missing ordered-pair task involving two linear relations.",
+          "NUMBAS-15752 has strong conceptual fit but its current public copy is draft/broken and its licence is not verified, so it is not a reuse source."
+        ]
+      }
+    },
+    {
+      "shared_question_id": "QLIN-08",
+      "legacy_slot_id": "LR-08",
+      "mathematical_concepts": [
+        "linear-relations",
+        "coordinate-graphs",
+        "simultaneous-equations"
+      ],
+      "question_role": "conceptual",
+      "interaction_type": "intersection_identification",
+      "learning_goal": "Identify the coordinate where two linear graphs intersect.",
+      "status": "live_validated",
+      "candidate_source_ids": [
+        "NUMBAS-17290",
+        "NUMBAS-15752",
+        "NUMBAS-31346"
+      ],
+      "acquisition_decision": "adapt_from_verified_open_source",
+      "proposed_design": "Display two linear graphs and require the learner to enter the ordered pair representing their intersection.",
+      "implementation": {
+        "stack_source_file": "qlin_08_intersection_identification.xml",
+        "stack_deployed_file": "qlin_08_intersection_identification_deployed.xml",
+        "runtime_ready": true,
+        "adaptive_task_count": 1,
+        "live_validation": {
+          "validated": true,
+          "validated_seed": 647626762,
+          "input_names": [
+            "ans1"
+          ],
+          "prt_names": [
+            "prt1"
+          ],
+          "correct_answer": "[-1,1]",
+          "attempt_count_after_submission": 8,
+          "concept_mastered_after_submission": false
+        }
+      },
+      "curriculum_alignments": {
+        "ghana-basic9-mathematics": {
+          "curriculum_concept_id": "GH-B9-ALG-LINEAR-RELATIONS",
+          "content_standard_ids": [
+            "B9.2.1.1"
+          ],
+          "learning_indicator_ids": [
+            "B9.2.1.1.2",
+            "B9.2.1.1.3"
+          ],
+          "alignment_status": "direct_target",
+          "alignment_strength": "strong",
+          "notes": "Designed as direct evidence for Ghana Basic 9 linear relations."
+        },
+        "kenya-grade9-development": {
+          "curriculum_concept_id": "coordinate-graphs",
+          "content_standard_ids": [],
+          "learning_indicator_ids": [],
+          "alignment_status": "adaptable",
+          "alignment_strength": "moderate",
+          "notes": "Intersection reading uses coordinate and straight-line graph skills, but the current Kenya map does not explicitly include simultaneous equation intersections.",
+          "alignment_basis": "current_development_question_map",
+          "official_curriculum_verified": false
+        }
+      },
+      "source_selection": {
+        "primary_source_id": "NUMBAS-17290",
+        "primary_source_role": "licensed_adaptation_source",
+        "license": "CC BY 4.0",
+        "attribution_required": true,
+        "secondary_reference_ids": [
+          "NUMBAS-15752",
+          "NUMBAS-31346"
+        ],
+        "secondary_reference_role": "conceptual_visual_reference_only",
+        "selection_notes": [
+          "NUMBAS-17290 has a verified CC BY 4.0 licence.",
+          "Adapt its straight-line graph structure into an intersection-identification task involving two linear relations.",
+          "NUMBAS-15752 and NUMBAS-31346 remain reference-only because their item-level reuse licences are not yet verified."
+        ]
+      }
+    },
+    {
+      "shared_question_id": "QLIN-09",
+      "legacy_slot_id": "LR-09",
+      "mathematical_concepts": [
+        "linear-relations",
+        "coordinate-graphs",
+        "simultaneous-equations"
+      ],
+      "question_role": "application",
+      "interaction_type": "intersection_interpretation",
+      "learning_goal": "Interpret the intersection of two linear relations in context.",
+      "status": "live_validated",
+      "candidate_source_ids": [
+        "NUMBAS-17290",
+        "NUMBAS-31346"
+      ],
+      "acquisition_decision": "adapt_from_verified_open_source",
+      "proposed_design": "Use two independently written real-world linear relationships. Show both on one graph, provide or identify their intersection, and ask the learner to interpret what both coordinates mean in the context.",
+      "implementation": {
+        "stack_source_file": "qlin_09_contextual_intersection.xml",
+        "stack_deployed_file": "qlin_09_contextual_intersection_deployed.xml",
+        "runtime_ready": true,
+        "adaptive_task_count": 1,
+        "live_validation": {
+          "validated": true,
+          "validated_seed": 1809364969,
+          "input_names": [
+            "ans1",
+            "ans2"
+          ],
+          "prt_names": [
+            "prt1",
+            "prt2"
+          ],
+          "correct_answers": {
+            "ans1": "4",
+            "ans2": "30"
+          },
+          "attempt_count_after_submission": 9,
+          "evidence_score_after_submission": 1.0,
+          "concept_mastered_after_submission": false
+        }
+      },
+      "curriculum_alignments": {
+        "ghana-basic9-mathematics": {
+          "curriculum_concept_id": "GH-B9-ALG-LINEAR-RELATIONS",
+          "content_standard_ids": [
+            "B9.2.1.1"
+          ],
+          "learning_indicator_ids": [
+            "B9.2.1.1.2",
+            "B9.2.1.1.3"
+          ],
+          "alignment_status": "direct_target",
+          "alignment_strength": "strong",
+          "notes": "Designed as direct evidence for Ghana Basic 9 linear relations."
+        },
+        "kenya-grade9-development": {
+          "curriculum_concept_id": null,
+          "content_standard_ids": [],
+          "learning_indicator_ids": [],
+          "alignment_status": "out_of_scope",
+          "alignment_strength": null,
+          "notes": "Contextual interpretation of the intersection of two simultaneous linear relations is not represented in the current Kenya development map.",
+          "alignment_basis": "current_development_question_map",
+          "official_curriculum_verified": false
+        }
+      },
+      "source_mining": {
+        "preferred_candidate": {
+          "platform": "Numbas",
+          "title": "word problem using graphical simultaneous equations 2.",
+          "author": "Merryn Horrocks",
+          "reported_status": "ready_to_use",
+          "license": "verify_before_reuse",
+          "selection_reason": "Directly assesses interpretation of the intersection of two linear cost relationships in context."
+        },
+        "secondary_candidates": [
+          {
+            "platform": "Numbas",
+            "title": "Solution of a word problem using graphical simultaneous equations.",
+            "context": "gym visiting plans",
+            "license": "verify_before_reuse"
+          },
+          {
+            "platform": "Numbas",
+            "title": "Finding the break even point from a graph",
+            "context": "cost and revenue break-even",
+            "license": "verify_before_reuse"
+          }
+        ],
+        "fallback_verified_source": {
+          "source_id": "NUMBAS-17290",
+          "license": "CC BY 4.0",
+          "role": "graph_structure_reference"
+        }
+      },
+      "source_selection": {
+        "primary": {
+          "source_id": "NUMBAS-17290",
+          "platform": "Numbas",
+          "title": "Graphs I: Linear - Line equation",
+          "license": "CC BY 4.0",
+          "reuse_role": "licensed_adaptation_source",
+          "attribution_required": true,
+          "reason": "Verified open source for linear graph structure. QLIN-09 will extend the mathematics into an independently written contextual intersection interpretation task."
+        },
+        "conceptual_reference": {
+          "platform": "Numbas",
+          "title": "word problem using graphical simultaneous equations 2.",
+          "author": "Merryn Horrocks",
+          "reported_status": "ready_to_use",
+          "license": "not_verified_for_reuse",
+          "reuse_role": "conceptual_reference_only",
+          "restriction": "Do not copy or adapt wording, parameters, feedback, or question content unless the item-level license is verified.",
+          "reason": "Confirms that contextual interpretation of intersecting cost graphs is an established question design."
+        }
+      }
+    },
+    {
+      "shared_question_id": "QLIN-10",
+      "legacy_slot_id": "LR-10",
+      "mathematical_concepts": [
+        "linear-relations",
+        "coordinate-graphs",
+        "simultaneous-equations"
+      ],
+      "question_role": "procedural",
+      "interaction_type": "graphical_simultaneous_equations",
+      "learning_goal": "Solve a pair of simultaneous linear equations graphically.",
+      "status": "source_selected_for_adaptation",
+      "candidate_source_ids": [],
+      "acquisition_decision": "adapt_from_verified_open_source",
+      "proposed_design": "Give the learner two linear equations. For each equation, the learner constructs its graph using two draggable points. After both lines are constructed, the learner reports the ordered pair where the two graphs intersect. This makes QLIN-10 procedural and materially harder than QLIN-08, where the graphs were already supplied.",
+      "implementation": {
+        "stack_source_file": null,
+        "stack_deployed_file": null,
+        "runtime_ready": false
+      },
+      "curriculum_alignments": {
+        "ghana-basic9-mathematics": {
+          "curriculum_concept_id": "GH-B9-ALG-LINEAR-RELATIONS",
+          "content_standard_ids": [
+            "B9.2.1.1"
+          ],
+          "learning_indicator_ids": [
+            "B9.2.1.1.3"
+          ],
+          "alignment_status": "direct_target",
+          "alignment_strength": "strong",
+          "notes": "Designed as direct evidence for Ghana Basic 9 linear relations."
+        },
+        "kenya-grade9-development": {
+          "curriculum_concept_id": null,
+          "content_standard_ids": [],
+          "learning_indicator_ids": [],
+          "alignment_status": "out_of_scope",
+          "alignment_strength": null,
+          "notes": "Graphical solution of simultaneous linear equations is not currently represented in the Kenya development question map.",
+          "alignment_basis": "current_development_question_map",
+          "official_curriculum_verified": false
+        }
+      },
+      "source_mining": {
+        "candidates": [
+          {
+            "platform": "Numbas",
+            "title": "Solution of a word problem using graphical simultaneous equations.",
+            "reported_status": "ready_to_use",
+            "license": "verify_before_reuse",
+            "fit": "partial",
+            "reason": "Uses intersecting linear graphs, but emphasizes graph features and contextual interpretation. This overlaps substantially with QLIN-09."
+          },
+          {
+            "platform": "Numbas",
+            "title": "Algebraic simultaneous equations",
+            "reported_status": "ready_to_use",
+            "license": "verify_before_reuse",
+            "fit": "partial",
+            "reason": "Provides randomized pairs of linear equations with integer solutions, but learners solve algebraically rather than graphically."
+          },
+          {
+            "source_id": "NUMBAS-17290",
+            "platform": "Numbas",
+            "title": "Graphs I: Linear - Line equation",
+            "license": "CC BY 4.0",
+            "fit": "adaptation_fallback",
+            "reason": "Verified licensed source for straight-line graph structure, but not a direct graphical simultaneous-equations task."
+          }
+        ],
+        "required_source_characteristics": [
+          "Learner must solve a pair of linear equations graphically.",
+          "Task should require more than reading a pre-existing intersection.",
+          "Prefer learner construction or completion of both graphs before reporting the common solution.",
+          "Item-level reuse license must be verified before adaptation."
+        ],
+        "preferred_candidate": {
+          "platform": "Numbas",
+          "title": "Graphical solution of simultaneous linear equations",
+          "author": "Merryn Horrocks",
+          "reported_status": "ready_to_use",
+          "license": "verify_before_reuse",
+          "fit": "strong_direct_fit",
+          "reason": "Learners formulate two linear relationships and graph both lines, matching the procedural graphical-solving goal of QLIN-10."
+        },
+        "fallback_verified_source": {
+          "source_id": "NUMBAS-17290",
+          "platform": "Numbas",
+          "title": "Graphs I: Linear - Line equation",
+          "license": "CC BY 4.0",
+          "reuse_role": "licensed_adaptation_fallback"
+        }
+      },
+      "source_selection": {
+        "primary": {
+          "source_id": "NUMBAS-17290",
+          "platform": "Numbas",
+          "title": "Graphs I: Linear - Line equation",
+          "license": "CC BY 4.0",
+          "reuse_role": "licensed_adaptation_source",
+          "attribution_required": true,
+          "reason": "Verified open source for straight-line graph construction. QLIN-10 will extend this into an independently designed procedural simultaneous-equations task."
+        },
+        "conceptual_reference": {
+          "platform": "Numbas",
+          "title": "Graphical solution of simultaneous linear equations",
+          "author": "Merryn Horrocks",
+          "reported_status": "ready_to_use",
+          "license": "not_verified_for_modification",
+          "reuse_role": "conceptual_reference_only",
+          "restriction": "Do not copy or adapt wording, parameters, feedback, scenarios or question content unless the item-level modification licence is verified.",
+          "reason": "Confirms the instructional pattern of constructing two graphs before determining their common solution."
+        }
+      }
+    },
+    {
+      "shared_question_id": "QLIN-11",
+      "legacy_slot_id": "LR-11",
+      "mathematical_concepts": [
+        "linear-relations",
+        "coordinate-graphs",
+        "simultaneous-equations"
+      ],
+      "question_role": "challenge",
+      "interaction_type": "graphical_simultaneous_equations",
+      "learning_goal": "Solve a less-direct pair of simultaneous equations graphically.",
+      "status": "source_selected_design_ready",
+      "candidate_source_ids": [
+        "NUMBAS-17144",
+        "NUMBAS-GRAPHICAL-SIMULTANEOUS-REFERENCE"
+      ],
+      "acquisition_decision": {
+        "strategy": "adapt_open_source_and_extend",
+        "primary_source_id": "NUMBAS-17144",
+        "primary_source_license": "CC BY 4.0",
+        "conceptual_reference": "Numbas 'Graphical solution of simultaneous linear equations' by Merryn Horrocks",
+        "conceptual_reference_usage": "interaction-design reference only; modification rights not yet verified",
+        "reason": "Use a verified open simultaneous-equations source as the adaptation basis while designing a harder graphical reasoning task than QLIN-10."
+      },
+      "proposed_design": {
+        "difficulty_progression": "harder_than_qlin_10",
+        "student_flow": [
+          "interpret a contextual situation containing two linear relationships",
+          "form the two linear equations",
+          "construct both lines on a graph",
+          "identify their intersection",
+          "interpret the intersection in the original context"
+        ],
+        "adaptive_inputs": [
+          "equation_a",
+          "equation_b",
+          "line_a_point_1",
+          "line_a_point_2",
+          "line_b_point_1",
+          "line_b_point_2",
+          "intersection",
+          "context_interpretation"
+        ],
+        "diagnostic_targets": [
+          "incorrect equation formation",
+          "correct equations but incorrect graph construction",
+          "swapped or mismatched graph lines",
+          "correct graph but incorrect intersection",
+          "correct mathematical solution but incorrect contextual interpretation"
+        ],
+        "mastery_role": false
+      },
+      "implementation": {
+        "stack_source_file": null,
+        "stack_deployed_file": null,
+        "runtime_ready": false
+      },
+      "curriculum_alignments": {
+        "ghana-basic9-mathematics": {
+          "curriculum_concept_id": "GH-B9-ALG-LINEAR-RELATIONS",
+          "content_standard_ids": [
+            "B9.2.1.1"
+          ],
+          "learning_indicator_ids": [
+            "B9.2.1.1.3"
+          ],
+          "alignment_status": "direct_target",
+          "alignment_strength": "strong",
+          "notes": "Designed as direct evidence for Ghana Basic 9 linear relations."
+        },
+        "kenya-grade9-development": {
+          "curriculum_concept_id": null,
+          "content_standard_ids": [],
+          "learning_indicator_ids": [],
+          "alignment_status": "out_of_scope",
+          "alignment_strength": null,
+          "notes": "Advanced graphical simultaneous equation solving is outside the current Kenya development map.",
+          "alignment_basis": "current_development_question_map",
+          "official_curriculum_verified": false
+        }
+      }
+    },
+    {
+      "shared_question_id": "QLIN-12",
+      "legacy_slot_id": "LR-12",
+      "mathematical_concepts": [
+        "linear-relations",
+        "coordinate-graphs",
+        "simultaneous-equations"
+      ],
+      "question_role": "mastery",
+      "interaction_type": "table_graph_intersection_mastery",
+      "learning_goal": "Complete tables, graph two relations, identify their intersection, and state the simultaneous-equation solution.",
+      "status": "runtime_ready",
+      "candidate_source_ids": [
+        "NUMBAS-17290",
+        "NUMBAS-17144",
+        "NUMBAS-40889"
+      ],
+      "acquisition_decision": {
+        "strategy": "adapt_multiple_verified_open_sources_and_extend",
+        "primary_source_id": "NUMBAS-17290",
+        "primary_source_license": "CC BY 4.0",
+        "primary_source_usage": "straight-line graph construction basis",
+        "secondary_source_id": "NUMBAS-17144",
+        "secondary_source_license": "CC BY 4.0",
+        "secondary_source_usage": "simultaneous-equation structure basis",
+        "additional_source_id": "NUMBAS-40889",
+        "additional_source_license": "CC BY 4.0",
+        "additional_source_usage": "simultaneous-equation solution reference",
+        "reason": "QLIN-12 is intended as an integrated mastery task. No single verified source covers the full required table-to-graph-to-intersection-to-solution progression, so the design combines verified open components and extends them into one curriculum-independent mastery activity."
+      },
+      "proposed_design": {
+        "difficulty_progression": "final_integrated_mastery",
+        "mastery_role": true,
+        "student_flow": [
+          "complete missing values in two linear-relation tables",
+          "use the completed values to construct both linear graphs",
+          "identify the point of intersection",
+          "state the ordered-pair solution of the simultaneous equations"
+        ],
+        "adaptive_inputs": [
+          "table_a_missing_value_1",
+          "table_a_missing_value_2",
+          "table_b_missing_value_1",
+          "table_b_missing_value_2",
+          "line_a_point_1",
+          "line_a_point_2",
+          "line_b_point_1",
+          "line_b_point_2",
+          "intersection",
+          "simultaneous_solution"
+        ],
+        "diagnostic_targets": [
+          "wrong linear relation used while completing a table",
+          "arithmetic error in table completion",
+          "duplicate graph points that do not define a line",
+          "graph A and graph B swapped",
+          "graph inconsistent with the completed table",
+          "incorrect intersection",
+          "reversed intersection coordinates",
+          "incorrect final simultaneous-equation solution"
+        ],
+        "assessment_distinction": "QLIN-11 assesses contextual modelling from relationships to equations, graphs, and interpretation. QLIN-12 instead integrates the full curriculum progression from tables to graph construction to intersection to the final simultaneous-equation solution.",
+        "intended_role": "mastery_check",
+        "required_for_mastery": true
+      },
+      "implementation": {
+        "stack_source_file": "resources/generated/shared/linear_relations/qlin_12_table_graph_intersection_mastery.xml",
+        "stack_deployed_file": "resources/generated/shared/linear_relations/qlin_12_table_graph_intersection_mastery_deployed.xml",
+        "runtime_ready": true
+      },
+      "curriculum_alignments": {
+        "ghana-basic9-mathematics": {
+          "curriculum_concept_id": "GH-B9-ALG-LINEAR-RELATIONS",
+          "content_standard_ids": [
+            "B9.2.1.1"
+          ],
+          "learning_indicator_ids": [
+            "B9.2.1.1.1",
+            "B9.2.1.1.2",
+            "B9.2.1.1.3"
+          ],
+          "alignment_status": "direct_target",
+          "alignment_strength": "strong",
+          "notes": "Designed as direct evidence for Ghana Basic 9 linear relations."
+        },
+        "kenya-grade9-development": {
+          "curriculum_concept_id": null,
+          "content_standard_ids": [],
+          "learning_indicator_ids": [],
+          "alignment_status": "out_of_scope",
+          "alignment_strength": null,
+          "notes": "The integrated mastery task includes simultaneous-equation solution beyond the current Kenya development map.",
+          "alignment_basis": "current_development_question_map",
+          "official_curriculum_verified": false
+        }
+      }
+    }
+  ],
+  "curriculum_review_notes": {
+    "kenya-grade9-development": "Kenya alignment is provisional and based only on the existing development question map. No formal Kenya curriculum model is currently present under curricula/kenya. These decisions must not be presented as verified official Kenya curriculum alignment."
+  }
+}

@@ -191,7 +191,7 @@ def test_failed_mastery_check_is_repeated() -> None:
     assert decision.next_question_id == "207630"
 
 
-def test_mastered_concept_is_completed_without_next_link() -> None:
+def test_mastered_integer_concept_advances_to_indices() -> None:
     engine, tracker = build_engine()
 
     for question_id in [
@@ -201,7 +201,10 @@ def test_mastered_concept_is_completed_without_next_link() -> None:
         "207589",
         "207630",
     ]:
-        record_correct(tracker, question_id)
+        record_correct(
+            tracker,
+            question_id,
+        )
 
     decision = engine.decide(
         student_id=1,
@@ -209,11 +212,15 @@ def test_mastered_concept_is_completed_without_next_link() -> None:
     )
 
     assert decision.action == (
-        ConceptDecisionAction.COMPLETE_CONCEPT
+        ConceptDecisionAction.ADVANCE_CONCEPT
     )
+
+    assert decision.next_concept_id == (
+        "KE-G9-INDICES-EXPONENTS"
+    )
+
     assert decision.concept_mastered is True
-    assert decision.next_question_id is None
-    assert decision.next_concept_id is None
+
 
 
 def test_mastered_concept_advances_when_next_link_exists() -> None:
@@ -262,9 +269,11 @@ def test_mastered_concept_advances_when_next_link_exists() -> None:
     assert decision.action == (
         ConceptDecisionAction.ADVANCE_CONCEPT
     )
+
     assert decision.next_concept_id == (
         "KE-G10-ALGEBRA-ENTRY"
     )
+
 
 
 def test_unknown_concept_is_rejected() -> None:
