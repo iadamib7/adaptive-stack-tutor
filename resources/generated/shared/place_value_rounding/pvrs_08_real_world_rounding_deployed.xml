@@ -1,0 +1,469 @@
+<quiz>
+  <question type="stack">
+    <name>
+      <text>
+Shared: Apply rounding in a real-world context
+      </text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;
+A school records the number of exercise
+books distributed during a term as
+\[
+{@quantity@}.
+\]
+&lt;/p&gt;
+
+&lt;p&gt;
+For a short report, the head teacher wants
+the quantity stated to the nearest
+&lt;strong&gt;{@place_name@}&lt;/strong&gt;.
+&lt;/p&gt;
+
+&lt;p&gt;
+What value should be reported?
+&lt;/p&gt;
+
+&lt;p&gt;
+[[input:ans1]]
+[[validation:ans1]]
+[[feedback:prt1]]
+&lt;/p&gt;
+      </text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;h3&gt;Worked solution&lt;/h3&gt;
+
+&lt;p&gt;
+The original quantity is
+\[
+{@quantity@}.
+\]
+&lt;/p&gt;
+
+&lt;p&gt;
+The report only requires the nearest
+&lt;strong&gt;{@place_name@}&lt;/strong&gt;,
+so the quantity should not be reported
+with more precision than requested.
+&lt;/p&gt;
+
+&lt;p&gt;
+The appropriate reported value is
+\[
+\boxed{{@answer@}}.
+\]
+&lt;/p&gt;
+      </text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.1000000</penalty>
+    <hidden>0</hidden>
+    <idnumber />
+    <stackversion>
+      <text>2025012100</text>
+    </stackversion>
+    <questionvariables>
+      <text>
+/*
+Shared Question Bank
+Place Value, Rounding and Standard Form
+PVRS-08
+
+Application task:
+use rounding appropriately in a
+real-world reporting context.
+
+Original STACK question.
+No external mathematical content or
+wording is copied.
+*/
+
+
+/*
+Choose reporting precision.
+
+1 = nearest ten
+2 = nearest hundred
+3 = nearest thousand
+*/
+
+place_choice:
+    rand_with_prohib(1,3,[]);
+
+place_value:
+    if place_choice=1 then 10
+    elseif place_choice=2 then 100
+    else 1000;
+
+place_name:
+    if place_choice=1 then "ten"
+    elseif place_choice=2 then "hundred"
+    else "thousand";
+
+
+/*
+Generate a realistic positive count.
+
+The remainder is constructed so the
+quantity is not already an exact multiple
+of the reporting place.
+*/
+
+base_multiple:
+    rand_with_prohib(
+        120,
+        950,
+        []
+    )
+    * place_value;
+
+/*
+Force the quantity into the upper half of
+the rounding interval.
+
+This guarantees that correct rounding and
+simple truncation are different, so the
+secondary misconception is diagnostically
+meaningful in every variant.
+*/
+
+offset:
+    rand_with_prohib(
+        place_value/2,
+        place_value-1,
+        []
+    );
+
+quantity:
+    base_multiple
+    + offset;
+
+
+/*
+Explicit half-up rounding.
+*/
+
+answer:
+    floor(
+        (
+            quantity
+            + place_value/2
+        )
+        / place_value
+    )
+    * place_value;
+
+
+/*
+Primary misconception:
+report the original exact count rather
+than the requested rounded quantity.
+
+This represents unjustified precision in
+the reporting context.
+*/
+
+wrong_unrounded:
+    quantity;
+
+
+/*
+Secondary misconception:
+truncate rather than round.
+*/
+
+wrong_truncate:
+    floor(
+        quantity/place_value
+    )
+    * place_value;
+      </text>
+    </questionvariables>
+    <specificfeedback format="html">
+      <text />
+    </specificfeedback>
+    <questionnote format="html">
+      <text>&lt;p&gt;
+Shared Question Bank |
+Place Value and Rounding |
+PVRS-08
+&lt;/p&gt;
+
+&lt;p&gt;
+quantity={@quantity@}
+&lt;/p&gt;
+
+&lt;p&gt;
+place_value={@place_value@}
+&lt;/p&gt;
+
+&lt;p&gt;
+answer={@answer@}
+&lt;/p&gt;
+      </text>
+    </questionnote>
+    <questiondescription format="html">
+      <text>&lt;p id="bank"&gt;
+Shared Curriculum-Independent Question Bank
+&lt;/p&gt;
+
+&lt;p id="shared-question-id"&gt;
+PVRS-08
+&lt;/p&gt;
+
+&lt;p id="knowledge-concept"&gt;
+number-sense
+&lt;/p&gt;
+
+&lt;p id="secondary-concept"&gt;
+real-world-rounding
+&lt;/p&gt;
+
+&lt;p id="role"&gt;
+application
+&lt;/p&gt;
+
+&lt;p id="interaction"&gt;
+contextual-rounding
+&lt;/p&gt;
+
+&lt;p id="description"&gt;
+Learners apply rounding to a reporting
+context rather than performing an isolated
+calculation.
+&lt;/p&gt;
+
+&lt;p id="misconception"&gt;
+Targets reporting unjustified precision
+when a context explicitly requests a
+rounded quantity, with truncation as a
+secondary misconception.
+&lt;/p&gt;
+
+&lt;p id="provenance"&gt;
+Original STACK question.
+No external wording or mathematical
+content is copied.
+&lt;/p&gt;
+
+&lt;p id="licence-dependency"&gt;
+None.
+&lt;/p&gt;
+
+&lt;p id="curriculum-policy"&gt;
+Curriculum alignment is maintained outside
+the question source.
+&lt;/p&gt;
+      </text>
+    </questiondescription>
+    <questionsimplify>1</questionsimplify>
+    <assumepositive>0</assumepositive>
+    <assumereal>0</assumereal>
+    <prtcorrect format="html">
+      <text>&lt;p&gt;Correct.&lt;/p&gt;</text>
+    </prtcorrect>
+    <prtpartiallycorrect format="html">
+      <text />
+    </prtpartiallycorrect>
+    <prtincorrect format="html">
+      <text>&lt;p&gt;
+Use the precision requested by the
+reporting context.
+&lt;/p&gt;</text>
+    </prtincorrect>
+    <decimals>.</decimals>
+    <scientificnotation>*10</scientificnotation>
+    <multiplicationsign>none</multiplicationsign>
+    <sqrtsign>1</sqrtsign>
+    <complexno>i</complexno>
+    <inversetrig>cos-1</inversetrig>
+    <logicsymbol>lang</logicsymbol>
+    <matrixparens>[</matrixparens>
+    <isbroken>0</isbroken>
+    <variantsselectionseed />
+    <input>
+      <name>ans1</name>
+      <type>algebraic</type>
+      <tans>answer</tans>
+      <boxsize>14</boxsize>
+      <strictsyntax>1</strictsyntax>
+      <insertstars>0</insertstars>
+      <syntaxhint />
+      <syntaxattribute>0</syntaxattribute>
+      <forbidwords />
+      <allowwords />
+      <forbidfloat>0</forbidfloat>
+      <requirelowestterms>0</requirelowestterms>
+      <checkanswertype>0</checkanswertype>
+      <mustverify>1</mustverify>
+      <showvalidation>3</showvalidation>
+      <options />
+    </input>
+    <prt>
+      <name>prt1</name>
+      <value>1.0000000</value>
+      <autosimplify>1</autosimplify>
+      <feedbackstyle>1</feedbackstyle>
+      <feedbackvariables>
+        <text />
+      </feedbackvariables>
+      <node>
+        <name>0</name>
+        <description>
+Checks the appropriately rounded report.
+        </description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans1</sans>
+        <tans>answer</tans>
+        <testoptions />
+        <quiet>0</quiet>
+        <truescoremode>=</truescoremode>
+        <truescore>1</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-1-T</trueanswernote>
+        <truefeedback format="html">
+          <text />
+        </truefeedback>
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>1</falsenextnode>
+        <falseanswernote>prt1-1-F</falseanswernote>
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+      <node>
+        <name>1</name>
+        <description>
+Checks whether the learner reports the
+unrounded quantity.
+        </description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans1</sans>
+        <tans>wrong_unrounded</tans>
+        <testoptions />
+        <quiet>1</quiet>
+        <truescoremode>=</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-2-T</trueanswernote>
+        <truefeedback format="html">
+          <text>&lt;p&gt;
+That is the exact count, but the report
+asks for a rounded value.
+&lt;/p&gt;
+
+&lt;p&gt;
+Reporting every digit gives more precision
+than the context requires. Round to the
+requested place.
+&lt;/p&gt;
+          </text>
+        </truefeedback>
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>2</falsenextnode>
+        <falseanswernote>prt1-2-F</falseanswernote>
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+      <node>
+        <name>2</name>
+        <description>
+Checks for truncation.
+        </description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans1</sans>
+        <tans>wrong_truncate</tans>
+        <testoptions />
+        <quiet>1</quiet>
+        <truescoremode>=</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-3-T</trueanswernote>
+        <truefeedback format="html">
+          <text>&lt;p&gt;
+It looks like you truncated the quantity.
+&lt;/p&gt;
+
+&lt;p&gt;
+Use the digit immediately to the right of
+the reporting place to decide whether to
+round up or down.
+&lt;/p&gt;
+          </text>
+        </truefeedback>
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>-1</falsenextnode>
+        <falseanswernote>prt1-3-F</falseanswernote>
+        <falsefeedback format="html">
+          <text>&lt;p&gt;
+Round the quantity to the place requested
+in the report.
+&lt;/p&gt;</text>
+        </falsefeedback>
+      </node>
+    </prt>
+    <qtest>
+      <testcase>1</testcase>
+      <description>
+Correct contextual rounding receives full
+credit.
+      </description>
+      <testinput>
+        <name>ans1</name>
+        <value>answer</value>
+      </testinput>
+      <expected>
+        <name>prt1</name>
+        <expectedscore>1.0000000</expectedscore>
+        <expectedpenalty>0.0000000</expectedpenalty>
+        <expectedanswernote>
+prt1-1-T
+        </expectedanswernote>
+      </expected>
+    </qtest>
+    <qtest>
+      <testcase>2</testcase>
+      <description>
+Reporting the exact unrounded quantity
+receives zero credit.
+      </description>
+      <testinput>
+        <name>ans1</name>
+        <value>wrong_unrounded</value>
+      </testinput>
+      <expected>
+        <name>prt1</name>
+        <expectedscore>0.0000000</expectedscore>
+        <expectedpenalty>0.1000000</expectedpenalty>
+        <expectedanswernote>
+prt1-1-F | prt1-2-T
+        </expectedanswernote>
+      </expected>
+    </qtest>
+    <qtest>
+      <testcase>3</testcase>
+      <description>Truncating instead of rounding receives zero credit.</description>
+      <testinput>
+        <name>ans1</name>
+        <value>wrong_truncate</value>
+      </testinput>
+      <expected>
+        <name>prt1</name>
+        <expectedscore>0.0000000</expectedscore>
+        <expectedpenalty>0.1000000</expectedpenalty>
+        <expectedanswernote>prt1-1-F | prt1-2-F | prt1-3-T</expectedanswernote>
+      </expected>
+    </qtest>
+  <deployedseed>1136288377</deployedseed><deployedseed>1977255095</deployedseed><deployedseed>1564563431</deployedseed><deployedseed>301336122</deployedseed><deployedseed>1492712650</deployedseed></question>
+</quiz>

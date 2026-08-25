@@ -1,4 +1,4 @@
-﻿from pathlib import Path
+from pathlib import Path
 
 
 from backend.app.services.session_service_factory import (
@@ -17,6 +17,7 @@ class CurriculumRuntimeProfile:
         stack_export_path: Path,
         generated_question_directory: Path,
         starting_concept_id: str,
+        use_shared_knowledge_graph: bool,
         additional_generated_directories: (
             tuple[Path, ...]
         ) = (),
@@ -38,6 +39,10 @@ class CurriculumRuntimeProfile:
         )
         self.starting_concept_id = (
             starting_concept_id
+        )
+
+        self.use_shared_knowledge_graph = (
+            use_shared_knowledge_graph
         )
 
 
@@ -120,6 +125,7 @@ KENYA_GRADE9_PROFILE = (
         starting_concept_id=(
             "KE-G9-INTEGER-OPERATIONS"
         ),
+        use_shared_knowledge_graph=False,
     )
 )
 
@@ -161,6 +167,7 @@ GHANA_BASIC9_PROFILE = (
         starting_concept_id=(
             "coordinate-graphs"
         ),
+        use_shared_knowledge_graph=True,
     )
 )
 

@@ -1,0 +1,386 @@
+<quiz>
+  <question type="stack">
+    <name>
+      <text>
+Shared: Identify the value of a digit by place value
+      </text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;
+Consider the number
+\[
+{@number@}.
+\]
+&lt;/p&gt;
+
+&lt;p&gt;
+What is the value of the digit in the
+&lt;strong&gt;thousands place&lt;/strong&gt;?
+&lt;/p&gt;
+
+&lt;p&gt;
+[[input:ans1]]
+[[validation:ans1]]
+[[feedback:prt1]]
+&lt;/p&gt;
+      </text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;h3&gt;Worked solution&lt;/h3&gt;
+
+&lt;p&gt;
+The number is
+\[
+{@number@}.
+\]
+&lt;/p&gt;
+
+&lt;p&gt;
+The digit in the thousands place is
+\[
+{@thousands_digit@}.
+\]
+&lt;/p&gt;
+
+&lt;p&gt;
+A digit in the thousands place represents
+that digit multiplied by \(1000\).
+Therefore,
+\[
+{@thousands_digit@}\times 1000
+=
+{@answer@}.
+\]
+&lt;/p&gt;
+
+&lt;p&gt;
+So the value of the digit is
+\[
+\boxed{{@answer@}}.
+\]
+&lt;/p&gt;
+      </text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.1000000</penalty>
+    <hidden>0</hidden>
+    <idnumber />
+    <stackversion>
+      <text>2025012100</text>
+    </stackversion>
+    <questionvariables>
+      <text>
+/*
+Shared Question Bank
+Place Value, Rounding and Standard Form
+PVRS-01
+
+Foundation task:
+identify the value represented by a digit
+according to its position.
+
+This question is curriculum-independent.
+*/
+
+
+/*
+Generate a six-digit whole number.
+
+The thousands digit is deliberately kept
+non-zero so its positional value is always
+meaningful and distinguishable from zero.
+*/
+
+hundred_thousands_digit:
+    rand_with_prohib(1,9,[]);
+
+ten_thousands_digit:
+    rand_with_prohib(0,9,[]);
+
+thousands_digit:
+    rand_with_prohib(1,9,[]);
+
+hundreds_digit:
+    rand_with_prohib(0,9,[]);
+
+tens_digit:
+    rand_with_prohib(0,9,[]);
+
+ones_digit:
+    rand_with_prohib(0,9,[]);
+
+
+/*
+Construct the displayed number.
+*/
+
+number:
+    hundred_thousands_digit*100000
+    +ten_thousands_digit*10000
+    +thousands_digit*1000
+    +hundreds_digit*100
+    +tens_digit*10
+    +ones_digit;
+
+
+/*
+Teacher answer.
+*/
+
+answer:
+    thousands_digit*1000;
+
+
+/*
+Target misconception:
+
+The learner identifies the correct digit
+but gives the digit itself rather than its
+positional value.
+
+Example:
+digit = 7
+incorrect response = 7
+correct response = 7000
+*/
+
+wrong_digit_only:
+    thousands_digit;
+      </text>
+    </questionvariables>
+    <specificfeedback format="html">
+      <text />
+    </specificfeedback>
+    <questionnote format="html">
+      <text>&lt;p&gt;
+Shared Question Bank |
+Place Value and Rounding |
+PVRS-01
+&lt;/p&gt;
+
+&lt;p&gt;
+number={@number@}
+&lt;/p&gt;
+
+&lt;p&gt;
+thousands_digit={@thousands_digit@}
+&lt;/p&gt;
+
+&lt;p&gt;
+answer={@answer@}
+&lt;/p&gt;
+      </text>
+    </questionnote>
+    <questiondescription format="html">
+      <text>&lt;p id="bank"&gt;
+Shared Curriculum-Independent Question Bank
+&lt;/p&gt;
+
+&lt;p id="shared-question-id"&gt;
+PVRS-01
+&lt;/p&gt;
+
+&lt;p id="knowledge-concept"&gt;
+number-sense
+&lt;/p&gt;
+
+&lt;p id="secondary-concept"&gt;
+place-value
+&lt;/p&gt;
+
+&lt;p id="role"&gt;
+foundation
+&lt;/p&gt;
+
+&lt;p id="interaction"&gt;
+place-value-entry
+&lt;/p&gt;
+
+&lt;p id="description"&gt;
+Learners identify the numerical value
+represented by a digit according to its
+position in a multi-digit whole number.
+&lt;/p&gt;
+
+&lt;p id="misconception"&gt;
+Distinguishes identifying a digit from
+identifying the value represented by that
+digit in its position.
+&lt;/p&gt;
+
+&lt;p id="provenance"&gt;
+Original STACK question. No source wording
+or mathematical content is copied.
+&lt;/p&gt;
+
+&lt;p id="curriculum-policy"&gt;
+Curriculum alignment is maintained outside
+the question source. This question may be
+mapped independently to Ghana, Kenya, or
+future curriculum profiles.
+&lt;/p&gt;
+      </text>
+    </questiondescription>
+    <questionsimplify>1</questionsimplify>
+    <assumepositive>0</assumepositive>
+    <assumereal>0</assumereal>
+    <prtcorrect format="html">
+      <text>&lt;p&gt;Correct.&lt;/p&gt;</text>
+    </prtcorrect>
+    <prtpartiallycorrect format="html">
+      <text />
+    </prtpartiallycorrect>
+    <prtincorrect format="html">
+      <text>&lt;p&gt;
+That is not the value represented by the
+digit in that position.
+&lt;/p&gt;</text>
+    </prtincorrect>
+    <decimals>.</decimals>
+    <scientificnotation>*10</scientificnotation>
+    <multiplicationsign>none</multiplicationsign>
+    <sqrtsign>1</sqrtsign>
+    <complexno>i</complexno>
+    <inversetrig>cos-1</inversetrig>
+    <logicsymbol>lang</logicsymbol>
+    <matrixparens>[</matrixparens>
+    <isbroken>0</isbroken>
+    <variantsselectionseed />
+    <input>
+      <name>ans1</name>
+      <type>algebraic</type>
+      <tans>answer</tans>
+      <boxsize>12</boxsize>
+      <strictsyntax>1</strictsyntax>
+      <insertstars>0</insertstars>
+      <syntaxhint />
+      <syntaxattribute>0</syntaxattribute>
+      <forbidwords />
+      <allowwords />
+      <forbidfloat>0</forbidfloat>
+      <requirelowestterms>0</requirelowestterms>
+      <checkanswertype>0</checkanswertype>
+      <mustverify>1</mustverify>
+      <showvalidation>3</showvalidation>
+      <options />
+    </input>
+    <prt>
+      <name>prt1</name>
+      <value>1.0000000</value>
+      <autosimplify>1</autosimplify>
+      <feedbackstyle>1</feedbackstyle>
+      <feedbackvariables>
+        <text />
+      </feedbackvariables>
+      <node>
+        <name>0</name>
+        <description>
+Checks the positional value of the
+thousands digit.
+        </description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans1</sans>
+        <tans>answer</tans>
+        <testoptions />
+        <quiet>0</quiet>
+        <truescoremode>=</truescoremode>
+        <truescore>1</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-1-T</trueanswernote>
+        <truefeedback format="html">
+          <text />
+        </truefeedback>
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>1</falsenextnode>
+        <falseanswernote>prt1-1-F</falseanswernote>
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+      <node>
+        <name>1</name>
+        <description>
+Checks whether the learner entered only
+the digit instead of its positional value.
+        </description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans1</sans>
+        <tans>wrong_digit_only</tans>
+        <testoptions />
+        <quiet>1</quiet>
+        <truescoremode>=</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-2-T</trueanswernote>
+        <truefeedback format="html">
+          <text>&lt;p&gt;
+You identified the correct digit, but the
+question asks for its &lt;strong&gt;value&lt;/strong&gt;.
+&lt;/p&gt;
+
+&lt;p&gt;
+A digit in the thousands place represents
+that digit multiplied by \(1000\).
+&lt;/p&gt;
+
+&lt;p&gt;
+For example, a \(7\) in the thousands
+place represents \(7000\), not \(7\).
+&lt;/p&gt;
+          </text>
+        </truefeedback>
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>-1</falsenextnode>
+        <falseanswernote>prt1-2-F</falseanswernote>
+        <falsefeedback format="html">
+          <text>&lt;p&gt;
+Look at the position of the digit.
+The thousands place has a value of
+\(1000\) for each unit in that position.
+&lt;/p&gt;</text>
+        </falsefeedback>
+      </node>
+    </prt>
+    <qtest>
+      <testcase>1</testcase>
+      <description>
+Teacher answer should receive full credit.
+      </description>
+      <testinput>
+        <name>ans1</name>
+        <value>answer</value>
+      </testinput>
+      <expected>
+        <name>prt1</name>
+        <expectedscore>1.0000000</expectedscore>
+        <expectedpenalty>0.0000000</expectedpenalty>
+        <expectedanswernote>
+prt1-1-T
+        </expectedanswernote>
+      </expected>
+    </qtest>
+    <qtest>
+      <testcase>2</testcase>
+      <description>
+Entering only the digit should be
+recognized as the targeted misconception.
+      </description>
+      <testinput>
+        <name>ans1</name>
+        <value>wrong_digit_only</value>
+      </testinput>
+      <expected>
+        <name>prt1</name>
+        <expectedscore>0.0000000</expectedscore>
+        <expectedpenalty>0.1000000</expectedpenalty>
+        <expectedanswernote>prt1-1-F | prt1-2-T</expectedanswernote>
+      </expected>
+    </qtest>
+  <deployedseed>95772566</deployedseed><deployedseed>29399671</deployedseed><deployedseed>340907457</deployedseed><deployedseed>785103235</deployedseed><deployedseed>244935832</deployedseed></question>
+</quiz>

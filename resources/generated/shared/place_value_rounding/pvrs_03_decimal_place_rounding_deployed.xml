@@ -1,0 +1,389 @@
+<quiz>
+  <question type="stack">
+    <name>
+      <text>
+Shared: Round a decimal to a specified decimal place
+      </text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;
+Round
+\[
+{@number_display@}
+\]
+to the nearest
+&lt;strong&gt;{@place_name@}&lt;/strong&gt;.
+&lt;/p&gt;
+
+&lt;p&gt;
+[[input:ans1]]
+[[validation:ans1]]
+[[feedback:prt1]]
+&lt;/p&gt;
+      </text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;h3&gt;Worked solution&lt;/h3&gt;
+
+&lt;p&gt;
+We are rounding
+\[
+{@number_display@}
+\]
+to the nearest
+&lt;strong&gt;{@place_name@}&lt;/strong&gt;.
+&lt;/p&gt;
+
+&lt;p&gt;
+Look at the digit immediately to the right
+of the requested decimal place.
+&lt;/p&gt;
+
+&lt;p&gt;
+The correct rounded value is
+\[
+\boxed{{@answer_display@}}.
+\]
+&lt;/p&gt;
+      </text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.1000000</penalty>
+    <hidden>0</hidden>
+    <idnumber />
+    <stackversion>
+      <text>2025012100</text>
+    </stackversion>
+    <questionvariables>
+      <text>
+/*
+Shared Question Bank
+Place Value, Rounding and Standard Form
+PVRS-03
+
+Procedural task:
+round a decimal to a specified decimal
+place using half-up rounding.
+*/
+
+
+/*
+1 = nearest tenth
+2 = nearest hundredth
+*/
+
+place_choice:
+    rand_with_prohib(1,2,[]);
+
+scale:
+    if place_choice=1 then 10
+    else 100;
+
+place_name:
+    if place_choice=1 then "tenth"
+    else "hundredth";
+
+
+/*
+Generate a positive decimal with enough
+digits to make the rounding decision useful.
+*/
+
+whole_part:
+    rand_with_prohib(1,99,[]);
+
+tenths_digit:
+    rand_with_prohib(0,9,[]);
+
+hundredths_digit:
+    rand_with_prohib(0,9,[]);
+
+thousandths_digit:
+    rand_with_prohib(5,9,[]);
+
+
+/*
+For nearest tenth, force the hundredths
+digit to be at least 5.
+
+For nearest hundredth, force the
+thousandths digit to be at least 5.
+
+This guarantees truncation differs from
+correct rounding.
+*/
+
+effective_hundredths:
+    if place_choice=1
+    then rand_with_prohib(5,9,[])
+    else hundredths_digit;
+
+
+number:
+    whole_part
+    + tenths_digit/10
+    + effective_hundredths/100
+    + thousandths_digit/1000;
+
+
+/*
+Explicit half-up rounding.
+*/
+
+answer:
+    floor(
+        number*scale + 1/2
+    )/scale;
+
+
+/*
+Target misconception:
+truncate at the requested decimal place.
+*/
+
+wrong_truncate:
+    floor(number*scale)/scale;
+
+
+/*
+Display decimal forms while retaining
+exact rational values internally for
+grading.
+*/
+
+number_display:
+    float(number);
+
+answer_display:
+    float(answer);
+
+wrong_truncate_display:
+    float(wrong_truncate);
+      </text>
+    </questionvariables>
+    <specificfeedback format="html">
+      <text />
+    </specificfeedback>
+    <questionnote format="html">
+      <text>&lt;p&gt;
+Shared Question Bank |
+Place Value and Rounding |
+PVRS-03
+&lt;/p&gt;
+
+&lt;p&gt;
+number={@number_display@}
+&lt;/p&gt;
+
+&lt;p&gt;
+place_choice={@place_choice@}
+&lt;/p&gt;
+
+&lt;p&gt;
+answer={@answer_display@}
+&lt;/p&gt;
+      </text>
+    </questionnote>
+    <questiondescription format="html">
+      <text>&lt;p id="bank"&gt;
+Shared Curriculum-Independent Question Bank
+&lt;/p&gt;
+
+&lt;p id="shared-question-id"&gt;
+PVRS-03
+&lt;/p&gt;
+
+&lt;p id="knowledge-concept"&gt;
+number-sense
+&lt;/p&gt;
+
+&lt;p id="secondary-concept"&gt;
+decimal-place-rounding
+&lt;/p&gt;
+
+&lt;p id="role"&gt;
+procedural
+&lt;/p&gt;
+
+&lt;p id="interaction"&gt;
+numeric-rounding
+&lt;/p&gt;
+
+&lt;p id="description"&gt;
+Learners round a decimal to the nearest
+tenth or hundredth.
+&lt;/p&gt;
+
+&lt;p id="misconception"&gt;
+Distinguishes correct decimal rounding
+from simple truncation.
+&lt;/p&gt;
+
+&lt;p id="provenance"&gt;
+Original STACK question. No source wording
+or mathematical content is copied.
+&lt;/p&gt;
+
+&lt;p id="curriculum-policy"&gt;
+Curriculum alignment is maintained outside
+the question source.
+&lt;/p&gt;
+      </text>
+    </questiondescription>
+    <questionsimplify>1</questionsimplify>
+    <assumepositive>0</assumepositive>
+    <assumereal>0</assumereal>
+    <prtcorrect format="html">
+      <text>&lt;p&gt;Correct.&lt;/p&gt;</text>
+    </prtcorrect>
+    <prtpartiallycorrect format="html">
+      <text />
+    </prtpartiallycorrect>
+    <prtincorrect format="html">
+      <text>&lt;p&gt;
+Check the digit immediately to the right
+of the decimal place you are rounding to.
+&lt;/p&gt;</text>
+    </prtincorrect>
+    <decimals>.</decimals>
+    <scientificnotation>*10</scientificnotation>
+    <multiplicationsign>none</multiplicationsign>
+    <sqrtsign>1</sqrtsign>
+    <complexno>i</complexno>
+    <inversetrig>cos-1</inversetrig>
+    <logicsymbol>lang</logicsymbol>
+    <matrixparens>[</matrixparens>
+    <isbroken>0</isbroken>
+    <variantsselectionseed />
+    <input>
+      <name>ans1</name>
+      <type>algebraic</type>
+      <tans>answer</tans>
+      <boxsize>12</boxsize>
+      <strictsyntax>1</strictsyntax>
+      <insertstars>0</insertstars>
+      <syntaxhint />
+      <syntaxattribute>0</syntaxattribute>
+      <forbidwords />
+      <allowwords />
+      <forbidfloat>0</forbidfloat>
+      <requirelowestterms>0</requirelowestterms>
+      <checkanswertype>0</checkanswertype>
+      <mustverify>1</mustverify>
+      <showvalidation>3</showvalidation>
+      <options />
+    </input>
+    <prt>
+      <name>prt1</name>
+      <value>1.0000000</value>
+      <autosimplify>1</autosimplify>
+      <feedbackstyle>1</feedbackstyle>
+      <feedbackvariables>
+        <text />
+      </feedbackvariables>
+      <node>
+        <name>0</name>
+        <description>
+Checks the correctly rounded decimal.
+        </description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans1</sans>
+        <tans>answer</tans>
+        <testoptions />
+        <quiet>0</quiet>
+        <truescoremode>=</truescoremode>
+        <truescore>1</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-1-T</trueanswernote>
+        <truefeedback format="html">
+          <text />
+        </truefeedback>
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>1</falsenextnode>
+        <falseanswernote>prt1-1-F</falseanswernote>
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+      <node>
+        <name>1</name>
+        <description>
+Checks for decimal truncation.
+        </description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans1</sans>
+        <tans>wrong_truncate</tans>
+        <testoptions />
+        <quiet>1</quiet>
+        <truescoremode>=</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-2-T</trueanswernote>
+        <truefeedback format="html">
+          <text>&lt;p&gt;
+It looks like you cut off the later digits
+instead of rounding.
+&lt;/p&gt;
+
+&lt;p&gt;
+If the next digit is \(5\) or greater,
+increase the digit in the rounding place
+by \(1\).
+&lt;/p&gt;
+          </text>
+        </truefeedback>
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>-1</falsenextnode>
+        <falseanswernote>prt1-2-F</falseanswernote>
+        <falsefeedback format="html">
+          <text>&lt;p&gt;
+Find the requested decimal place and look
+one digit to its right.
+&lt;/p&gt;</text>
+        </falsefeedback>
+      </node>
+    </prt>
+    <qtest>
+      <testcase>1</testcase>
+      <description>
+Teacher answer should receive full credit.
+      </description>
+      <testinput>
+        <name>ans1</name>
+        <value>answer</value>
+      </testinput>
+      <expected>
+        <name>prt1</name>
+        <expectedscore>1.0000000</expectedscore>
+        <expectedpenalty>0.0000000</expectedpenalty>
+        <expectedanswernote>
+prt1-1-T
+        </expectedanswernote>
+      </expected>
+    </qtest>
+    <qtest>
+      <testcase>2</testcase>
+      <description>
+Truncation should receive zero credit.
+      </description>
+      <testinput>
+        <name>ans1</name>
+        <value>wrong_truncate</value>
+      </testinput>
+      <expected>
+        <name>prt1</name>
+        <expectedscore>0.0000000</expectedscore>
+        <expectedpenalty>0.1000000</expectedpenalty>
+        <expectedanswernote>
+prt1-1-F | prt1-2-T
+        </expectedanswernote>
+      </expected>
+    </qtest>
+  <deployedseed>1705387817</deployedseed><deployedseed>102508060</deployedseed><deployedseed>1095530437</deployedseed><deployedseed>727277241</deployedseed><deployedseed>1236055622</deployedseed></question>
+</quiz>

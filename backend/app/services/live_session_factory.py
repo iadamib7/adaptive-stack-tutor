@@ -66,10 +66,18 @@ def build_curriculum_runtime_bundle(
         )
     )
 
+    pathway_knowledge_graph = (
+        knowledge_graph
+        if profile.use_shared_knowledge_graph
+        else None
+    )
+
     live_service = (
         build_live_stack_session_service(
             mapping_path=profile.mapping_path,
-            knowledge_graph=knowledge_graph,
+            knowledge_graph=(
+                pathway_knowledge_graph
+            ),
         )
     )
 

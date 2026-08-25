@@ -1,0 +1,563 @@
+<quiz>
+  <question type="stack">
+
+    <name>
+      <text>
+Shared: Round a number to significant figures
+      </text>
+    </name>
+
+
+    <questiontext format="html">
+      <text>&lt;p&gt;
+Round
+\[
+{@number_display@}
+\]
+to
+&lt;strong&gt;{@sf_count@} significant figures&lt;/strong&gt;.
+&lt;/p&gt;
+
+&lt;p&gt;
+[[input:ans1]]
+[[validation:ans1]]
+[[feedback:prt1]]
+&lt;/p&gt;
+      </text>
+    </questiontext>
+
+
+    <generalfeedback format="html">
+      <text>&lt;h3&gt;Worked solution&lt;/h3&gt;
+
+&lt;p&gt;
+Start counting significant figures from
+the first non-zero digit.
+&lt;/p&gt;
+
+&lt;p&gt;
+For
+\[
+{@number_display@},
+\]
+we need
+&lt;strong&gt;{@sf_count@} significant figures&lt;/strong&gt;.
+&lt;/p&gt;
+
+&lt;p&gt;
+The correct rounded value is
+\[
+\boxed{{@answer_display@}}.
+\]
+&lt;/p&gt;
+      </text>
+    </generalfeedback>
+
+
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.1000000</penalty>
+    <hidden>0</hidden>
+    <idnumber />
+
+
+    <stackversion>
+      <text>2025012100</text>
+    </stackversion>
+
+
+    <questionvariables>
+      <text>
+/*
+Shared Question Bank
+Place Value, Rounding and Standard Form
+PVRS-04
+
+Procedural task:
+round a positive whole number to a
+specified number of significant figures.
+
+Interaction reference:
+Numbas NUMBAS-169559
+"Significant figures: rounding"
+
+This STACK implementation is independently
+authored. No source wording or generated
+mathematical content is copied.
+*/
+
+
+/*
+Use six-digit whole numbers so the first
+significant digit is unambiguous.
+
+Target either 2 or 3 significant figures.
+*/
+
+sf_count:
+    rand_with_prohib(2,3,[]);
+
+
+/*
+Generate digits explicitly.
+
+The first digit is non-zero.
+The later decision digit is forced to at
+least 5 so that truncation is always
+distinguishable from correct rounding.
+*/
+
+d1:
+    rand_with_prohib(1,8,[]);
+
+d2:
+    rand_with_prohib(0,8,[]);
+
+d3:
+    if sf_count=2
+    then rand_with_prohib(5,9,[])
+    else rand_with_prohib(0,8,[]);
+
+d4:
+    if sf_count=3
+    then rand_with_prohib(5,9,[])
+    else rand_with_prohib(0,9,[]);
+
+d5:
+    rand_with_prohib(0,9,[]);
+
+d6:
+    rand_with_prohib(0,9,[]);
+
+
+number:
+    d1*100000
+    + d2*10000
+    + d3*1000
+    + d4*100
+    + d5*10
+    + d6;
+
+
+/*
+For a six-digit number:
+
+2 significant figures -&gt; round to 10,000
+3 significant figures -&gt; round to 1,000
+*/
+
+place_value:
+    if sf_count=2
+    then 10000
+    else 1000;
+
+
+/*
+Explicit school half-up rounding.
+*/
+
+answer:
+    floor(
+        (
+            number
+            + place_value/2
+        )
+        / place_value
+    )
+    * place_value;
+
+
+/*
+Misconception 1:
+truncate instead of rounding.
+*/
+
+wrong_truncate:
+    floor(
+        number/place_value
+    )
+    * place_value;
+
+
+/*
+Misconception 2:
+treat significant figures like decimal
+places and leave the whole number unchanged.
+*/
+
+wrong_decimal_places:
+    number;
+
+
+/*
+Display values.
+*/
+
+number_display:
+    number;
+
+answer_display:
+    answer;
+      </text>
+    </questionvariables>
+
+
+    <specificfeedback format="html">
+      <text />
+    </specificfeedback>
+
+
+    <questionnote format="html">
+      <text>&lt;p&gt;
+Shared Question Bank |
+Place Value and Rounding |
+PVRS-04
+&lt;/p&gt;
+
+&lt;p&gt;
+number={@number_display@}
+&lt;/p&gt;
+
+&lt;p&gt;
+sf_count={@sf_count@}
+&lt;/p&gt;
+
+&lt;p&gt;
+place_value={@place_value@}
+&lt;/p&gt;
+
+&lt;p&gt;
+answer={@answer_display@}
+&lt;/p&gt;
+      </text>
+    </questionnote>
+
+
+    <questiondescription format="html">
+      <text>&lt;p id="bank"&gt;
+Shared Curriculum-Independent Question Bank
+&lt;/p&gt;
+
+&lt;p id="shared-question-id"&gt;
+PVRS-04
+&lt;/p&gt;
+
+&lt;p id="knowledge-concept"&gt;
+number-sense
+&lt;/p&gt;
+
+&lt;p id="secondary-concept"&gt;
+significant-figure-rounding
+&lt;/p&gt;
+
+&lt;p id="role"&gt;
+procedural
+&lt;/p&gt;
+
+&lt;p id="interaction"&gt;
+parameterised-significant-figures
+&lt;/p&gt;
+
+&lt;p id="description"&gt;
+Learners round multi-digit whole numbers
+to two or three significant figures.
+&lt;/p&gt;
+
+&lt;p id="misconception"&gt;
+Targets truncation and confusion between
+significant figures and decimal places.
+&lt;/p&gt;
+
+&lt;p id="provenance"&gt;
+Independent STACK implementation informed
+by the interaction pattern in Numbas
+NUMBAS-169559, "Significant figures:
+rounding", authored by Ben Brawn.
+No source wording or mathematical content
+is copied.
+&lt;/p&gt;
+
+&lt;p id="source-licence"&gt;
+CC BY-NC-SA, recorded from the source
+project default in the mining inventory.
+&lt;/p&gt;
+
+&lt;p id="attribution"&gt;
+Interaction reference:
+Ben Brawn, NUMBAS-169559.
+&lt;/p&gt;
+
+&lt;p id="curriculum-policy"&gt;
+Curriculum alignment is maintained outside
+the question source.
+&lt;/p&gt;
+      </text>
+    </questiondescription>
+
+
+    <questionsimplify>1</questionsimplify>
+    <assumepositive>0</assumepositive>
+    <assumereal>0</assumereal>
+
+
+    <prtcorrect format="html">
+      <text>&lt;p&gt;Correct.&lt;/p&gt;</text>
+    </prtcorrect>
+
+
+    <prtpartiallycorrect format="html">
+      <text />
+    </prtpartiallycorrect>
+
+
+    <prtincorrect format="html">
+      <text>&lt;p&gt;
+Start counting significant figures at the
+first non-zero digit.
+&lt;/p&gt;</text>
+    </prtincorrect>
+
+
+    <decimals>.</decimals>
+    <scientificnotation>*10</scientificnotation>
+    <multiplicationsign>none</multiplicationsign>
+    <sqrtsign>1</sqrtsign>
+    <complexno>i</complexno>
+    <inversetrig>cos-1</inversetrig>
+    <logicsymbol>lang</logicsymbol>
+    <matrixparens>[</matrixparens>
+    <isbroken>0</isbroken>
+    <variantsselectionseed />
+
+
+    <input>
+      <name>ans1</name>
+      <type>algebraic</type>
+      <tans>answer</tans>
+      <boxsize>14</boxsize>
+      <strictsyntax>1</strictsyntax>
+      <insertstars>0</insertstars>
+      <syntaxhint />
+      <syntaxattribute>0</syntaxattribute>
+      <forbidwords />
+      <allowwords />
+      <forbidfloat>0</forbidfloat>
+      <requirelowestterms>0</requirelowestterms>
+      <checkanswertype>0</checkanswertype>
+      <mustverify>1</mustverify>
+      <showvalidation>3</showvalidation>
+      <options />
+    </input>
+
+
+    <prt>
+      <name>prt1</name>
+      <value>1.0000000</value>
+      <autosimplify>1</autosimplify>
+      <feedbackstyle>1</feedbackstyle>
+
+      <feedbackvariables>
+        <text />
+      </feedbackvariables>
+
+
+      <node>
+        <name>0</name>
+        <description>
+Checks the correctly rounded value.
+        </description>
+
+        <answertest>AlgEquiv</answertest>
+        <sans>ans1</sans>
+        <tans>answer</tans>
+        <testoptions />
+        <quiet>0</quiet>
+
+        <truescoremode>=</truescoremode>
+        <truescore>1</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-1-T</trueanswernote>
+
+        <truefeedback format="html">
+          <text />
+        </truefeedback>
+
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>1</falsenextnode>
+        <falseanswernote>prt1-1-F</falseanswernote>
+
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+
+
+      <node>
+        <name>1</name>
+        <description>
+Checks for truncation.
+        </description>
+
+        <answertest>AlgEquiv</answertest>
+        <sans>ans1</sans>
+        <tans>wrong_truncate</tans>
+        <testoptions />
+        <quiet>1</quiet>
+
+        <truescoremode>=</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-2-T</trueanswernote>
+
+        <truefeedback format="html">
+          <text>&lt;p&gt;
+You kept the requested significant digits,
+but it looks like you truncated instead
+of rounding.
+&lt;/p&gt;
+
+&lt;p&gt;
+Look at the next digit. If it is \(5\) or
+greater, increase the last retained
+significant digit by \(1\).
+&lt;/p&gt;
+          </text>
+        </truefeedback>
+
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>2</falsenextnode>
+        <falseanswernote>prt1-2-F</falseanswernote>
+
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+
+
+      <node>
+        <name>2</name>
+        <description>
+Checks for confusion between significant
+figures and decimal places.
+        </description>
+
+        <answertest>AlgEquiv</answertest>
+        <sans>ans1</sans>
+        <tans>wrong_decimal_places</tans>
+        <testoptions />
+        <quiet>1</quiet>
+
+        <truescoremode>=</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-3-T</trueanswernote>
+
+        <truefeedback format="html">
+          <text>&lt;p&gt;
+Significant figures are not the same as
+decimal places.
+&lt;/p&gt;
+
+&lt;p&gt;
+Start counting from the first non-zero
+digit, then round after the required
+number of significant figures.
+&lt;/p&gt;
+          </text>
+        </truefeedback>
+
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>-1</falsenextnode>
+        <falseanswernote>prt1-3-F</falseanswernote>
+
+        <falsefeedback format="html">
+          <text>&lt;p&gt;
+Identify the first non-zero digit and count
+significant figures from there.
+&lt;/p&gt;</text>
+        </falsefeedback>
+      </node>
+
+    </prt>
+
+
+    <qtest>
+      <testcase>1</testcase>
+
+      <description>
+Teacher answer should receive full credit.
+      </description>
+
+      <testinput>
+        <name>ans1</name>
+        <value>answer</value>
+      </testinput>
+
+      <expected>
+        <name>prt1</name>
+        <expectedscore>1.0000000</expectedscore>
+        <expectedpenalty>0.0000000</expectedpenalty>
+        <expectedanswernote>
+prt1-1-T
+        </expectedanswernote>
+      </expected>
+    </qtest>
+
+
+    <qtest>
+      <testcase>2</testcase>
+
+      <description>
+Truncation should receive zero credit.
+      </description>
+
+      <testinput>
+        <name>ans1</name>
+        <value>wrong_truncate</value>
+      </testinput>
+
+      <expected>
+        <name>prt1</name>
+        <expectedscore>0.0000000</expectedscore>
+        <expectedpenalty>0.1000000</expectedpenalty>
+        <expectedanswernote>
+prt1-1-F | prt1-2-T
+        </expectedanswernote>
+      </expected>
+    </qtest>
+
+
+    <qtest>
+      <testcase>3</testcase>
+
+      <description>
+Decimal-place confusion should receive
+zero credit.
+      </description>
+
+      <testinput>
+        <name>ans1</name>
+        <value>wrong_decimal_places</value>
+      </testinput>
+
+      <expected>
+        <name>prt1</name>
+        <expectedscore>0.0000000</expectedscore>
+        <expectedpenalty>0.1000000</expectedpenalty>
+        <expectedanswernote>
+prt1-1-F | prt1-2-F | prt1-3-T
+        </expectedanswernote>
+      </expected>
+    </qtest>
+
+
+  <deployedseed>994770607</deployedseed><deployedseed>1168468916</deployedseed><deployedseed>1039039593</deployedseed><deployedseed>229328037</deployedseed><deployedseed>215007677</deployedseed></question>
+</quiz>

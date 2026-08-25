@@ -1,0 +1,679 @@
+<quiz>
+  <question type="stack">
+
+    <name>
+      <text>
+Shared: Convert a large number to standard form
+      </text>
+    </name>
+
+
+    <questiontext format="html">
+      <text>&lt;p&gt;
+Write
+\[
+{@number@}
+\]
+in standard form
+\[
+a\times 10^n,
+\]
+where
+\[
+1 \leq a &lt; 10.
+\]
+&lt;/p&gt;
+
+&lt;p&gt;
+Coefficient \(a\):
+[[input:ans1]]
+[[validation:ans1]]
+&lt;/p&gt;
+
+&lt;p&gt;
+Exponent \(n\):
+[[input:ans2]]
+[[validation:ans2]]
+&lt;/p&gt;
+
+&lt;p&gt;
+[[feedback:prt1]]
+&lt;/p&gt;
+      </text>
+    </questiontext>
+
+
+    <generalfeedback format="html">
+      <text>&lt;h3&gt;Worked solution&lt;/h3&gt;
+
+&lt;p&gt;
+Move the decimal point until exactly one
+non-zero digit remains before it.
+&lt;/p&gt;
+
+&lt;p&gt;
+For
+\[
+{@number@},
+\]
+the coefficient is
+\[
+{@coefficient_display@}
+\]
+and the decimal point moves
+\[
+{@exponent@}
+\]
+places.
+&lt;/p&gt;
+
+&lt;p&gt;
+Therefore,
+\[
+\boxed{
+{@coefficient_display@}
+\times 10^{@exponent@}
+}.
+\]
+&lt;/p&gt;
+      </text>
+    </generalfeedback>
+
+
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.1000000</penalty>
+    <hidden>0</hidden>
+    <idnumber />
+
+
+    <stackversion>
+      <text>2025012100</text>
+    </stackversion>
+
+
+    <questionvariables>
+      <text>
+/*
+Shared Question Bank
+Place Value, Rounding and Standard Form
+PVRS-06
+
+Procedural task:
+convert a large whole number to standard
+form a*10^n with 1 &lt;= a &lt; 10.
+
+Interaction reference:
+Numbas NUMBAS-10751
+"Scientific notation: large numbers to
+scientific notation"
+
+This STACK implementation is independently
+authored. No source wording or mathematical
+content is copied.
+*/
+
+
+/*
+Generate a three-significant-digit
+coefficient.
+
+d1 is non-zero.
+*/
+
+d1:
+    rand_with_prohib(1,9,[]);
+
+d2:
+    rand_with_prohib(0,9,[]);
+
+d3:
+    rand_with_prohib(1,9,[]);
+
+
+/*
+Vary the magnitude.
+
+Exponent 4 through 7 gives large whole
+numbers appropriate for this skill.
+*/
+
+exponent:
+    rand_with_prohib(4,7,[]);
+
+
+/*
+Exact coefficient.
+*/
+
+coefficient:
+    d1
+    + d2/10
+    + d3/100;
+
+
+/*
+Construct the corresponding whole number.
+
+coefficient has two decimal places, so
+multiply its integer digit form by
+10^(exponent-2).
+*/
+
+mantissa_integer:
+    d1*100
+    + d2*10
+    + d3;
+
+number:
+    mantissa_integer
+    * 10^(exponent-2);
+
+
+/*
+Target misconception:
+
+The learner uses a coefficient ten times
+too large and compensates by reducing the
+exponent by one.
+
+The value is numerically equivalent, but
+it is NOT valid standard form because the
+coefficient is outside 1 &lt;= a &lt; 10.
+*/
+
+wrong_coefficient:
+    coefficient*10;
+
+wrong_exponent:
+    exponent-1;
+
+
+/*
+Display decimal coefficient while keeping
+exact arithmetic internally.
+*/
+
+coefficient_display:
+    float(coefficient);
+      </text>
+    </questionvariables>
+
+
+    <specificfeedback format="html">
+      <text />
+    </specificfeedback>
+
+
+    <questionnote format="html">
+      <text>&lt;p&gt;
+Shared Question Bank |
+Place Value and Rounding |
+PVRS-06
+&lt;/p&gt;
+
+&lt;p&gt;
+number={@number@}
+&lt;/p&gt;
+
+&lt;p&gt;
+coefficient={@coefficient_display@}
+&lt;/p&gt;
+
+&lt;p&gt;
+exponent={@exponent@}
+&lt;/p&gt;
+      </text>
+    </questionnote>
+
+
+    <questiondescription format="html">
+      <text>&lt;p id="bank"&gt;
+Shared Curriculum-Independent Question Bank
+&lt;/p&gt;
+
+&lt;p id="shared-question-id"&gt;
+PVRS-06
+&lt;/p&gt;
+
+&lt;p id="knowledge-concept"&gt;
+number-sense
+&lt;/p&gt;
+
+&lt;p id="secondary-concept"&gt;
+large-number-to-standard-form
+&lt;/p&gt;
+
+&lt;p id="role"&gt;
+procedural
+&lt;/p&gt;
+
+&lt;p id="interaction"&gt;
+standard-form-conversion
+&lt;/p&gt;
+
+&lt;p id="description"&gt;
+Learners convert a large whole number to
+standard form using separate coefficient
+and exponent inputs.
+&lt;/p&gt;
+
+&lt;p id="misconception"&gt;
+Targets mathematically equivalent forms
+whose coefficient is outside the required
+standard-form interval.
+&lt;/p&gt;
+
+&lt;p id="provenance"&gt;
+Independent STACK implementation informed
+by the interaction pattern in Numbas
+NUMBAS-10751, "Scientific notation: large
+numbers to scientific notation", authored
+by Ben Brawn. No source wording or
+mathematical content is copied.
+&lt;/p&gt;
+
+&lt;p id="source-licence"&gt;
+CC BY-NC-SA, recorded from the source
+project default in the mining inventory.
+&lt;/p&gt;
+
+&lt;p id="attribution"&gt;
+Interaction reference:
+Ben Brawn, NUMBAS-10751.
+&lt;/p&gt;
+
+&lt;p id="curriculum-policy"&gt;
+Curriculum alignment is maintained outside
+the question source.
+&lt;/p&gt;
+      </text>
+    </questiondescription>
+
+
+    <questionsimplify>1</questionsimplify>
+    <assumepositive>0</assumepositive>
+    <assumereal>0</assumereal>
+
+
+    <prtcorrect format="html">
+      <text>&lt;p&gt;
+Correct.
+&lt;/p&gt;</text>
+    </prtcorrect>
+
+
+    <prtpartiallycorrect format="html">
+      <text>&lt;p&gt;
+One part is correct. Check the relationship
+between the coefficient and exponent.
+&lt;/p&gt;</text>
+    </prtpartiallycorrect>
+
+
+    <prtincorrect format="html">
+      <text>&lt;p&gt;
+Remember that valid standard form requires
+the coefficient to be at least \(1\) but
+less than \(10\).
+&lt;/p&gt;</text>
+    </prtincorrect>
+
+
+    <decimals>.</decimals>
+    <scientificnotation>*10</scientificnotation>
+    <multiplicationsign>none</multiplicationsign>
+    <sqrtsign>1</sqrtsign>
+    <complexno>i</complexno>
+    <inversetrig>cos-1</inversetrig>
+    <logicsymbol>lang</logicsymbol>
+    <matrixparens>[</matrixparens>
+    <isbroken>0</isbroken>
+    <variantsselectionseed />
+
+
+    <input>
+      <name>ans1</name>
+      <type>algebraic</type>
+      <tans>coefficient</tans>
+      <boxsize>10</boxsize>
+      <strictsyntax>1</strictsyntax>
+      <insertstars>0</insertstars>
+      <syntaxhint />
+      <syntaxattribute>0</syntaxattribute>
+      <forbidwords />
+      <allowwords />
+      <forbidfloat>0</forbidfloat>
+      <requirelowestterms>0</requirelowestterms>
+      <checkanswertype>0</checkanswertype>
+      <mustverify>1</mustverify>
+      <showvalidation>3</showvalidation>
+      <options />
+    </input>
+
+
+    <input>
+      <name>ans2</name>
+      <type>algebraic</type>
+      <tans>exponent</tans>
+      <boxsize>6</boxsize>
+      <strictsyntax>1</strictsyntax>
+      <insertstars>0</insertstars>
+      <syntaxhint />
+      <syntaxattribute>0</syntaxattribute>
+      <forbidwords />
+      <allowwords />
+      <forbidfloat>0</forbidfloat>
+      <requirelowestterms>0</requirelowestterms>
+      <checkanswertype>0</checkanswertype>
+      <mustverify>1</mustverify>
+      <showvalidation>3</showvalidation>
+      <options />
+    </input>
+
+
+    <prt>
+      <name>prt1</name>
+      <value>1.0000000</value>
+      <autosimplify>1</autosimplify>
+      <feedbackstyle>1</feedbackstyle>
+
+      <feedbackvariables>
+        <text />
+      </feedbackvariables>
+
+
+      <node>
+        <name>0</name>
+        <description>
+Checks the coefficient.
+        </description>
+
+        <answertest>AlgEquiv</answertest>
+        <sans>ans1</sans>
+        <tans>coefficient</tans>
+        <testoptions />
+        <quiet>0</quiet>
+
+        <truescoremode>+</truescoremode>
+        <truescore>0.5</truescore>
+        <truepenalty />
+        <truenextnode>1</truenextnode>
+        <trueanswernote>prt1-1-T</trueanswernote>
+
+        <truefeedback format="html">
+          <text />
+        </truefeedback>
+
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>2</falsenextnode>
+        <falseanswernote>prt1-1-F</falseanswernote>
+
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+
+
+      <node>
+        <name>1</name>
+        <description>
+Coefficient is correct.
+Checks the exponent.
+        </description>
+
+        <answertest>AlgEquiv</answertest>
+        <sans>ans2</sans>
+        <tans>exponent</tans>
+        <testoptions />
+        <quiet>0</quiet>
+
+        <truescoremode>+</truescoremode>
+        <truescore>0.5</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-2-T</trueanswernote>
+
+        <truefeedback format="html">
+          <text>&lt;p&gt;
+Correct. The coefficient is between
+\(1\) and \(10\), and the exponent matches
+the decimal-point movement.
+&lt;/p&gt;</text>
+        </truefeedback>
+
+        <falsescoremode>+</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>-1</falsenextnode>
+        <falseanswernote>prt1-2-F</falseanswernote>
+
+        <falsefeedback format="html">
+          <text>&lt;p&gt;
+Your coefficient is correct. Recount how
+many places the decimal point moved.
+&lt;/p&gt;</text>
+        </falsefeedback>
+      </node>
+
+
+      <node>
+        <name>2</name>
+        <description>
+Checks for an invalid coefficient that is
+ten times too large.
+        </description>
+
+        <answertest>AlgEquiv</answertest>
+        <sans>ans1</sans>
+        <tans>wrong_coefficient</tans>
+        <testoptions />
+        <quiet>1</quiet>
+
+        <truescoremode>=</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>3</truenextnode>
+        <trueanswernote>prt1-3-T</trueanswernote>
+
+        <truefeedback format="html">
+          <text />
+        </truefeedback>
+
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>4</falsenextnode>
+        <falseanswernote>prt1-3-F</falseanswernote>
+
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+
+
+      <node>
+        <name>3</name>
+        <description>
+Checks the paired invalid-standard-form
+exponent.
+        </description>
+
+        <answertest>AlgEquiv</answertest>
+        <sans>ans2</sans>
+        <tans>wrong_exponent</tans>
+        <testoptions />
+        <quiet>1</quiet>
+
+        <truescoremode>=</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-4-T</trueanswernote>
+
+        <truefeedback format="html">
+          <text>&lt;p&gt;
+Your expression has the correct numerical
+value, but it is not in standard form.
+&lt;/p&gt;
+
+&lt;p&gt;
+The coefficient must satisfy
+\[
+1 \leq a &lt; 10.
+\]
+Move the decimal point one more place to
+the left and increase the exponent by
+\(1\).
+&lt;/p&gt;
+          </text>
+        </truefeedback>
+
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>-1</falsenextnode>
+        <falseanswernote>prt1-4-F</falseanswernote>
+
+        <falsefeedback format="html">
+          <text>&lt;p&gt;
+Check both the coefficient and exponent.
+&lt;/p&gt;</text>
+        </falsefeedback>
+      </node>
+
+
+      <node>
+        <name>4</name>
+        <description>
+If the coefficient is incorrect for
+another reason, check whether the exponent
+is independently correct.
+        </description>
+
+        <answertest>AlgEquiv</answertest>
+        <sans>ans2</sans>
+        <tans>exponent</tans>
+        <testoptions />
+        <quiet>0</quiet>
+
+        <truescoremode>=</truescoremode>
+        <truescore>0.5</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-5-T</trueanswernote>
+
+        <truefeedback format="html">
+          <text>&lt;p&gt;
+Your exponent is correct. Adjust the
+coefficient so it lies between \(1\)
+and \(10\).
+&lt;/p&gt;</text>
+        </truefeedback>
+
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>-1</falsenextnode>
+        <falseanswernote>prt1-5-F</falseanswernote>
+
+        <falsefeedback format="html">
+          <text>&lt;p&gt;
+Recheck both parts of the standard form.
+&lt;/p&gt;</text>
+        </falsefeedback>
+      </node>
+
+    </prt>
+
+
+    <qtest>
+      <testcase>1</testcase>
+
+      <description>
+Correct coefficient and exponent receive
+full credit.
+      </description>
+
+      <testinput>
+        <name>ans1</name>
+        <value>coefficient</value>
+      </testinput>
+
+      <testinput>
+        <name>ans2</name>
+        <value>exponent</value>
+      </testinput>
+
+      <expected>
+        <name>prt1</name>
+        <expectedscore>1.0000000</expectedscore>
+        <expectedpenalty>0.0000000</expectedpenalty>
+        <expectedanswernote>
+prt1-1-T | prt1-2-T
+        </expectedanswernote>
+      </expected>
+    </qtest>
+
+
+    <qtest>
+      <testcase>2</testcase>
+
+      <description>
+Equivalent value with invalid coefficient
+must receive zero credit.
+      </description>
+
+      <testinput>
+        <name>ans1</name>
+        <value>wrong_coefficient</value>
+      </testinput>
+
+      <testinput>
+        <name>ans2</name>
+        <value>wrong_exponent</value>
+      </testinput>
+
+      <expected>
+        <name>prt1</name>
+        <expectedscore>0.0000000</expectedscore>
+        <expectedpenalty>0.1000000</expectedpenalty>
+        <expectedanswernote>
+prt1-1-F | prt1-3-T | prt1-4-T
+        </expectedanswernote>
+      </expected>
+    </qtest>
+
+
+    <qtest>
+      <testcase>3</testcase>
+
+      <description>
+Correct coefficient with wrong exponent
+receives half credit.
+      </description>
+
+      <testinput>
+        <name>ans1</name>
+        <value>coefficient</value>
+      </testinput>
+
+      <testinput>
+        <name>ans2</name>
+        <value>wrong_exponent</value>
+      </testinput>
+
+      <expected>
+        <name>prt1</name>
+        <expectedscore>0.5000000</expectedscore>
+        <expectedpenalty>0.1000000</expectedpenalty>
+        <expectedanswernote>
+prt1-1-T | prt1-2-F
+        </expectedanswernote>
+      </expected>
+    </qtest>
+
+
+  <deployedseed>1416340447</deployedseed><deployedseed>139129971</deployedseed><deployedseed>324480965</deployedseed><deployedseed>1894337191</deployedseed><deployedseed>1132251630</deployedseed></question>
+</quiz>

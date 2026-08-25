@@ -1,0 +1,530 @@
+<quiz>
+  <question type="stack">
+
+    <name>
+      <text>
+Shared: Convert standard form to a large number
+      </text>
+    </name>
+
+
+    <questiontext format="html">
+      <text>&lt;p&gt;
+Write
+\[
+{@coefficient_display@}
+\times 10^{@exponent@}
+\]
+as an ordinary whole number.
+&lt;/p&gt;
+
+&lt;p&gt;
+[[input:ans1]]
+[[validation:ans1]]
+[[feedback:prt1]]
+&lt;/p&gt;
+      </text>
+    </questiontext>
+
+
+    <generalfeedback format="html">
+      <text>&lt;h3&gt;Worked solution&lt;/h3&gt;
+
+&lt;p&gt;
+A positive power of \(10\) moves the
+decimal point to the right.
+&lt;/p&gt;
+
+&lt;p&gt;
+Starting from
+\[
+{@coefficient_display@},
+\]
+move the decimal point
+\[
+{@exponent@}
+\]
+places to the right.
+&lt;/p&gt;
+
+&lt;p&gt;
+Therefore,
+\[
+\boxed{{@answer@}}.
+\]
+&lt;/p&gt;
+      </text>
+    </generalfeedback>
+
+
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.1000000</penalty>
+    <hidden>0</hidden>
+    <idnumber />
+
+
+    <stackversion>
+      <text>2025012100</text>
+    </stackversion>
+
+
+    <questionvariables>
+      <text>
+/*
+Shared Question Bank
+Place Value, Rounding and Standard Form
+PVRS-07
+
+Conceptual task:
+convert standard form to an ordinary
+large whole number.
+
+Conceptual reference only:
+NUMBAS-114888.
+
+The source licence is not verified for
+direct adaptation, so this STACK question
+is independently authored.
+
+No source wording or mathematical content
+is copied.
+*/
+
+
+/*
+Generate a valid coefficient with exactly
+three significant digits.
+*/
+
+d1:
+    rand_with_prohib(1,9,[]);
+
+d2:
+    rand_with_prohib(0,9,[]);
+
+d3:
+    rand_with_prohib(1,9,[]);
+
+
+coefficient:
+    d1
+    + d2/10
+    + d3/100;
+
+
+/*
+Use positive exponents large enough to
+produce whole numbers.
+*/
+
+exponent:
+    rand_with_prohib(4,7,[]);
+
+
+/*
+Convert exactly to a whole number.
+
+Because coefficient has two decimal
+places, its integer representation is
+multiplied by 10^(exponent-2).
+*/
+
+mantissa_integer:
+    d1*100
+    + d2*10
+    + d3;
+
+answer:
+    mantissa_integer
+    * 10^(exponent-2);
+
+
+/*
+Primary misconception:
+move decimal point in the wrong direction.
+
+This corresponds to multiplying by
+10^(-exponent).
+*/
+
+wrong_direction:
+    coefficient
+    / 10^exponent;
+
+
+/*
+Secondary misconception:
+move the decimal point one place too few.
+*/
+
+wrong_one_fewer:
+    mantissa_integer
+    * 10^(exponent-3);
+
+
+/*
+Display coefficient as decimal.
+*/
+
+coefficient_display:
+    float(coefficient);
+      </text>
+    </questionvariables>
+
+
+    <specificfeedback format="html">
+      <text />
+    </specificfeedback>
+
+
+    <questionnote format="html">
+      <text>&lt;p&gt;
+Shared Question Bank |
+Place Value and Rounding |
+PVRS-07
+&lt;/p&gt;
+
+&lt;p&gt;
+coefficient={@coefficient_display@}
+&lt;/p&gt;
+
+&lt;p&gt;
+exponent={@exponent@}
+&lt;/p&gt;
+
+&lt;p&gt;
+answer={@answer@}
+&lt;/p&gt;
+      </text>
+    </questionnote>
+
+
+    <questiondescription format="html">
+      <text>&lt;p id="bank"&gt;
+Shared Curriculum-Independent Question Bank
+&lt;/p&gt;
+
+&lt;p id="shared-question-id"&gt;
+PVRS-07
+&lt;/p&gt;
+
+&lt;p id="knowledge-concept"&gt;
+number-sense
+&lt;/p&gt;
+
+&lt;p id="secondary-concept"&gt;
+standard-form-to-large-number
+&lt;/p&gt;
+
+&lt;p id="role"&gt;
+conceptual
+&lt;/p&gt;
+
+&lt;p id="interaction"&gt;
+standard-form-interpretation
+&lt;/p&gt;
+
+&lt;p id="description"&gt;
+Learners interpret positive powers of ten
+and convert standard form to an ordinary
+large whole number.
+&lt;/p&gt;
+
+&lt;p id="misconception"&gt;
+Targets moving the decimal point in the
+wrong direction and moving it too few
+places.
+&lt;/p&gt;
+
+&lt;p id="provenance"&gt;
+Original STACK question. NUMBAS-114888
+was used only as a conceptual reference.
+No source wording or mathematical content
+is copied.
+&lt;/p&gt;
+
+&lt;p id="direct-adaptation"&gt;
+Not permitted under the current mining
+record because the source item licence has
+not been verified.
+&lt;/p&gt;
+
+&lt;p id="licence-dependency"&gt;
+None.
+&lt;/p&gt;
+
+&lt;p id="curriculum-policy"&gt;
+Curriculum alignment is maintained outside
+the question source.
+&lt;/p&gt;
+      </text>
+    </questiondescription>
+
+
+    <questionsimplify>1</questionsimplify>
+    <assumepositive>0</assumepositive>
+    <assumereal>0</assumereal>
+
+
+    <prtcorrect format="html">
+      <text>&lt;p&gt;Correct.&lt;/p&gt;</text>
+    </prtcorrect>
+
+
+    <prtpartiallycorrect format="html">
+      <text />
+    </prtpartiallycorrect>
+
+
+    <prtincorrect format="html">
+      <text>&lt;p&gt;
+For a positive power of \(10\), move the
+decimal point to the right.
+&lt;/p&gt;</text>
+    </prtincorrect>
+
+
+    <decimals>.</decimals>
+    <scientificnotation>*10</scientificnotation>
+    <multiplicationsign>none</multiplicationsign>
+    <sqrtsign>1</sqrtsign>
+    <complexno>i</complexno>
+    <inversetrig>cos-1</inversetrig>
+    <logicsymbol>lang</logicsymbol>
+    <matrixparens>[</matrixparens>
+    <isbroken>0</isbroken>
+    <variantsselectionseed />
+
+
+    <input>
+      <name>ans1</name>
+      <type>algebraic</type>
+      <tans>answer</tans>
+      <boxsize>16</boxsize>
+      <strictsyntax>1</strictsyntax>
+      <insertstars>0</insertstars>
+      <syntaxhint />
+      <syntaxattribute>0</syntaxattribute>
+      <forbidwords />
+      <allowwords />
+      <forbidfloat>0</forbidfloat>
+      <requirelowestterms>0</requirelowestterms>
+      <checkanswertype>0</checkanswertype>
+      <mustverify>1</mustverify>
+      <showvalidation>3</showvalidation>
+      <options />
+    </input>
+
+
+    <prt>
+      <name>prt1</name>
+      <value>1.0000000</value>
+      <autosimplify>1</autosimplify>
+      <feedbackstyle>1</feedbackstyle>
+
+      <feedbackvariables>
+        <text />
+      </feedbackvariables>
+
+
+      <node>
+        <name>0</name>
+        <description>
+Checks the correct ordinary number.
+        </description>
+
+        <answertest>AlgEquiv</answertest>
+        <sans>ans1</sans>
+        <tans>answer</tans>
+        <testoptions />
+        <quiet>0</quiet>
+
+        <truescoremode>=</truescoremode>
+        <truescore>1</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-1-T</trueanswernote>
+
+        <truefeedback format="html">
+          <text />
+        </truefeedback>
+
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>1</falsenextnode>
+        <falseanswernote>prt1-1-F</falseanswernote>
+
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+
+
+      <node>
+        <name>1</name>
+        <description>
+Checks whether the decimal point was moved
+in the wrong direction.
+        </description>
+
+        <answertest>AlgEquiv</answertest>
+        <sans>ans1</sans>
+        <tans>wrong_direction</tans>
+        <testoptions />
+        <quiet>1</quiet>
+
+        <truescoremode>=</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-2-T</trueanswernote>
+
+        <truefeedback format="html">
+          <text>&lt;p&gt;
+You moved the decimal point in the wrong
+direction.
+&lt;/p&gt;
+
+&lt;p&gt;
+Because the exponent is positive, multiply
+by a power of \(10\), so the decimal point
+moves to the &lt;strong&gt;right&lt;/strong&gt;.
+&lt;/p&gt;
+          </text>
+        </truefeedback>
+
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>2</falsenextnode>
+        <falseanswernote>prt1-2-F</falseanswernote>
+
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+
+
+      <node>
+        <name>2</name>
+        <description>
+Checks whether the decimal point was moved
+one place too few.
+        </description>
+
+        <answertest>AlgEquiv</answertest>
+        <sans>ans1</sans>
+        <tans>wrong_one_fewer</tans>
+        <testoptions />
+        <quiet>1</quiet>
+
+        <truescoremode>=</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-3-T</trueanswernote>
+
+        <truefeedback format="html">
+          <text>&lt;p&gt;
+Your direction is correct, but you moved
+the decimal point one place too few.
+&lt;/p&gt;
+
+&lt;p&gt;
+The exponent tells you the total number
+of places to move.
+&lt;/p&gt;
+          </text>
+        </truefeedback>
+
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>-1</falsenextnode>
+        <falseanswernote>prt1-3-F</falseanswernote>
+
+        <falsefeedback format="html">
+          <text>&lt;p&gt;
+Use the exponent to count how many places
+the decimal point moves to the right.
+&lt;/p&gt;</text>
+        </falsefeedback>
+      </node>
+
+    </prt>
+
+
+    <qtest>
+      <testcase>1</testcase>
+
+      <description>
+Correct conversion receives full credit.
+      </description>
+
+      <testinput>
+        <name>ans1</name>
+        <value>answer</value>
+      </testinput>
+
+      <expected>
+        <name>prt1</name>
+        <expectedscore>1.0000000</expectedscore>
+        <expectedpenalty>0.0000000</expectedpenalty>
+        <expectedanswernote>
+prt1-1-T
+        </expectedanswernote>
+      </expected>
+    </qtest>
+
+
+    <qtest>
+      <testcase>2</testcase>
+
+      <description>
+Moving the decimal point in the wrong
+direction receives zero credit.
+      </description>
+
+      <testinput>
+        <name>ans1</name>
+        <value>wrong_direction</value>
+      </testinput>
+
+      <expected>
+        <name>prt1</name>
+        <expectedscore>0.0000000</expectedscore>
+        <expectedpenalty>0.1000000</expectedpenalty>
+        <expectedanswernote>
+prt1-1-F | prt1-2-T
+        </expectedanswernote>
+      </expected>
+    </qtest>
+
+
+    <qtest>
+      <testcase>3</testcase>
+
+      <description>
+Moving the decimal point one place too
+few receives zero credit.
+      </description>
+
+      <testinput>
+        <name>ans1</name>
+        <value>wrong_one_fewer</value>
+      </testinput>
+
+      <expected>
+        <name>prt1</name>
+        <expectedscore>0.0000000</expectedscore>
+        <expectedpenalty>0.1000000</expectedpenalty>
+        <expectedanswernote>
+prt1-1-F | prt1-2-F | prt1-3-T
+        </expectedanswernote>
+      </expected>
+    </qtest>
+
+
+  <deployedseed>554271128</deployedseed><deployedseed>429094540</deployedseed><deployedseed>1072241388</deployedseed><deployedseed>1540370904</deployedseed><deployedseed>216524844</deployedseed></question>
+</quiz>

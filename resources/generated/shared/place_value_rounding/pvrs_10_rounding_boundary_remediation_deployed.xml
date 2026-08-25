@@ -1,0 +1,549 @@
+<quiz>
+  <question type="stack">
+
+    <name>
+      <text>
+Shared: Remediate rounding at the five boundary
+      </text>
+    </name>
+
+
+    <questiontext format="html">
+      <text>&lt;p&gt;
+Round
+\[
+{@number@}
+\]
+to the nearest
+&lt;strong&gt;{@place_name@}&lt;/strong&gt;.
+&lt;/p&gt;
+
+&lt;p&gt;
+The digit immediately to the right of the
+rounding place is exactly
+&lt;strong&gt;5&lt;/strong&gt;.
+&lt;/p&gt;
+
+&lt;p&gt;
+[[input:ans1]]
+[[validation:ans1]]
+[[feedback:prt1]]
+&lt;/p&gt;
+      </text>
+    </questiontext>
+
+
+    <generalfeedback format="html">
+      <text>&lt;h3&gt;Worked solution&lt;/h3&gt;
+
+&lt;p&gt;
+We are rounding
+\[
+{@number@}
+\]
+to the nearest
+&lt;strong&gt;{@place_name@}&lt;/strong&gt;.
+&lt;/p&gt;
+
+&lt;p&gt;
+The next digit is exactly \(5\).
+Using the school half-up convention,
+a boundary digit of \(5\) means the
+rounding digit increases by \(1\).
+&lt;/p&gt;
+
+&lt;p&gt;
+Therefore,
+\[
+\boxed{{@answer@}}.
+\]
+&lt;/p&gt;
+      </text>
+    </generalfeedback>
+
+
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.1000000</penalty>
+    <hidden>0</hidden>
+    <idnumber />
+
+
+    <stackversion>
+      <text>2025012100</text>
+    </stackversion>
+
+
+    <questionvariables>
+      <text>
+/*
+Shared Question Bank
+Place Value, Rounding and Standard Form
+PVRS-10
+
+Adaptive remediation task:
+correct the misconception that a boundary
+digit of exactly 5 may be rounded down.
+
+Reference-only interaction sources:
+NUMBAS-21514
+NUMBAS-169559
+
+This STACK question is independently
+authored. No source wording or mathematical
+content is copied.
+*/
+
+
+/*
+Choose the place being rounded.
+
+1 = nearest ten
+2 = nearest hundred
+3 = nearest thousand
+*/
+
+place_choice:
+    rand_with_prohib(1,3,[]);
+
+place_value:
+    if place_choice=1 then 10
+    elseif place_choice=2 then 100
+    else 1000;
+
+place_name:
+    if place_choice=1 then "ten"
+    elseif place_choice=2 then "hundred"
+    else "thousand";
+
+
+/*
+Generate a safe positive base multiple.
+
+The final number is exactly halfway
+between two consecutive multiples of the
+requested place value.
+*/
+
+base_index:
+    rand_with_prohib(
+        120,
+        850,
+        []
+    );
+
+lower_multiple:
+    base_index
+    * place_value;
+
+
+/*
+Exact halfway case.
+
+Examples:
+4650 to nearest hundred
+72500 to nearest thousand
+*/
+
+number:
+    lower_multiple
+    + place_value/2;
+
+
+/*
+School half-up answer.
+
+At an exact 5 boundary, move to the upper
+multiple.
+*/
+
+answer:
+    lower_multiple
+    + place_value;
+
+
+/*
+Primary misconception:
+round the exact 5 boundary downward.
+
+This is also equivalent to truncation for
+these generated variants.
+*/
+
+wrong_round_down:
+    lower_multiple;
+
+
+/*
+A second common mistake is to add only
+5 rather than respecting the target place.
+*/
+
+wrong_keep_five:
+    lower_multiple
+    + 5;
+      </text>
+    </questionvariables>
+
+
+    <specificfeedback format="html">
+      <text />
+    </specificfeedback>
+
+
+    <questionnote format="html">
+      <text>&lt;p&gt;
+Shared Question Bank |
+Place Value and Rounding |
+PVRS-10
+&lt;/p&gt;
+
+&lt;p&gt;
+number={@number@}
+&lt;/p&gt;
+
+&lt;p&gt;
+place_value={@place_value@}
+&lt;/p&gt;
+
+&lt;p&gt;
+lower_multiple={@lower_multiple@}
+&lt;/p&gt;
+
+&lt;p&gt;
+answer={@answer@}
+&lt;/p&gt;
+      </text>
+    </questionnote>
+
+
+    <questiondescription format="html">
+      <text>&lt;p id="bank"&gt;
+Shared Curriculum-Independent Question Bank
+&lt;/p&gt;
+
+&lt;p id="shared-question-id"&gt;
+PVRS-10
+&lt;/p&gt;
+
+&lt;p id="knowledge-concept"&gt;
+number-sense
+&lt;/p&gt;
+
+&lt;p id="secondary-concept"&gt;
+rounding-boundary-misconception
+&lt;/p&gt;
+
+&lt;p id="role"&gt;
+remediation
+&lt;/p&gt;
+
+&lt;p id="interaction"&gt;
+misconception-remediation
+&lt;/p&gt;
+
+&lt;p id="description"&gt;
+Learners resolve exact halfway rounding
+cases where the decision digit is five.
+&lt;/p&gt;
+
+&lt;p id="misconception"&gt;
+Targets the belief that an exact boundary
+digit of five may be rounded downward.
+&lt;/p&gt;
+
+&lt;p id="provenance"&gt;
+Original STACK question. Numbas items
+NUMBAS-21514 and NUMBAS-169559 were used
+only as interaction references.
+No source wording or mathematical content
+is copied.
+&lt;/p&gt;
+
+&lt;p id="licence-dependency"&gt;
+None.
+&lt;/p&gt;
+
+&lt;p id="curriculum-policy"&gt;
+Curriculum alignment is maintained outside
+the question source.
+&lt;/p&gt;
+      </text>
+    </questiondescription>
+
+
+    <questionsimplify>1</questionsimplify>
+    <assumepositive>0</assumepositive>
+    <assumereal>0</assumereal>
+
+
+    <prtcorrect format="html">
+      <text>&lt;p&gt;
+Correct. At an exact \(5\) boundary,
+round upward.
+&lt;/p&gt;</text>
+    </prtcorrect>
+
+
+    <prtpartiallycorrect format="html">
+      <text />
+    </prtpartiallycorrect>
+
+
+    <prtincorrect format="html">
+      <text>&lt;p&gt;
+Focus on the digit immediately to the
+right of the rounding place.
+&lt;/p&gt;</text>
+    </prtincorrect>
+
+
+    <decimals>.</decimals>
+    <scientificnotation>*10</scientificnotation>
+    <multiplicationsign>none</multiplicationsign>
+    <sqrtsign>1</sqrtsign>
+    <complexno>i</complexno>
+    <inversetrig>cos-1</inversetrig>
+    <logicsymbol>lang</logicsymbol>
+    <matrixparens>[</matrixparens>
+    <isbroken>0</isbroken>
+    <variantsselectionseed />
+
+
+    <input>
+      <name>ans1</name>
+      <type>algebraic</type>
+      <tans>answer</tans>
+      <boxsize>14</boxsize>
+      <strictsyntax>1</strictsyntax>
+      <insertstars>0</insertstars>
+      <syntaxhint />
+      <syntaxattribute>0</syntaxattribute>
+      <forbidwords />
+      <allowwords />
+      <forbidfloat>0</forbidfloat>
+      <requirelowestterms>0</requirelowestterms>
+      <checkanswertype>0</checkanswertype>
+      <mustverify>1</mustverify>
+      <showvalidation>3</showvalidation>
+      <options />
+    </input>
+
+
+    <prt>
+      <name>prt1</name>
+      <value>1.0000000</value>
+      <autosimplify>1</autosimplify>
+      <feedbackstyle>1</feedbackstyle>
+
+      <feedbackvariables>
+        <text />
+      </feedbackvariables>
+
+
+      <node>
+        <name>0</name>
+        <description>
+Checks correct half-up rounding.
+        </description>
+
+        <answertest>AlgEquiv</answertest>
+        <sans>ans1</sans>
+        <tans>answer</tans>
+        <testoptions />
+        <quiet>0</quiet>
+
+        <truescoremode>=</truescoremode>
+        <truescore>1</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-1-T</trueanswernote>
+
+        <truefeedback format="html">
+          <text />
+        </truefeedback>
+
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>1</falsenextnode>
+        <falseanswernote>prt1-1-F</falseanswernote>
+
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+
+
+      <node>
+        <name>1</name>
+        <description>
+Checks whether an exact five boundary
+was rounded downward.
+        </description>
+
+        <answertest>AlgEquiv</answertest>
+        <sans>ans1</sans>
+        <tans>wrong_round_down</tans>
+        <testoptions />
+        <quiet>1</quiet>
+
+        <truescoremode>=</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-2-T</trueanswernote>
+
+        <truefeedback format="html">
+          <text>&lt;p&gt;
+You rounded the boundary value downward.
+&lt;/p&gt;
+
+&lt;p&gt;
+When the next digit is exactly \(5\),
+the school half-up rule says to increase
+the rounding digit by \(1\).
+&lt;/p&gt;
+
+&lt;p&gt;
+So move to the next higher multiple of
+the requested place value.
+&lt;/p&gt;
+          </text>
+        </truefeedback>
+
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>2</falsenextnode>
+        <falseanswernote>prt1-2-F</falseanswernote>
+
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+
+
+      <node>
+        <name>2</name>
+        <description>
+Checks whether the learner retained the
+five without respecting place value.
+        </description>
+
+        <answertest>AlgEquiv</answertest>
+        <sans>ans1</sans>
+        <tans>wrong_keep_five</tans>
+        <testoptions />
+        <quiet>1</quiet>
+
+        <truescoremode>=</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-3-T</trueanswernote>
+
+        <truefeedback format="html">
+          <text>&lt;p&gt;
+The digit \(5\) tells you which direction
+to round; it is not added directly to the
+answer.
+&lt;/p&gt;
+
+&lt;p&gt;
+Round to a multiple of the requested
+place value.
+&lt;/p&gt;
+          </text>
+        </truefeedback>
+
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>-1</falsenextnode>
+        <falseanswernote>prt1-3-F</falseanswernote>
+
+        <falsefeedback format="html">
+          <text>&lt;p&gt;
+At an exact \(5\) boundary, round to the
+next higher multiple.
+&lt;/p&gt;</text>
+        </falsefeedback>
+      </node>
+
+    </prt>
+
+
+    <qtest>
+      <testcase>1</testcase>
+
+      <description>
+Correct half-up boundary rounding receives
+full credit.
+      </description>
+
+      <testinput>
+        <name>ans1</name>
+        <value>answer</value>
+      </testinput>
+
+      <expected>
+        <name>prt1</name>
+        <expectedscore>1.0000000</expectedscore>
+        <expectedpenalty>0.0000000</expectedpenalty>
+        <expectedanswernote>
+prt1-1-T
+        </expectedanswernote>
+      </expected>
+    </qtest>
+
+
+    <qtest>
+      <testcase>2</testcase>
+
+      <description>
+Rounding an exact five boundary downward
+receives zero credit.
+      </description>
+
+      <testinput>
+        <name>ans1</name>
+        <value>wrong_round_down</value>
+      </testinput>
+
+      <expected>
+        <name>prt1</name>
+        <expectedscore>0.0000000</expectedscore>
+        <expectedpenalty>0.1000000</expectedpenalty>
+        <expectedanswernote>
+prt1-1-F | prt1-2-T
+        </expectedanswernote>
+      </expected>
+    </qtest>
+
+
+    <qtest>
+      <testcase>3</testcase>
+
+      <description>
+Keeping the five without applying place
+value receives zero credit.
+      </description>
+
+      <testinput>
+        <name>ans1</name>
+        <value>wrong_keep_five</value>
+      </testinput>
+
+      <expected>
+        <name>prt1</name>
+        <expectedscore>0.0000000</expectedscore>
+        <expectedpenalty>0.1000000</expectedpenalty>
+        <expectedanswernote>
+prt1-1-F | prt1-2-F | prt1-3-T
+        </expectedanswernote>
+      </expected>
+    </qtest>
+
+
+  <deployedseed>2101530747</deployedseed><deployedseed>996986475</deployedseed><deployedseed>1059630834</deployedseed><deployedseed>1204596085</deployedseed><deployedseed>964486054</deployedseed></question>
+</quiz>

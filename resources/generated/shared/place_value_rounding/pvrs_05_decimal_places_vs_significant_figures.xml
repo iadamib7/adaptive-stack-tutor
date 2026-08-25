@@ -1,0 +1,702 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quiz>
+  <question type="stack">
+
+    <name>
+      <text>
+Shared: Diagnose decimal places versus significant figures
+      </text>
+    </name>
+
+
+    <questiontext format="html">
+      <text>&lt;p&gt;
+Consider the number
+\[
+{@number_display@}.
+\]
+&lt;/p&gt;
+
+&lt;p&gt;
+&lt;strong&gt;(a)&lt;/strong&gt;
+Round it to
+&lt;strong&gt;{@dp_count@} decimal places&lt;/strong&gt;.
+&lt;/p&gt;
+
+&lt;p&gt;
+[[input:ans1]]
+[[validation:ans1]]
+&lt;/p&gt;
+
+&lt;p&gt;
+&lt;strong&gt;(b)&lt;/strong&gt;
+Round the same number to
+&lt;strong&gt;{@sf_count@} significant figures&lt;/strong&gt;.
+&lt;/p&gt;
+
+&lt;p&gt;
+[[input:ans2]]
+[[validation:ans2]]
+&lt;/p&gt;
+
+&lt;p&gt;
+[[feedback:prt1]]
+&lt;/p&gt;
+      </text>
+    </questiontext>
+
+
+    <generalfeedback format="html">
+      <text>&lt;h3&gt;Worked solution&lt;/h3&gt;
+
+&lt;p&gt;
+Decimal places are counted from the
+decimal point.
+&lt;/p&gt;
+
+&lt;p&gt;
+Significant figures are counted from the
+first non-zero digit.
+&lt;/p&gt;
+
+&lt;p&gt;
+For
+\[
+{@number_display@},
+\]
+the answers are:
+&lt;/p&gt;
+
+&lt;p&gt;
+&lt;strong&gt;{@dp_count@} decimal places:&lt;/strong&gt;
+\[
+{@answer_dp_display@}
+\]
+&lt;/p&gt;
+
+&lt;p&gt;
+&lt;strong&gt;{@sf_count@} significant figures:&lt;/strong&gt;
+\[
+{@answer_sf_display@}
+\]
+&lt;/p&gt;
+      </text>
+    </generalfeedback>
+
+
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.1000000</penalty>
+    <hidden>0</hidden>
+    <idnumber />
+
+
+    <stackversion>
+      <text>2025012100</text>
+    </stackversion>
+
+
+    <questionvariables>
+      <text>
+/*
+Shared Question Bank
+Place Value, Rounding and Standard Form
+PVRS-05
+
+Diagnostic task:
+contrast decimal-place rounding with
+significant-figure rounding.
+
+Reference-only interaction sources:
+NUMBAS-21514
+NUMBAS-169559
+NUMBAS-21530
+
+This question is independently authored.
+No source wording or mathematical content
+is copied.
+*/
+
+
+/*
+Use a number between 10 and 99 with
+three decimal digits.
+
+We deliberately choose:
+2 decimal places
+3 significant figures
+
+For numbers in this range, these require
+different rounding places:
+2 d.p. -> hundredths
+3 s.f. -> tenths
+*/
+
+dp_count:
+    2;
+
+sf_count:
+    3;
+
+
+/*
+Generate digits.
+
+The hundredths digit is at least 5 so
+3 significant figures requires rounding
+the tenths digit upward.
+
+The thousandths digit is at least 5 so
+2 decimal places requires rounding the
+hundredths digit upward.
+
+This ensures both operations are active
+and the two answers are distinct.
+*/
+
+tens_digit:
+    rand_with_prohib(1,8,[]);
+
+ones_digit:
+    rand_with_prohib(0,9,[]);
+
+tenths_digit:
+    rand_with_prohib(0,8,[]);
+
+hundredths_digit:
+    rand_with_prohib(5,8,[]);
+
+thousandths_digit:
+    rand_with_prohib(5,9,[]);
+
+
+number:
+    tens_digit*10
+    + ones_digit
+    + tenths_digit/10
+    + hundredths_digit/100
+    + thousandths_digit/1000;
+
+
+/*
+2 decimal places:
+round to nearest hundredth.
+*/
+
+answer_dp:
+    floor(
+        number*100 + 1/2
+    )/100;
+
+
+/*
+3 significant figures for a number
+between 10 and 99:
+round to nearest tenth.
+*/
+
+answer_sf:
+    floor(
+        number*10 + 1/2
+    )/10;
+
+
+/*
+Diagnostic misconception:
+learner treats the instructions as
+equivalent and swaps the two procedures.
+*/
+
+wrong_dp_as_sf:
+    answer_sf;
+
+wrong_sf_as_dp:
+    answer_dp;
+
+
+/*
+Display decimals while preserving exact
+rational arithmetic internally.
+*/
+
+number_display:
+    float(number);
+
+answer_dp_display:
+    float(answer_dp);
+
+answer_sf_display:
+    float(answer_sf);
+      </text>
+    </questionvariables>
+
+
+    <specificfeedback format="html">
+      <text />
+    </specificfeedback>
+
+
+    <questionnote format="html">
+      <text>&lt;p&gt;
+Shared Question Bank |
+Place Value and Rounding |
+PVRS-05
+&lt;/p&gt;
+
+&lt;p&gt;
+number={@number_display@}
+&lt;/p&gt;
+
+&lt;p&gt;
+answer_dp={@answer_dp_display@}
+&lt;/p&gt;
+
+&lt;p&gt;
+answer_sf={@answer_sf_display@}
+&lt;/p&gt;
+      </text>
+    </questionnote>
+
+
+    <questiondescription format="html">
+      <text>&lt;p id="bank"&gt;
+Shared Curriculum-Independent Question Bank
+&lt;/p&gt;
+
+&lt;p id="shared-question-id"&gt;
+PVRS-05
+&lt;/p&gt;
+
+&lt;p id="knowledge-concept"&gt;
+number-sense
+&lt;/p&gt;
+
+&lt;p id="secondary-concept"&gt;
+decimal-places-vs-significant-figures
+&lt;/p&gt;
+
+&lt;p id="role"&gt;
+diagnostic
+&lt;/p&gt;
+
+&lt;p id="interaction"&gt;
+paired-rounding-diagnostic
+&lt;/p&gt;
+
+&lt;p id="description"&gt;
+Learners round the same number using
+decimal-place and significant-figure
+instructions so the two conventions can
+be distinguished diagnostically.
+&lt;/p&gt;
+
+&lt;p id="misconception"&gt;
+Targets the belief that decimal places
+and significant figures are the same
+rounding instruction.
+&lt;/p&gt;
+
+&lt;p id="provenance"&gt;
+Original STACK question. Interaction ideas
+were informed by reference-only Numbas
+items NUMBAS-21514, NUMBAS-169559 and
+NUMBAS-21530. No source wording or
+mathematical content is copied.
+&lt;/p&gt;
+
+&lt;p id="licence-dependency"&gt;
+None.
+&lt;/p&gt;
+
+&lt;p id="curriculum-policy"&gt;
+Curriculum alignment is maintained outside
+the question source.
+&lt;/p&gt;
+      </text>
+    </questiondescription>
+
+
+    <questionsimplify>1</questionsimplify>
+    <assumepositive>0</assumepositive>
+    <assumereal>0</assumereal>
+
+
+    <prtcorrect format="html">
+      <text>&lt;p&gt;
+Both answers are correct.
+&lt;/p&gt;</text>
+    </prtcorrect>
+
+
+    <prtpartiallycorrect format="html">
+      <text>&lt;p&gt;
+One part is correct. Compare how decimal
+places and significant figures are counted.
+&lt;/p&gt;</text>
+    </prtpartiallycorrect>
+
+
+    <prtincorrect format="html">
+      <text>&lt;p&gt;
+Decimal places are counted from the
+decimal point, while significant figures
+start at the first non-zero digit.
+&lt;/p&gt;</text>
+    </prtincorrect>
+
+
+    <decimals>.</decimals>
+    <scientificnotation>*10</scientificnotation>
+    <multiplicationsign>none</multiplicationsign>
+    <sqrtsign>1</sqrtsign>
+    <complexno>i</complexno>
+    <inversetrig>cos-1</inversetrig>
+    <logicsymbol>lang</logicsymbol>
+    <matrixparens>[</matrixparens>
+    <isbroken>0</isbroken>
+    <variantsselectionseed />
+
+
+    <input>
+      <name>ans1</name>
+      <type>algebraic</type>
+      <tans>answer_dp</tans>
+      <boxsize>12</boxsize>
+      <strictsyntax>1</strictsyntax>
+      <insertstars>0</insertstars>
+      <syntaxhint />
+      <syntaxattribute>0</syntaxattribute>
+      <forbidwords />
+      <allowwords />
+      <forbidfloat>0</forbidfloat>
+      <requirelowestterms>0</requirelowestterms>
+      <checkanswertype>0</checkanswertype>
+      <mustverify>1</mustverify>
+      <showvalidation>3</showvalidation>
+      <options />
+    </input>
+
+
+    <input>
+      <name>ans2</name>
+      <type>algebraic</type>
+      <tans>answer_sf</tans>
+      <boxsize>12</boxsize>
+      <strictsyntax>1</strictsyntax>
+      <insertstars>0</insertstars>
+      <syntaxhint />
+      <syntaxattribute>0</syntaxattribute>
+      <forbidwords />
+      <allowwords />
+      <forbidfloat>0</forbidfloat>
+      <requirelowestterms>0</requirelowestterms>
+      <checkanswertype>0</checkanswertype>
+      <mustverify>1</mustverify>
+      <showvalidation>3</showvalidation>
+      <options />
+    </input>
+
+
+    <prt>
+      <name>prt1</name>
+      <value>1.0000000</value>
+      <autosimplify>1</autosimplify>
+      <feedbackstyle>1</feedbackstyle>
+
+      <feedbackvariables>
+        <text />
+      </feedbackvariables>
+
+
+      <node>
+        <name>0</name>
+        <description>
+Checks the decimal-place answer.
+        </description>
+
+        <answertest>AlgEquiv</answertest>
+        <sans>ans1</sans>
+        <tans>answer_dp</tans>
+        <testoptions />
+        <quiet>0</quiet>
+
+        <truescoremode>+</truescoremode>
+        <truescore>0.5</truescore>
+        <truepenalty />
+        <truenextnode>1</truenextnode>
+        <trueanswernote>prt1-1-T</trueanswernote>
+
+        <truefeedback format="html">
+          <text />
+        </truefeedback>
+
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>2</falsenextnode>
+        <falseanswernote>prt1-1-F</falseanswernote>
+
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+
+
+      <node>
+        <name>1</name>
+        <description>
+Decimal-place answer was correct.
+Checks significant-figure answer.
+        </description>
+
+        <answertest>AlgEquiv</answertest>
+        <sans>ans2</sans>
+        <tans>answer_sf</tans>
+        <testoptions />
+        <quiet>0</quiet>
+
+        <truescoremode>+</truescoremode>
+        <truescore>0.5</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-2-T</trueanswernote>
+
+        <truefeedback format="html">
+          <text>&lt;p&gt;
+Correct. You distinguished decimal places
+from significant figures.
+&lt;/p&gt;</text>
+        </truefeedback>
+
+        <falsescoremode>+</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>-1</falsenextnode>
+        <falseanswernote>prt1-2-F</falseanswernote>
+
+        <falsefeedback format="html">
+          <text>&lt;p&gt;
+Your decimal-place answer is correct.
+For significant figures, start counting
+from the first non-zero digit.
+&lt;/p&gt;</text>
+        </falsefeedback>
+      </node>
+
+
+      <node>
+        <name>2</name>
+        <description>
+Checks whether the learner used the
+significant-figure result for the
+decimal-place part.
+        </description>
+
+        <answertest>AlgEquiv</answertest>
+        <sans>ans1</sans>
+        <tans>wrong_dp_as_sf</tans>
+        <testoptions />
+        <quiet>1</quiet>
+
+        <truescoremode>=</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>3</truenextnode>
+        <trueanswernote>prt1-3-T</trueanswernote>
+
+        <truefeedback format="html">
+          <text />
+        </truefeedback>
+
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>4</falsenextnode>
+        <falseanswernote>prt1-3-F</falseanswernote>
+
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+
+
+      <node>
+        <name>3</name>
+        <description>
+Checks for the paired swap misconception.
+        </description>
+
+        <answertest>AlgEquiv</answertest>
+        <sans>ans2</sans>
+        <tans>wrong_sf_as_dp</tans>
+        <testoptions />
+        <quiet>1</quiet>
+
+        <truescoremode>=</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-4-T</trueanswernote>
+
+        <truefeedback format="html">
+          <text>&lt;p&gt;
+You appear to have swapped the two
+rounding rules.
+&lt;/p&gt;
+
+&lt;p&gt;
+Decimal places are counted from the
+decimal point. Significant figures are
+counted from the first non-zero digit.
+&lt;/p&gt;
+          </text>
+        </truefeedback>
+
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>-1</falsenextnode>
+        <falseanswernote>prt1-4-F</falseanswernote>
+
+        <falsefeedback format="html">
+          <text>&lt;p&gt;
+Recheck how each rounding instruction is
+counted.
+&lt;/p&gt;</text>
+        </falsefeedback>
+      </node>
+
+
+      <node>
+        <name>4</name>
+        <description>
+Generic diagnostic check when part a is
+incorrect for another reason.
+        </description>
+
+        <answertest>AlgEquiv</answertest>
+        <sans>ans2</sans>
+        <tans>answer_sf</tans>
+        <testoptions />
+        <quiet>0</quiet>
+
+        <truescoremode>=</truescoremode>
+        <truescore>0.5</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-5-T</trueanswernote>
+
+        <truefeedback format="html">
+          <text>&lt;p&gt;
+Your significant-figure answer is correct.
+Recheck how decimal places are counted
+from the decimal point.
+&lt;/p&gt;</text>
+        </truefeedback>
+
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>-1</falsenextnode>
+        <falseanswernote>prt1-5-F</falseanswernote>
+
+        <falsefeedback format="html">
+          <text>&lt;p&gt;
+Recheck both instructions carefully.
+&lt;/p&gt;</text>
+        </falsefeedback>
+      </node>
+
+    </prt>
+
+
+    <qtest>
+      <testcase>1</testcase>
+
+      <description>
+Both correct answers should receive
+full credit.
+      </description>
+
+      <testinput>
+        <name>ans1</name>
+        <value>answer_dp</value>
+      </testinput>
+
+      <testinput>
+        <name>ans2</name>
+        <value>answer_sf</value>
+      </testinput>
+
+      <expected>
+        <name>prt1</name>
+        <expectedscore>1.0000000</expectedscore>
+        <expectedpenalty>0.0000000</expectedpenalty>
+        <expectedanswernote>
+prt1-1-T | prt1-2-T
+        </expectedanswernote>
+      </expected>
+    </qtest>
+
+
+    <qtest>
+      <testcase>2</testcase>
+
+      <description>
+Swapping decimal-place and
+significant-figure procedures should
+receive zero credit.
+      </description>
+
+      <testinput>
+        <name>ans1</name>
+        <value>wrong_dp_as_sf</value>
+      </testinput>
+
+      <testinput>
+        <name>ans2</name>
+        <value>wrong_sf_as_dp</value>
+      </testinput>
+
+      <expected>
+        <name>prt1</name>
+        <expectedscore>0.0000000</expectedscore>
+        <expectedpenalty>0.1000000</expectedpenalty>
+        <expectedanswernote>
+prt1-1-F | prt1-3-T | prt1-4-T
+        </expectedanswernote>
+      </expected>
+    </qtest>
+
+
+    <qtest>
+      <testcase>3</testcase>
+
+      <description>
+Correct decimal-place answer with an
+incorrect significant-figure answer
+should receive half credit.
+      </description>
+
+      <testinput>
+        <name>ans1</name>
+        <value>answer_dp</value>
+      </testinput>
+
+      <testinput>
+        <name>ans2</name>
+        <value>answer_dp</value>
+      </testinput>
+
+      <expected>
+        <name>prt1</name>
+        <expectedscore>0.5000000</expectedscore>
+        <expectedpenalty>0.1000000</expectedpenalty>
+        <expectedanswernote>
+prt1-1-T | prt1-2-F
+        </expectedanswernote>
+      </expected>
+    </qtest>
+
+
+  </question>
+</quiz>

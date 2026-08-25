@@ -1,0 +1,533 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<quiz>
+  <question type="stack">
+    <name>
+      <text>
+Shared: Interpret a large quantity in standard form
+      </text>
+    </name>
+    <questiontext format="html">
+      <text>&lt;p&gt;
+A regional education programme reports that
+\[
+{@quantity@}
+\]
+exercise books were distributed.
+&lt;/p&gt;
+
+&lt;p&gt;
+Write this quantity in standard form.
+&lt;/p&gt;
+
+&lt;p&gt;
+Coefficient \(a\):
+[[input:ans1]]
+[[validation:ans1]]
+&lt;/p&gt;
+
+&lt;p&gt;
+Exponent \(n\):
+[[input:ans2]]
+[[validation:ans2]]
+&lt;/p&gt;
+
+&lt;p&gt;
+The report also states that this is about
+&lt;strong&gt;{@scale_label@}&lt;/strong&gt;
+books.
+&lt;/p&gt;
+
+&lt;p&gt;
+Is that scale description correct?
+Enter
+&lt;strong&gt;1&lt;/strong&gt; for yes and
+&lt;strong&gt;0&lt;/strong&gt; for no.
+&lt;/p&gt;
+
+&lt;p&gt;
+[[input:ans3]]
+[[validation:ans3]]
+&lt;/p&gt;
+
+&lt;p&gt;
+[[feedback:prt1]]
+&lt;/p&gt;
+      </text>
+    </questiontext>
+    <generalfeedback format="html">
+      <text>&lt;h3&gt;Worked solution&lt;/h3&gt;
+
+&lt;p&gt;
+The quantity is
+\[
+{@quantity@}.
+\]
+&lt;/p&gt;
+
+&lt;p&gt;
+In standard form,
+\[
+{@coefficient_display@}
+\times 10^{@exponent@}.
+\]
+&lt;/p&gt;
+
+&lt;p&gt;
+Because the exponent is
+\[
+{@exponent@},
+\]
+the quantity is on the scale of
+&lt;strong&gt;{@correct_scale_label@}&lt;/strong&gt;.
+&lt;/p&gt;
+
+&lt;p&gt;
+So the scale statement in the question is
+&lt;strong&gt;{@scale_truth_text@}&lt;/strong&gt;.
+&lt;/p&gt;
+      </text>
+    </generalfeedback>
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.1000000</penalty>
+    <hidden>0</hidden>
+    <idnumber />
+    <stackversion>
+      <text>2025012100</text>
+    </stackversion>
+    <questionvariables>
+      <text>
+/*
+Shared Question Bank
+Place Value, Rounding and Standard Form
+PVRS-09
+
+Application task:
+convert a contextual large quantity to
+standard form and interpret its magnitude.
+
+Interaction reference:
+NUMBAS-10751.
+
+The context and diagnostic layer are
+independently authored.
+No source wording or mathematical content
+is copied.
+*/
+
+d1:
+    rand_with_prohib(1,9,[]);
+
+d2:
+    rand_with_prohib(0,9,[]);
+
+d3:
+    rand_with_prohib(1,9,[]);
+
+coefficient:
+    d1
+    + d2/10
+    + d3/100;
+
+exponent:
+    rand_with_prohib(5,7,[]);
+
+mantissa_integer:
+    d1*100
+    + d2*10
+    + d3;
+
+quantity:
+    mantissa_integer
+    * 10^(exponent-2);
+
+correct_scale_label:
+    if exponent=5 then "hundreds of thousands"
+    elseif exponent=6 then "millions"
+    else "tens of millions";
+
+scale_is_correct:
+    rand_with_prohib(0,1,[]);
+
+wrong_scale_label:
+    if exponent=5 then "millions"
+    elseif exponent=6 then "tens of millions"
+    else "millions";
+
+scale_label:
+    if scale_is_correct=1
+    then correct_scale_label
+    else wrong_scale_label;
+
+answer_scale:
+    scale_is_correct;
+
+/*
+Deliberately incorrect magnitude judgement.
+
+This is always distinct from the correct
+contextual answer, so the misconception
+branch remains diagnostic for every
+variant.
+*/
+
+wrong_magnitude_answer:
+    1-answer_scale;
+
+coefficient_display:
+    float(coefficient);
+
+scale_truth_text:
+    if answer_scale=1
+    then "correct"
+    else "not correct";
+      </text>
+    </questionvariables>
+    <specificfeedback format="html">
+      <text />
+    </specificfeedback>
+    <questionnote format="html">
+      <text>&lt;p&gt;
+Shared Question Bank |
+Place Value and Rounding |
+PVRS-09
+&lt;/p&gt;
+
+&lt;p&gt;
+quantity={@quantity@}
+&lt;/p&gt;
+
+&lt;p&gt;
+coefficient={@coefficient_display@}
+&lt;/p&gt;
+
+&lt;p&gt;
+exponent={@exponent@}
+&lt;/p&gt;
+
+&lt;p&gt;
+scale_label={@scale_label@}
+&lt;/p&gt;
+
+&lt;p&gt;
+answer_scale={@answer_scale@}
+&lt;/p&gt;
+      </text>
+    </questionnote>
+    <questiondescription format="html">
+      <text>&lt;p id="bank"&gt;
+Shared Curriculum-Independent Question Bank
+&lt;/p&gt;
+
+&lt;p id="shared-question-id"&gt;
+PVRS-09
+&lt;/p&gt;
+
+&lt;p id="knowledge-concept"&gt;
+number-sense
+&lt;/p&gt;
+
+&lt;p id="secondary-concept"&gt;
+large-number-context-standard-form
+&lt;/p&gt;
+
+&lt;p id="role"&gt;
+application
+&lt;/p&gt;
+
+&lt;p id="interaction"&gt;
+contextual-standard-form
+&lt;/p&gt;
+
+&lt;p id="description"&gt;
+Learners convert a large contextual
+quantity to standard form and interpret
+the magnitude represented by its exponent.
+&lt;/p&gt;
+
+&lt;p id="misconception"&gt;
+Targets learners who perform the numerical
+conversion correctly but fail to interpret
+the magnitude in context.
+&lt;/p&gt;
+
+&lt;p id="provenance"&gt;
+Original STACK question. NUMBAS-10751 is
+used only as an interaction reference.
+The contextual interpretation and
+diagnostic structure are original.
+No source wording or mathematical content
+is copied.
+&lt;/p&gt;
+
+&lt;p id="licence-dependency"&gt;
+None.
+&lt;/p&gt;
+
+&lt;p id="curriculum-policy"&gt;
+Curriculum alignment is maintained outside
+the question source.
+&lt;/p&gt;
+      </text>
+    </questiondescription>
+    <questionsimplify>1</questionsimplify>
+    <assumepositive>0</assumepositive>
+    <assumereal>0</assumereal>
+    <prtcorrect format="html">
+      <text>&lt;p&gt;Correct.&lt;/p&gt;</text>
+    </prtcorrect>
+    <prtpartiallycorrect format="html">
+      <text>&lt;p&gt;
+Your standard-form conversion may be
+correct, but check the magnitude
+interpretation carefully.
+&lt;/p&gt;</text>
+    </prtpartiallycorrect>
+    <prtincorrect format="html">
+      <text>&lt;p&gt;
+Use the exponent to interpret the scale
+of the quantity.
+&lt;/p&gt;</text>
+    </prtincorrect>
+    <decimals>.</decimals>
+    <scientificnotation>*10</scientificnotation>
+    <multiplicationsign>none</multiplicationsign>
+    <sqrtsign>1</sqrtsign>
+    <complexno>i</complexno>
+    <inversetrig>cos-1</inversetrig>
+    <logicsymbol>lang</logicsymbol>
+    <matrixparens>[</matrixparens>
+    <isbroken>0</isbroken>
+    <variantsselectionseed />
+    <input>
+      <name>ans1</name>
+      <type>algebraic</type>
+      <tans>coefficient</tans>
+      <boxsize>10</boxsize>
+      <strictsyntax>1</strictsyntax>
+      <insertstars>0</insertstars>
+      <syntaxhint />
+      <syntaxattribute>0</syntaxattribute>
+      <forbidwords />
+      <allowwords />
+      <forbidfloat>0</forbidfloat>
+      <requirelowestterms>0</requirelowestterms>
+      <checkanswertype>0</checkanswertype>
+      <mustverify>1</mustverify>
+      <showvalidation>3</showvalidation>
+      <options />
+    </input>
+    <input>
+      <name>ans2</name>
+      <type>algebraic</type>
+      <tans>exponent</tans>
+      <boxsize>6</boxsize>
+      <strictsyntax>1</strictsyntax>
+      <insertstars>0</insertstars>
+      <syntaxhint />
+      <syntaxattribute>0</syntaxattribute>
+      <forbidwords />
+      <allowwords />
+      <forbidfloat>0</forbidfloat>
+      <requirelowestterms>0</requirelowestterms>
+      <checkanswertype>0</checkanswertype>
+      <mustverify>1</mustverify>
+      <showvalidation>3</showvalidation>
+      <options />
+    </input>
+    <input>
+      <name>ans3</name>
+      <type>algebraic</type>
+      <tans>answer_scale</tans>
+      <boxsize>4</boxsize>
+      <strictsyntax>1</strictsyntax>
+      <insertstars>0</insertstars>
+      <syntaxhint />
+      <syntaxattribute>0</syntaxattribute>
+      <forbidwords />
+      <allowwords />
+      <forbidfloat>0</forbidfloat>
+      <requirelowestterms>0</requirelowestterms>
+      <checkanswertype>0</checkanswertype>
+      <mustverify>1</mustverify>
+      <showvalidation>3</showvalidation>
+      <options />
+    </input>
+    <prt>
+      <name>prt1</name>
+      <value>1.0000000</value>
+      <autosimplify>1</autosimplify>
+      <feedbackstyle>1</feedbackstyle>
+      <feedbackvariables>
+        <text />
+      </feedbackvariables>
+      <node>
+        <name>0</name>
+        <description>Checks coefficient.</description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans1</sans>
+        <tans>coefficient</tans>
+        <testoptions />
+        <quiet>0</quiet>
+        <truescoremode>+</truescoremode>
+        <truescore>0.4</truescore>
+        <truepenalty />
+        <truenextnode>1</truenextnode>
+        <trueanswernote>prt1-1-T</trueanswernote>
+        <truefeedback format="html">
+          <text />
+        </truefeedback>
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>-1</falsenextnode>
+        <falseanswernote>prt1-1-F</falseanswernote>
+        <falsefeedback format="html">
+          <text>&lt;p&gt;
+Check the coefficient first.
+&lt;/p&gt;</text>
+        </falsefeedback>
+      </node>
+      <node>
+        <name>1</name>
+        <description>Checks exponent.</description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans2</sans>
+        <tans>exponent</tans>
+        <testoptions />
+        <quiet>0</quiet>
+        <truescoremode>+</truescoremode>
+        <truescore>0.3</truescore>
+        <truepenalty />
+        <truenextnode>2</truenextnode>
+        <trueanswernote>prt1-2-T</trueanswernote>
+        <truefeedback format="html">
+          <text />
+        </truefeedback>
+        <falsescoremode>+</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>-1</falsenextnode>
+        <falseanswernote>prt1-2-F</falseanswernote>
+        <falsefeedback format="html">
+          <text>&lt;p&gt;
+Your coefficient is correct.
+Recheck the exponent.
+&lt;/p&gt;</text>
+        </falsefeedback>
+      </node>
+      <node>
+        <name>2</name>
+        <description>
+Checks contextual magnitude interpretation.
+        </description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans3</sans>
+        <tans>answer_scale</tans>
+        <testoptions />
+        <quiet>0</quiet>
+        <truescoremode>+</truescoremode>
+        <truescore>0.3</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-3-T</trueanswernote>
+        <truefeedback format="html">
+          <text>&lt;p&gt;
+Correct. You converted the quantity and
+interpreted its magnitude consistently.
+&lt;/p&gt;</text>
+        </truefeedback>
+        <falsescoremode>+</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>3</falsenextnode>
+        <falseanswernote>prt1-3-F</falseanswernote>
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+      <node>
+        <name>3</name>
+        <description>Checks an incorrect interpretation of the contextual magnitude.</description>
+        <answertest>AlgEquiv</answertest>
+        <sans>ans3</sans>
+        <tans>wrong_magnitude_answer</tans>
+        <testoptions />
+        <quiet>1</quiet>
+        <truescoremode>+</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-4-T</trueanswernote>
+        <truefeedback format="html">
+          <text>&lt;p&gt;
+Your standard-form conversion is correct, but the magnitude has been interpreted incorrectly.
+&lt;/p&gt;
+
+&lt;p&gt;
+Use the exponent to decide whether the quantity is in the hundreds of thousands, millions, or tens of millions.
+&lt;/p&gt;</text>
+        </truefeedback>
+        <falsescoremode>+</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>-1</falsenextnode>
+        <falseanswernote>prt1-4-F</falseanswernote>
+        <falsefeedback format="html">
+          <text>&lt;p&gt;
+Recheck the magnitude represented by
+the exponent.
+&lt;/p&gt;</text>
+        </falsefeedback>
+      </node>
+    </prt>
+    <qtest>
+      <testcase>1</testcase>
+      <description>
+Correct conversion and magnitude
+interpretation receive full credit.
+      </description>
+      <testinput>
+        <name>ans1</name>
+        <value>coefficient</value>
+      </testinput>
+      <testinput>
+        <name>ans2</name>
+        <value>exponent</value>
+      </testinput>
+      <testinput>
+        <name>ans3</name>
+        <value>answer_scale</value>
+      </testinput>
+      <expected>
+        <name>prt1</name>
+        <expectedscore>1.0000000</expectedscore>
+        <expectedpenalty>0.0000000</expectedpenalty>
+        <expectedanswernote>
+prt1-1-T | prt1-2-T | prt1-3-T
+        </expectedanswernote>
+      </expected>
+    </qtest>
+    <qtest>
+      <testcase>2</testcase>
+      <description>Correct standard-form conversion with incorrect magnitude interpretation receives partial credit.</description>
+      <testinput>
+        <name>ans1</name>
+        <value>coefficient</value>
+      </testinput>
+      <testinput>
+        <name>ans2</name>
+        <value>exponent</value>
+      </testinput>
+      <testinput>
+        <name>ans3</name>
+        <value>wrong_magnitude_answer</value>
+      </testinput>
+      <expected>
+        <name>prt1</name>
+        <expectedscore>0.7000000</expectedscore>
+        <expectedpenalty>0.1000000</expectedpenalty>
+        <expectedanswernote>prt1-1-T | prt1-2-T | prt1-3-F | prt1-4-T</expectedanswernote>
+      </expected>
+    </qtest>
+  </question>
+</quiz>

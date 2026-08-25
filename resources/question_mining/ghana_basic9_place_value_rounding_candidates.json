@@ -1,0 +1,837 @@
+{
+  "version": "0.1",
+  "curriculum_profile_id": "ghana-basic9-mathematics",
+  "curriculum_concept_id": "GH-B9-NUM-PLACE-VALUE-ROUNDING",
+  "knowledge_concept_ids": [
+    "number-sense"
+  ],
+  "concept_name": "Place Value, Rounding and Standard Form",
+  "content_standard_ids": [
+    "B9.1.1.1"
+  ],
+  "learning_indicator_ids": [
+    "B9.1.1.1.1",
+    "B9.1.1.1.2"
+  ],
+  "minimum_question_target": 12,
+  "strong_bank_target": 25,
+  "mature_bank_target": 35,
+  "source_policy": {
+    "strategy": "source_first",
+    "notes": [
+      "Mine legitimate reusable/open questions before authoring gaps.",
+      "Do not count numeric variants of one template as pedagogically distinct questions.",
+      "Verify provenance and licence before adapting source wording or implementation."
+    ]
+  },
+  "source_collections": [
+    {
+      "source_id": "NUMBAS-PREALGEBRA-NUMERACY",
+      "source_type": "numbas_project",
+      "name": "pre-algebra Numeracy and Arithmetic",
+      "owner": "Ben Brawn",
+      "default_licence": "CC BY-NC-SA",
+      "licence_basis": "project_default",
+      "status": "verified",
+      "notes": "Public project containing rounding, decimals and scientific notation."
+    }
+  ],
+  "candidate_sources": [
+    {
+      "source_id": "NUMBAS-21514",
+      "name": "Rounding to 0, 1, 2 or 3 decimal places",
+      "author": "Ben Brawn",
+      "source_type": "numbas_question",
+      "status": "ready_to_use",
+      "licence": "CC BY-NC-SA",
+      "licence_basis": "source_project_default",
+      "curriculum_fit": [
+        "B9.1.1.1.1"
+      ],
+      "skills": [
+        "decimal_place_rounding"
+      ],
+      "acquisition_decision": "adapt_or_reference"
+    },
+    {
+      "source_id": "NUMBAS-169559",
+      "name": "Significant figures: rounding",
+      "author": "Ben Brawn",
+      "source_type": "numbas_question",
+      "status": "published",
+      "licence": "CC BY-NC-SA",
+      "licence_basis": "source_project_default",
+      "curriculum_fit": [
+        "B9.1.1.1.1"
+      ],
+      "skills": [
+        "significant_figure_rounding"
+      ],
+      "acquisition_decision": "adapt_or_reference"
+    },
+    {
+      "source_id": "NUMBAS-21530",
+      "name": "Significant figures: identifying",
+      "author": "Ben Brawn",
+      "source_type": "numbas_question",
+      "status": "has_some_problems",
+      "licence": "CC BY-NC-SA",
+      "licence_basis": "source_project_default",
+      "curriculum_fit": [
+        "B9.1.1.1.1"
+      ],
+      "skills": [
+        "significant_figure_identification"
+      ],
+      "acquisition_decision": "reference_only"
+    },
+    {
+      "source_id": "NUMBAS-10751",
+      "name": "Scientific notation: large numbers to scientific notation",
+      "author": "Ben Brawn",
+      "source_type": "numbas_question",
+      "status": "ready_to_use",
+      "licence": "CC BY-NC-SA",
+      "licence_basis": "source_project_default",
+      "curriculum_fit": [
+        "B9.1.1.1.2"
+      ],
+      "skills": [
+        "large_number_to_standard_form"
+      ],
+      "acquisition_decision": "adapt_or_reference"
+    },
+    {
+      "source_id": "NUMBAS-10805",
+      "name": "Scientific notation: small numbers to scientific notation",
+      "author": "Ben Brawn",
+      "source_type": "numbas_question",
+      "status": "ready_to_use",
+      "licence": "CC BY-NC-SA",
+      "licence_basis": "source_project_default",
+      "curriculum_fit": [
+        "B9.1.1.1.2"
+      ],
+      "skills": [
+        "small_number_to_standard_form"
+      ],
+      "acquisition_decision": "reference_only",
+      "notes": "Small-number scientific notation is useful enrichment, but Ghana B9 alignment must be checked carefully."
+    },
+    {
+      "source_id": "NUMBAS-114888",
+      "name": "Scientific notation: scientific notation to large numbers",
+      "author": "Ruth Hand",
+      "source_type": "numbas_question",
+      "status": "ready_to_use",
+      "curriculum_fit": [
+        "B9.1.1.1.2"
+      ],
+      "skills": [
+        "standard_form_to_large_number"
+      ],
+      "acquisition_decision": "reference_pending_licence_check",
+      "notes": "This copy belongs to a different project. Confirm its item licence before adapting directly."
+    }
+  ],
+  "planned_question_slots": [
+    {
+      "slot_id": "PVRS-01",
+      "role": "foundation",
+      "skill": "place_value_identification",
+      "indicator": "B9.1.1.1.2",
+      "acquisition_mode": "original_authoring",
+      "source_ids": [],
+      "interaction_type": "place_value_entry",
+      "misconception_target": "confuses digit identity with positional value",
+      "implementation_reason": "No verified mined source directly covers the Ghana place-value evidence required for this foundation slot.",
+      "provenance": {
+        "implementation_type": "original_stack_question",
+        "copied_wording": false,
+        "copied_mathematical_content": false,
+        "licence_dependency": "none"
+      },
+      "status": "live_validated",
+      "implementation": {
+        "stack_source_file": "resources/generated/shared/place_value_rounding/pvrs_01_place_value_identification.xml",
+        "stack_deployed_file": "resources/generated/shared/place_value_rounding/pvrs_01_place_value_identification_deployed.xml",
+        "runtime_ready": true
+      },
+      "validation": {
+        "local_structure": "passed",
+        "stack_recognition": "passed",
+        "authored_tests": "passed",
+        "variant_deployment": "passed",
+        "render_validation": "passed",
+        "grading_validation": {
+          "correct_score": 1.0,
+          "misconception_score": 0.0,
+          "misconception_feedback": "validated"
+        },
+        "deployed_seeds": [
+          95772566,
+          29399671,
+          340907457,
+          785103235,
+          244935832
+        ]
+      }
+    },
+    {
+      "slot_id": "PVRS-02",
+      "role": "foundation",
+      "skill": "whole_number_rounding",
+      "indicator": "B9.1.1.1.1",
+      "acquisition_mode": "reference_only_original",
+      "source_ids": [
+        "NUMBAS-21514"
+      ],
+      "interaction_type": "numeric_rounding",
+      "misconception_target": "rounds from the wrong place value",
+      "implementation_reason": "The verified Numbas rounding question provides an interaction reference, but this slot requires whole-number rounding rather than duplicating its decimal-place task.",
+      "provenance": {
+        "implementation_type": "original_stack_question",
+        "interaction_reference": "NUMBAS-21514",
+        "copied_wording": false,
+        "copied_mathematical_content": false,
+        "licence_dependency": "none"
+      },
+      "status": "live_validated",
+      "implementation": {
+        "stack_source_file": "resources/generated/shared/place_value_rounding/pvrs_02_whole_number_rounding.xml",
+        "stack_deployed_file": "resources/generated/shared/place_value_rounding/pvrs_02_whole_number_rounding_deployed.xml",
+        "runtime_ready": true
+      },
+      "validation": {
+        "local_structure": "passed",
+        "stack_recognition": "passed",
+        "authored_tests": "passed",
+        "variant_deployment": "passed",
+        "render_validation": "passed",
+        "rounding_rule": "half_up",
+        "grading_validation": {
+          "correct_score": 1.0,
+          "misconception_score": 0.0,
+          "misconception": "truncation",
+          "misconception_feedback": "validated"
+        },
+        "deployed_seeds": [
+          323761527,
+          1920859116,
+          938090554,
+          1045024388,
+          72910589
+        ]
+      }
+    },
+    {
+      "slot_id": "PVRS-03",
+      "role": "procedural",
+      "skill": "decimal_place_rounding",
+      "indicator": "B9.1.1.1.1",
+      "acquisition_mode": "structural_adaptation",
+      "source_ids": [
+        "NUMBAS-21514"
+      ],
+      "interaction_type": "parameterised_decimal_rounding",
+      "misconception_target": "truncates instead of rounding",
+      "implementation_reason": "Direct curricular fit with decimal-place rounding in B9.1.1.1.1. Reimplement the interaction in STACK with original wording and parameter generation.",
+      "provenance": {
+        "implementation_type": "original_stack_implementation_from_open_interaction_reference",
+        "interaction_reference": "NUMBAS-21514",
+        "source_licence": "CC BY-NC-SA",
+        "attribution_required": true,
+        "copied_wording": false,
+        "copied_mathematical_content": false
+      },
+      "status": "live_validated",
+      "implementation": {
+        "stack_source_file": "resources/generated/shared/place_value_rounding/pvrs_03_decimal_place_rounding.xml",
+        "stack_deployed_file": "resources/generated/shared/place_value_rounding/pvrs_03_decimal_place_rounding_deployed.xml",
+        "runtime_ready": true
+      },
+      "validation": {
+        "local_structure": "passed",
+        "stack_recognition": "passed",
+        "authored_tests": "passed",
+        "variant_deployment": "passed",
+        "render_validation": "passed",
+        "decimal_display": "passed",
+        "rounding_rule": "half_up",
+        "grading_validation": {
+          "correct_score": 1.0,
+          "misconception_score": 0.0,
+          "misconception": "truncation",
+          "misconception_feedback": "validated"
+        },
+        "deployed_seeds": [
+          1705387817,
+          102508060,
+          1095530437,
+          727277241,
+          1236055622
+        ]
+      }
+    },
+    {
+      "slot_id": "PVRS-04",
+      "role": "procedural",
+      "skill": "significant_figure_rounding",
+      "indicator": "B9.1.1.1.1",
+      "acquisition_mode": "structural_adaptation",
+      "source_ids": [
+        "NUMBAS-169559"
+      ],
+      "interaction_type": "parameterised_significant_figures",
+      "misconception_target": "counts leading zeros or decimal places as significant figures incorrectly",
+      "implementation_reason": "Strong direct fit with Ghana significant-figure rounding. Implement independently in STACK while preserving attribution to the interaction reference.",
+      "provenance": {
+        "implementation_type": "original_stack_implementation_from_open_interaction_reference",
+        "interaction_reference": "NUMBAS-169559",
+        "source_licence": "CC BY-NC-SA",
+        "attribution_required": true,
+        "copied_wording": false,
+        "copied_mathematical_content": false
+      },
+      "status": "live_validated",
+      "implementation": {
+        "stack_source_file": "resources/generated/shared/place_value_rounding/pvrs_04_significant_figure_rounding.xml",
+        "stack_deployed_file": "resources/generated/shared/place_value_rounding/pvrs_04_significant_figure_rounding_deployed.xml",
+        "runtime_ready": true
+      },
+      "validation": {
+        "local_structure": "passed",
+        "provenance_metadata": "passed",
+        "stack_recognition": "passed",
+        "authored_tests": "passed",
+        "variant_deployment": "passed",
+        "render_validation": "passed",
+        "rounding_rule": "half_up",
+        "grading_validation": {
+          "correct_score": 1.0,
+          "misconceptions": [
+            "truncation",
+            "significant_figures_vs_decimal_places"
+          ],
+          "misconception_score": 0.0,
+          "targeted_feedback": "validated"
+        },
+        "provenance_validation": {
+          "source_id": "NUMBAS-169559",
+          "implementation_type": "original_stack_implementation_from_open_interaction_reference",
+          "copied_wording": false,
+          "copied_mathematical_content": false,
+          "attribution_present": true,
+          "source_licence": "CC BY-NC-SA"
+        },
+        "deployed_seeds": [
+          994770607,
+          1168468916,
+          1039039593,
+          229328037,
+          215007677
+        ]
+      }
+    },
+    {
+      "slot_id": "PVRS-05",
+      "role": "diagnostic",
+      "skill": "decimal_places_vs_significant_figures",
+      "indicator": "B9.1.1.1.1",
+      "acquisition_mode": "reference_only_original",
+      "source_ids": [
+        "NUMBAS-21514",
+        "NUMBAS-169559",
+        "NUMBAS-21530"
+      ],
+      "interaction_type": "paired_rounding_diagnostic",
+      "misconception_target": "treats decimal places and significant figures as the same instruction",
+      "implementation_reason": "The diagnostic requires deliberately contrasting two rounding conventions. Existing sources are references only; the combined diagnostic will be original.",
+      "provenance": {
+        "implementation_type": "original_stack_question",
+        "interaction_references": [
+          "NUMBAS-21514",
+          "NUMBAS-169559",
+          "NUMBAS-21530"
+        ],
+        "copied_wording": false,
+        "copied_mathematical_content": false,
+        "licence_dependency": "none"
+      },
+      "status": "live_validated",
+      "implementation": {
+        "stack_source_file": "resources/generated/shared/place_value_rounding/pvrs_05_decimal_places_vs_significant_figures.xml",
+        "stack_deployed_file": "resources/generated/shared/place_value_rounding/pvrs_05_decimal_places_vs_significant_figures_deployed.xml",
+        "runtime_ready": true
+      },
+      "validation": {
+        "local_structure": "passed",
+        "diagnostic_branches": "passed",
+        "provenance_metadata": "passed",
+        "stack_recognition": "passed",
+        "authored_tests": "passed",
+        "variant_deployment": "passed",
+        "render_validation": "passed",
+        "grading_validation": {
+          "both_correct_score": 1.0,
+          "swapped_rules_score": 0.0,
+          "one_part_correct_score": 0.5,
+          "targeted_feedback": "validated"
+        },
+        "diagnostic_target": "decimal_places_vs_significant_figures",
+        "provenance_validation": {
+          "implementation_type": "original_stack_question",
+          "interaction_references": [
+            "NUMBAS-21514",
+            "NUMBAS-169559",
+            "NUMBAS-21530"
+          ],
+          "copied_wording": false,
+          "copied_mathematical_content": false,
+          "licence_dependency": "none"
+        },
+        "deployed_seeds": [
+          1125124695,
+          1179550410,
+          233805803,
+          1965138543,
+          211205898
+        ]
+      }
+    },
+    {
+      "slot_id": "PVRS-06",
+      "role": "procedural",
+      "skill": "large_number_to_standard_form",
+      "indicator": "B9.1.1.1.2",
+      "acquisition_mode": "structural_adaptation",
+      "source_ids": [
+        "NUMBAS-10751"
+      ],
+      "interaction_type": "standard_form_conversion",
+      "misconception_target": "uses an invalid coefficient outside the standard-form range",
+      "implementation_reason": "Direct fit with converting large numbers to standard form under B9.1.1.1.2.",
+      "provenance": {
+        "implementation_type": "original_stack_implementation_from_open_interaction_reference",
+        "interaction_reference": "NUMBAS-10751",
+        "source_licence": "CC BY-NC-SA",
+        "attribution_required": true,
+        "copied_wording": false,
+        "copied_mathematical_content": false
+      },
+      "status": "live_validated",
+      "implementation": {
+        "stack_source_file": "resources/generated/shared/place_value_rounding/pvrs_06_large_number_to_standard_form.xml",
+        "stack_deployed_file": "resources/generated/shared/place_value_rounding/pvrs_06_large_number_to_standard_form_deployed.xml",
+        "runtime_ready": true
+      },
+      "validation": {
+        "local_structure": "passed",
+        "standard_form_diagnostic": "passed",
+        "provenance_metadata": "passed",
+        "stack_recognition": "passed",
+        "authored_tests": "passed",
+        "variant_deployment": "passed",
+        "render_validation": "passed",
+        "grading_validation": {
+          "correct_pair_score": 1.0,
+          "invalid_equivalent_form_score": 0.0,
+          "one_part_correct_score": 0.5,
+          "targeted_feedback": "validated"
+        },
+        "standard_form_rule": {
+          "coefficient_minimum": 1,
+          "coefficient_maximum_exclusive": 10
+        },
+        "provenance_validation": {
+          "source_id": "NUMBAS-10751",
+          "implementation_type": "original_stack_implementation_from_open_interaction_reference",
+          "copied_wording": false,
+          "copied_mathematical_content": false,
+          "attribution_present": true,
+          "source_licence": "CC BY-NC-SA"
+        },
+        "deployed_seeds": [
+          1416340447,
+          139129971,
+          324480965,
+          1894337191,
+          1132251630
+        ]
+      }
+    },
+    {
+      "slot_id": "PVRS-07",
+      "role": "conceptual",
+      "skill": "standard_form_to_large_number",
+      "indicator": "B9.1.1.1.2",
+      "acquisition_mode": "reference_only_original",
+      "source_ids": [
+        "NUMBAS-114888"
+      ],
+      "interaction_type": "standard_form_interpretation",
+      "misconception_target": "moves the decimal point in the wrong direction",
+      "implementation_reason": "The candidate licence has not yet been verified. Use only as a conceptual reference and author an independent STACK question.",
+      "provenance": {
+        "implementation_type": "original_stack_question",
+        "conceptual_reference": "NUMBAS-114888",
+        "direct_adaptation_allowed": false,
+        "copied_wording": false,
+        "copied_mathematical_content": false,
+        "licence_dependency": "none"
+      },
+      "status": "live_validated",
+      "implementation": {
+        "stack_source_file": "resources/generated/shared/place_value_rounding/pvrs_07_standard_form_to_large_number.xml",
+        "stack_deployed_file": "resources/generated/shared/place_value_rounding/pvrs_07_standard_form_to_large_number_deployed.xml",
+        "runtime_ready": true
+      },
+      "validation": {
+        "local_structure": "passed",
+        "conceptual_diagnostic": "passed",
+        "provenance_policy": "passed",
+        "stack_recognition": "passed",
+        "authored_tests": "passed",
+        "variant_deployment": "passed",
+        "render_validation": "passed",
+        "grading_validation": {
+          "correct_score": 1.0,
+          "wrong_direction_score": 0.0,
+          "one_place_too_few_score": 0.0,
+          "targeted_feedback": "validated"
+        },
+        "provenance_validation": {
+          "implementation_type": "original_stack_question",
+          "conceptual_reference": "NUMBAS-114888",
+          "direct_adaptation_allowed": false,
+          "copied_wording": false,
+          "copied_mathematical_content": false,
+          "licence_dependency": "none"
+        },
+        "deployed_seeds": [
+          554271128,
+          429094540,
+          1072241388,
+          1540370904,
+          216524844
+        ]
+      }
+    },
+    {
+      "slot_id": "PVRS-08",
+      "role": "application",
+      "skill": "real_world_rounding",
+      "indicator": "B9.1.1.1.2",
+      "acquisition_mode": "original_authoring",
+      "source_ids": [],
+      "interaction_type": "contextual_rounding",
+      "misconception_target": "reports unjustified precision in a real-world quantity",
+      "implementation_reason": "A Ghana-aligned contextual rounding task is needed beyond isolated calculation.",
+      "provenance": {
+        "implementation_type": "original_stack_question",
+        "copied_wording": false,
+        "copied_mathematical_content": false,
+        "licence_dependency": "none"
+      },
+      "status": "live_validated",
+      "implementation": {
+        "stack_source_file": "resources/generated/shared/place_value_rounding/pvrs_08_real_world_rounding.xml",
+        "stack_deployed_file": "resources/generated/shared/place_value_rounding/pvrs_08_real_world_rounding_deployed.xml",
+        "runtime_ready": true
+      },
+      "validation": {
+        "local_structure": "passed",
+        "contextual_diagnostic": "passed",
+        "provenance_policy": "passed",
+        "stack_recognition": "passed",
+        "authored_tests": "passed",
+        "variant_deployment": "passed",
+        "render_validation": "passed",
+        "rounding_rule": "half_up",
+        "grading_validation": {
+          "correct_score": 1.0,
+          "unrounded_precision_score": 0.0,
+          "truncation_score": 0.0,
+          "targeted_feedback": "validated"
+        },
+        "diagnostic_constraints": {
+          "unrounded_always_distinct": true,
+          "truncation_always_distinct": true
+        },
+        "provenance_validation": {
+          "implementation_type": "original_stack_question",
+          "copied_wording": false,
+          "copied_mathematical_content": false,
+          "licence_dependency": "none"
+        },
+        "deployed_seeds": [
+          1136288377,
+          1977255095,
+          1564563431,
+          301336122,
+          1492712650
+        ]
+      }
+    },
+    {
+      "slot_id": "PVRS-09",
+      "role": "application",
+      "skill": "large_number_context_standard_form",
+      "indicator": "B9.1.1.1.2",
+      "acquisition_mode": "original_authoring",
+      "source_ids": [
+        "NUMBAS-10751"
+      ],
+      "interaction_type": "contextual_standard_form",
+      "misconception_target": "converts correctly but misinterprets magnitude in context",
+      "implementation_reason": "NUMBAS-10751 confirms the underlying conversion skill, but the Ghana curriculum requires application in meaningful situations, so the context is original.",
+      "provenance": {
+        "implementation_type": "original_stack_question",
+        "interaction_reference": "NUMBAS-10751",
+        "copied_wording": false,
+        "copied_mathematical_content": false,
+        "licence_dependency": "none"
+      },
+      "status": "live_validated",
+      "implementation": {
+        "stack_source_file": "resources/generated/shared/place_value_rounding/pvrs_09_contextual_standard_form.xml",
+        "stack_deployed_file": "resources/generated/shared/place_value_rounding/pvrs_09_contextual_standard_form_deployed.xml",
+        "runtime_ready": true
+      },
+      "validation": {
+        "local_structure": "passed",
+        "contextual_magnitude_diagnostic": "passed",
+        "provenance_policy": "passed",
+        "stack_recognition": "passed",
+        "authored_tests": "passed",
+        "variant_deployment": "passed",
+        "render_validation": "passed",
+        "grading_validation": {
+          "fully_correct_score": 1.0,
+          "correct_conversion_wrong_magnitude_score": 0.7,
+          "targeted_feedback": "validated"
+        },
+        "diagnostic_constraints": {
+          "correct_and_incorrect_scale_cases_seen": true,
+          "wrong_magnitude_always_distinct": true
+        },
+        "provenance_validation": {
+          "implementation_type": "original_stack_question",
+          "interaction_reference": "NUMBAS-10751",
+          "copied_wording": false,
+          "copied_mathematical_content": false,
+          "licence_dependency": "none"
+        },
+        "deployed_seeds": [
+          1562507632,
+          1273352021,
+          1431607455,
+          444178139,
+          332170352
+        ]
+      }
+    },
+    {
+      "slot_id": "PVRS-10",
+      "role": "remediation",
+      "skill": "rounding_boundary_misconception",
+      "indicator": "B9.1.1.1.1",
+      "acquisition_mode": "original_authoring",
+      "source_ids": [
+        "NUMBAS-21514",
+        "NUMBAS-169559"
+      ],
+      "interaction_type": "misconception_remediation",
+      "misconception_target": "incorrectly handles a boundary digit of five",
+      "implementation_reason": "This is an adaptive remediation item designed specifically to diagnose and correct a common rounding error.",
+      "provenance": {
+        "implementation_type": "original_stack_question",
+        "interaction_references": [
+          "NUMBAS-21514",
+          "NUMBAS-169559"
+        ],
+        "copied_wording": false,
+        "copied_mathematical_content": false,
+        "licence_dependency": "none"
+      },
+      "status": "live_validated",
+      "implementation": {
+        "stack_source_file": "resources/generated/shared/place_value_rounding/pvrs_10_rounding_boundary_remediation.xml",
+        "stack_deployed_file": "resources/generated/shared/place_value_rounding/pvrs_10_rounding_boundary_remediation_deployed.xml",
+        "runtime_ready": true
+      },
+      "validation": {
+        "local_structure": "passed",
+        "boundary_five_diagnostic": "passed",
+        "remediation_feedback": "passed",
+        "provenance_policy": "passed",
+        "stack_recognition": "passed",
+        "authored_tests": "passed",
+        "variant_deployment": "passed",
+        "render_validation": "passed",
+        "rounding_rule": "half_up",
+        "grading_validation": {
+          "correct_score": 1.0,
+          "round_down_score": 0.0,
+          "keep_five_score": 0.0,
+          "targeted_feedback": "validated"
+        },
+        "diagnostic_constraints": {
+          "exact_halfway_cases": true,
+          "correct_answer_always_upper_multiple": true
+        },
+        "provenance_validation": {
+          "implementation_type": "original_stack_question",
+          "interaction_references": [
+            "NUMBAS-21514",
+            "NUMBAS-169559"
+          ],
+          "copied_wording": false,
+          "copied_mathematical_content": false,
+          "licence_dependency": "none"
+        },
+        "deployed_seeds": [
+          2101530747,
+          996986475,
+          1059630834,
+          1204596085,
+          964486054
+        ]
+      }
+    },
+    {
+      "slot_id": "PVRS-11",
+      "role": "challenge",
+      "skill": "reverse_rounding",
+      "indicator": "B9.1.1.1.1",
+      "acquisition_mode": "original_authoring",
+      "source_ids": [],
+      "interaction_type": "reverse_rounding_interval",
+      "misconception_target": "assumes a rounded result corresponds to only one original value",
+      "implementation_reason": "Reverse rounding adds higher-order reasoning not represented by the currently mined candidates.",
+      "provenance": {
+        "implementation_type": "original_stack_question",
+        "copied_wording": false,
+        "copied_mathematical_content": false,
+        "licence_dependency": "none"
+      },
+      "status": "live_validated",
+      "implementation": {
+        "stack_source_file": "resources/generated/shared/place_value_rounding/pvrs_11_reverse_rounding_interval.xml",
+        "stack_deployed_file": "resources/generated/shared/place_value_rounding/pvrs_11_reverse_rounding_interval_deployed.xml",
+        "runtime_ready": true
+      },
+      "validation": {
+        "local_structure": "passed",
+        "reverse_rounding_interval": "passed",
+        "challenge_diagnostics": "passed",
+        "provenance_policy": "passed",
+        "stack_recognition": "passed",
+        "authored_tests": "passed",
+        "variant_deployment": "passed",
+        "render_validation": "passed",
+        "rounding_rule": "half_up",
+        "grading_validation": {
+          "both_boundaries_correct_score": 1.0,
+          "unique_value_misconception_score": 0.0,
+          "inclusive_upper_boundary_score": 0.5,
+          "targeted_feedback": "validated"
+        },
+        "interval_constraints": {
+          "lower_formula": "rounded_value - place_value/2",
+          "upper_formula": "rounded_value + place_value/2 - 1"
+        },
+        "provenance_validation": {
+          "implementation_type": "original_stack_question",
+          "copied_wording": false,
+          "copied_mathematical_content": false,
+          "licence_dependency": "none"
+        },
+        "deployed_seeds": [
+          1638009549,
+          805437244,
+          148365353,
+          613188564,
+          1097990906
+        ]
+      }
+    },
+    {
+      "slot_id": "PVRS-12",
+      "role": "mastery",
+      "skill": "integrated_rounding_and_standard_form",
+      "indicator": "B9.1.1.1.1+B9.1.1.1.2",
+      "acquisition_mode": "original_authoring",
+      "source_ids": [
+        "NUMBAS-21514",
+        "NUMBAS-169559",
+        "NUMBAS-10751"
+      ],
+      "interaction_type": "multi_part_mastery_check",
+      "misconception_target": "cannot coordinate place value, rounding and standard form",
+      "implementation_reason": "The mastery item must integrate both Ghana indicators rather than duplicate a single mined source.",
+      "provenance": {
+        "implementation_type": "original_stack_question",
+        "interaction_references": [
+          "NUMBAS-21514",
+          "NUMBAS-169559",
+          "NUMBAS-10751"
+        ],
+        "copied_wording": false,
+        "copied_mathematical_content": false,
+        "licence_dependency": "none"
+      },
+      "status": "live_validated",
+      "implementation": {
+        "stack_source_file": "resources/generated/shared/place_value_rounding/pvrs_12_integrated_mastery.xml",
+        "stack_deployed_file": "resources/generated/shared/place_value_rounding/pvrs_12_integrated_mastery_deployed.xml",
+        "runtime_ready": true
+      },
+      "validation": {
+        "local_structure": "passed",
+        "integrated_mastery_structure": "passed",
+        "misconception_branches": "passed",
+        "provenance_policy": "passed",
+        "stack_recognition": "passed",
+        "authored_tests": "passed",
+        "variant_deployment": "passed",
+        "render_validation": "passed",
+        "grading_validation": {
+          "full_mastery_score": 1.0,
+          "targeted_feedback": "validated"
+        },
+        "mastery_components": {
+          "place_value_rounding": "validated",
+          "significant_figures": "validated",
+          "standard_form_coefficient": "validated",
+          "standard_form_exponent": "validated"
+        },
+        "provenance_validation": {
+          "implementation_type": "original_stack_question",
+          "interaction_references": [
+            "NUMBAS-21514",
+            "NUMBAS-169559",
+            "NUMBAS-10751"
+          ],
+          "copied_wording": false,
+          "copied_mathematical_content": false,
+          "licence_dependency": "none"
+        },
+        "deployed_seeds": [
+          1731770047,
+          521449185,
+          1535260470,
+          880705136,
+          460387530
+        ]
+      }
+    }
+  ],
+  "mining_status": "implementation_plan_complete",
+  "implementation_status": "in_progress",
+  "minimum_bank_status": {
+    "target": 12,
+    "validated": 12,
+    "complete": true
+  }
+}

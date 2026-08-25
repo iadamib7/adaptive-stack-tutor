@@ -1,0 +1,827 @@
+<quiz>
+  <question type="stack">
+
+    <name>
+      <text>
+Shared: Integrated rounding and standard form mastery
+      </text>
+    </name>
+
+
+    <questiontext format="html">
+      <text>&lt;p&gt;
+Consider the number
+\[
+{@number@}.
+\]
+&lt;/p&gt;
+
+&lt;p&gt;
+&lt;strong&gt;(a)&lt;/strong&gt;
+Round it to the nearest
+&lt;strong&gt;{@place_name@}&lt;/strong&gt;.
+&lt;/p&gt;
+
+&lt;p&gt;
+[[input:ans1]]
+[[validation:ans1]]
+&lt;/p&gt;
+
+&lt;p&gt;
+&lt;strong&gt;(b)&lt;/strong&gt;
+Round the same number to
+&lt;strong&gt;{@sf_count@} significant figures&lt;/strong&gt;.
+&lt;/p&gt;
+
+&lt;p&gt;
+[[input:ans2]]
+[[validation:ans2]]
+&lt;/p&gt;
+
+&lt;p&gt;
+&lt;strong&gt;(c)&lt;/strong&gt;
+Write the original number in standard form.
+&lt;/p&gt;
+
+&lt;p&gt;
+Coefficient \(a\):
+[[input:ans3]]
+[[validation:ans3]]
+&lt;/p&gt;
+
+&lt;p&gt;
+Exponent \(n\):
+[[input:ans4]]
+[[validation:ans4]]
+&lt;/p&gt;
+
+&lt;p&gt;
+[[feedback:prt1]]
+&lt;/p&gt;
+      </text>
+    </questiontext>
+
+
+    <generalfeedback format="html">
+      <text>&lt;h3&gt;Worked solution&lt;/h3&gt;
+
+&lt;p&gt;
+For part (a),
+\[
+{@number@}
+\]
+rounded to the nearest
+&lt;strong&gt;{@place_name@}&lt;/strong&gt;
+is
+\[
+{@answer_round@}.
+\]
+&lt;/p&gt;
+
+&lt;p&gt;
+For part (b), rounding to
+&lt;strong&gt;{@sf_count@} significant figures&lt;/strong&gt;
+gives
+\[
+{@answer_sf@}.
+\]
+&lt;/p&gt;
+
+&lt;p&gt;
+For part (c),
+\[
+{@number@}
+=
+{@coefficient_display@}
+\times 10^{@exponent@}.
+\]
+&lt;/p&gt;
+      </text>
+    </generalfeedback>
+
+
+    <defaultgrade>1.0000000</defaultgrade>
+    <penalty>0.1000000</penalty>
+    <hidden>0</hidden>
+    <idnumber />
+
+
+    <stackversion>
+      <text>2025012100</text>
+    </stackversion>
+
+
+    <questionvariables>
+      <text>
+/*
+Shared Question Bank
+Place Value, Rounding and Standard Form
+PVRS-12
+
+Mastery task:
+integrate place-value rounding,
+significant-figure rounding,
+and standard form.
+
+Reference-only interaction sources:
+NUMBAS-21514
+NUMBAS-169559
+NUMBAS-10751
+
+This STACK question is independently
+authored. No source wording or mathematical
+content is copied.
+*/
+
+
+/*
+Generate a six-digit whole number with
+three significant digits and trailing
+zeros.
+
+This keeps standard-form conversion exact
+and lets the same value support all parts.
+*/
+
+d1:
+    rand_with_prohib(1,8,[]);
+
+d2:
+    rand_with_prohib(0,8,[]);
+
+d3:
+    rand_with_prohib(5,9,[]);
+
+number:
+    d1*100000
+    + d2*10000
+    + d3*1000;
+
+
+/*
+Part (a):
+round to nearest ten thousand.
+
+Because d3 is at least 5, this always
+requires rounding upward.
+*/
+
+place_value:
+    10000;
+
+place_name:
+    "ten thousand";
+
+answer_round:
+    floor(
+        (
+            number
+            + place_value/2
+        )
+        / place_value
+    )
+    * place_value;
+
+
+/*
+Part (b):
+round to two significant figures.
+
+For a six-digit number, this is also
+rounding to the nearest ten thousand.
+*/
+
+sf_count:
+    2;
+
+answer_sf:
+    answer_round;
+
+
+/*
+Part (c):
+standard form.
+*/
+
+coefficient:
+    d1
+    + d2/10
+    + d3/100;
+
+exponent:
+    5;
+
+coefficient_display:
+    float(coefficient);
+
+
+/*
+Diagnostic misconceptions.
+*/
+
+
+/*
+Misconception 1:
+truncate instead of round.
+*/
+
+wrong_truncate:
+    floor(
+        number/place_value
+    )
+    * place_value;
+
+
+/*
+Misconception 2:
+use three significant figures instead of
+two, leaving the original number unchanged.
+*/
+
+wrong_sf_count:
+    number;
+
+
+/*
+Misconception 3:
+invalid standard-form coefficient that is
+ten times too large with exponent one too
+small.
+*/
+
+wrong_coefficient:
+    coefficient*10;
+
+wrong_exponent:
+    exponent-1;
+      </text>
+    </questionvariables>
+
+
+    <specificfeedback format="html">
+      <text />
+    </specificfeedback>
+
+
+    <questionnote format="html">
+      <text>&lt;p&gt;
+Shared Question Bank |
+Place Value and Rounding |
+PVRS-12
+&lt;/p&gt;
+
+&lt;p&gt;
+number={@number@}
+&lt;/p&gt;
+
+&lt;p&gt;
+answer_round={@answer_round@}
+&lt;/p&gt;
+
+&lt;p&gt;
+answer_sf={@answer_sf@}
+&lt;/p&gt;
+
+&lt;p&gt;
+coefficient={@coefficient_display@}
+&lt;/p&gt;
+
+&lt;p&gt;
+exponent={@exponent@}
+&lt;/p&gt;
+      </text>
+    </questionnote>
+
+
+    <questiondescription format="html">
+      <text>&lt;p id="bank"&gt;
+Shared Curriculum-Independent Question Bank
+&lt;/p&gt;
+
+&lt;p id="shared-question-id"&gt;
+PVRS-12
+&lt;/p&gt;
+
+&lt;p id="knowledge-concept"&gt;
+number-sense
+&lt;/p&gt;
+
+&lt;p id="secondary-concept"&gt;
+integrated-rounding-and-standard-form
+&lt;/p&gt;
+
+&lt;p id="role"&gt;
+mastery
+&lt;/p&gt;
+
+&lt;p id="interaction"&gt;
+multi-part-mastery-check
+&lt;/p&gt;
+
+&lt;p id="description"&gt;
+Learners coordinate place-value rounding,
+significant-figure rounding and standard
+form in one integrated mastery task.
+&lt;/p&gt;
+
+&lt;p id="misconception"&gt;
+Targets inability to coordinate place
+value, rounding and standard form across
+multiple representations.
+&lt;/p&gt;
+
+&lt;p id="provenance"&gt;
+Original STACK question. Numbas items
+NUMBAS-21514, NUMBAS-169559 and
+NUMBAS-10751 were used only as interaction
+references. No source wording or
+mathematical content is copied.
+&lt;/p&gt;
+
+&lt;p id="licence-dependency"&gt;
+None.
+&lt;/p&gt;
+
+&lt;p id="curriculum-policy"&gt;
+Curriculum alignment is maintained outside
+the question source.
+&lt;/p&gt;
+      </text>
+    </questiondescription>
+
+
+    <questionsimplify>1</questionsimplify>
+    <assumepositive>0</assumepositive>
+    <assumereal>0</assumereal>
+
+
+    <prtcorrect format="html">
+      <text>&lt;p&gt;
+Correct. You coordinated rounding,
+significant figures and standard form.
+&lt;/p&gt;</text>
+    </prtcorrect>
+
+
+    <prtpartiallycorrect format="html">
+      <text>&lt;p&gt;
+Some parts are correct. Recheck how the
+three representations are connected.
+&lt;/p&gt;</text>
+    </prtpartiallycorrect>
+
+
+    <prtincorrect format="html">
+      <text>&lt;p&gt;
+Work through each representation
+carefully: place value, significant
+figures, then standard form.
+&lt;/p&gt;</text>
+    </prtincorrect>
+
+
+    <decimals>.</decimals>
+    <scientificnotation>*10</scientificnotation>
+    <multiplicationsign>none</multiplicationsign>
+    <sqrtsign>1</sqrtsign>
+    <complexno>i</complexno>
+    <inversetrig>cos-1</inversetrig>
+    <logicsymbol>lang</logicsymbol>
+    <matrixparens>[</matrixparens>
+    <isbroken>0</isbroken>
+    <variantsselectionseed />
+
+
+    <input>
+      <name>ans1</name>
+      <type>algebraic</type>
+      <tans>answer_round</tans>
+      <boxsize>14</boxsize>
+      <strictsyntax>1</strictsyntax>
+      <insertstars>0</insertstars>
+      <syntaxhint />
+      <syntaxattribute>0</syntaxattribute>
+      <forbidwords />
+      <allowwords />
+      <forbidfloat>0</forbidfloat>
+      <requirelowestterms>0</requirelowestterms>
+      <checkanswertype>0</checkanswertype>
+      <mustverify>1</mustverify>
+      <showvalidation>3</showvalidation>
+      <options />
+    </input>
+
+
+    <input>
+      <name>ans2</name>
+      <type>algebraic</type>
+      <tans>answer_sf</tans>
+      <boxsize>14</boxsize>
+      <strictsyntax>1</strictsyntax>
+      <insertstars>0</insertstars>
+      <syntaxhint />
+      <syntaxattribute>0</syntaxattribute>
+      <forbidwords />
+      <allowwords />
+      <forbidfloat>0</forbidfloat>
+      <requirelowestterms>0</requirelowestterms>
+      <checkanswertype>0</checkanswertype>
+      <mustverify>1</mustverify>
+      <showvalidation>3</showvalidation>
+      <options />
+    </input>
+
+
+    <input>
+      <name>ans3</name>
+      <type>algebraic</type>
+      <tans>coefficient</tans>
+      <boxsize>10</boxsize>
+      <strictsyntax>1</strictsyntax>
+      <insertstars>0</insertstars>
+      <syntaxhint />
+      <syntaxattribute>0</syntaxattribute>
+      <forbidwords />
+      <allowwords />
+      <forbidfloat>0</forbidfloat>
+      <requirelowestterms>0</requirelowestterms>
+      <checkanswertype>0</checkanswertype>
+      <mustverify>1</mustverify>
+      <showvalidation>3</showvalidation>
+      <options />
+    </input>
+
+
+    <input>
+      <name>ans4</name>
+      <type>algebraic</type>
+      <tans>exponent</tans>
+      <boxsize>6</boxsize>
+      <strictsyntax>1</strictsyntax>
+      <insertstars>0</insertstars>
+      <syntaxhint />
+      <syntaxattribute>0</syntaxattribute>
+      <forbidwords />
+      <allowwords />
+      <forbidfloat>0</forbidfloat>
+      <requirelowestterms>0</requirelowestterms>
+      <checkanswertype>0</checkanswertype>
+      <mustverify>1</mustverify>
+      <showvalidation>3</showvalidation>
+      <options />
+    </input>
+
+
+    <prt>
+      <name>prt1</name>
+      <value>1.0000000</value>
+      <autosimplify>1</autosimplify>
+      <feedbackstyle>1</feedbackstyle>
+
+      <feedbackvariables>
+        <text />
+      </feedbackvariables>
+
+
+      <node>
+        <name>0</name>
+        <description>
+Checks place-value rounding.
+        </description>
+
+        <answertest>AlgEquiv</answertest>
+        <sans>ans1</sans>
+        <tans>answer_round</tans>
+        <testoptions />
+        <quiet>0</quiet>
+
+        <truescoremode>+</truescoremode>
+        <truescore>0.25</truescore>
+        <truepenalty />
+        <truenextnode>1</truenextnode>
+        <trueanswernote>prt1-1-T</trueanswernote>
+
+        <truefeedback format="html">
+          <text />
+        </truefeedback>
+
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>4</falsenextnode>
+        <falseanswernote>prt1-1-F</falseanswernote>
+
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+
+
+      <node>
+        <name>1</name>
+        <description>
+Checks significant-figure rounding.
+        </description>
+
+        <answertest>AlgEquiv</answertest>
+        <sans>ans2</sans>
+        <tans>answer_sf</tans>
+        <testoptions />
+        <quiet>0</quiet>
+
+        <truescoremode>+</truescoremode>
+        <truescore>0.25</truescore>
+        <truepenalty />
+        <truenextnode>2</truenextnode>
+        <trueanswernote>prt1-2-T</trueanswernote>
+
+        <truefeedback format="html">
+          <text />
+        </truefeedback>
+
+        <falsescoremode>+</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>5</falsenextnode>
+        <falseanswernote>prt1-2-F</falseanswernote>
+
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+
+
+      <node>
+        <name>2</name>
+        <description>
+Checks standard-form coefficient.
+        </description>
+
+        <answertest>AlgEquiv</answertest>
+        <sans>ans3</sans>
+        <tans>coefficient</tans>
+        <testoptions />
+        <quiet>0</quiet>
+
+        <truescoremode>+</truescoremode>
+        <truescore>0.25</truescore>
+        <truepenalty />
+        <truenextnode>3</truenextnode>
+        <trueanswernote>prt1-3-T</trueanswernote>
+
+        <truefeedback format="html">
+          <text />
+        </truefeedback>
+
+        <falsescoremode>+</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>6</falsenextnode>
+        <falseanswernote>prt1-3-F</falseanswernote>
+
+        <falsefeedback format="html">
+          <text />
+        </falsefeedback>
+      </node>
+
+
+      <node>
+        <name>3</name>
+        <description>
+Checks standard-form exponent.
+        </description>
+
+        <answertest>AlgEquiv</answertest>
+        <sans>ans4</sans>
+        <tans>exponent</tans>
+        <testoptions />
+        <quiet>0</quiet>
+
+        <truescoremode>+</truescoremode>
+        <truescore>0.25</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-4-T</trueanswernote>
+
+        <truefeedback format="html">
+          <text>&lt;p&gt;
+Correct. All four parts are consistent.
+&lt;/p&gt;</text>
+        </truefeedback>
+
+        <falsescoremode>+</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>-1</falsenextnode>
+        <falseanswernote>prt1-4-F</falseanswernote>
+
+        <falsefeedback format="html">
+          <text>&lt;p&gt;
+Your coefficient is correct. Recheck the
+power of \(10\).
+&lt;/p&gt;</text>
+        </falsefeedback>
+      </node>
+
+
+      <node>
+        <name>4</name>
+        <description>
+Checks truncation in part (a).
+        </description>
+
+        <answertest>AlgEquiv</answertest>
+        <sans>ans1</sans>
+        <tans>wrong_truncate</tans>
+        <testoptions />
+        <quiet>1</quiet>
+
+        <truescoremode>=</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-5-T</trueanswernote>
+
+        <truefeedback format="html">
+          <text>&lt;p&gt;
+You truncated instead of rounding in
+part (a). Use the next digit to decide
+whether to round up.
+&lt;/p&gt;</text>
+        </truefeedback>
+
+        <falsescoremode>=</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>-1</falsenextnode>
+        <falseanswernote>prt1-5-F</falseanswernote>
+
+        <falsefeedback format="html">
+          <text>&lt;p&gt;
+Recheck the place-value rounding step.
+&lt;/p&gt;</text>
+        </falsefeedback>
+      </node>
+
+
+      <node>
+        <name>5</name>
+        <description>
+Checks incorrect significant-figure count.
+        </description>
+
+        <answertest>AlgEquiv</answertest>
+        <sans>ans2</sans>
+        <tans>wrong_sf_count</tans>
+        <testoptions />
+        <quiet>1</quiet>
+
+        <truescoremode>+</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-6-T</trueanswernote>
+
+        <truefeedback format="html">
+          <text>&lt;p&gt;
+You kept too many significant figures.
+Count from the first non-zero digit and
+stop after the requested number.
+&lt;/p&gt;</text>
+        </truefeedback>
+
+        <falsescoremode>+</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>-1</falsenextnode>
+        <falseanswernote>prt1-6-F</falseanswernote>
+
+        <falsefeedback format="html">
+          <text>&lt;p&gt;
+Recheck the significant-figure step.
+&lt;/p&gt;</text>
+        </falsefeedback>
+      </node>
+
+
+      <node>
+        <name>6</name>
+        <description>
+Checks invalid standard-form coefficient.
+        </description>
+
+        <answertest>AlgEquiv</answertest>
+        <sans>ans3</sans>
+        <tans>wrong_coefficient</tans>
+        <testoptions />
+        <quiet>1</quiet>
+
+        <truescoremode>+</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>7</truenextnode>
+        <trueanswernote>prt1-7-T</trueanswernote>
+
+        <truefeedback format="html">
+          <text />
+        </truefeedback>
+
+        <falsescoremode>+</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>-1</falsenextnode>
+        <falseanswernote>prt1-7-F</falseanswernote>
+
+        <falsefeedback format="html">
+          <text>&lt;p&gt;
+Recheck the coefficient in standard form.
+&lt;/p&gt;</text>
+        </falsefeedback>
+      </node>
+
+
+      <node>
+        <name>7</name>
+        <description>
+Checks paired invalid standard-form
+exponent.
+        </description>
+
+        <answertest>AlgEquiv</answertest>
+        <sans>ans4</sans>
+        <tans>wrong_exponent</tans>
+        <testoptions />
+        <quiet>1</quiet>
+
+        <truescoremode>+</truescoremode>
+        <truescore>0</truescore>
+        <truepenalty />
+        <truenextnode>-1</truenextnode>
+        <trueanswernote>prt1-8-T</trueanswernote>
+
+        <truefeedback format="html">
+          <text>&lt;p&gt;
+Your expression has the same numerical
+value, but it is not valid standard form.
+The coefficient must lie between \(1\)
+and \(10\).
+&lt;/p&gt;</text>
+        </truefeedback>
+
+        <falsescoremode>+</falsescoremode>
+        <falsescore>0</falsescore>
+        <falsepenalty />
+        <falsenextnode>-1</falsenextnode>
+        <falseanswernote>prt1-8-F</falseanswernote>
+
+        <falsefeedback format="html">
+          <text>&lt;p&gt;
+Recheck both coefficient and exponent.
+&lt;/p&gt;</text>
+        </falsefeedback>
+      </node>
+
+    </prt>
+
+
+    <qtest>
+      <testcase>1</testcase>
+
+      <description>
+All mastery parts correct receive full
+credit.
+      </description>
+
+      <testinput>
+        <name>ans1</name>
+        <value>answer_round</value>
+      </testinput>
+
+      <testinput>
+        <name>ans2</name>
+        <value>answer_sf</value>
+      </testinput>
+
+      <testinput>
+        <name>ans3</name>
+        <value>coefficient</value>
+      </testinput>
+
+      <testinput>
+        <name>ans4</name>
+        <value>exponent</value>
+      </testinput>
+
+      <expected>
+        <name>prt1</name>
+        <expectedscore>1.0000000</expectedscore>
+        <expectedpenalty>0.0000000</expectedpenalty>
+        <expectedanswernote>
+prt1-1-T | prt1-2-T | prt1-3-T | prt1-4-T
+        </expectedanswernote>
+      </expected>
+    </qtest>
+
+
+  <deployedseed>1731770047</deployedseed><deployedseed>521449185</deployedseed><deployedseed>1535260470</deployedseed><deployedseed>880705136</deployedseed><deployedseed>460387530</deployedseed></question>
+</quiz>
