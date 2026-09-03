@@ -246,3 +246,111 @@ def test_service_has_no_curriculum_input() -> None:
         service,
         "knowledge_graph"
     )
+
+
+METADATA_JSON = """
+{
+  "questions": {
+    "Q1": {
+      "difficulty": 0.0,
+      "prt_outcomes": {
+        "prt1:prt1-1-F|prt1-2-T":
+          "sign_error"
+      }
+    },
+    "Q2": {
+      "difficulty": -0.4,
+      "supports": [
+        "sign_error"
+      ]
+    },
+    "Q3": {
+      "difficulty": 0.4
+    }
+  }
+}
+"""
+
+
+def test_from_xml_applies_metadata_manifest() -> None:
+    service = (
+        GenericAdaptiveSessionService
+        .from_xml(
+            xml_text=XML,
+            metadata_json=(
+                METADATA_JSON
+            ),
+            evaluation_client=(
+                SignErrorClient()
+            ),
+            renderer=FakeRenderer(),
+        )
+    )
+
+    q2 = (
+        service.question_bank
+        .require(
+            "Q2"
+        )
+        .adaptive_question
+    )
+
+    assert q2.supports == (
+        "sign_error",
+    )
+
+    assert q2.difficulty == -0.4
+
+
+def test_from_xml_metadata_drives_prt_branch() -> None:
+    service = (
+        GenericAdaptiveSessionService
+        .from_xml(
+            xml_text=XML,
+            metadata_json=(
+                METADATA_JSON
+            ),
+            evaluation_client=(
+                SignErrorClient()
+            ),
+            renderer=FakeRenderer(),
+        )
+    )
+
+    first = service.start(
+        learner_id=500
+    )
+
+    assert first.question_id == "Q1"
+
+    second = service.submit_answer(
+        learner_id=500,
+        student_answers={
+            "ans1": "wrong",
+        },
+    )
+
+    assert (
+        second.previous_outcome
+        == "sign_error"
+    )
+
+    assert second.question_id == "Q2"
+
+
+def test_from_xml_metadata_is_optional() -> None:
+    service = (
+        GenericAdaptiveSessionService
+        .from_xml(
+            xml_text=XML,
+            evaluation_client=(
+                SignErrorClient()
+            ),
+            renderer=FakeRenderer(),
+        )
+    )
+
+    assert (
+        service.question_bank.count
+        == 3
+    )

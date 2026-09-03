@@ -48,3 +48,9 @@ from backend.app.learning.adaptive_engine.session_service import (
     AdaptiveSessionView,
     GenericAdaptiveSessionService,
 )
+
+from backend.app.learning.adaptive_engine.metadata import (
+    AdaptiveMetadataLoader,
+    AdaptiveMetadataManifest,
+    QuestionAdaptiveMetadata,
+)

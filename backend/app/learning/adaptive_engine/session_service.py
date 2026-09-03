@@ -15,6 +15,10 @@ from backend.app.learning.adaptive_engine.engine import (
     CurriculumIndependentAdaptiveEngine,
 )
 
+from backend.app.learning.adaptive_engine.metadata import (
+    AdaptiveMetadataLoader,
+)
+
 from backend.app.learning.adaptive_engine.models import (
     AdaptiveDecision,
 )
@@ -125,6 +129,8 @@ class GenericAdaptiveSessionService:
         evaluation_client:
             StackEvaluationClient,
         renderer: AdaptiveStackRenderer,
+        metadata_json:
+            str | None = None,
         outcome_aliases: (
             dict[
                 str,
@@ -143,6 +149,50 @@ class GenericAdaptiveSessionService:
             xml_text
         )
 
+        manifest_aliases: dict[
+            str,
+            dict[str, str],
+        ] = {}
+
+        if (
+            metadata_json is not None
+            and metadata_json.strip()
+        ):
+            metadata_loader = (
+                AdaptiveMetadataLoader()
+            )
+
+            manifest = (
+                metadata_loader.load_text(
+                    metadata_json
+                )
+            )
+
+            bank = metadata_loader.apply(
+                bank=bank,
+                manifest=manifest,
+            )
+
+            manifest_aliases = (
+                manifest.outcome_aliases()
+            )
+
+        combined_aliases = dict(
+            manifest_aliases
+        )
+
+        if outcome_aliases:
+            for (
+                question_id,
+                aliases,
+            ) in outcome_aliases.items():
+                combined_aliases.setdefault(
+                    question_id,
+                    {},
+                ).update(
+                    aliases
+                )
+
         return cls(
             question_bank=bank,
             evaluation_client=(
@@ -150,7 +200,7 @@ class GenericAdaptiveSessionService:
             ),
             renderer=renderer,
             outcome_aliases=(
-                outcome_aliases
+                combined_aliases
             ),
         )
 
