@@ -38,3 +38,13 @@ __all__ = [
     "StackEvidenceAdapter",
     "StackXmlQuestionBankImporter",
 ]
+
+from backend.app.learning.adaptive_engine.stack_runtime import (
+    AdaptiveStackRenderer,
+    RenderedAdaptiveQuestion,
+)
+
+from backend.app.learning.adaptive_engine.session_service import (
+    AdaptiveSessionView,
+    GenericAdaptiveSessionService,
+)
