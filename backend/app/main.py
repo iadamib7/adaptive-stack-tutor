@@ -3,6 +3,9 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 
+from backend.app.api.adaptive_sessions import (
+    router as adaptive_sessions_router,
+)
 from backend.app.api.attempts import (
     router as attempts_router,
 )
@@ -37,14 +40,16 @@ async def lifespan(
 app = FastAPI(
     title="Adaptive STACK Tutor",
     description=(
-        "A curriculum-aware adaptive mathematics learning "
-        "platform using STACK assessment, concept evidence, "
-        "student modelling, and explainable sequencing."
+        "A curriculum-independent adaptive mathematics "
+        "assessment platform using instructor-authored "
+        "STACK questions, learner-response evidence, "
+        "and deterministic adaptive sequencing."
     ),
     version="0.4.0",
     lifespan=lifespan,
 )
 
+app.include_router(adaptive_sessions_router)
 app.include_router(questions_router)
 app.include_router(attempts_router)
 app.include_router(sessions_router)
