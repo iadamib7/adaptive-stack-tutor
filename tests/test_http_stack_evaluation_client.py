@@ -490,3 +490,63 @@ def test_existing_fraction_is_not_retried_when_valid() -> None:
     assert result.prts[0].score == 1.0
 
     assert len(session.requests) == 1
+
+
+
+def test_null_prt_score_is_preserved() -> None:
+    payload = correct_payload()
+
+    payload["prtresults"]["prt1"][
+        "score"
+    ] = None
+
+    payload["prtresults"]["prt1"][
+        "penalty"
+    ] = None
+
+    client = HttpStackEvaluationClient(
+        session=FakeSession(
+            responses=[
+                FakeResponse(payload)
+            ]
+        )
+    )
+
+    result = client.evaluate(
+        build_request()
+    )
+
+    assert result.valid is True
+    assert result.overall_score == 1.0
+
+    assert result.prts[0].score is None
+
+    assert (
+        result.prts[0].penalty
+        is None
+    )
+
+
+def test_zero_overall_score_survives_null_prt_score(
+) -> None:
+    payload = incorrect_payload()
+
+    payload["prtresults"]["prt1"][
+        "score"
+    ] = None
+
+    client = HttpStackEvaluationClient(
+        session=FakeSession(
+            responses=[
+                FakeResponse(payload)
+            ]
+        )
+    )
+
+    result = client.evaluate(
+        build_request("25")
+    )
+
+    assert result.valid is True
+    assert result.overall_score == 0.0
+    assert result.prts[0].score is None

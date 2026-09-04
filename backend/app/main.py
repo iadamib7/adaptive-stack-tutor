@@ -3,8 +3,14 @@ from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
 
+from backend.app.api.adaptive_demo import (
+    router as adaptive_demo_router,
+)
 from backend.app.api.adaptive_sessions import (
     router as adaptive_sessions_router,
+)
+from backend.app.api.adaptive_uploads import (
+    router as adaptive_uploads_router,
 )
 from backend.app.api.attempts import (
     router as attempts_router,
@@ -49,7 +55,9 @@ app = FastAPI(
     lifespan=lifespan,
 )
 
+app.include_router(adaptive_demo_router)
 app.include_router(adaptive_sessions_router)
+app.include_router(adaptive_uploads_router)
 app.include_router(questions_router)
 app.include_router(attempts_router)
 app.include_router(sessions_router)

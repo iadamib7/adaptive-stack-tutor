@@ -354,3 +354,272 @@ def test_from_xml_metadata_is_optional() -> None:
         service.question_bank.count
         == 3
     )
+
+
+
+def test_from_xml_builds_adaptive_graph_automatically(
+) -> None:
+    xml = """
+    <quiz>
+      <question type="category">
+        <category>
+          <text>
+            $course$/top/Functions
+          </text>
+        </category>
+      </question>
+
+      <!-- Deliberately harder question first. -->
+      <question type="stack">
+        <name>
+          <text>Advanced functions</text>
+        </name>
+        <idnumber>Q5</idnumber>
+
+        <input>
+          <name>ans1</name>
+        </input>
+        <input>
+          <name>ans2</name>
+        </input>
+        <input>
+          <name>ans3</name>
+        </input>
+
+        <prt>
+          <name>prt1</name>
+
+          <node>
+            <name>0</name>
+          </node>
+
+          <node>
+            <name>1</name>
+          </node>
+
+          <node>
+            <name>2</name>
+          </node>
+
+          <node>
+            <name>3</name>
+          </node>
+        </prt>
+      </question>
+
+      <!-- Simpler question appears later. -->
+      <question type="stack">
+        <name>
+          <text>Function basics</text>
+        </name>
+        <idnumber>Q1</idnumber>
+
+        <input>
+          <name>ans1</name>
+        </input>
+
+        <prt>
+          <name>prt1</name>
+
+          <node>
+            <name>0</name>
+          </node>
+        </prt>
+      </question>
+    </quiz>
+    """
+
+    service = (
+        GenericAdaptiveSessionService
+        .from_xml(
+            xml_text=xml,
+            evaluation_client=(
+                SignErrorClient()
+            ),
+            renderer=FakeRenderer(),
+        )
+    )
+
+    q1 = (
+        service.question_bank
+        .require(
+            "Q1"
+        )
+        .adaptive_question
+    )
+
+    q5 = (
+        service.question_bank
+        .require(
+            "Q5"
+        )
+        .adaptive_question
+    )
+
+    assert q1.entry_point is True
+    assert q5.entry_point is False
+
+    assert (
+        q1.difficulty
+        < q5.difficulty
+    )
+
+
+def test_from_xml_does_not_use_xml_order_as_entry(
+) -> None:
+    xml = """
+    <quiz>
+      <question type="category">
+        <category>
+          <text>
+            $course$/top/Functions
+          </text>
+        </category>
+      </question>
+
+      <question type="stack">
+        <name>
+          <text>Hard first</text>
+        </name>
+        <idnumber>Q9</idnumber>
+
+        <input>
+          <name>ans1</name>
+        </input>
+        <input>
+          <name>ans2</name>
+        </input>
+        <input>
+          <name>ans3</name>
+        </input>
+
+        <prt>
+          <name>prt1</name>
+          <node>
+            <name>0</name>
+          </node>
+          <node>
+            <name>1</name>
+          </node>
+          <node>
+            <name>2</name>
+          </node>
+        </prt>
+      </question>
+
+      <question type="stack">
+        <name>
+          <text>Simple later</text>
+        </name>
+        <idnumber>Q1</idnumber>
+
+        <input>
+          <name>ans1</name>
+        </input>
+
+        <prt>
+          <name>prt1</name>
+          <node>
+            <name>0</name>
+          </node>
+        </prt>
+      </question>
+    </quiz>
+    """
+
+    service = (
+        GenericAdaptiveSessionService
+        .from_xml(
+            xml_text=xml,
+            evaluation_client=(
+                SignErrorClient()
+            ),
+            renderer=FakeRenderer(),
+        )
+    )
+
+    decision = service.engine.start(
+        learner_id=99
+    )
+
+    assert decision is not None
+
+    assert (
+        decision.question.question_id
+        == "Q1"
+    )
+
+
+def test_explicit_metadata_overrides_inferred_graph(
+) -> None:
+    xml = """
+    <quiz>
+      <question type="category">
+        <category>
+          <text>
+            $course$/top/Functions
+          </text>
+        </category>
+      </question>
+
+      <question type="stack">
+        <name>
+          <text>Question one</text>
+        </name>
+        <idnumber>Q1</idnumber>
+
+        <input>
+          <name>ans1</name>
+        </input>
+
+        <prt>
+          <name>prt1</name>
+          <node>
+            <name>0</name>
+          </node>
+        </prt>
+      </question>
+    </quiz>
+    """
+
+    metadata = """
+    {
+      "questions": {
+        "Q1": {
+          "difficulty": 1.5,
+          "entry_point": true,
+          "skills": [
+            "instructor-skill"
+          ]
+        }
+      }
+    }
+    """
+
+    service = (
+        GenericAdaptiveSessionService
+        .from_xml(
+            xml_text=xml,
+            evaluation_client=(
+                SignErrorClient()
+            ),
+            renderer=FakeRenderer(),
+            metadata_json=metadata,
+        )
+    )
+
+    question = (
+        service.question_bank
+        .require(
+            "Q1"
+        )
+        .adaptive_question
+    )
+
+    assert question.difficulty == 1.5
+
+    assert question.skills == (
+        "instructor-skill",
+    )
+
+    assert question.entry_point is True

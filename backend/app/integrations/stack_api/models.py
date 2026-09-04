@@ -4,8 +4,15 @@ from pydantic import BaseModel, Field
 class StackPRTResult(BaseModel):
     prt_name: str = Field(min_length=1)
 
-    score: float = Field(ge=0.0)
-    penalty: float = Field(ge=0.0)
+    score: float | None = Field(
+        default=None,
+        ge=0.0,
+    )
+
+    penalty: float | None = Field(
+        default=None,
+        ge=0.0,
+    )
 
     answer_notes: list[str] = Field(
         default_factory=list,
@@ -24,6 +31,12 @@ class NormalizedStackResult(BaseModel):
     valid: bool
     seed: int | None = None
 
+    overall_score: float | None = Field(
+        default=None,
+        ge=0.0,
+        le=1.0,
+    )
+
     prts: list[StackPRTResult] = Field(
         default_factory=list,
     )
@@ -39,6 +52,7 @@ class NormalizedStackResult(BaseModel):
         return sum(
             prt.score
             for prt in self.prts
+            if prt.score is not None
         )
 
     @property
@@ -46,6 +60,7 @@ class NormalizedStackResult(BaseModel):
         return sum(
             prt.penalty
             for prt in self.prts
+            if prt.penalty is not None
         )
 
     @property

@@ -69,6 +69,12 @@ class AdaptiveQuestionResponse(
 
     decision_reason: str
 
+    decision_type: str = "advance"
+
+    return_target_question_id: (
+        str | None
+    ) = None
+
     previous_score: float | None = None
 
     previous_outcome: str | None = None
@@ -96,6 +102,20 @@ def _build_response(
         ability=view.ability,
         decision_reason=(
             view.decision_reason
+        ),
+        decision_type=(
+            getattr(
+                view,
+                "decision_type",
+                "advance",
+            )
+        ),
+        return_target_question_id=(
+            getattr(
+                view,
+                "return_target_question_id",
+                None,
+            )
         ),
         previous_score=(
             view.previous_score

@@ -33,15 +33,24 @@ class StackEvidenceAdapter:
                 "STACK result."
             )
 
-        score = (
-            sum(
-                prt.score
-                for prt in result.prts
+        numeric_prt_scores = [
+            prt.score
+            for prt in result.prts
+            if prt.score is not None
+        ]
+
+        if numeric_prt_scores:
+            score = (
+                sum(numeric_prt_scores)
+                / len(numeric_prt_scores)
             )
-            / len(result.prts)
-            if result.prts
-            else 0.0
-        )
+        elif result.overall_score is not None:
+            score = result.overall_score
+        else:
+            raise ValueError(
+                "STACK result contains no numeric "
+                "score evidence."
+            )
 
         score = max(
             0.0,
@@ -286,6 +295,46 @@ class StackEvidenceAdapter:
         return []
 
     @staticmethod
+    def _raw_outcome_has_note(
+        *,
+        raw_outcome: str,
+        answer_note: str,
+    ) -> bool:
+        """
+        Match one complete STACK answer note in a
+        normalized raw PRT path.
+
+        Exact note matching avoids accidental
+        substring matches.
+        """
+
+        for prt_outcome in (
+            raw_outcome.split(";")
+        ):
+            (
+                _prt_name,
+                separator,
+                raw_notes,
+            ) = prt_outcome.partition(
+                ":"
+            )
+
+            if not separator:
+                continue
+
+            notes = {
+                note.strip()
+                for note
+                in raw_notes.split("|")
+                if note.strip()
+            }
+
+            if answer_note in notes:
+                return True
+
+        return False
+
+    @staticmethod
     def _resolve_semantic_outcome(
         *,
         score: float,
@@ -300,6 +349,8 @@ class StackEvidenceAdapter:
             and outcome_aliases
             is not None
         ):
+            # Explicit full-path aliases remain the
+            # highest-priority interpretation.
             alias = (
                 outcome_aliases.get(
                     raw_outcome
@@ -308,6 +359,47 @@ class StackEvidenceAdapter:
 
             if alias is not None:
                 return alias
+
+            # Automatically generated aliases can
+            # target one exact STACK answer note.
+            #
+            # Example:
+            #
+            #   note:prt2-2-T
+            #
+            # This does not invent a misconception
+            # label. It only identifies an observed
+            # instructor-authored PRT branch.
+            for (
+                pattern,
+                pattern_alias,
+            ) in sorted(
+                outcome_aliases.items()
+            ):
+                if not pattern.startswith(
+                    "note:"
+                ):
+                    continue
+
+                answer_note = (
+                    pattern[
+                        len("note:"):
+                    ]
+                )
+
+                if (
+                    answer_note
+                    and StackEvidenceAdapter
+                    ._raw_outcome_has_note(
+                        raw_outcome=(
+                            raw_outcome
+                        ),
+                        answer_note=(
+                            answer_note
+                        ),
+                    )
+                ):
+                    return pattern_alias
 
         if raw_outcome is not None:
             return raw_outcome

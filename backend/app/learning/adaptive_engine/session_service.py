@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from hashlib import sha256
+from xml.etree import ElementTree
 
 from backend.app.integrations.stack_api.client import (
     StackEvaluationClient,
@@ -13,6 +14,14 @@ from backend.app.integrations.stack_api.models import (
 
 from backend.app.learning.adaptive_engine.engine import (
     CurriculumIndependentAdaptiveEngine,
+)
+
+from backend.app.learning.adaptive_engine.adaptive_graph_builder import (
+    StackAdaptiveGraphBuilder,
+)
+
+from backend.app.learning.adaptive_engine.bank_profile import (
+    StackBankProfiler,
 )
 
 from backend.app.learning.adaptive_engine.metadata import (
@@ -53,6 +62,12 @@ class AdaptiveSessionView:
     ability: float
 
     decision_reason: str
+
+    decision_type: str = "advance"
+
+    return_target_question_id: (
+        str | None
+    ) = None
 
     previous_score: float | None = None
 
@@ -149,6 +164,29 @@ class GenericAdaptiveSessionService:
             xml_text
         )
 
+        # Build conservative bank-local adaptive
+        # structure automatically from trustworthy
+        # STACK profile evidence.
+        #
+        # XML storage order never defines the
+        # learning sequence.
+        profile = (
+            StackBankProfiler()
+            .profile_text(
+                xml_text
+            )
+        )
+
+        graph_result = (
+            StackAdaptiveGraphBuilder()
+            .build(
+                bank=bank,
+                profile=profile,
+            )
+        )
+
+        bank = graph_result.bank
+
         manifest_aliases: dict[
             str,
             dict[str, str],
@@ -177,9 +215,33 @@ class GenericAdaptiveSessionService:
                 manifest.outcome_aliases()
             )
 
-        combined_aliases = dict(
-            manifest_aliases
-        )
+        combined_aliases: dict[
+            str,
+            dict[str, str],
+        ] = {
+            question_id: dict(
+                aliases
+            )
+            for (
+                question_id,
+                aliases,
+            ) in (
+                graph_result
+                .outcome_aliases
+                .items()
+            )
+        }
+
+        for (
+            question_id,
+            aliases,
+        ) in manifest_aliases.items():
+            combined_aliases.setdefault(
+                question_id,
+                {},
+            ).update(
+                aliases
+            )
 
         if outcome_aliases:
             for (
@@ -339,9 +401,12 @@ class GenericAdaptiveSessionService:
             )
         )
 
-        seed = self._stable_seed(
+        seed = self._seed_for_question(
             learner_id=learner_id,
             question_id=question_id,
+            question_xml=(
+                imported.stack_xml
+            ),
         )
 
         rendered = self.renderer.render(
@@ -380,6 +445,13 @@ class GenericAdaptiveSessionService:
             decision_reason=(
                 decision.reason
             ),
+            decision_type=(
+                decision.decision_type
+            ),
+            return_target_question_id=(
+                decision
+                .return_target_question_id
+            ),
             previous_score=(
                 previous_score
             ),
@@ -387,6 +459,79 @@ class GenericAdaptiveSessionService:
                 previous_outcome
             ),
         )
+
+    @classmethod
+    def _seed_for_question(
+        cls,
+        *,
+        learner_id: int,
+        question_id: str,
+        question_xml: str,
+    ) -> int:
+        """
+        Select a valid deterministic seed.
+
+        Native STACK questions may contain one or
+        more <deployedseed> values. When they do,
+        STACK requires rendering/grading to use
+        one of those deployed variants.
+
+        Questions without deployed variants keep
+        using the generic deterministic seed.
+        """
+
+        stable_seed = cls._stable_seed(
+            learner_id=learner_id,
+            question_id=question_id,
+        )
+
+        try:
+            root = ElementTree.fromstring(
+                question_xml
+            )
+        except ElementTree.ParseError:
+            return stable_seed
+
+        deployed_seeds: list[int] = []
+
+        for element in root.findall(
+            ".//deployedseed"
+        ):
+            raw_value = (
+                element.text or ""
+            ).strip()
+
+            if not raw_value:
+                continue
+
+            try:
+                value = int(
+                    raw_value
+                )
+            except ValueError:
+                continue
+
+            if value > 0:
+                deployed_seeds.append(
+                    value
+                )
+
+        if not deployed_seeds:
+            return stable_seed
+
+        # Deterministically distribute learners
+        # across the question's real deployed
+        # variants.
+        index = (
+            stable_seed
+            % len(
+                deployed_seeds
+            )
+        )
+
+        return deployed_seeds[
+            index
+        ]
 
     @staticmethod
     def _stable_seed(

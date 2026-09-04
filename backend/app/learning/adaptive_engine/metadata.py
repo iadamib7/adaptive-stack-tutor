@@ -20,6 +20,11 @@ class QuestionAdaptiveMetadata:
 
     difficulty: float | None = None
 
+    entry_point: bool = False
+
+    skills: tuple[str, ...] = ()
+    prerequisites: tuple[str, ...] = ()
+
     tags: tuple[str, ...] = ()
     supports: tuple[str, ...] = ()
     diagnoses: tuple[str, ...] = ()
@@ -217,6 +222,13 @@ class AdaptiveMetadataLoader:
             updated_question = replace(
                 question,
                 difficulty=difficulty,
+                entry_point=(
+                    metadata.entry_point
+                ),
+                skills=metadata.skills,
+                prerequisites=(
+                    metadata.prerequisites
+                ),
                 tags=metadata.tags,
                 supports=metadata.supports,
                 diagnoses=metadata.diagnoses,
@@ -284,6 +296,45 @@ class AdaptiveMetadataLoader:
                 "must be between "
                 "-3 and 3."
             )
+
+        entry_point = payload.get(
+            "entry_point",
+            False,
+        )
+
+        if not isinstance(
+            entry_point,
+            bool,
+        ):
+            raise ValueError(
+                "entry_point for "
+                f"{question_id} "
+                "must be true or false."
+            )
+
+        skills = (
+            AdaptiveMetadataLoader
+            ._string_tuple(
+                payload.get(
+                    "skills",
+                    [],
+                ),
+                field_name="skills",
+                question_id=question_id,
+            )
+        )
+
+        prerequisites = (
+            AdaptiveMetadataLoader
+            ._string_tuple(
+                payload.get(
+                    "prerequisites",
+                    [],
+                ),
+                field_name="prerequisites",
+                question_id=question_id,
+            )
+        )
 
         tags = (
             AdaptiveMetadataLoader
@@ -373,6 +424,9 @@ class AdaptiveMetadataLoader:
             difficulty=(
                 numeric_difficulty
             ),
+            entry_point=entry_point,
+            skills=skills,
+            prerequisites=prerequisites,
             tags=tags,
             supports=supports,
             diagnoses=diagnoses,

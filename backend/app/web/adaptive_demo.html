@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <title>Adaptive STACK Demo</title>
+
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [
+                    ["\\(", "\\)"]
+                ],
+                displayMath: [
+                    ["\\[", "\\]"]
+                ]
+            }
+        };
+    </script>
+
+    <script
+        defer
+        src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"
+    ></script>
+
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --secondary: #7c3aed;
+            --success: #059669;
+            --danger: #dc2626;
+            --warning: #d97706;
+
+            --bg: #f5f7fb;
+            --surface: #ffffff;
+            --surface-soft: #f8fafc;
+
+            --text: #172033;
+            --muted: #64748b;
+
+            --border: #dbe3ef;
+            --shadow: 0 12px 32px
+                rgba(15, 23, 42, 0.08);
+
+            --radius-lg: 20px;
+            --radius-md: 14px;
+            --radius-sm: 10px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            padding: 40px 20px 64px;
+
+            font-family:
+                Inter,
+                ui-sans-serif,
+                system-ui,
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                sans-serif;
+
+            line-height: 1.6;
+            color: var(--text);
+
+            background:
+                radial-gradient(
+                    circle at top left,
+                    rgba(37, 99, 235, 0.14),
+                    transparent 32%
+                ),
+                radial-gradient(
+                    circle at top right,
+                    rgba(124, 58, 237, 0.12),
+                    transparent 30%
+                ),
+                var(--bg);
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0 0 auto 0;
+            height: 7px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--primary),
+                    var(--secondary),
+                    #0ea5e9
+                );
+
+            z-index: 10;
+        }
+
+        body > h1,
+        body > p,
+        body > .panel,
+        body > .status {
+            max-width: 1040px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        h1 {
+            margin-top: 12px;
+            margin-bottom: 6px;
+
+            font-size: clamp(
+                2rem,
+                5vw,
+                3.2rem
+            );
+
+            line-height: 1.1;
+            letter-spacing: -0.045em;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--primary-dark),
+                    var(--secondary)
+                );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        h2 {
+            margin-top: 0;
+            margin-bottom: 16px;
+
+            font-size: 1.25rem;
+            letter-spacing: -0.02em;
+        }
+
+        h3 {
+            margin-top: 0;
+        }
+
+        label {
+            display: inline-block;
+            margin-bottom: 7px;
+
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: #334155;
+        }
+
+        .muted {
+            color: var(--muted);
+        }
+
+        body > p.muted {
+            margin-top: 0;
+            margin-bottom: 28px;
+
+            font-size: 1.04rem;
+        }
+
+        .panel {
+            position: relative;
+
+            margin-top: 22px;
+            padding: 26px;
+
+            border: 1px solid
+                rgba(219, 227, 239, 0.9);
+
+            border-radius: var(--radius-lg);
+
+            background:
+                rgba(255, 255, 255, 0.94);
+
+            box-shadow: var(--shadow);
+
+            backdrop-filter: blur(12px);
+
+            animation:
+                panelEnter 0.35s ease-out;
+        }
+
+        .panel::before {
+            content: "";
+            position: absolute;
+
+            top: 0;
+            left: 28px;
+            right: 28px;
+
+            height: 3px;
+
+            border-radius:
+                0 0 999px 999px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    var(--primary),
+                    var(--secondary)
+                );
+
+            opacity: 0.7;
+        }
+
+        input[type="number"],
+        input[type="text"],
+        textarea,
+        select {
+            width: 100%;
+
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+
+            background: var(--surface-soft);
+            color: var(--text);
+
+            font-size: 0.98rem;
+
+            outline: none;
+
+            transition:
+                border-color 0.2s ease,
+                box-shadow 0.2s ease,
+                background 0.2s ease;
+        }
+
+        input[type="number"],
+        input[type="text"],
+        select {
+            padding: 11px 13px;
+        }
+
+        textarea {
+            min-height: 155px;
+            padding: 13px;
+
+            resize: vertical;
+
+            font-family:
+                "SFMono-Regular",
+                Consolas,
+                "Liberation Mono",
+                monospace;
+        }
+
+        input[type="number"]:focus,
+        input[type="text"]:focus,
+        textarea:focus,
+        select:focus {
+            border-color: var(--primary);
+
+            background: #ffffff;
+
+            box-shadow:
+                0 0 0 4px
+                rgba(37, 99, 235, 0.10);
+        }
+
+        input[type="file"] {
+            display: block;
+            width: 100%;
+
+            margin-top: 5px;
+            padding: 12px;
+
+            border: 1px dashed #aebbd0;
+            border-radius: var(--radius-sm);
+
+            background: #f8fbff;
+
+            color: #475569;
+
+            cursor: pointer;
+        }
+
+        input[type="file"]::file-selector-button {
+            margin-right: 12px;
+            padding: 8px 14px;
+
+            border: 0;
+            border-radius: 8px;
+
+            background: #e8efff;
+            color: var(--primary-dark);
+
+            font-weight: 700;
+
+            cursor: pointer;
+        }
+
+        button {
+            min-height: 44px;
+
+            margin-top: 16px;
+            padding: 11px 20px;
+
+            border: 0;
+            border-radius: 11px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    var(--primary),
+                    var(--secondary)
+                );
+
+            color: #ffffff;
+
+            font-size: 0.96rem;
+            font-weight: 750;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 8px 18px
+                rgba(37, 99, 235, 0.20);
+
+            transition:
+                transform 0.15s ease,
+                box-shadow 0.15s ease,
+                filter 0.15s ease;
+        }
+
+        button:hover {
+            transform: translateY(-1px);
+
+            box-shadow:
+                0 11px 24px
+                rgba(37, 99, 235, 0.27);
+
+            filter: saturate(1.08);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        button:disabled {
+            opacity: 0.55;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        #startButton {
+            width: 100%;
+            margin-top: 24px;
+
+            font-size: 1rem;
+        }
+
+        #submitButton {
+            min-width: 180px;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        .status {
+            margin-top: 18px;
+            padding: 14px 16px;
+
+            border: 1px solid
+                rgba(5, 150, 105, 0.25);
+
+            border-radius: var(--radius-md);
+
+            background:
+                rgba(236, 253, 245, 0.96);
+
+            color: #047857;
+
+            font-weight: 650;
+
+            box-shadow:
+                0 7px 20px
+                rgba(15, 23, 42, 0.05);
+        }
+
+        .status::before {
+            content: "?";
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            width: 24px;
+            height: 24px;
+
+            margin-right: 9px;
+
+            border-radius: 999px;
+
+            background: #d1fae5;
+
+            font-size: 0.9rem;
+        }
+
+        .status.error {
+            border-color:
+                rgba(220, 38, 38, 0.30);
+
+            background:
+                rgba(254, 242, 242, 0.98);
+
+            color: #b91c1c;
+        }
+
+        .status.error::before {
+            content: "!";
+            background: #fee2e2;
+        }
+
+        #sessionPanel {
+            padding: 30px;
+        }
+
+        #questionTitle {
+            margin-bottom: 12px;
+
+            font-size: 1.3rem;
+            color: #1e293b;
+        }
+
+        .question-box {
+            margin-top: 14px;
+            padding: 24px;
+
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #ffffff,
+                    #fbfdff
+                );
+
+            box-shadow:
+                inset 0 1px 0
+                rgba(255, 255, 255, 0.8);
+        }
+
+        .question-box p:first-child {
+            margin-top: 0;
+        }
+
+        .question-box .answer {
+            margin-top: 18px;
+        }
+
+        .question-box .option {
+            margin: 9px 0;
+            padding: 11px 13px;
+
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+
+            background: #ffffff;
+
+            transition:
+                border-color 0.15s ease,
+                background 0.15s ease,
+                transform 0.15s ease;
+        }
+
+        .question-box .option:hover {
+            border-color: #93b4ff;
+            background: #f8fbff;
+            transform: translateX(2px);
+        }
+
+        .question-box
+        input[type="checkbox"],
+        .question-box
+        input[type="radio"] {
+            width: 17px;
+            height: 17px;
+
+            margin-right: 9px;
+
+            accent-color: var(--primary);
+
+            vertical-align: middle;
+        }
+
+        .question-box label {
+            display: inline;
+            margin: 0;
+
+            font-weight: 500;
+            color: var(--text);
+
+            cursor: pointer;
+        }
+
+        .meta {
+            margin-top: 18px;
+            padding: 12px 14px;
+
+            border-left: 4px solid
+                var(--primary);
+
+            border-radius: 8px;
+
+            background: #eff6ff;
+
+            color: #1e40af;
+
+            font-size: 0.94rem;
+            font-weight: 600;
+        }
+
+        .answer-row {
+            margin-top: 12px;
+        }
+
+        #historicalSummary {
+            margin-bottom: 18px;
+        }
+
+        #historicalItems
+        .question-box {
+            box-shadow: none;
+        }
+
+        @keyframes panelEnter {
+            from {
+                opacity: 0;
+                transform:
+                    translateY(8px);
+            }
+
+            to {
+                opacity: 1;
+                transform:
+                    translateY(0);
+            }
+        }
+
+        @media (
+            max-width: 700px
+        ) {
+            body {
+                padding:
+                    28px 14px 48px;
+            }
+
+            .panel,
+            #sessionPanel {
+                padding: 20px;
+            }
+
+            .question-box {
+                padding: 18px;
+            }
+
+            button,
+            #submitButton {
+                width: 100%;
+            }
+
+            h1 {
+                font-size: 2.15rem;
+            }
+        }
+
+        @media (
+            prefers-reduced-motion:
+            reduce
+        ) {
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                animation-duration:
+                    0.01ms !important;
+                transition-duration:
+                    0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Adaptive STACK Tutor</h1>
+
+    <p class="muted">
+        Upload a question bank to start an adaptive learning session.
+    </p>
+
+    <div
+        id="setupPanel"
+        class="panel"
+    >
+        <h2>1. Instructor Question Bank</h2>
+
+        <label for="learnerId">
+            Learner ID
+        </label>
+
+        <input
+            id="learnerId"
+            type="number"
+            value="1"
+            min="1"
+        >
+
+        <p>
+            <label for="xmlFile">
+                Question bank file
+            </label>
+        </p>
+
+        <input
+            id="xmlFile"
+            type="file"
+            accept=".xml,.xlsx,.xlsm,.csv,.docx,.pdf,text/xml,application/xml,text/csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel.sheet.macroEnabled.12,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/pdf"
+        >
+
+        <p class="muted">
+            Supported formats:
+            XML, Excel, CSV, Word, and PDF.
+            You may also paste STACK XML below.
+        </p>
+
+        <textarea
+            id="questionBankXml"
+            placeholder="Optional: paste Moodle/STACK XML here instead of uploading a file"
+        ></textarea>
+
+        <h2>2. Optional Adaptive Metadata</h2>
+
+        <p class="muted">
+            Difficulty, supports, tags, and semantic
+            PRT mappings can be supplied here.
+        </p>
+
+        <input
+            id="metadataFile"
+            type="file"
+            accept=".json,application/json"
+        >
+
+        <p>
+            Or paste metadata JSON:
+        </p>
+
+        <textarea
+            id="metadataJson"
+            placeholder='{
+  "questions": {}
+}'
+        ></textarea>
+
+        <button
+            id="startButton"
+            type="button"
+        >
+            Start Adaptive Session
+        </button>
+    </div>
+
+    <div
+        id="historicalPanel"
+        class="panel hidden"
+    >
+        <h2>
+            Historical STACK Analysis
+        </h2>
+
+        <div
+            id="historicalSummary"
+        ></div>
+
+        <div
+            id="historicalItems"
+        ></div>
+    </div>
+
+    <div
+        id="sessionPanel"
+        class="panel hidden"
+    >
+        <h2>Adaptive Session</h2>
+
+        <div
+            id="questionTitle"
+        ></div>
+
+        <div
+            id="questionHtml"
+            class="question-box"
+        ></div>
+
+        <button
+            id="submitButton"
+            type="button"
+        >
+            Submit Answer
+        </button>
+
+        <div
+            id="sessionMeta"
+            class="meta"
+        ></div>
+
+    </div>
+
+    <div
+        id="status"
+        class="status hidden"
+    ></div>
+
+    <script>
+        let sessionId = null;
+        let learnerId = null;
+        let currentInputs = {};
+
+        const setupPanel =
+            document.getElementById(
+                "setupPanel"
+            );
+
+        const sessionPanel =
+            document.getElementById(
+                "sessionPanel"
+            );
+
+        const historicalPanel =
+            document.getElementById(
+                "historicalPanel"
+            );
+
+        const historicalSummary =
+            document.getElementById(
+                "historicalSummary"
+            );
+
+        const historicalItems =
+            document.getElementById(
+                "historicalItems"
+            );
+
+        const statusBox =
+            document.getElementById(
+                "status"
+            );
+
+        const questionTitle =
+            document.getElementById(
+                "questionTitle"
+            );
+
+        const questionHtml =
+            document.getElementById(
+                "questionHtml"
+            );
+
+        const sessionMeta =
+            document.getElementById(
+                "sessionMeta"
+            );
+
+        function showStatus(
+            message,
+            isError = false
+        ) {
+            statusBox.textContent = message;
+
+            statusBox.classList.remove(
+                "hidden"
+            );
+
+            statusBox.classList.toggle(
+                "error",
+                isError
+            );
+        }
+
+        function clearStatus() {
+            statusBox.textContent = "";
+
+            statusBox.classList.add(
+                "hidden"
+            );
+
+            statusBox.classList.remove(
+                "error"
+            );
+        }
+
+        async function readSelectedFile(
+            inputId,
+            textareaId
+        ) {
+            const input =
+                document.getElementById(
+                    inputId
+                );
+
+            if (
+                !input.files
+                || input.files.length === 0
+            ) {
+                return;
+            }
+
+            const file =
+                input.files[0];
+
+            const extension =
+                file.name
+                .toLowerCase()
+                .split(".")
+                .pop();
+
+            if (
+                extension === "xml"
+                || extension === "json"
+            ) {
+                const text =
+                    await file.text();
+
+                document.getElementById(
+                    textareaId
+                ).value = text;
+            }
+        }
+
+
+        async function startSession() {
+            clearStatus();
+
+            learnerId = Number(
+                document.getElementById(
+                    "learnerId"
+                ).value
+            );
+
+            const fileInput =
+                document.getElementById(
+                    "xmlFile"
+                );
+
+            const metadataFileInput =
+                document.getElementById(
+                    "metadataFile"
+                );
+
+            const pastedXml =
+                document.getElementById(
+                    "questionBankXml"
+                ).value.trim();
+
+            const pastedMetadata =
+                document.getElementById(
+                    "metadataJson"
+                ).value.trim();
+
+            const hasBankFile = (
+                fileInput.files
+                && fileInput.files.length > 0
+            );
+
+            if (
+                !hasBankFile
+                && !pastedXml
+            ) {
+                showStatus(
+                    "Please upload a question bank or paste STACK XML.",
+                    true
+                );
+
+                return;
+            }
+
+            try {
+                let response;
+
+                if (hasBankFile) {
+                    const formData =
+                        new FormData();
+
+                    formData.append(
+                        "learner_id",
+                        String(
+                            learnerId
+                        )
+                    );
+
+                    formData.append(
+                        "question_bank",
+                        fileInput.files[0]
+                    );
+
+                    if (
+                        metadataFileInput.files
+                        && metadataFileInput.files.length > 0
+                    ) {
+                        formData.append(
+                            "metadata_file",
+                            metadataFileInput.files[0]
+                        );
+                    }
+
+                    if (pastedMetadata) {
+                        formData.append(
+                            "metadata_json",
+                            pastedMetadata
+                        );
+                    }
+
+                    response =
+                        await fetch(
+                            "/api/adaptive/uploads/sessions",
+                            {
+                                method: "POST",
+                                body: formData
+                            }
+                        );
+                }
+                else {
+                    response =
+                        await fetch(
+                            "/api/adaptive/sessions",
+                            {
+                                method: "POST",
+                                headers: {
+                                    "Content-Type":
+                                        "application/json"
+                                },
+                                body: JSON.stringify({
+                                    learner_id:
+                                        learnerId,
+                                    question_bank_xml:
+                                        pastedXml,
+                                    metadata_json:
+                                        pastedMetadata
+                                        || null
+                                })
+                            }
+                        );
+                }
+
+                const payload =
+                    await response.json();
+
+                if (!response.ok) {
+                    throw new Error(
+                        payload.detail
+                        || "Could not start session."
+                    );
+                }
+
+                if (
+                    payload.kind
+                    === "historical_analysis"
+                ) {
+                    renderHistoricalAnalysis(
+                        payload
+                    );
+
+                    showStatus(
+                        "Historical STACK data analyzed."
+                    );
+
+                    return;
+                }
+
+                sessionId =
+                    payload.session_id;
+
+                setupPanel.classList.add(
+                    "hidden"
+                );
+
+                historicalPanel.classList.add(
+                    "hidden"
+                );
+
+                sessionPanel.classList.remove(
+                    "hidden"
+                );
+
+                renderQuestion(
+                    payload
+                );
+
+                showStatus(
+                    "Adaptive session started."
+                );
+            }
+            catch (error) {
+                showStatus(
+                    error.message,
+                    true
+                );
+            }
+        }
+
+
+        function renderHistoricalAnalysis(
+            payload
+        ) {
+            setupPanel.classList.add(
+                "hidden"
+            );
+
+            sessionPanel.classList.add(
+                "hidden"
+            );
+
+            historicalPanel.classList.remove(
+                "hidden"
+            );
+
+            historicalSummary.innerHTML =
+                "<p><strong>File:</strong> "
+                + escapeHtml(
+                    payload.filename
+                )
+                + "</p>"
+                + "<p><strong>Attempts:</strong> "
+                + payload.attempt_count
+                + "</p>"
+                + "<p><strong>Questions:</strong> "
+                + payload.question_count
+                + "</p>";
+
+            historicalItems.innerHTML = "";
+
+            for (
+                const item
+                of payload.items
+            ) {
+                const box =
+                    document.createElement(
+                        "div"
+                    );
+
+                box.className =
+                    "question-box";
+
+                const heading =
+                    document.createElement(
+                        "h3"
+                    );
+
+                heading.textContent =
+                    "Question "
+                    + item.question_number;
+
+                box.appendChild(
+                    heading
+                );
+
+                const stats =
+                    document.createElement(
+                        "p"
+                    );
+
+                stats.textContent =
+                    "Attempts: "
+                    + item.attempt_count
+                    + " | Mean score: "
+                    + (
+                        item.mean_score
+                        * 100
+                    ).toFixed(1)
+                    + "%"
+                    + " | Full credit: "
+                    + (
+                        item.full_credit_rate
+                        * 100
+                    ).toFixed(1)
+                    + "%"
+                    + " | Zero credit: "
+                    + (
+                        item.zero_credit_rate
+                        * 100
+                    ).toFixed(1)
+                    + "%"
+                    + " | Variants: "
+                    + item.unique_seeds;
+
+                box.appendChild(
+                    stats
+                );
+
+                if (
+                    item.prt_outcomes
+                    && item.prt_outcomes.length
+                    > 0
+                ) {
+                    const title =
+                        document.createElement(
+                            "strong"
+                        );
+
+                    title.textContent =
+                        "Most common PRT outcomes";
+
+                    box.appendChild(
+                        title
+                    );
+
+                    const list =
+                        document.createElement(
+                            "ul"
+                        );
+
+                    for (
+                        const prt
+                        of item.prt_outcomes
+                        .slice(
+                            0,
+                            5
+                        )
+                    ) {
+                        const row =
+                            document.createElement(
+                                "li"
+                            );
+
+                        row.textContent =
+                            prt.outcome
+                            + " ? "
+                            + prt.count;
+
+                        list.appendChild(
+                            row
+                        );
+                    }
+
+                    box.appendChild(
+                        list
+                    );
+                }
+
+                historicalItems.appendChild(
+                    box
+                );
+            }
+        }
+
+
+        function renderQuestion(
+            payload
+        ) {
+            questionTitle.innerHTML =
+                "<strong>"
+                + escapeHtml(
+                    payload.title
+                )
+                + "</strong>";
+
+            questionHtml.innerHTML =
+                payload.html || "";
+
+            currentInputs =
+                payload.inputs || {};
+
+            sessionMeta.textContent = "";
+
+            if (
+                payload.previous_score
+                !== null
+                && payload.previous_score
+                !== undefined
+            ) {
+                let message =
+                    "Your previous answer was graded.";
+
+                if (
+                    payload.decision_type
+                    === "remediate"
+                ) {
+                    message =
+                        "Here is a support question "
+                        + "based on your previous response.";
+                }
+                else if (
+                    payload.decision_type
+                    === "reassess"
+                ) {
+                    message =
+                        "Good progress. Now try the "
+                        + "earlier question again.";
+                }
+                else if (
+                    payload.previous_score >= 1
+                ) {
+                    message =
+                        "Correct. Here is your next question.";
+                }
+                else if (
+                    payload.previous_score > 0
+                ) {
+                    message =
+                        "Partially correct. The next "
+                        + "question has been selected "
+                        + "from your current progress.";
+                }
+                else {
+                    message =
+                        "The next question has been "
+                        + "selected from your response.";
+                }
+
+                sessionMeta.textContent =
+                    message;
+            }
+
+            if (
+                window.MathJax
+                && window.MathJax.typesetPromise
+            ) {
+                window.MathJax.typesetPromise(
+                    [
+                        questionHtml
+                    ]
+                ).catch(
+                    (error) => {
+                        console.error(
+                            "MathJax rendering failed:",
+                            error
+                        );
+                    }
+                );
+            }
+        }
+
+
+        async function submitAnswer() {
+            clearStatus();
+
+            if (!sessionId) {
+                showStatus(
+                    "No active session.",
+                    true
+                );
+
+                return;
+            }
+
+            const answers = {};
+
+            const renderedInputs =
+                questionHtml.querySelectorAll(
+                    "input, textarea, select"
+                );
+
+            for (
+                const input
+                of renderedInputs
+            ) {
+                let inputName =
+                    input.name
+                    || input.id
+                    || "";
+
+                if (
+                    inputName.startsWith(
+                        "student-"
+                    )
+                ) {
+                    inputName =
+                        inputName.substring(
+                            "student-".length
+                        );
+                }
+
+                if (
+                    !inputName
+                    || !inputName.startsWith(
+                        "ans"
+                    )
+                ) {
+                    continue;
+                }
+
+                if (
+                    (
+                        input.type === "checkbox"
+                        || input.type === "radio"
+                    )
+                    && !input.checked
+                ) {
+                    continue;
+                }
+
+                answers[
+                    inputName
+                ] = input.value;
+            }
+
+            if (
+                Object.keys(
+                    answers
+                ).length === 0
+            ) {
+                showStatus(
+                    "No answer input was found for this question.",
+                    true
+                );
+
+                return;
+            }
+
+            try {
+                const response =
+                    await fetch(
+                        "/api/adaptive/sessions/"
+                        + encodeURIComponent(
+                            sessionId
+                        )
+                        + "/answers",
+                        {
+                            method: "POST",
+                            headers: {
+                                "Content-Type":
+                                    "application/json"
+                            },
+                            body: JSON.stringify({
+                                learner_id:
+                                    learnerId,
+                                answers:
+                                    answers
+                            })
+                        }
+                    );
+
+                const payload =
+                    await response.json();
+
+                if (!response.ok) {
+                    throw new Error(
+                        payload.detail
+                        || "Could not submit answer."
+                    );
+                }
+
+                renderQuestion(
+                    payload
+                );
+
+                showStatus(
+                    "Answer submitted."
+                );
+            }
+            catch (error) {
+                showStatus(
+                    error.message,
+                    true
+                );
+            }
+        }
+
+
+        function escapeHtml(
+            value
+        ) {
+            const div =
+                document.createElement(
+                    "div"
+                );
+
+            div.textContent =
+                value || "";
+
+            return div.innerHTML;
+        }
+
+        document.getElementById(
+            "xmlFile"
+        ).addEventListener(
+            "change",
+            () => readSelectedFile(
+                "xmlFile",
+                "questionBankXml"
+            )
+        );
+
+        document.getElementById(
+            "metadataFile"
+        ).addEventListener(
+            "change",
+            () => readSelectedFile(
+                "metadataFile",
+                "metadataJson"
+            )
+        );
+
+        document.getElementById(
+            "startButton"
+        ).addEventListener(
+            "click",
+            startSession
+        );
+
+        document.getElementById(
+            "submitButton"
+        ).addEventListener(
+            "click",
+            submitAnswer
+        );
+    </script>
+</body>
+</html>

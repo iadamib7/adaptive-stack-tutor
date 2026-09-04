@@ -322,6 +322,19 @@ class HttpStackEvaluationClient(
                 ),
             )
 
+        raw_overall_score = payload.get(
+            "score"
+        )
+
+        overall_score = (
+            float(raw_overall_score)
+            if isinstance(
+                raw_overall_score,
+                (int, float),
+            )
+            else None
+        )
+
         raw_prt_results = payload.get(
             "prtresults",
             {},
@@ -401,23 +414,39 @@ class HttpStackEvaluationClient(
             ):
                 answer_notes = []
 
+            raw_score = raw_result.get(
+                "score"
+            )
+
+            raw_penalty = raw_result.get(
+                "penalty"
+            )
+
+            score = (
+                float(raw_score)
+                if isinstance(
+                    raw_score,
+                    (int, float),
+                )
+                else None
+            )
+
+            penalty = (
+                float(raw_penalty)
+                if isinstance(
+                    raw_penalty,
+                    (int, float),
+                )
+                else None
+            )
+
             prts.append(
                 StackPRTResult(
                     prt_name=str(
                         prt_name
                     ),
-                    score=float(
-                        raw_result.get(
-                            "score",
-                            0.0,
-                        )
-                    ),
-                    penalty=float(
-                        raw_result.get(
-                            "penalty",
-                            0.0,
-                        )
-                    ),
+                    score=score,
+                    penalty=penalty,
                     answer_notes=[
                         str(note)
                         for note
@@ -440,6 +469,7 @@ class HttpStackEvaluationClient(
             question_id=question_id,
             valid=True,
             seed=seed,
+            overall_score=overall_score,
             prts=prts,
             raw_feedback=payload.get(
                 "specificfeedback"

@@ -1,3 +1,15 @@
+from backend.app.learning.adaptive_engine.adaptive_graph_builder import (
+    AdaptiveGraphBuildResult,
+    StackAdaptiveGraphBuilder,
+)
+
+from backend.app.learning.adaptive_engine.bank_profile import (
+    StackBankProfile,
+    StackBankProfiler,
+    StackPRTBranchProfile,
+    StackQuestionProfile,
+)
+
 from backend.app.learning.adaptive_engine.engine import (
     CurriculumIndependentAdaptiveEngine,
 )
@@ -26,6 +38,12 @@ from backend.app.learning.adaptive_engine.stack_evidence import (
 
 
 __all__ = [
+    "AdaptiveGraphBuildResult",
+    "StackBankProfile",
+    "StackBankProfiler",
+    "StackAdaptiveGraphBuilder",
+    "StackPRTBranchProfile",
+    "StackQuestionProfile",
     "AdaptiveDecision",
     "AdaptiveLearnerState",
     "AdaptiveQuestion",
@@ -53,4 +71,12 @@ from backend.app.learning.adaptive_engine.metadata import (
     AdaptiveMetadataLoader,
     AdaptiveMetadataManifest,
     QuestionAdaptiveMetadata,
+)
+
+from backend.app.learning.adaptive_engine.historical_responses import (
+    HistoricalItemStatistics,
+    HistoricalPRTResult,
+    HistoricalQuestionAttempt,
+    HistoricalStackDataset,
+    HistoricalStackResponseImporter,
 )

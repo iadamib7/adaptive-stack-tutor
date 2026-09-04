@@ -15,6 +15,21 @@ class AdaptiveQuestion:
 
     difficulty: float = 0.0
 
+    # Bank-local adaptive structure.
+    #
+    # These are not curriculum standards.
+    # They describe relationships only within
+    # the instructor's uploaded question bank.
+    entry_point: bool = False
+
+    skills: tuple[str, ...] = field(
+        default_factory=tuple
+    )
+
+    prerequisites: tuple[str, ...] = field(
+        default_factory=tuple
+    )
+
     tags: tuple[str, ...] = field(
         default_factory=tuple
     )
@@ -47,7 +62,7 @@ class ResponseEvidence:
     Evidence produced after one learner response.
 
     prt_outcome is intentionally generic. It can
-    later contain a STACK PRT branch or another
+    contain a STACK PRT branch or another
     instructor-defined response classification.
     """
 
@@ -72,6 +87,16 @@ class ResponseEvidence:
 class AdaptiveLearnerState:
     """
     Curriculum-independent learner state.
+
+    The remediation fields support a deterministic
+    remediation -> reassessment cycle.
+
+    Example:
+
+        Q1 incorrect
+        -> support question Q2
+        -> Q2 correct
+        -> reassess Q1
     """
 
     learner_id: int
@@ -96,15 +121,28 @@ class AdaptiveLearnerState:
         default_factory=dict
     )
 
+    mastered_skills: set[str] = field(
+        default_factory=set
+    )
+
     response_history: list[
         ResponseEvidence
     ] = field(
         default_factory=list
     )
 
+    remediation_return_question_id: (
+        str | None
+    ) = None
+
+    remediation_question_id: (
+        str | None
+    ) = None
+
     def record(
         self,
         evidence: ResponseEvidence,
+        question: AdaptiveQuestion | None = None,
     ) -> None:
         self.response_history.append(
             evidence
@@ -140,8 +178,64 @@ class AdaptiveLearnerState:
                 + 1
             )
 
+        if (
+            question is not None
+            and evidence.score >= 1.0
+        ):
+            self.mastered_skills.update(
+                question.skills
+            )
+
         self._update_ability(
             evidence.score
+        )
+
+    def begin_remediation(
+        self,
+        *,
+        return_question_id: str,
+        remediation_question_id: str,
+    ) -> None:
+        self.remediation_return_question_id = (
+            return_question_id
+        )
+
+        self.remediation_question_id = (
+            remediation_question_id
+        )
+
+    def update_remediation_question(
+        self,
+        question_id: str,
+    ) -> None:
+        if (
+            self.remediation_return_question_id
+            is None
+        ):
+            return
+
+        self.remediation_question_id = (
+            question_id
+        )
+
+    def clear_remediation(
+        self,
+    ) -> None:
+        self.remediation_return_question_id = (
+            None
+        )
+
+        self.remediation_question_id = None
+
+    @property
+    def in_remediation(
+        self,
+    ) -> bool:
+        return (
+            self.remediation_return_question_id
+            is not None
+            and self.remediation_question_id
+            is not None
         )
 
     def _update_ability(
@@ -192,3 +286,22 @@ class AdaptiveDecision:
     score: CandidateScore
 
     reason: str
+
+    # start:
+    # first question in a session
+    #
+    # advance:
+    # normal adaptive progression
+    #
+    # remediate:
+    # diagnostic evidence caused a support
+    # question to be selected
+    #
+    # reassess:
+    # learner completed remediation and is
+    # returned to the earlier question
+    decision_type: str = "advance"
+
+    return_target_question_id: (
+        str | None
+    ) = None

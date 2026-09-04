@@ -24,11 +24,45 @@ class DeterministicAdaptiveSelector:
         questions: list[AdaptiveQuestion],
         learner: AdaptiveLearnerState,
     ) -> AdaptiveDecision | None:
-        candidates = [
+        active_questions = [
             question
             for question in questions
             if question.active
         ]
+
+        if not active_questions:
+            return None
+
+        # The first question is selected from explicit
+        # bank-local entry points when they exist.
+        #
+        # This prevents XML storage order from acting
+        # as the learning sequence.
+        if not learner.response_history:
+            entry_points = [
+                question
+                for question in active_questions
+                if question.entry_point
+            ]
+
+            candidates = (
+                entry_points
+                if entry_points
+                else active_questions
+            )
+        else:
+            # After the session begins, a question is
+            # eligible only when its bank-local
+            # prerequisites are mastered.
+            candidates = [
+                question
+                for question in active_questions
+                if set(
+                    question.prerequisites
+                ).issubset(
+                    learner.mastered_skills
+                )
+            ]
 
         if not candidates:
             return None
@@ -161,6 +195,12 @@ class DeterministicAdaptiveSelector:
                 f"{score.difficulty_match:.2f}."
             ),
         ]
+
+        if question.prerequisites:
+            parts.append(
+                "Its bank-local prerequisites "
+                "are currently satisfied."
+            )
 
         if score.diagnostic_match > 0:
             parts.append(

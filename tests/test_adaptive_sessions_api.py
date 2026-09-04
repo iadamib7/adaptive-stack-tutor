@@ -1,8 +1,14 @@
+from types import SimpleNamespace
+
 from fastapi.testclient import (
     TestClient,
 )
 
 from backend.app.main import app
+
+from backend.app.api.adaptive_sessions import (
+    _build_response,
+)
 
 
 client = TestClient(
@@ -87,4 +93,85 @@ def test_app_description_matches_new_direction() -> None:
     assert (
         "curriculum-independent"
         in description
+    )
+
+
+def test_adaptive_response_exposes_routing_fields(
+) -> None:
+    view = SimpleNamespace(
+        learner_id=7,
+        question_id="Q2",
+        title="Sign support",
+        seed=123,
+        html="<p>Support</p>",
+        inputs={},
+        ability=-0.2,
+        decision_reason=(
+            "Diagnostic evidence triggered "
+            "remediation."
+        ),
+        decision_type="remediate",
+        return_target_question_id="Q1",
+        previous_score=0.0,
+        previous_outcome="sign_error",
+    )
+
+    response = _build_response(
+        session_id="session-1",
+        view=view,
+    )
+
+    assert (
+        response.decision_type
+        == "remediate"
+    )
+
+    assert (
+        response.return_target_question_id
+        == "Q1"
+    )
+
+    assert (
+        response.previous_outcome
+        == "sign_error"
+    )
+
+
+def test_adaptive_response_exposes_reassessment(
+) -> None:
+    view = SimpleNamespace(
+        learner_id=7,
+        question_id="Q1",
+        title="Initial equation",
+        seed=456,
+        html="<p>Retry</p>",
+        inputs={},
+        ability=0.0,
+        decision_reason=(
+            "Remediation completed."
+        ),
+        decision_type="reassess",
+        return_target_question_id="Q1",
+        previous_score=1.0,
+        previous_outcome="correct",
+    )
+
+    response = _build_response(
+        session_id="session-2",
+        view=view,
+    )
+
+    assert (
+        response.decision_type
+        == "reassess"
+    )
+
+    assert (
+        response.question_id
+        == "Q1"
+    )
+
+    assert (
+        response.return_target_question_id
+        == "Q1"
     )
