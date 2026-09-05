@@ -241,3 +241,24 @@ resources/raw/
 
 # Generated STACK question artifacts
 resources/generated/kenya/grade9/questions/
+
+# Local development backup snapshots
+*.backup
+*.before_*
+
+# Temporary research/debug exports
+integration_files.txt
+numbas_final_bridge.txt
+numbas_integration_step2.txt
+numbas_live_bridge.txt
+question_selection_flow.txt
+real_learner_flow.txt
+system_files.txt
+
+# Temporary local STACK browser assets
+stackjs.min.js
+stackjsiframe.min.js
+
+# Generated local adaptive resources
+resources/generated/shared/
+resources/question_mining/*_candidates.json
