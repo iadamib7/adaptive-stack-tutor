@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 from dataclasses import dataclass, replace
 from hashlib import sha256
@@ -550,7 +550,7 @@ class StackAdaptiveGraphBuilder:
             & candidate_title
         )
 
-        # Automatic remediation requires at least
+        # Automatic support matching requires at least
         # one meaningful topic term shared by the
         # question titles.
         #
@@ -883,3 +883,4 @@ class StackAdaptiveGraphBuilder:
             )
 
         return result
+

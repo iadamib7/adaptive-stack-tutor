@@ -591,14 +591,65 @@
                     0.01ms !important;
             }
         }
-    </style>
+            .pathway-question {
+            margin-top: 16px;
+            padding: 20px;
+
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+
+            background: var(--surface-soft);
+        }
+
+        .pathway-question h3 {
+            margin-bottom: 4px;
+        }
+
+        .pathway-id {
+            margin-bottom: 14px;
+            font-size: 0.86rem;
+            color: var(--muted);
+            word-break: break-all;
+        }
+
+        .pathway-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(
+                    2,
+                    minmax(0, 1fr)
+                );
+            gap: 14px;
+        }
+
+        .pathway-full {
+            grid-column: 1 / -1;
+        }
+
+        .entry-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-height: 44px;
+        }
+
+        .entry-row input {
+            width: auto;
+        }
+
+        #launchButton {
+            width: 100%;
+            margin-top: 22px;
+        }
+
+</style>
 </head>
 
 <body>
     <h1>Adaptive STACK Tutor</h1>
 
     <p class="muted">
-        Upload a question bank to start an adaptive learning session.
+        Upload a question bank, review its generated adaptive pathway, and launch a learner session.
     </p>
 
     <div
@@ -669,7 +720,40 @@
             id="startButton"
             type="button"
         >
-            Start Adaptive Session
+            Analyze Question Bank
+        </button>
+    </div>
+
+    <div
+        id="pathwayPanel"
+        class="panel hidden"
+    >
+        <h2>
+            3. Review Generated Adaptive Pathway
+        </h2>
+
+        <p class="muted">
+            The system generated this structure
+            from the uploaded question bank.
+            Review or adjust the bank-local
+            relationships before launching the
+            learner session.
+        </p>
+
+        <div
+            id="pathwaySummary"
+            class="meta"
+        ></div>
+
+        <div
+            id="pathwayQuestions"
+        ></div>
+
+        <button
+            id="launchButton"
+            type="button"
+        >
+            Launch Learner Session
         </button>
     </div>
 
@@ -729,6 +813,9 @@
         let learnerId = null;
         let currentInputs = {};
 
+        let pendingBankFile = null;
+        let pendingPathway = null;
+
         const setupPanel =
             document.getElementById(
                 "setupPanel"
@@ -737,6 +824,21 @@
         const sessionPanel =
             document.getElementById(
                 "sessionPanel"
+            );
+
+        const pathwayPanel =
+            document.getElementById(
+                "pathwayPanel"
+            );
+
+        const pathwaySummary =
+            document.getElementById(
+                "pathwaySummary"
+            );
+
+        const pathwayQuestions =
+            document.getElementById(
+                "pathwayQuestions"
             );
 
         const historicalPanel =
@@ -880,7 +982,8 @@
                 && !pastedXml
             ) {
                 showStatus(
-                    "Please upload a question bank or paste STACK XML.",
+                    "Please upload a question bank "
+                    + "or paste STACK XML.",
                     true
                 );
 
@@ -888,72 +991,62 @@
             }
 
             try {
-                let response;
-
                 if (hasBankFile) {
-                    const formData =
-                        new FormData();
-
-                    formData.append(
-                        "learner_id",
-                        String(
-                            learnerId
-                        )
-                    );
-
-                    formData.append(
-                        "question_bank",
-                        fileInput.files[0]
-                    );
-
-                    if (
-                        metadataFileInput.files
-                        && metadataFileInput.files.length > 0
-                    ) {
-                        formData.append(
-                            "metadata_file",
-                            metadataFileInput.files[0]
-                        );
-                    }
-
-                    if (pastedMetadata) {
-                        formData.append(
-                            "metadata_json",
-                            pastedMetadata
-                        );
-                    }
-
-                    response =
-                        await fetch(
-                            "/api/adaptive/uploads/sessions",
-                            {
-                                method: "POST",
-                                body: formData
-                            }
-                        );
+                    pendingBankFile =
+                        fileInput.files[0];
                 }
                 else {
-                    response =
-                        await fetch(
-                            "/api/adaptive/sessions",
+                    pendingBankFile =
+                        new File(
+                            [pastedXml],
+                            "pasted-bank.xml",
                             {
-                                method: "POST",
-                                headers: {
-                                    "Content-Type":
-                                        "application/json"
-                                },
-                                body: JSON.stringify({
-                                    learner_id:
-                                        learnerId,
-                                    question_bank_xml:
-                                        pastedXml,
-                                    metadata_json:
-                                        pastedMetadata
-                                        || null
-                                })
+                                type:
+                                    "application/xml"
                             }
                         );
                 }
+
+                const formData =
+                    new FormData();
+
+                formData.append(
+                    "learner_id",
+                    String(
+                        learnerId
+                    )
+                );
+
+                formData.append(
+                    "question_bank",
+                    pendingBankFile
+                );
+
+                if (
+                    metadataFileInput.files
+                    && metadataFileInput.files.length > 0
+                ) {
+                    formData.append(
+                        "metadata_file",
+                        metadataFileInput.files[0]
+                    );
+                }
+
+                if (pastedMetadata) {
+                    formData.append(
+                        "metadata_json",
+                        pastedMetadata
+                    );
+                }
+
+                const response =
+                    await fetch(
+                        "/api/adaptive/uploads/sessions",
+                        {
+                            method: "POST",
+                            body: formData
+                        }
+                    );
 
                 const payload =
                     await response.json();
@@ -961,7 +1054,7 @@
                 if (!response.ok) {
                     throw new Error(
                         payload.detail
-                        || "Could not start session."
+                        || "Could not analyze question bank."
                     );
                 }
 
@@ -980,8 +1073,312 @@
                     return;
                 }
 
+                if (
+                    !payload.pathway
+                    || !payload.pathway.questions
+                    || !payload.pathway.questions.length
+                ) {
+                    throw new Error(
+                        "No adaptive pathway was generated."
+                    );
+                }
+
+                pendingPathway =
+                    payload.pathway;
+
+                setupPanel.classList.add(
+                    "hidden"
+                );
+
+                historicalPanel.classList.add(
+                    "hidden"
+                );
+
+                sessionPanel.classList.add(
+                    "hidden"
+                );
+
+                pathwayPanel.classList.remove(
+                    "hidden"
+                );
+
+                renderPathway(
+                    pendingPathway
+                );
+
+                showStatus(
+                    "Adaptive pathway generated. "
+                    + "Review it before launching "
+                    + "the learner session."
+                );
+            }
+            catch (error) {
+                showStatus(
+                    error.message,
+                    true
+                );
+            }
+        }
+
+
+        function escapeHtml(value) {
+            return String(value)
+                .replaceAll("&", "&amp;")
+                .replaceAll("<", "&lt;")
+                .replaceAll(">", "&gt;")
+                .replaceAll('"', "&quot;")
+                .replaceAll("'", "&#039;");
+        }
+
+
+        function listToText(values) {
+            if (!values) {
+                return "";
+            }
+
+            return values.join(", ");
+        }
+
+
+        function textToList(value) {
+            return value
+                .split(",")
+                .map(
+                    item => item.trim()
+                )
+                .filter(
+                    item => item.length > 0
+                );
+        }
+
+
+        function renderPathway(pathway) {
+            pathwaySummary.textContent =
+                String(
+                    pathway.question_count
+                )
+                + " questions in the generated "
+                + "bank-local pathway.";
+
+            pathwayQuestions.innerHTML = "";
+
+            pathway.questions.forEach(
+                (
+                    question,
+                    index
+                ) => {
+                    const card =
+                        document.createElement(
+                            "div"
+                        );
+
+                    card.className =
+                        "pathway-question";
+
+                    card.dataset.questionId =
+                        question.question_id;
+
+                    card.innerHTML =
+                        "<h3>"
+                        + escapeHtml(
+                            String(index + 1)
+                            + ". "
+                            + question.title
+                        )
+                        + "</h3>"
+
+                        + '<div class="pathway-id">'
+                        + escapeHtml(
+                            question.question_id
+                        )
+                        + "</div>"
+
+                        + '<div class="pathway-grid">'
+
+                        + "<div>"
+                        + "<label>Difficulty</label>"
+                        + '<input class="path-difficulty" '
+                        + 'type="number" '
+                        + 'step="0.1" value="'
+                        + escapeHtml(
+                            String(
+                                question.difficulty
+                            )
+                        )
+                        + '">'
+                        + "</div>"
+
+                        + "<div>"
+                        + "<label>Entry point</label>"
+                        + '<div class="entry-row">'
+                        + '<input class="path-entry" '
+                        + 'type="checkbox"'
+                        + (
+                            question.entry_point
+                            ? " checked"
+                            : ""
+                        )
+                        + ">"
+                        + "<span>"
+                        + (
+                            question.entry_point
+                            ? "Starts here"
+                            : "Not an entry point"
+                        )
+                        + "</span>"
+                        + "</div>"
+                        + "</div>"
+
+                        + '<div class="pathway-full">'
+                        + "<label>Prerequisites</label>"
+                        + '<input '
+                        + 'class="path-prerequisites" '
+                        + 'type="text" value="'
+                        + escapeHtml(
+                            listToText(
+                                question.prerequisites
+                            )
+                        )
+                        + '">'
+                        + "</div>"
+
+                        + '<div class="pathway-full">'
+                        + "<label>Supports</label>"
+                        + '<input '
+                        + 'class="path-supports" '
+                        + 'type="text" value="'
+                        + escapeHtml(
+                            listToText(
+                                question.supports
+                            )
+                        )
+                        + '">'
+                        + "</div>"
+
+                        + "</div>";
+
+                    pathwayQuestions.appendChild(
+                        card
+                    );
+                }
+            );
+        }
+
+
+        function buildReviewedMetadata() {
+            const questions = {};
+
+            const cards =
+                pathwayQuestions.querySelectorAll(
+                    ".pathway-question"
+                );
+
+            cards.forEach(
+                card => {
+                    const questionId =
+                        card.dataset.questionId;
+
+                    questions[
+                        questionId
+                    ] = {
+                        difficulty:
+                            Number(
+                                card.querySelector(
+                                    ".path-difficulty"
+                                ).value
+                            ),
+
+                        entry_point:
+                            card.querySelector(
+                                ".path-entry"
+                            ).checked,
+
+                        prerequisites:
+                            textToList(
+                                card.querySelector(
+                                    ".path-prerequisites"
+                                ).value
+                            ),
+
+                        supports:
+                            textToList(
+                                card.querySelector(
+                                    ".path-supports"
+                                ).value
+                            )
+                    };
+                }
+            );
+
+            return {
+                questions: questions
+            };
+        }
+
+
+        async function launchReviewedSession() {
+            clearStatus();
+
+            if (!pendingBankFile) {
+                showStatus(
+                    "No analyzed question bank is available.",
+                    true
+                );
+
+                return;
+            }
+
+            try {
+                const reviewedMetadata =
+                    buildReviewedMetadata();
+
+                const formData =
+                    new FormData();
+
+                formData.append(
+                    "learner_id",
+                    String(
+                        learnerId
+                    )
+                );
+
+                formData.append(
+                    "question_bank",
+                    pendingBankFile
+                );
+
+                formData.append(
+                    "metadata_json",
+                    JSON.stringify(
+                        reviewedMetadata
+                    )
+                );
+
+                const response =
+                    await fetch(
+                        "/api/adaptive/uploads/sessions",
+                        {
+                            method: "POST",
+                            body: formData
+                        }
+                    );
+
+                const payload =
+                    await response.json();
+
+                if (!response.ok) {
+                    throw new Error(
+                        payload.detail
+                        || "Could not launch learner session."
+                    );
+                }
+
                 sessionId =
                     payload.session_id;
+
+                pathwayPanel.classList.add(
+                    "hidden"
+                );
 
                 setupPanel.classList.add(
                     "hidden"
@@ -1000,7 +1397,8 @@
                 );
 
                 showStatus(
-                    "Adaptive session started."
+                    "Learner session launched "
+                    + "using the reviewed pathway."
                 );
             }
             catch (error) {
@@ -1258,37 +1656,40 @@
 
             const answers = {};
 
-            const renderedInputs =
-                questionHtml.querySelectorAll(
-                    "input, textarea, select"
+            const expectedInputs =
+                Object.keys(
+                    currentInputs || {}
                 );
 
             for (
-                const input
-                of renderedInputs
+                const answerName
+                of expectedInputs
             ) {
-                let inputName =
-                    input.name
-                    || input.id
-                    || "";
+                const candidates = [
+                    answerName,
+                    "student-" + answerName
+                ];
 
-                if (
-                    inputName.startsWith(
-                        "student-"
-                    )
+                let input = null;
+
+                for (
+                    const candidate
+                    of candidates
                 ) {
-                    inputName =
-                        inputName.substring(
-                            "student-".length
+                    input =
+                        questionHtml.querySelector(
+                            '[name="'
+                            + CSS.escape(candidate)
+                            + '"], #'
+                            + CSS.escape(candidate)
                         );
+
+                    if (input) {
+                        break;
+                    }
                 }
 
-                if (
-                    !inputName
-                    || !inputName.startsWith(
-                        "ans"
-                    )
-                ) {
+                if (!input) {
                     continue;
                 }
 
@@ -1303,8 +1704,63 @@
                 }
 
                 answers[
-                    inputName
+                    answerName
                 ] = input.value;
+            }
+
+            /*
+             * Fallback for STACK renderings where
+             * input metadata is absent or differs
+             * from the rendered element attributes.
+             */
+            if (
+                Object.keys(
+                    answers
+                ).length === 0
+            ) {
+                const renderedInputs =
+                    questionHtml.querySelectorAll(
+                        "input, textarea, select"
+                    );
+
+                for (
+                    const input
+                    of renderedInputs
+                ) {
+                    let inputName =
+                        input.name
+                        || input.id
+                        || "";
+
+                    if (
+                        inputName.startsWith(
+                            "student-"
+                        )
+                    ) {
+                        inputName =
+                            inputName.substring(
+                                "student-".length
+                            );
+                    }
+
+                    if (!inputName) {
+                        continue;
+                    }
+
+                    if (
+                        (
+                            input.type === "checkbox"
+                            || input.type === "radio"
+                        )
+                        && !input.checked
+                    ) {
+                        continue;
+                    }
+
+                    answers[
+                        inputName
+                    ] = input.value;
+                }
             }
 
             if (
@@ -1313,7 +1769,8 @@
                 ).length === 0
             ) {
                 showStatus(
-                    "No answer input was found for this question.",
+                    "No learner answer field "
+                    + "was found for this question.",
                     true
                 );
 
@@ -1370,20 +1827,6 @@
         }
 
 
-        function escapeHtml(
-            value
-        ) {
-            const div =
-                document.createElement(
-                    "div"
-                );
-
-            div.textContent =
-                value || "";
-
-            return div.innerHTML;
-        }
-
         document.getElementById(
             "xmlFile"
         ).addEventListener(
@@ -1409,6 +1852,13 @@
         ).addEventListener(
             "click",
             startSession
+        );
+
+        document.getElementById(
+            "launchButton"
+        ).addEventListener(
+            "click",
+            launchReviewedSession
         );
 
         document.getElementById(

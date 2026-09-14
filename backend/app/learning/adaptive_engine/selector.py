@@ -16,6 +16,13 @@ class DeterministicAdaptiveSelector:
     different learner states can produce different
     next questions, while identical states always
     produce identical decisions.
+
+    Ordinary selection respects bank-local
+    prerequisites and response-evidence mappings.
+
+    If those relationships create a dead end after
+    a response, the selector can fall back to other
+    unseen questions in the same uploaded bank.
     """
 
     def select(
@@ -33,11 +40,6 @@ class DeterministicAdaptiveSelector:
         if not active_questions:
             return None
 
-        # The first question is selected from explicit
-        # bank-local entry points when they exist.
-        #
-        # This prevents XML storage order from acting
-        # as the learning sequence.
         if not learner.response_history:
             entry_points = [
                 question
@@ -50,19 +52,55 @@ class DeterministicAdaptiveSelector:
                 if entry_points
                 else active_questions
             )
+
         else:
-            # After the session begins, a question is
-            # eligible only when its bank-local
-            # prerequisites are mastered.
             candidates = [
                 question
                 for question in active_questions
-                if set(
-                    question.prerequisites
-                ).issubset(
-                    learner.mastered_skills
+                if (
+                    self._prerequisites_satisfied(
+                        question=question,
+                        learner=learner,
+                    )
+                    or self._targets_current_need(
+                        question=question,
+                        learner=learner,
+                    )
                 )
             ]
+
+            previous_question_id = (
+                learner.response_history[-1].question_id
+            )
+
+            alternatives = [
+                question
+                for question in candidates
+                if question.question_id
+                != previous_question_id
+            ]
+
+            if alternatives:
+                candidates = alternatives
+            else:
+                # Dead-end fallback:
+                # if the generated graph exposes only
+                # the question just answered, consider
+                # unseen active questions from the same
+                # uploaded bank.
+                unseen = [
+                    question
+                    for question in active_questions
+                    if (
+                        question.question_id
+                        != previous_question_id
+                        and question.question_id
+                        not in learner.seen_question_ids
+                    )
+                ]
+
+                if unseen:
+                    candidates = unseen
 
         if not candidates:
             return None
@@ -92,6 +130,37 @@ class DeterministicAdaptiveSelector:
                 learner=learner,
                 score=score,
             ),
+        )
+
+    @staticmethod
+    def _prerequisites_satisfied(
+        *,
+        question: AdaptiveQuestion,
+        learner: AdaptiveLearnerState,
+    ) -> bool:
+        return set(
+            question.prerequisites
+        ).issubset(
+            learner.mastered_skills
+        )
+
+    @staticmethod
+    def _targets_current_need(
+        *,
+        question: AdaptiveQuestion,
+        learner: AdaptiveLearnerState,
+    ) -> bool:
+        if not learner.misconception_counts:
+            return False
+
+        targets = (
+            set(question.supports)
+            | set(question.tags)
+        )
+
+        return any(
+            need in targets
+            for need in learner.misconception_counts
         )
 
     def _score(
@@ -154,13 +223,8 @@ class DeterministicAdaptiveSelector:
         return (
             question,
             CandidateScore(
-                question_id=(
-                    question.question_id
-                ),
-                total=round(
-                    total,
-                    6,
-                ),
+                question_id=question.question_id,
+                total=round(total, 6),
                 difficulty_match=round(
                     difficulty_match,
                     6,
@@ -169,9 +233,7 @@ class DeterministicAdaptiveSelector:
                     diagnostic_match,
                     6,
                 ),
-                novelty_bonus=(
-                    novelty_bonus
-                ),
+                novelty_bonus=novelty_bonus,
                 repetition_penalty=(
                     repetition_penalty
                 ),
@@ -197,15 +259,26 @@ class DeterministicAdaptiveSelector:
         ]
 
         if question.prerequisites:
-            parts.append(
-                "Its bank-local prerequisites "
-                "are currently satisfied."
-            )
+            if set(
+                question.prerequisites
+            ).issubset(
+                learner.mastered_skills
+            ):
+                parts.append(
+                    "Its bank-local prerequisites "
+                    "are currently satisfied."
+                )
+            elif score.diagnostic_match > 0:
+                parts.append(
+                    "It is eligible because it "
+                    "targets current response "
+                    "evidence."
+                )
 
         if score.diagnostic_match > 0:
             parts.append(
-                "The question also targets "
-                "previous response evidence."
+                "The question targets previous "
+                "response evidence."
             )
 
         if (

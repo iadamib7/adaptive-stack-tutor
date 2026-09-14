@@ -1,4 +1,4 @@
-﻿from backend.app.learning.adaptive_pathway.adapter import (
+from backend.app.learning.adaptive_pathway.adapter import (
     AdaptivePathwayDecisionAdapter,
 )
 from backend.app.learning.adaptive_pathway.policy import (
@@ -253,6 +253,18 @@ class AdaptiveLearningSessionEngine:
         seen_content_ids: set[str],
         mastered_concept_ids: set[str],
     ) -> ConceptLearningDecision:
+        # Once the active curriculum concept is mastered,
+        # its curriculum mapping determines whether the
+        # learner advances or completes the concept.
+        # The shared adaptive pathway must not invent a
+        # cross-concept extension that conflicts with
+        # that explicit mapping.
+        if summary.concept_mastered:
+            return self.decision_engine.decide(
+                student_id=student_id,
+                concept_id=concept_id,
+            )
+
         if (
             self.pathway_policy is not None
             and self.pathway_adapter is not None

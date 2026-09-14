@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import json
 from dataclasses import dataclass, replace
@@ -14,20 +14,24 @@ class QuestionAdaptiveMetadata:
     """
     Optional instructor-provided adaptive metadata.
 
-    This is question-bank metadata, not curriculum
-    information.
+    Fields left unspecified preserve the adaptive
+    structure generated automatically from the
+    uploaded question bank.
     """
 
     difficulty: float | None = None
 
-    entry_point: bool = False
+    entry_point: bool | None = None
 
-    skills: tuple[str, ...] = ()
-    prerequisites: tuple[str, ...] = ()
+    skills: tuple[str, ...] | None = None
 
-    tags: tuple[str, ...] = ()
-    supports: tuple[str, ...] = ()
-    diagnoses: tuple[str, ...] = ()
+    prerequisites: tuple[str, ...] | None = None
+
+    tags: tuple[str, ...] | None = None
+
+    supports: tuple[str, ...] | None = None
+
+    diagnoses: tuple[str, ...] | None = None
 
     prt_outcomes: tuple[
         tuple[str, str],
@@ -224,14 +228,40 @@ class AdaptiveMetadataLoader:
                 difficulty=difficulty,
                 entry_point=(
                     metadata.entry_point
+                    if metadata.entry_point
+                    is not None
+                    else question.entry_point
                 ),
-                skills=metadata.skills,
+                skills=(
+                    metadata.skills
+                    if metadata.skills
+                    is not None
+                    else question.skills
+                ),
                 prerequisites=(
                     metadata.prerequisites
+                    if metadata.prerequisites
+                    is not None
+                    else question.prerequisites
                 ),
-                tags=metadata.tags,
-                supports=metadata.supports,
-                diagnoses=metadata.diagnoses,
+                tags=(
+                    metadata.tags
+                    if metadata.tags
+                    is not None
+                    else question.tags
+                ),
+                supports=(
+                    metadata.supports
+                    if metadata.supports
+                    is not None
+                    else question.supports
+                ),
+                diagnoses=(
+                    metadata.diagnoses
+                    if metadata.diagnoses
+                    is not None
+                    else question.diagnoses
+                ),
             )
 
             updated.append(
@@ -298,13 +328,15 @@ class AdaptiveMetadataLoader:
             )
 
         entry_point = payload.get(
-            "entry_point",
-            False,
+            "entry_point"
         )
 
-        if not isinstance(
-            entry_point,
-            bool,
+        if (
+            entry_point is not None
+            and not isinstance(
+                entry_point,
+                bool,
+            )
         ):
             raise ValueError(
                 "entry_point for "
@@ -314,10 +346,9 @@ class AdaptiveMetadataLoader:
 
         skills = (
             AdaptiveMetadataLoader
-            ._string_tuple(
+            ._optional_string_tuple(
                 payload.get(
-                    "skills",
-                    [],
+                    "skills"
                 ),
                 field_name="skills",
                 question_id=question_id,
@@ -326,10 +357,9 @@ class AdaptiveMetadataLoader:
 
         prerequisites = (
             AdaptiveMetadataLoader
-            ._string_tuple(
+            ._optional_string_tuple(
                 payload.get(
-                    "prerequisites",
-                    [],
+                    "prerequisites"
                 ),
                 field_name="prerequisites",
                 question_id=question_id,
@@ -338,10 +368,9 @@ class AdaptiveMetadataLoader:
 
         tags = (
             AdaptiveMetadataLoader
-            ._string_tuple(
+            ._optional_string_tuple(
                 payload.get(
-                    "tags",
-                    [],
+                    "tags"
                 ),
                 field_name="tags",
                 question_id=question_id,
@@ -350,10 +379,9 @@ class AdaptiveMetadataLoader:
 
         supports = (
             AdaptiveMetadataLoader
-            ._string_tuple(
+            ._optional_string_tuple(
                 payload.get(
-                    "supports",
-                    [],
+                    "supports"
                 ),
                 field_name="supports",
                 question_id=question_id,
@@ -362,10 +390,9 @@ class AdaptiveMetadataLoader:
 
         diagnoses = (
             AdaptiveMetadataLoader
-            ._string_tuple(
+            ._optional_string_tuple(
                 payload.get(
-                    "diagnoses",
-                    [],
+                    "diagnoses"
                 ),
                 field_name="diagnoses",
                 question_id=question_id,
@@ -435,6 +462,25 @@ class AdaptiveMetadataLoader:
                     prt_outcomes
                 )
             ),
+        )
+
+    @staticmethod
+    def _optional_string_tuple(
+        value: object,
+        *,
+        field_name: str,
+        question_id: str,
+    ) -> tuple[str, ...] | None:
+        if value is None:
+            return None
+
+        return (
+            AdaptiveMetadataLoader
+            ._string_tuple(
+                value,
+                field_name=field_name,
+                question_id=question_id,
+            )
         )
 
     @staticmethod

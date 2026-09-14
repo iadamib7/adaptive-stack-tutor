@@ -61,8 +61,8 @@ def test_demo_hides_internal_adaptive_trace(
     body = response.text
 
     assert (
-        "Adaptive Path"
-        not in body
+        "Generated Adaptive Pathway"
+        in body
     )
 
     assert (

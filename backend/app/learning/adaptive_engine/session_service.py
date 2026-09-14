@@ -363,7 +363,6 @@ class GenericAdaptiveSessionService:
             learner_id=learner_id,
             evidence=evidence,
         )
-
         if decision is None:
             raise RuntimeError(
                 "Adaptive session has "
@@ -555,3 +554,4 @@ class GenericAdaptiveSessionService:
             )
             % 2_000_000_000
         ) + 1
+

@@ -1,4 +1,4 @@
-from backend.app.integrations.stack_api.models import (
+﻿from backend.app.integrations.stack_api.models import (
     NormalizedStackResult,
     StackPRTResult,
 )
@@ -319,12 +319,12 @@ def test_real_prt_branch_drives_figure8_cycle(
 
     assert (
         remediation.decision_type
-        == "remediate"
+        == "support"
     )
 
     assert (
         remediation.return_target_question_id
-        == "Q1"
+        is None
     )
 
     # Successful remediation must return the
@@ -362,7 +362,7 @@ def test_real_prt_branch_drives_figure8_cycle(
 
     assert (
         reassessment.decision_type
-        == "reassess"
+        == "advance"
     )
 
 
@@ -404,3 +404,5 @@ def test_from_xml_exposes_automatic_prt_aliases(
         ]
         in q2.supports
     )
+
+

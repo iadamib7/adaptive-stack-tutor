@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 from dataclasses import dataclass, field
 
@@ -305,3 +305,4 @@ class AdaptiveDecision:
     return_target_question_id: (
         str | None
     ) = None
+

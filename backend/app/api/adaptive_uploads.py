@@ -249,6 +249,95 @@ def _build_service(
     )
 
 
+def _pathway_snapshot(
+    service: GenericAdaptiveSessionService,
+) -> dict[str, object]:
+    """
+    Return the instructor-visible adaptive structure
+    generated from the uploaded question bank.
+
+    All relationships are local to this question bank.
+    No curriculum document or external concept graph
+    is required.
+    """
+
+    questions = []
+
+    question_bank = getattr(
+        service,
+        "question_bank",
+        None,
+    )
+
+    # Some lightweight test doubles expose only
+    # start(). Real adaptive services always expose
+    # their generated question bank.
+    if question_bank is None:
+        return {
+            "question_count": 0,
+            "questions": [],
+        }
+
+    for question in (
+        question_bank
+        .adaptive_questions()
+    ):
+        questions.append(
+            {
+                "question_id":
+                    question.question_id,
+                "title":
+                    question.title,
+                "difficulty":
+                    question.difficulty,
+                "entry_point":
+                    question.entry_point,
+                "prerequisites":
+                    list(
+                        question.prerequisites
+                    ),
+                "supports":
+                    list(
+                        question.supports
+                    ),
+                "tags":
+                    list(
+                        question.tags
+                    ),
+                "diagnoses":
+                    list(
+                        question.diagnoses
+                    ),
+                "active":
+                    question.active,
+            }
+        )
+
+    questions.sort(
+        key=lambda item: (
+            not bool(
+                item["entry_point"]
+            ),
+            float(
+                item["difficulty"]
+            ),
+            str(
+                item["title"]
+            ).casefold(),
+            str(
+                item["question_id"]
+            ),
+        )
+    )
+
+    return {
+        "question_count":
+            len(questions),
+        "questions":
+            questions,
+    }
+
+
 def _historical_summary(
     *,
     filename: str,
@@ -556,6 +645,12 @@ async def create_uploaded_adaptive_session(
     payload[
         "kind"
     ] = "adaptive_session"
+
+    payload[
+        "pathway"
+    ] = _pathway_snapshot(
+        service
+    )
 
     return payload
 

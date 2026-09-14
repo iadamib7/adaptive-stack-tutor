@@ -1,4 +1,4 @@
-from backend.app.learning.adaptive_engine.engine import (
+﻿from backend.app.learning.adaptive_engine.engine import (
     CurriculumIndependentAdaptiveEngine,
 )
 
@@ -202,12 +202,12 @@ def test_diagnostic_error_branches_to_support(
 
     assert (
         decision.decision_type
-        == "remediate"
+        == "support"
     )
 
     assert (
         decision.return_target_question_id
-        == "Q1"
+        is None
     )
 
 
@@ -272,7 +272,7 @@ def test_two_learners_take_different_paths_from_same_q1(
     )
 
 
-def test_successful_support_returns_to_entry_question(
+def test_support_completion_returns_to_general_selection(
 ) -> None:
     engine = (
         CurriculumIndependentAdaptiveEngine(
@@ -311,5 +311,7 @@ def test_successful_support_returns_to_entry_question(
 
     assert (
         decision.decision_type
-        == "reassess"
+        == "advance"
     )
+
+
