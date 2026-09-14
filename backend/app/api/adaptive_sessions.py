@@ -86,6 +86,12 @@ _sessions: dict[
 ] = {}
 
 
+_session_views: dict[
+    str,
+    AdaptiveQuestionResponse,
+] = {}
+
+
 def _build_response(
     *,
     session_id: str,
@@ -126,6 +132,14 @@ def _build_response(
     )
 
 
+def _store_view(
+    response: AdaptiveQuestionResponse,
+) -> None:
+    _session_views[
+        response.session_id
+    ] = response
+
+
 @router.post(
     "/sessions",
     response_model=(
@@ -136,12 +150,6 @@ def create_adaptive_session(
     request:
         CreateAdaptiveSessionRequest,
 ) -> AdaptiveQuestionResponse:
-    """
-    Create a curriculum-independent adaptive
-    session directly from instructor-authored
-    STACK/Moodle XML.
-    """
-
     try:
         service = (
             GenericAdaptiveSessionService
@@ -183,10 +191,41 @@ def create_adaptive_session(
         session_id
     ] = service
 
-    return _build_response(
+    response = _build_response(
         session_id=session_id,
         view=view,
     )
+
+    _store_view(
+        response
+    )
+
+    return response
+
+
+@router.get(
+    "/sessions/{session_id}",
+    response_model=(
+        AdaptiveQuestionResponse
+    ),
+)
+def get_adaptive_session(
+    session_id: str,
+) -> AdaptiveQuestionResponse:
+    response = _session_views.get(
+        session_id
+    )
+
+    if response is None:
+        raise HTTPException(
+            status_code=404,
+            detail=(
+                "Adaptive session "
+                "not found."
+            ),
+        )
+
+    return response
 
 
 @router.post(
@@ -229,10 +268,16 @@ def submit_adaptive_answer(
             detail=str(error),
         ) from error
 
-    return _build_response(
+    response = _build_response(
         session_id=session_id,
         view=view,
     )
+
+    _store_view(
+        response
+    )
+
+    return response
 
 
 @router.get(

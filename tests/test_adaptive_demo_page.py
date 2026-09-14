@@ -1,6 +1,4 @@
-from fastapi.testclient import (
-    TestClient,
-)
+from fastapi.testclient import TestClient
 
 from backend.app.main import app
 
@@ -10,50 +8,26 @@ client = TestClient(
 )
 
 
-def test_adaptive_demo_page_loads() -> None:
+def test_adaptive_demo_redirects_to_instructor() -> None:
     response = client.get(
-        "/adaptive-demo"
+        "/adaptive-demo",
+        follow_redirects=False,
     )
 
-    assert response.status_code == 200
+    assert response.status_code in {
+        302,
+        307,
+    }
 
     assert (
-        "Adaptive STACK Tutor"
-        in response.text
+        response.headers["location"]
+        == "/instructor"
     )
 
 
-def test_demo_uses_new_adaptive_api() -> None:
+def test_instructor_page_loads() -> None:
     response = client.get(
-        "/adaptive-demo"
-    )
-
-    assert (
-        "/api/adaptive/sessions"
-        in response.text
-    )
-
-
-def test_demo_accepts_xml_and_metadata() -> None:
-    response = client.get(
-        "/adaptive-demo"
-    )
-
-    assert (
-        'id="xmlFile"'
-        in response.text
-    )
-
-    assert (
-        'id="metadataFile"'
-        in response.text
-    )
-
-
-def test_demo_hides_internal_adaptive_trace(
-) -> None:
-    response = client.get(
-        "/adaptive-demo"
+        "/instructor"
     )
 
     assert response.status_code == 200
@@ -61,38 +35,207 @@ def test_demo_hides_internal_adaptive_trace(
     body = response.text
 
     assert (
-        "Generated Adaptive Pathway"
+        "Adaptive STACK Tutor"
         in body
     )
 
     assert (
-        'id="adaptivePath"'
-        not in body
+        "Instructor workspace"
+        in body
+    )
+
+
+def test_instructor_has_upload_controls() -> None:
+    response = client.get(
+        "/instructor"
+    )
+
+    body = response.text
+
+    assert (
+        'id="questionBank"'
+        in body
     )
 
     assert (
-        "adaptivePathEntries"
-        not in body
+        'id="metadataFile"'
+        in body
     )
 
     assert (
-        "recordAdaptivePath"
-        not in body
+        "Analyze Question Bank"
+        in body
+    )
+
+
+def test_instructor_has_pathway_controls() -> None:
+    response = client.get(
+        "/instructor"
+    )
+
+    body = response.text
+
+    assert (
+        "Review Adaptive Pathway"
+        in body
     )
 
     assert (
-        "renderAdaptivePath"
-        not in body
+        "Difficulty"
+        in body
+    )
+
+    assert (
+        "Entry point"
+        in body
+    )
+
+    assert (
+        "Prerequisites"
+        in body
+    )
+
+    assert (
+        "Supports"
+        in body
+    )
+
+    assert (
+        "Publish Learner Session"
+        in body
     )
 
 
-def test_demo_hides_internal_routing_fields(
+def test_instructor_does_not_render_learner_answer_ui(
 ) -> None:
     response = client.get(
-        "/adaptive-demo"
+        "/instructor"
+    )
+
+    body = response.text
+
+    assert (
+        'id="questionHtml"'
+        not in body
+    )
+
+    assert (
+        'id="submitButton"'
+        not in body
+    )
+
+    assert (
+        "/answers"
+        not in body
+    )
+
+
+def test_student_page_loads() -> None:
+    response = client.get(
+        "/student/example-session"
     )
 
     assert response.status_code == 200
+
+    body = response.text
+
+    assert (
+        "Adaptive STACK Tutor"
+        in body
+    )
+
+    assert (
+        "Learner session"
+        in body
+    )
+
+
+def test_student_has_answer_interface() -> None:
+    response = client.get(
+        "/student/example-session"
+    )
+
+    body = response.text
+
+    assert (
+        'id="questionTitle"'
+        in body
+    )
+
+    assert (
+        'id="questionHtml"'
+        in body
+    )
+
+    assert (
+        'id="submitButton"'
+        in body
+    )
+
+    assert (
+        "Submit Answer"
+        in body
+    )
+
+    assert (
+        "/api/adaptive/sessions/"
+        in body
+    )
+
+    assert (
+        "/answers"
+        in body
+    )
+
+
+def test_student_does_not_show_instructor_controls(
+) -> None:
+    response = client.get(
+        "/student/example-session"
+    )
+
+    body = response.text
+
+    assert (
+        'id="questionBank"'
+        not in body
+    )
+
+    assert (
+        'id="metadataFile"'
+        not in body
+    )
+
+    assert (
+        "Analyze Question Bank"
+        not in body
+    )
+
+    assert (
+        "Review Adaptive Pathway"
+        not in body
+    )
+
+    assert (
+        "Publish Learner Session"
+        not in body
+    )
+
+    assert (
+        "Prerequisites"
+        not in body
+    )
+
+    assert (
+        "Supports"
+        not in body
+    )
+    
+
+def test_student_hides_internal_routing_fields() -> None:
+    response = client.get(
+        "/student/example-session"
+    )
 
     body = response.text
 
@@ -106,44 +249,35 @@ def test_demo_hides_internal_routing_fields(
         not in body
     )
 
-    # decision_type is still used internally by the
-    # learner page to choose a normal learner-facing
-    # message. The raw value itself is not displayed.
     assert (
-        "payload.decision_type"
-        in body
+        "decision_reason"
+        not in body
+    )
+
+    assert (
+        "candidate_score"
+        not in body
     )
 
 
-def test_demo_keeps_learner_adaptive_messages(
-) -> None:
+def test_student_keeps_learner_facing_feedback() -> None:
     response = client.get(
-        "/adaptive-demo"
+        "/student/example-session"
     )
 
     body = response.text
 
     assert (
-        '"remediate"'
-        in body
-    )
-
-    assert (
-        '"reassess"'
-        in body
-    )
-
-    assert (
-        "Here is a support question"
-        in body
-    )
-
-    assert (
-        "Good progress. Now try the "
-        in body
-    )
-
-    assert (
         "Correct. Here is your next question."
+        in body
+    )
+
+    assert (
+        "Partially correct."
+        in body
+    )
+
+    assert (
+        "Your response was recorded."
         in body
     )

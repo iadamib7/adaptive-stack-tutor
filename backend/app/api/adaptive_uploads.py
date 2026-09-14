@@ -16,6 +16,7 @@ from fastapi import (
 from backend.app.api.adaptive_sessions import (
     _build_response,
     _sessions,
+    _store_view,
 )
 
 from backend.app.integrations.stack_api.http_client import (
@@ -638,6 +639,10 @@ async def create_uploaded_adaptive_session(
     response = _build_response(
         session_id=session_id,
         view=view,
+    )
+
+    _store_view(
+        response
     )
 
     payload = response.model_dump()

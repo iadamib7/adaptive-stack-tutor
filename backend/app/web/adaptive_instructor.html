@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+    <title>Adaptive STACK Tutor - Instructor</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 32px;
+            line-height: 1.5;
+            background: #f7f8fa;
+            color: #1f2937;
+        }
+
+        h1 {
+            margin-bottom: 6px;
+        }
+
+        .subtitle {
+            color: #586174;
+            margin-bottom: 28px;
+        }
+
+        .panel {
+            background: white;
+            border: 1px solid #d9dde5;
+            border-radius: 10px;
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        input,
+        textarea,
+        button {
+            font: inherit;
+        }
+
+        input[type="file"],
+        input[type="text"],
+        input[type="number"],
+        textarea {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 10px;
+            margin-bottom: 16px;
+        }
+
+        button {
+            padding: 11px 18px;
+            cursor: pointer;
+            border: 0;
+            border-radius: 6px;
+            background: #1f5fbf;
+            color: white;
+            font-weight: 600;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .question-card {
+            border: 1px solid #d9dde5;
+            border-radius: 8px;
+            padding: 18px;
+            margin: 14px 0;
+        }
+
+        .question-id {
+            color: #6b7280;
+            font-size: 12px;
+            margin-bottom: 12px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(220px, 1fr)
+                );
+            gap: 14px;
+        }
+
+        .full {
+            grid-column: 1 / -1;
+        }
+
+        .status {
+            margin-top: 16px;
+            font-weight: 600;
+        }
+
+        .error {
+            color: #b42318;
+        }
+
+        .success-box {
+            padding: 18px;
+            border: 1px solid #9dc6a7;
+            border-radius: 8px;
+            background: #f2fbf4;
+        }
+
+        .learner-link {
+            word-break: break-all;
+            font-family: monospace;
+            margin: 12px 0;
+        }
+
+        .entry-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .entry-row input {
+            width: auto;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Adaptive STACK Tutor</h1>
+
+    <div class="subtitle">
+        Instructor workspace
+    </div>
+
+    <section
+        id="uploadPanel"
+        class="panel"
+    >
+        <h2>1. Upload Question Bank</h2>
+
+        <p>
+            Upload the instructor-authored question bank.
+            The generated pathway remains visible only
+            in this instructor workspace.
+        </p>
+
+        <label for="questionBank">
+            Question bank
+        </label>
+
+        <input
+            id="questionBank"
+            type="file"
+            accept=".xml,.xlsx,.xlsm,.csv,.docx,.pdf"
+        >
+
+        <label for="metadataFile">
+            Optional adaptive metadata JSON
+        </label>
+
+        <input
+            id="metadataFile"
+            type="file"
+            accept=".json"
+        >
+
+        <button id="analyzeButton">
+            Analyze Question Bank
+        </button>
+    </section>
+
+    <section
+        id="pathwayPanel"
+        class="panel hidden"
+    >
+        <h2>2. Review Adaptive Pathway</h2>
+
+        <p id="pathwaySummary"></p>
+
+        <div id="pathwayQuestions"></div>
+
+        <button id="publishButton">
+            Publish Learner Session
+        </button>
+    </section>
+
+    <section
+        id="publishedPanel"
+        class="panel hidden"
+    >
+        <h2>3. Learner Session Published</h2>
+
+        <div class="success-box">
+            <p>
+                The learner interface is separate from
+                this instructor workspace.
+            </p>
+
+            <strong>Learner URL</strong>
+
+            <div
+                id="learnerLink"
+                class="learner-link"
+            ></div>
+
+            <button id="copyLinkButton">
+                Copy Learner Link
+            </button>
+        </div>
+    </section>
+
+    <div
+        id="status"
+        class="status"
+    ></div>
+
+    <script>
+        let pendingBankFile = null;
+        let pendingMetadataText = null;
+        let pathway = null;
+
+        const learnerId =
+            Math.floor(
+                Math.random() * 1000000
+            ) + 1;
+
+        const uploadPanel =
+            document.getElementById(
+                "uploadPanel"
+            );
+
+        const pathwayPanel =
+            document.getElementById(
+                "pathwayPanel"
+            );
+
+        const publishedPanel =
+            document.getElementById(
+                "publishedPanel"
+            );
+
+        const pathwayQuestions =
+            document.getElementById(
+                "pathwayQuestions"
+            );
+
+        const pathwaySummary =
+            document.getElementById(
+                "pathwaySummary"
+            );
+
+        const status =
+            document.getElementById(
+                "status"
+            );
+
+        const learnerLink =
+            document.getElementById(
+                "learnerLink"
+            );
+
+
+        function showStatus(
+            message,
+            error = false
+        ) {
+            status.textContent = message;
+
+            status.className =
+                error
+                ? "status error"
+                : "status";
+        }
+
+
+        function clearStatus() {
+            status.textContent = "";
+            status.className = "status";
+        }
+
+
+        function escapeHtml(value) {
+            return String(value)
+                .replaceAll("&", "&amp;")
+                .replaceAll("<", "&lt;")
+                .replaceAll(">", "&gt;")
+                .replaceAll('"', "&quot;")
+                .replaceAll("'", "&#039;");
+        }
+
+
+        function listToText(values) {
+            return Array.isArray(values)
+                ? values.join(", ")
+                : "";
+        }
+
+
+        function textToList(value) {
+            return value
+                .split(",")
+                .map(
+                    item => item.trim()
+                )
+                .filter(
+                    item => item.length > 0
+                );
+        }
+
+
+        async function readMetadataFile() {
+            const input =
+                document.getElementById(
+                    "metadataFile"
+                );
+
+            if (
+                !input.files
+                || !input.files.length
+            ) {
+                return null;
+            }
+
+            return await input.files[0].text();
+        }
+
+
+        async function analyzeBank() {
+            clearStatus();
+
+            const fileInput =
+                document.getElementById(
+                    "questionBank"
+                );
+
+            if (
+                !fileInput.files
+                || !fileInput.files.length
+            ) {
+                showStatus(
+                    "Select a question bank first.",
+                    true
+                );
+
+                return;
+            }
+
+            pendingBankFile =
+                fileInput.files[0];
+
+            pendingMetadataText =
+                await readMetadataFile();
+
+            const formData =
+                new FormData();
+
+            formData.append(
+                "learner_id",
+                String(learnerId)
+            );
+
+            formData.append(
+                "question_bank",
+                pendingBankFile
+            );
+
+            if (pendingMetadataText) {
+                formData.append(
+                    "metadata_json",
+                    pendingMetadataText
+                );
+            }
+
+            try {
+                const response =
+                    await fetch(
+                        "/api/adaptive/uploads/sessions",
+                        {
+                            method: "POST",
+                            body: formData
+                        }
+                    );
+
+                const payload =
+                    await response.json();
+
+                if (!response.ok) {
+                    throw new Error(
+                        payload.detail
+                        || "Could not analyze question bank."
+                    );
+                }
+
+                if (
+                    !payload.pathway
+                    || !payload.pathway.questions
+                    || !payload.pathway.questions.length
+                ) {
+                    throw new Error(
+                        "No adaptive pathway was generated."
+                    );
+                }
+
+                pathway =
+                    payload.pathway;
+
+                renderPathway(
+                    pathway
+                );
+
+                pathwayPanel.classList.remove(
+                    "hidden"
+                );
+
+                publishedPanel.classList.add(
+                    "hidden"
+                );
+
+                showStatus(
+                    "Adaptive pathway generated. "
+                    + "Review it before publishing."
+                );
+            }
+            catch (error) {
+                showStatus(
+                    error.message,
+                    true
+                );
+            }
+        }
+
+
+        function renderPathway(
+            adaptivePathway
+        ) {
+            pathwaySummary.textContent =
+                String(
+                    adaptivePathway.question_count
+                )
+                + " questions in the generated "
+                + "bank-local pathway.";
+
+            pathwayQuestions.innerHTML = "";
+
+            adaptivePathway.questions.forEach(
+                (question, index) => {
+                    const card =
+                        document.createElement(
+                            "div"
+                        );
+
+                    card.className =
+                        "question-card";
+
+                    card.dataset.questionId =
+                        question.question_id;
+
+                    card.innerHTML =
+                        "<h3>"
+                        + escapeHtml(
+                            String(index + 1)
+                            + ". "
+                            + question.title
+                        )
+                        + "</h3>"
+
+                        + '<div class="question-id">'
+                        + escapeHtml(
+                            question.question_id
+                        )
+                        + "</div>"
+
+                        + '<div class="grid">'
+
+                        + "<div>"
+                        + "<label>Difficulty</label>"
+                        + '<input '
+                        + 'class="difficulty" '
+                        + 'type="number" '
+                        + 'step="0.1" value="'
+                        + escapeHtml(
+                            question.difficulty
+                        )
+                        + '">'
+                        + "</div>"
+
+                        + "<div>"
+                        + "<label>Entry point</label>"
+                        + '<div class="entry-row">'
+                        + '<input '
+                        + 'class="entry-point" '
+                        + 'type="checkbox"'
+                        + (
+                            question.entry_point
+                            ? " checked"
+                            : ""
+                        )
+                        + ">"
+                        + "<span>"
+                        + (
+                            question.entry_point
+                            ? "Starts here"
+                            : "Not an entry point"
+                        )
+                        + "</span>"
+                        + "</div>"
+                        + "</div>"
+
+                        + '<div class="full">'
+                        + "<label>Prerequisites</label>"
+                        + '<input '
+                        + 'class="prerequisites" '
+                        + 'type="text" value="'
+                        + escapeHtml(
+                            listToText(
+                                question.prerequisites
+                            )
+                        )
+                        + '">'
+                        + "</div>"
+
+                        + '<div class="full">'
+                        + "<label>Supports</label>"
+                        + '<input '
+                        + 'class="supports" '
+                        + 'type="text" value="'
+                        + escapeHtml(
+                            listToText(
+                                question.supports
+                            )
+                        )
+                        + '">'
+                        + "</div>"
+
+                        + "</div>";
+
+                    pathwayQuestions.appendChild(
+                        card
+                    );
+                }
+            );
+        }
+
+
+        function buildReviewedMetadata() {
+            const questions = {};
+
+            const cards =
+                pathwayQuestions.querySelectorAll(
+                    ".question-card"
+                );
+
+            cards.forEach(
+                card => {
+                    const questionId =
+                        card.dataset.questionId;
+
+                    questions[
+                        questionId
+                    ] = {
+                        difficulty:
+                            Number(
+                                card.querySelector(
+                                    ".difficulty"
+                                ).value
+                            ),
+
+                        entry_point:
+                            card.querySelector(
+                                ".entry-point"
+                            ).checked,
+
+                        prerequisites:
+                            textToList(
+                                card.querySelector(
+                                    ".prerequisites"
+                                ).value
+                            ),
+
+                        supports:
+                            textToList(
+                                card.querySelector(
+                                    ".supports"
+                                ).value
+                            )
+                    };
+                }
+            );
+
+            return {
+                questions: questions
+            };
+        }
+
+
+        async function publishSession() {
+            clearStatus();
+
+            if (!pendingBankFile) {
+                showStatus(
+                    "Analyze a question bank first.",
+                    true
+                );
+
+                return;
+            }
+
+            const reviewedMetadata =
+                buildReviewedMetadata();
+
+            const formData =
+                new FormData();
+
+            formData.append(
+                "learner_id",
+                String(learnerId)
+            );
+
+            formData.append(
+                "question_bank",
+                pendingBankFile
+            );
+
+            formData.append(
+                "metadata_json",
+                JSON.stringify(
+                    reviewedMetadata
+                )
+            );
+
+            try {
+                const response =
+                    await fetch(
+                        "/api/adaptive/uploads/sessions",
+                        {
+                            method: "POST",
+                            body: formData
+                        }
+                    );
+
+                const payload =
+                    await response.json();
+
+                if (!response.ok) {
+                    throw new Error(
+                        payload.detail
+                        || "Could not publish session."
+                    );
+                }
+
+                const url =
+                    window.location.origin
+                    + "/student/"
+                    + encodeURIComponent(
+                        payload.session_id
+                    );
+
+                learnerLink.textContent =
+                    url;
+
+                pathwayPanel.classList.add(
+                    "hidden"
+                );
+
+                uploadPanel.classList.add(
+                    "hidden"
+                );
+
+                publishedPanel.classList.remove(
+                    "hidden"
+                );
+
+                showStatus(
+                    "Learner session published."
+                );
+            }
+            catch (error) {
+                showStatus(
+                    error.message,
+                    true
+                );
+            }
+        }
+
+
+        async function copyLearnerLink() {
+            const value =
+                learnerLink.textContent;
+
+            if (!value) {
+                return;
+            }
+
+            await navigator.clipboard.writeText(
+                value
+            );
+
+            showStatus(
+                "Learner link copied."
+            );
+        }
+
+
+        document.getElementById(
+            "analyzeButton"
+        ).addEventListener(
+            "click",
+            analyzeBank
+        );
+
+        document.getElementById(
+            "publishButton"
+        ).addEventListener(
+            "click",
+            publishSession
+        );
+
+        document.getElementById(
+            "copyLinkButton"
+        ).addEventListener(
+            "click",
+            copyLearnerLink
+        );
+    </script>
+</body>
+</html>
