@@ -1,0 +1,14 @@
+student,learner_id,step,question_id,score,prt_outcome,next_question_id,next_title,decision_type
+A,573414,1,stack-688a9ac66966c29f,1.0,prt1:prt1-1-T,stack-1e6fc87a878b69f5,Give example proving not function,advance
+A,573414,2,stack-1e6fc87a878b69f5,1.0,prt1:prt1-1-T|prt1-2-T|prt1-3-T,stack-b635827bd78031b6,Relations Cartesian Products,advance
+A,573414,3,stack-b635827bd78031b6,1.0,prt2:prt2-1-T,stack-0b8e0ab37fd5fce0,Finding the the distance between point A and point B on a number line.,advance
+A,573414,4,stack-0b8e0ab37fd5fce0,1.0,prt1:prt1-1-T,stack-272b0ca62fdce9c1,Rational expression_7a,advance
+B,862747,1,stack-688a9ac66966c29f,0.0,prt1:ATList_wronglen.|prt1-1-F,stack-4d4b87ad8c595a5a,Solve the exponential equation,advance
+B,862747,2,stack-4d4b87ad8c595a5a,0.0,prt1:ATEqualComAss (AlgEquiv-false).|prt1-1-F|prt1-3-F|prt1-2-T,stack-688a9ac66966c29f,Checking definition of relation,advance
+B,862747,3,stack-688a9ac66966c29f,1.0,prt1:prt1-1-T,stack-1e6fc87a878b69f5,Give example proving not function,advance
+B,862747,4,stack-1e6fc87a878b69f5,0.0,prt1:prt1-1-T|prt1-2-F|prt1-4-T,stack-0b8e0ab37fd5fce0,Finding the the distance between point A and point B on a number line.,advance
+B,862747,5,stack-0b8e0ab37fd5fce0,0.0,prt1:prt1-1-F,stack-287fa69fe7bfa84f,Evaluate hyperbolic functions,advance
+C,976542,1,stack-688a9ac66966c29f,1.0,prt1:prt1-1-T,stack-1e6fc87a878b69f5,Give example proving not function,advance
+C,976542,2,stack-1e6fc87a878b69f5,0.0,prt1:prt1-1-T|prt1-2-F|prt1-4-T,stack-0b8e0ab37fd5fce0,Finding the the distance between point A and point B on a number line.,advance
+C,976542,3,stack-0b8e0ab37fd5fce0,1.0,prt1:prt1-1-T,stack-272b0ca62fdce9c1,Rational expression_7a,advance
+C,976542,4,stack-272b0ca62fdce9c1,0.0,prt1:prt1-1-F,stack-287fa69fe7bfa84f,Evaluate hyperbolic functions,advance
